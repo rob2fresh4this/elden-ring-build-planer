@@ -18,7 +18,20 @@ const Dashboard = () => {
         description: "A balanced build focusing on strength and faith."
     };
 
+    const playerdata2 = {
+        name: "EldenKnight",
+        level: 75,
+        class: "Knight",
+        weaponNoInfusions: "Greatsword",
+        mainWeapon: "Lightning Greatsword",
+        mainWeaponImage: EldenRingDataWeapons.find(
+            (weapon) => weapon.name.toLowerCase() === "greatsword"
+        )?.image || "/placeholder.png",
+        description: "A powerful build with a focus on strength and lightning damage."
+    };
+
     console.log(playerdata);
+    console.log(playerdata2);
 
 
     return (
@@ -37,6 +50,15 @@ const Dashboard = () => {
                     mainWeapon={{
                         name: playerdata.mainWeapon,
                         image: playerdata.mainWeaponImage
+                    }}
+                />
+
+                <BuildCardsGrid
+                    title={playerdata2.name}
+                    description={`Level: ${playerdata2.level} | Class: ${playerdata2.class} | ${playerdata2.description}`}
+                    mainWeapon={{
+                        name: playerdata2.mainWeapon,
+                        image: playerdata2.mainWeaponImage
                     }}
                 />
 
