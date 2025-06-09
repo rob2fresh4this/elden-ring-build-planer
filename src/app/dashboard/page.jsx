@@ -1,10 +1,14 @@
+"use client"
+
 import React from 'react'
+import { useRouter } from "next/navigation";
 import BuildCardsGrid from '../components/BuildCardsGrid'
 import EldenRingDataWeapons from '../../../EldenRingData/data/weapons.json'
-// import EldenRingImageWeapins from ''
+
 
 
 const Dashboard = () => {
+    const router = useRouter();
 
     const playerdata = {
         name: "Tarnished42069",
@@ -34,6 +38,16 @@ const Dashboard = () => {
     console.log(playerdata2);
 
 
+    const builds = [
+        playerdata,
+        playerdata2
+        // Add more player build objects here as needed
+    ];
+
+    const handleClickGoToBuild = () => {
+        router.push("./buildcreator");
+    };
+
     return (
         <main className="min-h-screen p-6 bg-gradient-to-br from-[#19140e] via-[#2d2212] to-[#3a2c1a] text-[#e5c77b]">
             <div className="max-w-6xl mx-auto">
@@ -44,24 +58,29 @@ const Dashboard = () => {
                     Strategize like a true Tarnished. Manage your Elden Ring builds below.
                 </p>
 
-                <BuildCardsGrid
-                    title={playerdata.name}
-                    description={`Level: ${playerdata.level} | Class: ${playerdata.class} | ${playerdata.description}`}
-                    mainWeapon={{
-                        name: playerdata.mainWeapon,
-                        image: playerdata.mainWeaponImage
-                    }}
-                />
+                {/* Create + Button */}
+                <button
+                    className="mb-8 px-5 py-2 rounded-lg bg-[#e5c77b] text-[#2d2212] font-bold text-lg shadow-lg hover:bg-[#c0a857] transition-colors duration-200"
+                    style={{ fontFamily: 'serif', letterSpacing: '0.05em' }}
+                    onClick={handleClickGoToBuild}
+                >
+                    Create New Build +
+                </button>
 
-                <BuildCardsGrid
-                    title={playerdata2.name}
-                    description={`Level: ${playerdata2.level} | Class: ${playerdata2.class} | ${playerdata2.description}`}
-                    mainWeapon={{
-                        name: playerdata2.mainWeapon,
-                        image: playerdata2.mainWeaponImage
-                    }}
-                />
 
+                <div className="flex flex-row flex-wrap gap-4 items-start justify-start">
+                    {builds.map((build, idx) => (
+                        <BuildCardsGrid
+                            key={idx}
+                            title={build.name}
+                            description={`Level: ${build.level} | Class: ${build.class} | ${build.description}`}
+                            mainWeapon={{
+                                name: build.mainWeapon,
+                                image: build.mainWeaponImage
+                            }}
+                        />
+                    ))}
+                </div>
             </div>
         </main>
     )
