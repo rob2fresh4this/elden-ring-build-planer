@@ -1,14 +1,15 @@
 import React from "react";
+// import eldenringimage from "../../../EldenRingData/images/weapons/" idea of the location of the images
 
-const CardBuilderGrid = ({ title, description, mainWeapon }) => (
+const BuildCardsGrid = ({ title, description, mainWeapon }) => (
     <div className="p-2 flex justify-left">
         <div className="w-full max-w-xs bg-[#232014] border border-[#a08c4a] p-4 rounded-lg shadow-lg hover:scale-[1.02] transition-transform duration-200 ease-in-out">
 
             {/* Main Weapon Display */}
-            {mainWeapon && (
+            {mainWeapon && mainWeapon.image && (
                 <div className="mb-3 flex justify-center">
                     <img
-                        src={mainWeapon.image}
+                        src={`/EldenRingData/images/weapons/${mainWeapon.image}`}
                         alt={mainWeapon.name}
                         className="w-16 h-16 object-contain"
                         draggable={false}
@@ -29,4 +30,4 @@ const CardBuilderGrid = ({ title, description, mainWeapon }) => (
     </div>
 );
 
-export default CardBuilderGrid;
+export default BuildCardsGrid;

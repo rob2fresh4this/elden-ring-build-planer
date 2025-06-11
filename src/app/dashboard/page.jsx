@@ -3,7 +3,7 @@
 import React from 'react'
 import { useRouter } from "next/navigation";
 import BuildCardsGrid from '../components/BuildCardsGrid'
-import EldenRingDataWeapons from '../../../EldenRingData/data/weapons.json'
+import EldenRingDataWeapons from '../../../public/EldenRingData/data/weapons.json'
 
 
 
@@ -16,31 +16,57 @@ const Dashboard = () => {
         class: "Confessor",
         weaponNoInfusions: "Claymore",
         mainWeapon: "Fire Art Claymore",
-        mainWeaponImage: EldenRingDataWeapons.find(
-            (weapon) => weapon.name.toLowerCase() === "claymore"
-        )?.image || "/placeholder.png",
         description: "A balanced build focusing on strength and faith."
     };
 
     const playerdata2 = {
-        name: "EldenKnight",
+        name: "johnEldenRing",
         level: 75,
-        class: "Knight",
-        weaponNoInfusions: "Greatsword",
-        mainWeapon: "Lightning Greatsword",
-        mainWeaponImage: EldenRingDataWeapons.find(
-            (weapon) => weapon.name.toLowerCase() === "greatsword"
-        )?.image || "/placeholder.png",
-        description: "A powerful build with a focus on strength and lightning damage."
+        class: "Samurai",
+        weaponNoInfusions: "Moonveil",
+        mainWeapon: "Moonveil Katana",
+        description: "A dexterity build with a focus on magic damage."
     };
 
-    console.log(playerdata);
-    console.log(playerdata2);
+    function EnrichWeaponData(playerdata) {
+        const weaponData = playerdata;
+        const weaponName = weaponData.weaponNoInfusions;
+
+        const findWeaponImage = (weaponName) => {
+            const weapon = EldenRingDataWeapons.find(w => w.name === weaponName);
+            // example of link: https://eldenring.fanapis.com/images/weapons/17f69d938dal0i1p7cva71qgpwuo6w.png
+            // need to remove the "https://eldenring.fanapis.com/images/weapons/" part
+            if (!weapon) {
+                console.warn(`Weapon not found: ${weaponName}`);
+                return null;
+            }else if (weapon.image.startsWith("https://eldenring.fanapis.com/images/weapons/")) {
+                // Remove the base URL part
+                const baseUrl = "https://eldenring.fanapis.com/images/weapons/";
+                for (let i = 0; i < weapon.image.length; i++) {
+                    if (weapon.image.startsWith(baseUrl)) {
+                        return weapon.image.slice(baseUrl.length);
+                    }
+                }
+            }
+            return weapon ? weapon.image : null;
+        }
+        return {
+            name: weaponData.name,
+            level: weaponData.level,
+            class: weaponData.class,
+            mainWeapon: weaponData.mainWeapon,
+            mainWeaponImage: findWeaponImage(weaponName),
+            description: weaponData.description
+        };
+    }
+
+    console.log("Enriched Player Data:", EnrichWeaponData(playerdata));
+
 
 
     const builds = [
-        playerdata,
-        playerdata2
+        EnrichWeaponData(playerdata),
+        EnrichWeaponData(playerdata2)
         // Add more player build objects here as needed
     ];
 
