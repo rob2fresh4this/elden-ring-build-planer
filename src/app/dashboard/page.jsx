@@ -39,7 +39,7 @@ const Dashboard = () => {
             if (!weapon) {
                 console.warn(`Weapon not found: ${weaponName}`);
                 return null;
-            }else if (weapon.image.startsWith("https://eldenring.fanapis.com/images/weapons/")) {
+            } else if (weapon.image.startsWith("https://eldenring.fanapis.com/images/weapons/")) {
                 // Remove the base URL part
                 const baseUrl = "https://eldenring.fanapis.com/images/weapons/";
                 for (let i = 0; i < weapon.image.length; i++) {
@@ -85,13 +85,15 @@ const Dashboard = () => {
                 </p>
 
                 {/* Create + Button */}
-                <button
-                    className="mb-8 px-5 py-2 rounded-lg bg-[#e5c77b] text-[#2d2212] font-bold text-lg shadow-lg hover:bg-[#c0a857] transition-colors duration-200"
-                    style={{ fontFamily: 'serif', letterSpacing: '0.05em' }}
-                    onClick={handleClickGoToBuild}
-                >
-                    Create New Build +
-                </button>
+                <div className="flex justify-end">
+                    <button
+                        className="mb-8 px-5 py-2 rounded-lg bg-[#e5c77b] text-[#2d2212] font-bold text-lg shadow-lg hover:bg-[#c0a857] transition-colors duration-200"
+                        style={{ fontFamily: 'serif', letterSpacing: '0.05em' }}
+                        onClick={handleClickGoToBuild}
+                    >
+                        Create New Build +
+                    </button>
+                </div>
 
 
                 <div className="flex flex-row flex-wrap gap-4 items-start justify-start">
