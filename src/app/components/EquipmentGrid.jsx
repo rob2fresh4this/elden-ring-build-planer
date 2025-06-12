@@ -79,6 +79,7 @@ export const EquipmentGrid = () => {
             {/* Modal */}
             {modalOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 overflow-auto">
+                    
                     <div className="bg-[#2d2212] border border-[#c0a857] rounded-xl p-4 w-full max-w-lg relative mx-2">
                         <button
                             className="absolute top-2 right-2 text-[#e5c77b] text-xl"
@@ -89,9 +90,10 @@ export const EquipmentGrid = () => {
                         <h3 className="text-lg font-semibold mb-4 text-[#e5c77b]" style={{ fontFamily: "serif" }}>
                             Select Equipment
                         </h3>
+                        
                         <div className="flex flex-col gap-4">
                             {slots.map((slot) => (
-                                <div key={slot}>
+                                <div key={slot} className="">
                                     <div className="mb-2 text-[#c0a857] font-semibold">{slot}</div>
                                     <div className="overflow-x-auto flex gap-4 p-2 border border-[#c0a857] rounded-lg bg-[#19140e]">
                                         {filteredGear(slot).map((gear) => (
