@@ -26,13 +26,19 @@ export const EquipmentGrid = () => {
     const [modalSlot, setModalSlot] = useState(null);
     const [tempSelection, setTempSelection] = useState({});
     const [equipment, setEquipment] = useState({});
+    const [search, setSearch] = useState("");
 
     const filteredGear = (slot) =>
-        gearData.filter((item) => item.category === categoryMap[slot]);
+        gearData.filter(
+            (item) =>
+                item.category === categoryMap[slot] &&
+                item.name.toLowerCase().includes(search.toLowerCase())
+        );
 
     const handleTileClick = (slot) => {
         setModalSlot(slot);
         setTempSelection({ ...equipment });
+        setSearch(""); // Reset search on open
         setModalOpen(true);
     };
 
@@ -100,6 +106,16 @@ export const EquipmentGrid = () => {
                             >
                                 Save
                             </button>
+                        </div>
+                        {/* Search Bar */}
+                        <div className="px-4 py-2 bg-[#19140e] border-b border-[#c0a857] sticky top-[48px] z-10">
+                            <input
+                                type="text"
+                                placeholder={`Search ${categoryMap[modalSlot]}...`}
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                                className="w-full px-3 py-2 rounded bg-[#2d2212] border border-[#c0a857] text-[#e5c77b] focus:outline-none"
+                            />
                         </div>
                         {/* Scrollable Gear List */}
                         <div className="overflow-y-auto p-4 flex-1">
