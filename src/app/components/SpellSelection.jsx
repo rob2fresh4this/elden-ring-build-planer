@@ -73,7 +73,7 @@ const SpellSelection = () => {
                 {spellSlots.map((_, i) => (
                     <div
                         key={i}
-                        className="bg-[#3a2c1a] border border-[#c0a857] p-2 rounded-md text-sm flex flex-col justify-center items-center cursor-pointer hover:bg-[#4b3a22]"
+                        className="bg-[#3a2c1a] border border-[#c0a857] p-2 rounded-md text-sm flex flex-col justify-center items-center cursor-pointer hover:bg-[#4b3a22] min-h-[175px] w-full"
                         onClick={() => handleTileClick(i)}
                     >
                         {spells[i] ? (
