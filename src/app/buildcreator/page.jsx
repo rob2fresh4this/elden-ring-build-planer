@@ -4,6 +4,7 @@ import { EquipmentGrid } from '../components/EquipmentGrid';
 import { StatsPanel } from '../components/StatsPanel';
 import { WeaponCard } from '../components/WeaponCard';
 import SpellSelection from '../components/SpellSelection';
+import { WeaponSection } from '../components/WeaponSection';
 
 const BuildCreator = () => {
     return (
@@ -48,6 +49,8 @@ const BuildCreator = () => {
                         <WeaponCard index={3} />
                     </section>
                 </div>
+
+                <WeaponSection />
 
                 {/* Spells Section */}
                 <SpellSelection />
