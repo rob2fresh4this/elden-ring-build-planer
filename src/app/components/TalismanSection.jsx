@@ -69,7 +69,7 @@ export const TalismanSection = () => {
                 {talismans.map((t, i) => (
                     <div
                         key={i}
-                        className="p-3 bg-[#2d2212] border border-[#e5c77b] rounded-lg text-sm shadow transition hover:bg-[#3a2c1a] cursor-pointer flex flex-col justify-center items-center"
+                        className="w-full min-h-[140px] p-3 bg-[#2d2212] border border-[#e5c77b] rounded-lg text-sm shadow transition hover:bg-[#3a2c1a] cursor-pointer flex flex-col justify-center items-center"
                         onClick={() => handleTileClick(i)}
                     >
                         {t ? (
@@ -86,7 +86,7 @@ export const TalismanSection = () => {
                             </>
                         ) : (
                             <p className="text-[#e5c77b] font-semibold" style={{ fontFamily: "serif" }}>
-                                Empty Slot
+                                Empty Talisman Slot {i + 1}
                             </p>
                         )}
                     </div>
