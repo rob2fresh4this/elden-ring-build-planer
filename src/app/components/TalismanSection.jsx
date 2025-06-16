@@ -96,7 +96,7 @@ export const TalismanSection = () => {
             {/* Modal */}
             {modalOpen && (
                 <div className="fixed inset-0 bg-gray-900/40 flex items-center justify-center z-50 overflow-auto">
-                    <div className="bg-[#2d2212] border border-[#c0a857] rounded-xl p-0 w-full max-w-lg relative mx-2 flex flex-col max-h-[90vh]">
+                    <div className="bg-[#2d2212] border border-[#c0a857] overflow-hidden rounded-xl p-0 w-full max-w-lg relative mx-2 flex flex-col max-h-[90vh]">
                         {/* Fixed Save and Close */}
                         <div className="sticky top-0 z-10 bg-[#2d2212] border-b border-[#c0a857] flex items-center justify-between px-4 py-2">
                             <div className="flex-1 text-center text-lg font-semibold text-[#e5c77b]" style={{ fontFamily: "serif" }}>

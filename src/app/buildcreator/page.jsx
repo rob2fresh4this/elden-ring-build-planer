@@ -3,6 +3,7 @@ import React from 'react';
 import { EquipmentGrid } from '../components/EquipmentGrid';
 import { StatsPanel } from '../components/StatsPanel';
 import { WeaponCard } from '../components/WeaponCard';
+import SpellSelection from '../components/SpellSelection';
 
 const BuildCreator = () => {
     return (
@@ -49,19 +50,7 @@ const BuildCreator = () => {
                 </div>
 
                 {/* Spells Section */}
-                <section className="mb-6 bg-[#2d2212] p-4 rounded-xl border border-[#c0a857]">
-                    <h2 className="text-xl font-semibold mb-2 text-violet-300">Spells</h2>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-                        {Array.from({ length: 12 }).map((_, i) => (
-                            <div
-                                key={i}
-                                className="bg-[#3a2c1a] border border-[#c0a857] p-2 rounded-md text-sm"
-                            >
-                                <p className="text-[#c0a857]">Spell {i + 1}</p>
-                            </div>
-                        ))}
-                    </div>
-                </section>
+                <SpellSelection />
             </div>
         </main>
     );
