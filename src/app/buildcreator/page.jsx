@@ -2,7 +2,6 @@
 import React from 'react';
 import { EquipmentGrid } from '../components/EquipmentGrid';
 import { StatsPanel } from '../components/StatsPanel';
-import { WeaponCard } from '../components/WeaponCard';
 import SpellSelection from '../components/SpellSelection';
 import { WeaponSection } from '../components/WeaponSection';
 
@@ -29,27 +28,26 @@ const BuildCreator = () => {
                 <section className="mb-6 grid grid-cols-1 md:grid-cols-2 gap-4">
                     <StatsPanel />
                     <div className="bg-[#2d2212] p-4 rounded-xl border border-[#e5c77b]">
-                        <h2 className="text-xl font-semibold mb-2 text-[#e5c77b]">Equip Load</h2>
+                        <h2 className="text-xl font-semibold mb-2 text-[#e5c77b]">Basic Stats</h2>
+                        <p className="mb-1">
+                            Level: <span className="text-lime-400">1</span>
+                        </p>
+                        <p className="mb-1">
+                            HP: <span className="text-lime-400">600</span>
+                        </p>
+                        <p className="mb-1">
+                            Stamina: <span className="text-lime-400">100</span>
+                        </p>
+                        <p className="mb-1">
+                            FP: <span className="text-lime-400">100</span>
+                        </p>
                         <p>
                             Equip Load: <span className="text-lime-400">0 / 50</span> - Light Load
                         </p>
                     </div>
                 </section>
 
-                {/* Weapon Cards */}
-                <div>
-                    <section className="mb-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <WeaponCard index={1} />
-                        <WeaponCard index={2} />
-                        <WeaponCard index={3} />
-                    </section>
-                    <section className="mb-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <WeaponCard index={1} />
-                        <WeaponCard index={2} />
-                        <WeaponCard index={3} />
-                    </section>
-                </div>
-
+                {/* Weapons */}
                 <WeaponSection />
 
                 {/* Spells Section */}
