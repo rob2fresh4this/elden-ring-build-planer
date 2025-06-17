@@ -56,48 +56,62 @@ const SpellSelection = () => {
     };
 
     const handleSpellSelect = (slot, spell) => {
-        const isAlreadySelected = Object.entries(tempSelection).some(
-            ([key, selected]) => selected?.id === spell.id && Number(key) !== slot
-        );
+        console.log("Selecting spell", spell.name, "for slot", slot);
 
-        if (isAlreadySelected) {
-            toast.error("You cannot equip the same spell in multiple slots.");
-            return;
+        const slotsNeeded = spell.slots ?? 1;
+
+        // Start with a shallow copy
+        let newSelection = { ...tempSelection };
+
+        // Remove any spells occupying the slots this new spell will occupy
+        for (let i = 0; i < slotsNeeded; i++) {
+            delete newSelection[slot + i];
         }
 
-        const temp = { ...tempSelection, [slot]: spell };
-        const totalUsed = Object.entries(temp).reduce((sum, [key, s]) => sum + (s?.slots || 1), 0);
-
-        if (totalUsed > maxSlots) {
-            toast.error("Not enough spell slots.");
-            return;
+        // Assign the new spell to those slots
+        for (let i = 0; i < slotsNeeded; i++) {
+            newSelection[slot + i] = spell;
         }
 
-        setTempSelection(temp);
+        setTempSelection(newSelection);
     };
 
+
+
+
+
     const handleSave = () => {
-        // Copy tempSelection to a new object
-        let newSpells = { ...tempSelection };
+        let newSpells = {};
+        const assignedSpells = new Set();
 
         // Clear all slots first
         for (let i = 0; i < maxSlots; i++) {
             newSpells[i] = undefined;
         }
 
-        // Fill slots according to spell slot usage
-        Object.entries(tempSelection).forEach(([slot, spell]) => {
-            if (!spell) return;
-            const slotsNeeded = spell.slots || 1;
-            for (let j = 0; j < slotsNeeded; j++) {
-                newSpells[Number(slot) + j] = spell;
+        // Sort tempSelection entries by slot number ascending
+        const sortedEntries = Object.entries(tempSelection).sort((a, b) => Number(a[0]) - Number(b[0]));
+
+        for (const [slotStr, spell] of sortedEntries) {
+            if (!spell) continue;
+
+            const slot = Number(slotStr);
+
+            // Only assign spell if not already assigned
+            if (!assignedSpells.has(spell.id)) {
+                const slotsNeeded = spell.slots || 1;
+                for (let j = 0; j < slotsNeeded; j++) {
+                    newSpells[slot + j] = spell;
+                }
+                assignedSpells.add(spell.id);
             }
-        });
+        }
 
         setSpells(newSpells);
         setModalOpen(false);
         setModalSlot(null);
     };
+
 
     const canUseSpell = (spell) => {
         return spell.requires?.every(attr => (dummyStats[attr.name] || 0) >= attr.amount);
