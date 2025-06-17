@@ -13,12 +13,6 @@ const dummyStats = {
     Arcane: 20,
 };
 
-const spellSlots = Array.from({ length: 12 });
-const allSpells = [
-    ...SorceriesData.map((s) => ({ ...s, type: "Sorcery" })),
-    ...IncantationsData.map((i) => ({ ...i, type: "Incantation" })),
-];
-
 const stripImageBaseUrl = (imageUrl) => {
     const baseUrlincantations = "https://eldenring.fanapis.com/images/incantations";
     const baseUrlsorceries = "https://eldenring.fanapis.com/images/sorceries";
@@ -38,12 +32,21 @@ const SpellSelection = () => {
     const [tempSelection, setTempSelection] = useState({});
     const [spells, setSpells] = useState({});
     const [search, setSearch] = useState("");
+    const [moonOfNokstella, setMoonOfNokstella] = useState(false);
+
+    const maxSlots = moonOfNokstella ? 12 : 10;
+    const allSpells = [
+        ...SorceriesData.map((s) => ({ ...s, type: "Sorcery" })),
+        ...IncantationsData.map((i) => ({ ...i, type: "Incantation" })),
+    ];
 
     const filteredSpells = allSpells.filter(
         (spell) =>
             spell.name.toLowerCase().includes(search.toLowerCase()) ||
             spell.type.toLowerCase().includes(search.toLowerCase())
     );
+
+    const usedSlots = Object.values(spells).reduce((acc, spell) => acc + (spell?.slots || 1), 0);
 
     const handleTileClick = (slot) => {
         setModalSlot(slot);
@@ -62,14 +65,36 @@ const SpellSelection = () => {
             return;
         }
 
-        setTempSelection((prev) => ({
-            ...prev,
-            [slot]: spell,
-        }));
+        const temp = { ...tempSelection, [slot]: spell };
+        const totalUsed = Object.entries(temp).reduce((sum, [key, s]) => sum + (s?.slots || 1), 0);
+
+        if (totalUsed > maxSlots) {
+            toast.error("Not enough spell slots.");
+            return;
+        }
+
+        setTempSelection(temp);
     };
 
     const handleSave = () => {
-        setSpells(tempSelection);
+        // Copy tempSelection to a new object
+        let newSpells = { ...tempSelection };
+
+        // Clear all slots first
+        for (let i = 0; i < maxSlots; i++) {
+            newSpells[i] = undefined;
+        }
+
+        // Fill slots according to spell slot usage
+        Object.entries(tempSelection).forEach(([slot, spell]) => {
+            if (!spell) return;
+            const slotsNeeded = spell.slots || 1;
+            for (let j = 0; j < slotsNeeded; j++) {
+                newSpells[Number(slot) + j] = spell;
+            }
+        });
+
+        setSpells(newSpells);
         setModalOpen(false);
         setModalSlot(null);
     };
@@ -100,12 +125,22 @@ const SpellSelection = () => {
         );
     };
 
-
     return (
         <section className="mb-6 bg-[#2d2212] p-4 rounded-xl border border-[#c0a857]">
-            <h2 className="text-xl font-semibold mb-2 text-violet-300">Spells</h2>
+            <div className="mb-2 flex justify-between items-center">
+                <h2 className="text-xl font-semibold text-violet-300">Spells</h2>
+                <label className="text-sm text-[#c0a857] flex items-center gap-2">
+                    <input
+                        type="checkbox"
+                        checked={moonOfNokstella}
+                        onChange={() => setMoonOfNokstella(!moonOfNokstella)}
+                    />
+                    Moon of Nokstella (+2 slots)
+                </label>
+            </div>
+
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-                {spellSlots.map((_, i) => {
+                {Array.from({ length: maxSlots }).map((_, i) => {
                     const spell = spells[i];
                     const usable = spell ? canUseSpell(spell) : true;
                     return (
@@ -144,6 +179,7 @@ const SpellSelection = () => {
                 })}
             </div>
 
+            {/* Modal remains unchanged */}
             {modalOpen && modalSlot !== null && (
                 <div className="fixed inset-0 bg-gray-900/40 flex items-center justify-center z-50 overflow-auto">
                     <div className="bg-[#2d2212] border border-[#c0a857] overflow-hidden rounded-xl p-0 w-[70%] relative mx-2 flex flex-col max-h-[90vh]">
@@ -167,7 +203,6 @@ const SpellSelection = () => {
                                 Save
                             </button>
                         </div>
-
                         <div className="px-4 py-2 bg-[#19140e] border-b border-[#c0a857] sticky top-[48px] z-10">
                             <input
                                 type="text"
@@ -177,7 +212,6 @@ const SpellSelection = () => {
                                 className="w-full px-3 py-2 rounded bg-[#2d2212] border border-[#c0a857] text-[#e5c77b] focus:outline-none"
                             />
                         </div>
-
                         <div className="overflow-y-auto p-4 flex-1">
                             <div className="mb-2 text-[#c0a857] font-semibold">All Spells</div>
                             <div className="flex flex-wrap gap-4 justify-center">
