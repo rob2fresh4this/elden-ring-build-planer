@@ -5,6 +5,14 @@ import SorceriesData from "../../../public/EldenRingData/data/sorceries.json";
 import IncantationsData from "../../../public/EldenRingData/data/incantations.json";
 import toast from "react-hot-toast";
 
+const dummyStats = {
+    Strength: 30,
+    Dexterity: 20,
+    Intelligence: 30,
+    Faith: 30,
+    Arcane: 20,
+};
+
 const spellSlots = Array.from({ length: 12 });
 const allSpells = [
     ...SorceriesData.map((s) => ({ ...s, type: "Sorcery" })),
@@ -66,45 +74,74 @@ const SpellSelection = () => {
         setModalSlot(null);
     };
 
+    const canUseSpell = (spell) => {
+        return spell.requires?.every(attr => (dummyStats[attr.name] || 0) >= attr.amount);
+    };
+
+    const renderRequirements = (requires = []) => {
+        const validRequirements = (requires || []).filter((r) => r.amount > 0);
+
+        return (
+            <div>
+                {validRequirements.map((r, index) => {
+                    const hasStat = (dummyStats[r.name] || 0) >= r.amount;
+                    const isLast = index === validRequirements.length - 1;
+                    return (
+                        <span
+                            key={r.name}
+                            className={`mr-1 ${hasStat ? "text-green-400" : "text-red-500"}`}
+                        >
+                            {r.name}: {r.amount}
+                            {!isLast && <span className="text-[#c0a857]"> |</span>}
+                        </span>
+                    );
+                })}
+            </div>
+        );
+    };
+
+
     return (
         <section className="mb-6 bg-[#2d2212] p-4 rounded-xl border border-[#c0a857]">
             <h2 className="text-xl font-semibold mb-2 text-violet-300">Spells</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-                {spellSlots.map((_, i) => (
-                    <div
-                        key={i}
-                        className="bg-[#3a2c1a] border border-[#c0a857] p-2 rounded-md text-sm flex flex-col justify-center items-center cursor-pointer hover:bg-[#4b3a22] min-h-[175px] w-full"
-                        onClick={() => handleTileClick(i)}
-                    >
-                        {spells[i] ? (
-                            <div className="flex flex-col justify-center items-center">
-                                <img
-                                    src={
-                                        spells[i].type === "Sorcery"
-                                            ? `/EldenRingData/images/sorceries/${stripImageBaseUrl(spells[i].image)}`
-                                            : `/EldenRingData/images/incantations/${stripImageBaseUrl(spells[i].image)}`
-                                    }
-                                    alt={spells[i].name}
-                                    className="w-20 h-20 object-contain mb-1 mx-auto"
-                                />
-                                <span className="text-xs text-[#c0a857] text-center">{spells[i].name}</span>
-                                <span className="text-[10px] text-violet-300 text-center">{spells[i].type}</span>
-                                <div className="text-[10px] text-[#e5c77b] text-center mt-1">
-                                    <div>Cost: {spells[i].cost ?? "?"}</div>
-                                    <div>Slots: {spells[i].slots ?? "?"}</div>
-                                    <div>
-                                        {spells[i].requires?.filter((r) => r.amount > 0)
-                                            .map((r) => `${r.name}: ${r.amount}`)
-                                            .join(" | ")}
+                {spellSlots.map((_, i) => {
+                    const spell = spells[i];
+                    const usable = spell ? canUseSpell(spell) : true;
+                    return (
+                        <div
+                            key={i}
+                            className={`bg-[#3a2c1a] p-2 rounded-md text-sm flex flex-col justify-center items-center cursor-pointer hover:bg-[#4b3a22] min-h-[175px] w-full border ${usable ? "border-[#c0a857]" : "border-red-500"}`}
+                            onClick={() => handleTileClick(i)}
+                        >
+                            {spell ? (
+                                <div className="flex flex-col justify-center items-center">
+                                    <img
+                                        src={
+                                            spell.type === "Sorcery"
+                                                ? `/EldenRingData/images/sorceries/${stripImageBaseUrl(spell.image)}`
+                                                : `/EldenRingData/images/incantations/${stripImageBaseUrl(spell.image)}`
+                                        }
+                                        alt={spell.name}
+                                        className="w-20 h-20 object-contain mb-1 mx-auto"
+                                    />
+                                    <span className="text-xs text-[#c0a857] text-center">{spell.name}</span>
+                                    <span className="text-[10px] text-violet-300 text-center">{spell.type}</span>
+                                    <div className="text-[10px] text-[#e5c77b] text-center mt-1">
+                                        <div>Cost: {spell.cost ?? "?"}</div>
+                                        <div>Slots: {spell.slots ?? "?"}</div>
+                                        <div className="flex flex-wrap justify-center">
+                                            {renderRequirements(spell.requires)}
+                                        </div>
+                                        {spell.effects && <div>Effects: {spell.effects}</div>}
                                     </div>
-                                    {spells[i].effects && <div>Effects: {spells[i].effects}</div>}
                                 </div>
-                            </div>
-                        ) : (
-                            <span className="text-[#c0a857]">Spell {i + 1}</span>
-                        )}
-                    </div>
-                ))}
+                            ) : (
+                                <span className="text-[#c0a857]">Spell {i + 1}</span>
+                            )}
+                        </div>
+                    );
+                })}
             </div>
 
             {modalOpen && modalSlot !== null && (
@@ -144,38 +181,41 @@ const SpellSelection = () => {
                         <div className="overflow-y-auto p-4 flex-1">
                             <div className="mb-2 text-[#c0a857] font-semibold">All Spells</div>
                             <div className="flex flex-wrap gap-4 justify-center">
-                                {filteredSpells.map((spell) => (
-                                    <div
-                                        key={spell.id}
-                                        className={`w-[22%] min-w-[140px] text-center border rounded-lg p-2 cursor-pointer
-                                        ${tempSelection[modalSlot]?.id === spell.id
-                                            ? "border-violet-300 bg-[#3a2c1a]"
-                                            : "border-[#c0a857] bg-[#19140e] hover:bg-[#3a2c1a]"}`}
-                                        onClick={() => handleSpellSelect(modalSlot, spell)}
-                                    >
-                                        <img
-                                            src={
-                                                spell.type === "Sorcery"
-                                                    ? `/EldenRingData/images/sorceries/${stripImageBaseUrl(spell.image)}`
-                                                    : `/EldenRingData/images/incantations/${stripImageBaseUrl(spell.image)}`
-                                            }
-                                            alt={spell.name}
-                                            className="w-20 h-20 object-contain mb-1 mx-auto"
-                                        />
-                                        <p className="text-xs text-[#e5c77b]">{spell.name}</p>
-                                        <span className="text-[10px] text-violet-300">{spell.type}</span>
-                                        <div className="text-[10px] text-[#e5c77b] text-center mt-1">
-                                            <div>Cost: {spell.cost ?? "?"}</div>
-                                            <div>Slots: {spell.slots ?? "?"}</div>
-                                            <div>
-                                                {spell.requires?.filter((r) => r.amount > 0)
-                                                    .map((r) => `${r.name}: ${r.amount}`)
-                                                    .join(" | ")}
+                                {filteredSpells.map((spell) => {
+                                    const usable = canUseSpell(spell);
+                                    return (
+                                        <div
+                                            key={spell.id}
+                                            className={`w-[22%] min-w-[140px] text-center border rounded-lg p-2 cursor-pointer
+                                            ${tempSelection[modalSlot]?.id === spell.id
+                                                    ? "border-violet-300 bg-[#3a2c1a]"
+                                                    : usable
+                                                        ? "border-[#c0a857] bg-[#19140e] hover:bg-[#3a2c1a]"
+                                                        : "border-red-500 bg-[#19140e] hover:bg-[#3a2c1a]"}`}
+                                            onClick={() => handleSpellSelect(modalSlot, spell)}
+                                        >
+                                            <img
+                                                src={
+                                                    spell.type === "Sorcery"
+                                                        ? `/EldenRingData/images/sorceries/${stripImageBaseUrl(spell.image)}`
+                                                        : `/EldenRingData/images/incantations/${stripImageBaseUrl(spell.image)}`
+                                                }
+                                                alt={spell.name}
+                                                className="w-20 h-20 object-contain mb-1 mx-auto"
+                                            />
+                                            <p className="text-xs text-[#e5c77b]">{spell.name}</p>
+                                            <span className="text-[10px] text-violet-300">{spell.type}</span>
+                                            <div className="text-[10px] text-[#e5c77b] text-center mt-1">
+                                                <div>Cost: {spell.cost ?? "?"}</div>
+                                                <div>Slots: {spell.slots ?? "?"}</div>
+                                                <div className="flex flex-wrap justify-center">
+                                                    {renderRequirements(spell.requires)}
+                                                </div>
+                                                {spell.effects && <div>Effects: {spell.effects}</div>}
                                             </div>
-                                            {spell.effects && <div>Effects: {spell.effects}</div>}
                                         </div>
-                                    </div>
-                                ))}
+                                    );
+                                })}
                             </div>
                         </div>
                     </div>
