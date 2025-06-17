@@ -20,7 +20,7 @@ export const StatsPanel = () => {
             >
                 Player Stats
             </h2>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-base">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-3.5 text-base">
                 {Object.entries(stats).map(([key, val]) => (
                     <div key={key} className="flex justify-between">
                         <span className="text-[#c0a857] font-semibold" style={{ fontFamily: "serif" }}>{key}</span>
