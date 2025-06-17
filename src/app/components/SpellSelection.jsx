@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import SorceriesData from "../../../public/EldenRingData/data/sorceries.json";
 import IncantationsData from "../../../public/EldenRingData/data/incantations.json";
-import toast from "react-hot-toast";
 
 const dummyStats = {
     Strength: 30,
@@ -45,8 +44,6 @@ const SpellSelection = () => {
             spell.name.toLowerCase().includes(search.toLowerCase()) ||
             spell.type.toLowerCase().includes(search.toLowerCase())
     );
-
-    const usedSlots = Object.values(spells).reduce((acc, spell) => acc + (spell?.slots || 1), 0);
 
     const handleTileClick = (slot) => {
         setModalSlot(slot);
