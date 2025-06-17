@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import WeaponData from "../../../public/EldenRingData/data/weapons.json";
+import toast from "react-hot-toast";
 
 const stripImageBaseUrl = (imageUrl) => {
     const baseUrl = "https://eldenring.fanapis.com/images/weapons/";
@@ -73,10 +74,28 @@ export const WeaponSection = () => {
     };
 
     const handleSave = () => {
+        for (let i = 0; i < tempWeapons.length; i++) {
+            const weapon = tempWeapons[i];
+            if (!weapon) continue;
+
+            const hasRequirements = weapon.requiredAttributes.every(attr => {
+                const actual = dummyStats[attr.name] || 0;
+                if (attr.name === "Str") return actual >= attr.amount / 2;
+                return actual >= attr.amount;
+            });
+
+            if (!hasRequirements) {
+                toast.error(`You don't meet the requirements for '${weapon.name}' in slot ${i + 1}`);
+                return;
+            }
+        }
+
         setWeapons([...tempWeapons]);
         setModalOpen(false);
         setSelectedSlot(null);
+        toast.success("Weapons saved!");
     };
+
 
     return (
         <section className="w-full rounded-xl pt-4 mb-6">

@@ -4,10 +4,14 @@ import { EquipmentGrid } from '../components/EquipmentGrid';
 import { StatsPanel } from '../components/StatsPanel';
 import SpellSelection from '../components/SpellSelection';
 import { WeaponSection } from '../components/WeaponSection';
+import { Toaster } from 'react-hot-toast';
 
 const BuildCreator = () => {
     return (
         <main className="min-h-screen p-6 bg-gradient-to-br from-[#19140e] via-[#2d2212] to-[#3a2c1a] text-[#e5c77b]">
+            {/* ✅ Toaster should be here once */}
+            <Toaster position="top-left" />
+
             <div className="max-w-6xl mx-auto">
                 <h1
                     className="text-4xl font-bold mb-4 tracking-wider text-[#e5c77b] drop-shadow-lg"

@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import gearData from "../../../public/EldenRingData/data/armors.json";
 import { TalismanSection } from "./TalismanSection";
+import toast from 'react-hot-toast';
+
 
 const categoryMap = {
     HEAD: "Helm",
@@ -43,16 +45,28 @@ export const EquipmentGrid = () => {
     };
 
     const handleGearSelect = (slot, gear) => {
+        if (tempSelection[slot]?.id === gear.id) {
+            toast.error("This item is already selected.");
+            return;
+        }
         setTempSelection((prev) => ({
             ...prev,
             [slot]: gear,
         }));
+        toast.success(`${gear.name} selected!`);
     };
 
+
     const handleSave = () => {
+        if (!tempSelection[modalSlot]) {
+            toast.error("Please select a piece of gear before saving.");
+            return;
+        }
+
         setEquipment(tempSelection);
         setModalOpen(false);
         setModalSlot(null);
+        toast.success("Equipment saved!");
     };
 
     return (

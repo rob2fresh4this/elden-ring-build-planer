@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import SorceriesData from "../../../public/EldenRingData/data/sorceries.json";
 import IncantationsData from "../../../public/EldenRingData/data/incantations.json";
+import toast from "react-hot-toast";
+
 
 const dummyStats = {
     Strength: 30,
@@ -73,41 +75,53 @@ const SpellSelection = () => {
         setTempSelection(newSelection);
     };
 
-
-
-
-
     const handleSave = () => {
         let newSpells = {};
         const assignedSpells = new Set();
+        const occupiedSlots = new Set();
 
-        // Clear all slots first
-        for (let i = 0; i < maxSlots; i++) {
-            newSpells[i] = undefined;
-        }
-
-        // Sort tempSelection entries by slot number ascending
         const sortedEntries = Object.entries(tempSelection).sort((a, b) => Number(a[0]) - Number(b[0]));
 
         for (const [slotStr, spell] of sortedEntries) {
             if (!spell) continue;
 
             const slot = Number(slotStr);
+            const slotsNeeded = spell.slots || 1;
 
-            // Only assign spell if not already assigned
+            // Check if spell overlaps occupied slots
+            for (let j = 0; j < slotsNeeded; j++) {
+                if (occupiedSlots.has(slot + j)) {
+                    toast.error(`Overlap error: '${spell.name}' conflicts with another spell.`);
+                    return;
+                }
+            }
+
+            // Check stat requirements
+            const meetsRequirements = spell.requires?.every(
+                (r) => (dummyStats[r.name] || 0) >= r.amount
+            );
+            if (!meetsRequirements) {
+                toast.error(`Stat error: You don't meet the requirements for '${spell.name}'.`);
+                return;
+            }
+
+            // Assign spell to slots
             if (!assignedSpells.has(spell.id)) {
-                const slotsNeeded = spell.slots || 1;
                 for (let j = 0; j < slotsNeeded; j++) {
                     newSpells[slot + j] = spell;
+                    occupiedSlots.add(slot + j);
                 }
                 assignedSpells.add(spell.id);
             }
         }
 
         setSpells(newSpells);
+        toast.success("Spell selection saved!");
         setModalOpen(false);
         setModalSlot(null);
     };
+
+
 
 
     const canUseSpell = (spell) => {
