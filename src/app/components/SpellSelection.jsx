@@ -12,6 +12,7 @@ const dummyStats = {
     Intelligence: 30,
     Faith: 30,
     Arcane: 20,
+    MoonNokstella: true
 };
 
 const stripImageBaseUrl = (imageUrl) => {
@@ -33,7 +34,7 @@ const SpellSelection = () => {
     const [tempSelection, setTempSelection] = useState({});
     const [spells, setSpells] = useState({});
     const [search, setSearch] = useState("");
-    const [moonOfNokstella, setMoonOfNokstella] = useState(false);
+    const [moonOfNokstella, setMoonOfNokstella] = useState(dummyStats.MoonNokstella);
 
     const maxSlots = moonOfNokstella ? 12 : 10;
     const allSpells = [
