@@ -23,12 +23,18 @@ const stripImageBaseUrl = (imageUrl) => {
     return imageUrl || "";
 };
 
-export const EquipmentGrid = () => {
+export const EquipmentGrid = ({ onEquipmentChange }) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [modalSlot, setModalSlot] = useState(null);
-    const [tempSelection, setTempSelection] = useState({});
-    const [equipment, setEquipment] = useState({});
+    const [tempSelection, setTempSelection] = useState({});    const [equipment, setEquipment] = useState({});
     const [search, setSearch] = useState("");
+
+    // Calculate total equipment weight
+    const calculateTotalWeight = (equipmentSet) => {
+        return Object.values(equipmentSet).reduce((total, item) => {
+            return total + (item?.weight || 0);
+        }, 0);
+    };
 
     const filteredGear = (slot) =>
         gearData.filter(
@@ -55,15 +61,21 @@ export const EquipmentGrid = () => {
         }));
         toast.success(`${gear.name} selected!`);
     };
-
-
     const handleSave = () => {
         if (!tempSelection[modalSlot]) {
             toast.error("Please select a piece of gear before saving.");
             return;
         }
 
-        setEquipment(tempSelection);
+        const newEquipment = { ...tempSelection };
+        setEquipment(newEquipment);
+        
+        // Calculate and notify parent about weight change
+        const totalWeight = calculateTotalWeight(newEquipment);
+        if (onEquipmentChange) {
+            onEquipmentChange(totalWeight);
+        }
+        
         setModalOpen(false);
         setModalSlot(null);
         toast.success("Equipment saved!");

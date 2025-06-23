@@ -1,29 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
-export const StatsPanel = ({ onStatsChange }) => {
-    const initialStats = {
-        VIG: 10,
-        MIND: 10,
-        END: 10,
-        STR: 10,
-        DEX: 10,
-        INT: 10,
-        FAI: 10,
-        ARC: 10,
-    };
-
-    const [stats, setStats] = useState(initialStats);
-
+export const StatsPanel = ({ stats, setStats }) => {
     const changeStat = (key, amount) => {
-        setStats((prev) => {
-            const updated = {
-                ...prev,
-                [key]: Math.max(1, Math.min(prev[key] + amount, 99)),
-            };
-            onStatsChange && onStatsChange(updated);
-            console.log(`Stat changed: ${key} is now ${updated[key]}`);
-            return updated;
-        });
+        setStats((prev) => ({
+            ...prev,
+            [key]: Math.max(1, Math.min(prev[key] + amount, 99)),
+        }));
     };
 
     return (
@@ -34,8 +16,7 @@ export const StatsPanel = ({ onStatsChange }) => {
             >
                 Player Stats
             </h2>
-            <div className="grid grid-cols-2 gap-x-6 gap-y-4 text-base">
-                {Object.entries(stats).map(([key, val]) => (
+            <div className="grid grid-cols-2 gap-x-6 gap-y-4 text-base">                {Object.entries(stats).map(([key, val]) => (
                     <div key={key} className="flex items-center justify-between bg-[#3b2f1a] px-3 py-2 rounded-md">
                         <span className="text-[#c0a857] font-semibold w-10" style={{ fontFamily: "serif" }}>{key}</span>
                         <div className="flex items-center gap-1">

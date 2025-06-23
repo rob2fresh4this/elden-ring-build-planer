@@ -22,12 +22,19 @@ const dummyStats = {
     Arc: 10,
 };
 
-export const WeaponSection = () => {
+export const WeaponSection = ({ onWeaponsChange }) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [search, setSearch] = useState("");
     const [selectedSlot, setSelectedSlot] = useState(null);
     const [weapons, setWeapons] = useState(Array(WEAPON_SLOTS).fill(null));
     const [tempWeapons, setTempWeapons] = useState([...weapons]);
+
+    // Calculate total weapon weight
+    const calculateTotalWeaponWeight = (weaponArray) => {
+        return weaponArray.reduce((total, weapon) => {
+            return total + (weapon?.weight || 0);
+        }, 0);
+    };
 
     const filteredWeapons = WeaponData.filter(
         (w) =>
@@ -87,10 +94,17 @@ export const WeaponSection = () => {
             if (!hasRequirements) {
                 toast.error(`You don't meet the requirements for '${weapon.name}' in slot ${i + 1}`);
                 return;
-            }
-        }
+            }        }
 
-        setWeapons([...tempWeapons]);
+        const newWeapons = [...tempWeapons];
+        setWeapons(newWeapons);
+        
+        // Calculate and notify parent about weapon weight change
+        const totalWeaponWeight = calculateTotalWeaponWeight(newWeapons);
+        if (onWeaponsChange) {
+            onWeaponsChange(totalWeaponWeight);
+        }
+        
         setModalOpen(false);
         setSelectedSlot(null);
         toast.success("Weapons saved!");
