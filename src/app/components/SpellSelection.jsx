@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SorceriesData from "../../../public/EldenRingData/data/sorceries.json";
 import IncantationsData from "../../../public/EldenRingData/data/incantations.json";
 import toast from "react-hot-toast";
@@ -28,13 +28,20 @@ const stripImageBaseUrl = (imageUrl) => {
     return imageUrl || "";
 };
 
-const SpellSelection = () => {
+const SpellSelection = ({ talismans = [] }) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [modalSlot, setModalSlot] = useState(null);
     const [tempSelection, setTempSelection] = useState({});
-    const [spells, setSpells] = useState({});
-    const [search, setSearch] = useState("");
-    const [moonOfNokstella, setMoonOfNokstella] = useState(dummyStats.MoonNokstella);
+    const [spells, setSpells] = useState({}); const [search, setSearch] = useState("");
+    const [moonOfNokstella, setMoonOfNokstella] = useState(dummyStats.MoonNokstella);    // Check if the Moon of Nokstella talisman is equipped
+    const MOON_NOKSTELLA_TALISMAN_ID = "17f6980d220l0i2stavhe03m4ms2yf";
+    const hasMoonTalisman = talismans.some(talisman =>
+        talisman && talisman.id === MOON_NOKSTELLA_TALISMAN_ID
+    );
+
+    useEffect(() => {
+        setMoonOfNokstella(hasMoonTalisman);
+    }, [hasMoonTalisman]);
 
     const maxSlots = moonOfNokstella ? 12 : 10;
     const allSpells = [
@@ -155,14 +162,14 @@ const SpellSelection = () => {
         <section className="mb-6 bg-[#2d2212] p-4 rounded-xl border border-[#c0a857]">
             <div className="mb-2 flex justify-between items-center">
                 <h2 className="text-xl font-semibold text-violet-300">Spells</h2>
-                <label className="text-sm text-[#c0a857] flex items-center gap-2">
-                    <input
-                        type="checkbox"
-                        checked={moonOfNokstella}
-                        onChange={() => setMoonOfNokstella(!moonOfNokstella)}
-                    />
-                    Moon of Nokstella (+2 slots)
-                </label>
+                <div className="flex items-center gap-2">
+                    <span className={`text-sm flex items-center gap-1 ${moonOfNokstella ? "text-green-400" : "text-red-500"
+                        }`}>
+                        Moon of Nokstella (+2 slots)
+                        {hasMoonTalisman && <span className="text-xs text-[#c0a857]">(Talisman Equipped)</span>}
+                        {moonOfNokstella ? " ✓" : " ✗"}
+                    </span>
+                </div>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2">

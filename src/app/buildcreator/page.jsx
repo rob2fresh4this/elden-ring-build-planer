@@ -9,15 +9,18 @@ import StatsSection from '../components/StatsSection';
 const BuildCreator = () => {
     const [equipmentWeight, setEquipmentWeight] = useState(0);
     const [weaponWeight, setWeaponWeight] = useState(0);
+    const [talismans, setTalismans] = useState(Array(4).fill(null));
     
     const totalWeight = equipmentWeight + weaponWeight;
 
     const handleEquipmentChange = (totalArmorWeight) => {
         setEquipmentWeight(totalArmorWeight);
+    };    const handleWeaponsChange = (totalWeaponWeight) => {
+        setWeaponWeight(totalWeaponWeight);
     };
 
-    const handleWeaponsChange = (totalWeaponWeight) => {
-        setWeaponWeight(totalWeaponWeight);
+    const handleTalismansChange = (newTalismans) => {
+        setTalismans(newTalismans);
     };
     return (
         <main className="min-h-screen p-6 bg-gradient-to-br from-[#19140e] via-[#2d2212] to-[#3a2c1a] text-[#e5c77b]">
@@ -35,15 +38,13 @@ const BuildCreator = () => {
                     Strategize like a true Tarnished. Manage your Elden Ring builds below.
                 </p>                {/* Equipment and Loadout Grid */}
                 <section className="mb-6">
-                    <EquipmentGrid onEquipmentChange={handleEquipmentChange} />
-                </section>                {/* Required Stats / Current Stats Panel */}
+                    <EquipmentGrid onEquipmentChange={handleEquipmentChange} onTalismansChange={handleTalismansChange} />
+                </section>{/* Required Stats / Current Stats Panel */}
                 <StatsSection equipmentWeight={totalWeight} />
 
                 {/* Weapons */}
-                <WeaponSection onWeaponsChange={handleWeaponsChange} />
-
-                {/* Spells Section */}
-                <SpellSelection />
+                <WeaponSection onWeaponsChange={handleWeaponsChange} />                {/* Spells Section */}
+                <SpellSelection talismans={talismans} />
             </div>
         </main>
     );

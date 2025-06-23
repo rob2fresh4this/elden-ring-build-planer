@@ -23,7 +23,7 @@ const stripImageBaseUrl = (imageUrl) => {
     return imageUrl || "";
 };
 
-export const EquipmentGrid = ({ onEquipmentChange }) => {
+export const EquipmentGrid = ({ onEquipmentChange, onTalismansChange }) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [modalSlot, setModalSlot] = useState(null);
     const [tempSelection, setTempSelection] = useState({});    const [equipment, setEquipment] = useState({});
@@ -171,7 +171,7 @@ export const EquipmentGrid = ({ onEquipmentChange }) => {
                 </div>
             )}
 
-            <TalismanSection />
+            <TalismanSection onTalismansChange={onTalismansChange} />
         </div>
     );
 };

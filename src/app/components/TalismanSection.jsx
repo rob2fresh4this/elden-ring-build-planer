@@ -14,7 +14,7 @@ const stripImageBaseUrl = (imageUrl) => {
 
 const TALISMAN_SLOTS = 4;
 
-export const TalismanSection = () => {
+export const TalismanSection = ({ onTalismansChange }) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [search, setSearch] = useState("");
     const [selectedSlot, setSelectedSlot] = useState(null);
@@ -49,10 +49,11 @@ export const TalismanSection = () => {
         updated[selectedSlot] = talisman;
         setTempTalismans(updated);
     };
-
-
     const handleSave = () => {
         setTalismans([...tempTalismans]);
+        if (onTalismansChange) {
+            onTalismansChange([...tempTalismans]);
+        }
         setModalOpen(false);
         setSelectedSlot(null);
     };
