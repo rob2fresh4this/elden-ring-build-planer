@@ -10,6 +10,16 @@ const BuildCreator = () => {
     const [equipmentWeight, setEquipmentWeight] = useState(0);
     const [weaponWeight, setWeaponWeight] = useState(0);
     const [talismans, setTalismans] = useState(Array(4).fill(null));
+    const [stats, setStats] = useState({
+        VIG: 10,
+        MIND: 10,
+        END: 10,
+        STR: 10,
+        DEX: 10,
+        INT: 10,
+        FAI: 10,
+        ARC: 10,
+    });
     
     const totalWeight = equipmentWeight + weaponWeight;
 
@@ -39,12 +49,14 @@ const BuildCreator = () => {
                 </p>                {/* Equipment and Loadout Grid */}
                 <section className="mb-6">
                     <EquipmentGrid onEquipmentChange={handleEquipmentChange} onTalismansChange={handleTalismansChange} />
-                </section>{/* Required Stats / Current Stats Panel */}
-                <StatsSection equipmentWeight={totalWeight} />
+                </section>                {/* Required Stats / Current Stats Panel */}
+                <StatsSection equipmentWeight={totalWeight} stats={stats} setStats={setStats} />
 
                 {/* Weapons */}
-                <WeaponSection onWeaponsChange={handleWeaponsChange} />                {/* Spells Section */}
-                <SpellSelection talismans={talismans} />
+                <WeaponSection onWeaponsChange={handleWeaponsChange} stats={stats} />
+
+                {/* Spells Section */}
+                <SpellSelection talismans={talismans} stats={stats} />
             </div>
         </main>
     );

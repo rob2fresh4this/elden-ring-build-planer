@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import WeaponData from "../../../public/EldenRingData/data/weapons.json";
 import toast from "react-hot-toast";
 
@@ -14,20 +14,21 @@ const stripImageBaseUrl = (imageUrl) => {
 
 const WEAPON_SLOTS = 6;
 
-const dummyStats = {
-    Str: 10,
-    Dex: 10,
-    Int: 10,
-    Fai: 10,
-    Arc: 10,
-};
-
-export const WeaponSection = ({ onWeaponsChange }) => {
+export const WeaponSection = ({ onWeaponsChange, stats }) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [search, setSearch] = useState("");
     const [selectedSlot, setSelectedSlot] = useState(null);
     const [weapons, setWeapons] = useState(Array(WEAPON_SLOTS).fill(null));
     const [tempWeapons, setTempWeapons] = useState([...weapons]);
+    
+    // Convert stats object to format expected by weapon requirements
+    const playerStats = {
+        Str: stats?.STR || 10,
+        Dex: stats?.DEX || 10,
+        Int: stats?.INT || 10,
+        Fai: stats?.FAI || 10,
+        Arc: stats?.ARC || 10,
+    };
 
     // Calculate total weapon weight
     const calculateTotalWeaponWeight = (weaponArray) => {
@@ -35,6 +36,12 @@ export const WeaponSection = ({ onWeaponsChange }) => {
             return total + (weapon?.weight || 0);
         }, 0);
     };
+
+    // Update weapon validation when stats change
+    useEffect(() => {
+        // Force re-render when stats change to update weapon requirement checks
+        // The component will automatically re-check canUseWeapon for each weapon
+    }, [stats]);
 
     const filteredWeapons = WeaponData.filter(
         (w) =>
@@ -50,11 +57,9 @@ export const WeaponSection = ({ onWeaponsChange }) => {
     };
 
     const getWeaponWarnings = (weapon) => {
-        let warnings = [];
-
-        weapon.requiredAttributes.forEach(attr => {
+        let warnings = [];        weapon.requiredAttributes.forEach(attr => {
             const required = attr.amount;
-            const actual = dummyStats[attr.name] || 0;
+            const actual = playerStats[attr.name] || 0;
 
             if (attr.name === "Str" && actual >= required / 2 && actual < required) {
                 warnings.push("You must two-hand this weapon");
@@ -64,11 +69,9 @@ export const WeaponSection = ({ onWeaponsChange }) => {
         });
 
         return warnings;
-    };
-
-    const canUseWeapon = (weapon) => {
+    };    const canUseWeapon = (weapon) => {
         return weapon.requiredAttributes.every(attr => {
-            const actual = dummyStats[attr.name] || 0;
+            const actual = playerStats[attr.name] || 0;
             if (attr.name === "Str") return actual >= attr.amount / 2;
             return actual >= attr.amount;
         });
@@ -83,10 +86,8 @@ export const WeaponSection = ({ onWeaponsChange }) => {
     const handleSave = () => {
         for (let i = 0; i < tempWeapons.length; i++) {
             const weapon = tempWeapons[i];
-            if (!weapon) continue;
-
-            const hasRequirements = weapon.requiredAttributes.every(attr => {
-                const actual = dummyStats[attr.name] || 0;
+            if (!weapon) continue;            const hasRequirements = weapon.requiredAttributes.every(attr => {
+                const actual = playerStats[attr.name] || 0;
                 if (attr.name === "Str") return actual >= attr.amount / 2;
                 return actual >= attr.amount;
             });

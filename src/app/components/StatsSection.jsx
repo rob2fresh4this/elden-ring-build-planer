@@ -1,20 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StatsPanel } from './StatsPanel';
 import { hpTable, fpTable, staminaTable, equipLoadTable } from "../../../public/EldenRingData/data/stats"
 
-const StatsSection = ({ equipmentWeight = 0 }) => {
-    const initialStats = {
-        VIG: 10,
-        MIND: 10,
-        END: 10,
-        STR: 10,
-        DEX: 10,
-        INT: 10,
-        FAI: 10,
-        ARC: 10,
-    };
-
-    const [stats, setStats] = useState(initialStats);
+const StatsSection = ({ equipmentWeight = 0, stats, setStats }) => {
 
     function calculateHP(vigor) {
         if (vigor < 1) return hpTable[0];

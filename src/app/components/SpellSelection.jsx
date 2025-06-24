@@ -5,16 +5,6 @@ import SorceriesData from "../../../public/EldenRingData/data/sorceries.json";
 import IncantationsData from "../../../public/EldenRingData/data/incantations.json";
 import toast from "react-hot-toast";
 
-
-const dummyStats = {
-    Strength: 30,
-    Dexterity: 20,
-    Intelligence: 30,
-    Faith: 30,
-    Arcane: 20,
-    MoonNokstella: true
-};
-
 const stripImageBaseUrl = (imageUrl) => {
     const baseUrlincantations = "https://eldenring.fanapis.com/images/incantations";
     const baseUrlsorceries = "https://eldenring.fanapis.com/images/sorceries";
@@ -28,12 +18,22 @@ const stripImageBaseUrl = (imageUrl) => {
     return imageUrl || "";
 };
 
-const SpellSelection = ({ talismans = [] }) => {
+const SpellSelection = ({ talismans = [], stats }) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [modalSlot, setModalSlot] = useState(null);
     const [tempSelection, setTempSelection] = useState({});
-    const [spells, setSpells] = useState({}); const [search, setSearch] = useState("");
-    const [moonOfNokstella, setMoonOfNokstella] = useState(dummyStats.MoonNokstella);    // Check if the Moon of Nokstella talisman is equipped
+    const [spells, setSpells] = useState({});
+    const [search, setSearch] = useState("");
+    
+    // Convert stats object to format expected by spell requirements
+    const playerStats = {
+        Strength: stats?.STR || 10,
+        Dexterity: stats?.DEX || 10, 
+        Intelligence: stats?.INT || 10,
+        Faith: stats?.FAI || 10,
+        Arcane: stats?.ARC || 10,
+    };
+    const [moonOfNokstella, setMoonOfNokstella] = useState(false);    // Check if the Moon of Nokstella talisman is equipped
     const MOON_NOKSTELLA_TALISMAN_ID = "17f6980d220l0i2stavhe03m4ms2yf";
     const hasMoonTalisman = talismans.some(talisman =>
         talisman && talisman.id === MOON_NOKSTELLA_TALISMAN_ID
@@ -42,6 +42,12 @@ const SpellSelection = ({ talismans = [] }) => {
     useEffect(() => {
         setMoonOfNokstella(hasMoonTalisman);
     }, [hasMoonTalisman]);
+
+    // Update spell validation when stats change
+    useEffect(() => {
+        // Force re-render when stats change to update spell requirement checks
+        // The component will automatically re-check canUseSpell for each spell
+    }, [stats]);
 
     const maxSlots = moonOfNokstella ? 12 : 10;
     const allSpells = [
@@ -102,11 +108,9 @@ const SpellSelection = ({ talismans = [] }) => {
                     toast.error(`Overlap error: '${spell.name}' conflicts with another spell.`);
                     return;
                 }
-            }
-
-            // Check stat requirements
+            }            // Check stat requirements
             const meetsRequirements = spell.requires?.every(
-                (r) => (dummyStats[r.name] || 0) >= r.amount
+                (r) => (playerStats[r.name] || 0) >= r.amount
             );
             if (!meetsRequirements) {
                 toast.error(`Stat error: You don't meet the requirements for '${spell.name}'.`);
@@ -130,19 +134,15 @@ const SpellSelection = ({ talismans = [] }) => {
     };
 
 
-
-
     const canUseSpell = (spell) => {
-        return spell.requires?.every(attr => (dummyStats[attr.name] || 0) >= attr.amount);
+        return spell.requires?.every(attr => (playerStats[attr.name] || 0) >= attr.amount);
     };
 
     const renderRequirements = (requires = []) => {
-        const validRequirements = (requires || []).filter((r) => r.amount > 0);
-
-        return (
+        const validRequirements = (requires || []).filter((r) => r.amount > 0);        return (
             <div>
                 {validRequirements.map((r, index) => {
-                    const hasStat = (dummyStats[r.name] || 0) >= r.amount;
+                    const hasStat = (playerStats[r.name] || 0) >= r.amount;
                     const isLast = index === validRequirements.length - 1;
                     return (
                         <span
