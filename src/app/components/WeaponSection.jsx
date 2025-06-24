@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import WeaponData from "../../../public/EldenRingData/data/weapons.json";
+import WeaponDataDLC from "../../../public/EldenRingData/data/weaponsDLC.json";
 import toast from "react-hot-toast";
 
 const stripImageBaseUrl = (imageUrl) => {
@@ -10,6 +11,27 @@ const stripImageBaseUrl = (imageUrl) => {
         return imageUrl.replace(baseUrl, "");
     }
     return imageUrl || "";
+};
+
+const decodeWeaponName = (name) => {
+    if (!name || typeof name !== "string") return name;
+    
+    // Decode common URL encodings
+    return name
+        .replace(/%27/g, "'")  // %27 -> apostrophe
+        .replace(/%20/g, " ")  // %20 -> space
+        .replace(/%22/g, '"')  // %22 -> double quote
+        .replace(/%26/g, "&")  // %26 -> ampersand
+        .replace(/%2B/g, "+"); // %2B -> plus sign
+};
+
+const getWeaponImagePath = (weapon) => {
+    // Check if this is a DLC weapon (has different image URL structure)
+    if (weapon.image && weapon.image.includes("fextralife.com")) {
+        return weapon.image; // Use DLC image URL directly
+    }
+    // Base game weapon - use local images
+    return `/EldenRingData/images/weapons/${stripImageBaseUrl(weapon.image)}`;
 };
 
 const WEAPON_SLOTS = 6;
@@ -41,12 +63,10 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
     useEffect(() => {
         // Force re-render when stats change to update weapon requirement checks
         // The component will automatically re-check canUseWeapon for each weapon
-    }, [stats]);
-
-    const filteredWeapons = WeaponData.filter(
+    }, [stats]);    const filteredWeapons = [...WeaponData, ...WeaponDataDLC].filter(
         (w) =>
             w.name &&
-            w.name.toLowerCase().includes(search.toLowerCase())
+            decodeWeaponName(w.name).toLowerCase().includes(search.toLowerCase())
     );
 
     const handleTileClick = (slotIdx) => {
@@ -54,10 +74,15 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
         setTempWeapons([...weapons]);
         setSearch("");
         setModalOpen(true);
-    };
-
-    const getWeaponWarnings = (weapon) => {
-        let warnings = [];        weapon.requiredAttributes.forEach(attr => {
+    };    const getWeaponWarnings = (weapon) => {
+        let warnings = [];
+        
+        // Check if weapon has required attributes (some DLC weapons might not have this structure)
+        if (!weapon.requiredAttributes || !Array.isArray(weapon.requiredAttributes)) {
+            return warnings;
+        }
+        
+        weapon.requiredAttributes.forEach(attr => {
             const required = attr.amount;
             const actual = playerStats[attr.name] || 0;
 
@@ -70,6 +95,11 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
 
         return warnings;
     };    const canUseWeapon = (weapon) => {
+        // Check if weapon has required attributes (some DLC weapons might not have this structure)
+        if (!weapon.requiredAttributes || !Array.isArray(weapon.requiredAttributes)) {
+            return true; // If no requirements, can use weapon
+        }
+        
         return weapon.requiredAttributes.every(attr => {
             const actual = playerStats[attr.name] || 0;
             if (attr.name === "Str") return actual >= attr.amount / 2;
@@ -83,19 +113,22 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
         setTempWeapons(updated);
     };
 
-    const handleSave = () => {
-        for (let i = 0; i < tempWeapons.length; i++) {
+    const handleSave = () => {        for (let i = 0; i < tempWeapons.length; i++) {
             const weapon = tempWeapons[i];
-            if (!weapon) continue;            const hasRequirements = weapon.requiredAttributes.every(attr => {
-                const actual = playerStats[attr.name] || 0;
-                if (attr.name === "Str") return actual >= attr.amount / 2;
-                return actual >= attr.amount;
-            });
-
-            if (!hasRequirements) {
-                toast.error(`You don't meet the requirements for '${weapon.name}' in slot ${i + 1}`);
-                return;
-            }        }
+            if (!weapon) continue;
+            
+            // Check if weapon has required attributes before validating
+            if (weapon.requiredAttributes && Array.isArray(weapon.requiredAttributes)) {
+                const hasRequirements = weapon.requiredAttributes.every(attr => {
+                    const actual = playerStats[attr.name] || 0;
+                    if (attr.name === "Str") return actual >= attr.amount / 2;
+                    return actual >= attr.amount;
+                });                if (!hasRequirements) {
+                    toast.error(`You don't meet the requirements for '${decodeWeaponName(weapon.name)}' in slot ${i + 1}`);
+                    return;
+                }
+            }
+        }
 
         const newWeapons = [...tempWeapons];
         setWeapons(newWeapons);
@@ -129,16 +162,15 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                             className={`w-full min-h-[140px] p-3 bg-[#2d2212] border ${borderColor} rounded-lg text-sm shadow transition hover:bg-[#3a2c1a] cursor-pointer flex flex-col justify-center items-center`}
                             onClick={() => handleTileClick(i)}
                         >
-                            {w ? (
-                                <>
+                            {w ? (                                <>
                                     <img
-                                        src={`/EldenRingData/images/weapons/${stripImageBaseUrl(w.image)}`}
+                                        src={getWeaponImagePath(w)}
                                         alt={w.name}
                                         className="w-12 h-12 object-contain mb-2"
                                     />
-                                    <p className="text-[#e5c77b] font-semibold text-center" style={{ fontFamily: "serif" }}>{w.name}</p>
+                                    <p className="text-[#e5c77b] font-semibold text-center" style={{ fontFamily: "serif" }}>{decodeWeaponName(w.name)}</p>
                                     <p className="text-[#c0a857] text-xs text-center">{
-                                        w.requiredAttributes.map(attr => `${attr.name}: ${attr.amount}`).join(" | ")
+                                        w.requiredAttributes?.map(attr => `${attr.name}: ${attr.amount}`).join(" | ") || "No requirements"
                                     }</p>
                                 </>
                             ) : (
@@ -152,9 +184,8 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
             {modalOpen && (
                 <div className="fixed inset-0 bg-gray-900/40 flex items-center justify-center z-50 overflow-auto">
                     <div className="bg-[#2d2212] border border-[#c0a857] overflow-hidden rounded-xl p-0 w-full max-w-lg relative mx-2 flex flex-col max-h-[90vh]">
-                        <div className="sticky top-0 z-10 bg-[#2d2212] border-b border-[#c0a857] flex items-center justify-between px-4 py-2">
-                            <div className="flex-1 text-center text-lg font-semibold text-[#e5c77b]" style={{ fontFamily: "serif" }}>
-                                Select Weapon - {tempWeapons[selectedSlot]?.name || "None Selected"}
+                        <div className="sticky top-0 z-10 bg-[#2d2212] border-b border-[#c0a857] flex items-center justify-between px-4 py-2">                            <div className="flex-1 text-center text-lg font-semibold text-[#e5c77b]" style={{ fontFamily: "serif" }}>
+                                Select Weapon - {decodeWeaponName(tempWeapons[selectedSlot]?.name) || "None Selected"}
                             </div>
                             <button
                                 className="text-[#e5c77b] text-2xl ml-2"
@@ -194,13 +225,12 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                                                 ${isSelected ? "border-[#e5c77b] bg-[#3a2c1a]" : "border-[#c0a857] bg-[#19140e] hover:bg-[#3a2c1a]"}
                                             `}
                                             onClick={() => handleWeaponSelect(weapon)}
-                                        >
-                                            <img
-                                                src={`/EldenRingData/images/weapons/${stripImageBaseUrl(weapon.image)}`}
+                                        >                                            <img
+                                                src={getWeaponImagePath(weapon)}
                                                 alt={weapon.name}
                                                 className="w-full h-16 object-contain mb-2"
                                             />
-                                            <p className="text-xs text-[#e5c77b] mb-1">{weapon.name}</p>
+                                            <p className="text-xs text-[#e5c77b] mb-1">{decodeWeaponName(weapon.name)}</p>
                                             {warnings.length > 0 && (
                                                 <div className="text-xs text-red-500">
                                                     {warnings.map((w, i) => (
