@@ -17273,7 +17273,7 @@
     {
         "id": "17f6946d08bl0i1pfb4sevs913hvu",
         "name": "Rivers Of Blood",
-        "image": "EldenRingData/images/weapons/17f6946d08bl0i1pfb4sevs913hvu.png",
+        "image": "https://eldenring.fanapis.com/images/weapons/17f6946d08bl0i1pfb4sevs913hvu.png",
         "description": "Weapon of Okina, swordsman from the Land of Reeds. A cursed weapon that has felled countless men.  When Mohg, the Lord of Blood, first felt Okina's sword, and madness, upon his flesh, he had a proposal, to offer Okina the life of a demon, whose thirst would never go unsated.",
         "attack": [
             {
