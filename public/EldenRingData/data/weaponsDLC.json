@@ -1,0 +1,6279 @@
+[
+  {
+    "id": "stone-sheathed_sword",
+    "name": "Stone-Sheathed Sword",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/stone-sheathed_sword_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Stone-Sheathed Sword\u00a0is a Straight Sword\u00a0in Elden Ring. It is a brand new\u00a0Straight Sword in the\u00a0Shadow of the Erdtree DLC. The Stone-Sheathed Sword\u00a0scales primarily with Strength\u00a0and\u00a0Dexterity and can be transformed into the Sword of Darkness or the Sword of Light. It's skill, the Square off, lets you slash upwards or thrust when attacking.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 119
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 54
+      },
+      {
+        "name": "Mag",
+        "amount": 33
+      },
+      {
+        "name": "Fire",
+        "amount": 33
+      },
+      {
+        "name": "Ligt",
+        "amount": 33
+      },
+      {
+        "name": "Holy",
+        "amount": 33
+      },
+      {
+        "name": "Boost",
+        "amount": 32
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "C"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 16
+      },
+      {
+        "name": "Dex",
+        "amount": 8
+      }
+    ],
+    "category": "Straight Sword",
+    "weight": 5.0
+  },
+  {
+    "id": "star-lined_sword",
+    "name": "Star-Lined Sword",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/star-lined_sword_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Star-Lined Sword\u00a0is a Katana\u00a0in Elden Ring. It is found in the\u00a0Shadow of the Erdtree DLC. The Star-Lined Sword\u00a0scales primarily with Strength,\u00a0Dexterity,\u00a0and\u00a0Intelligence and is a good Weapon for dex oriented builds. This is a weapon that causes blood loss and has a skill called Onze's Line of Stars, which lets you slash multiple times with each slash getting stronger.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 82
+      },
+      {
+        "name": "Mag",
+        "amount": 82
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 34
+      },
+      {
+        "name": "Mag",
+        "amount": 48
+      },
+      {
+        "name": "Fire",
+        "amount": 24
+      },
+      {
+        "name": "Ligt",
+        "amount": 24
+      },
+      {
+        "name": "Holy",
+        "amount": 24
+      },
+      {
+        "name": "Boost",
+        "amount": 29
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "E"
+      },
+      {
+        "name": "Dex",
+        "scaling": "C"
+      },
+      {
+        "name": "Int",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 10
+      },
+      {
+        "name": "Dex",
+        "amount": 23
+      },
+      {
+        "name": "Int",
+        "amount": 21
+      }
+    ],
+    "category": "Katana",
+    "weight": 5.0
+  },
+  {
+    "id": "dragon-hunter%27s_great_katana",
+    "name": "Dragon-Hunter%27s Great Katana",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/dragon-hunters_great_katana_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Dragon-Hunter's Great Katana\u00a0is a Great Katana\u00a0in Elden Ring. It was added with the\u00a0Shadow of the Erdtree DLC. The Dragon-Hunter's Great Katana\u00a0scales primarily with Strength\u00a0and\u00a0Dexterity\u00a0and is a potent\u00a0Weapon\u00a0to oppose dragon-like creatures.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 152
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 69
+      },
+      {
+        "name": "Mag",
+        "amount": 32
+      },
+      {
+        "name": "Fire",
+        "amount": 32
+      },
+      {
+        "name": "Ligt",
+        "amount": 32
+      },
+      {
+        "name": "Holy",
+        "amount": 32
+      },
+      {
+        "name": "Boost",
+        "amount": 37
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 15
+      },
+      {
+        "name": "Dex",
+        "amount": 20
+      }
+    ],
+    "category": "Katana",
+    "weight": 10.5
+  },
+  {
+    "id": "barbed_staff-spear",
+    "name": "Barbed Staff-Spear",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/barbed_staff-spear_spears_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Barbed Staff-Spear\u00a0is a Great Spear\u00a0in Elden Ring. It is a brand-new\u00a0Great Spear in the\u00a0Shadow of the Erdtree DLC. The Barbed Staff-Spear\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and\u00a0Faith and is a good Weapon for Faith players. This has the Jori's Inquisition skill that lets you summon golden arcs towards foes.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 86
+      },
+      {
+        "name": "Holy",
+        "amount": 86
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 42
+      },
+      {
+        "name": "Mag",
+        "amount": 31
+      },
+      {
+        "name": "Fire",
+        "amount": 31
+      },
+      {
+        "name": "Ligt",
+        "amount": 31
+      },
+      {
+        "name": "Holy",
+        "amount": 45
+      },
+      {
+        "name": "Boost",
+        "amount": 37
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "E"
+      },
+      {
+        "name": "Dex",
+        "scaling": "E"
+      },
+      {
+        "name": "Faith",
+        "scaling": "C"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 14
+      },
+      {
+        "name": "Dex",
+        "amount": 18
+      },
+      {
+        "name": "Faith",
+        "amount": 22
+      }
+    ],
+    "category": "Spear",
+    "weight": 7.5
+  },
+  {
+    "id": "main-gauche",
+    "name": "Main-gauche",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/main-gauche_dagger_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Main-gauche\u00a0is a Dagger\u00a0in Elden Ring. It is\u00a0found in the Shadow of the Erdtree DLC. The Main-gauche\u00a0scales primarily with Strength and Dexterity and is a good Weapon for performing quick slashes. This weapon comes in left-handed and allows you to stagger and land heavy hits to enemies with the Parry\u00a0skill.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 79
+      },
+      {
+        "name": "Crit",
+        "amount": 110
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 38
+      },
+      {
+        "name": "Mag",
+        "amount": 22
+      },
+      {
+        "name": "Fire",
+        "amount": 22
+      },
+      {
+        "name": "Ligt",
+        "amount": 22
+      },
+      {
+        "name": "Holy",
+        "amount": 22
+      },
+      {
+        "name": "Boost",
+        "amount": 16
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "C"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 7
+      },
+      {
+        "name": "Dex",
+        "amount": 15
+      }
+    ],
+    "category": "Dagger",
+    "weight": 2.0
+  },
+  {
+    "id": "forked-tongue_hatchet",
+    "name": "Forked-Tongue Hatchet",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/forked-tongue_hatchet_unique_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Forked-Tongue Hatchet\u00a0is an Axe\u00a0in Elden Ring. It was added with the\u00a0Shadow of the Erdtree DLC. The Forked-Tongue Hatchet\u00a0scales primarily with Strength\u00a0and\u00a0Dexterity.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 125
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 45
+      },
+      {
+        "name": "Mag",
+        "amount": 30
+      },
+      {
+        "name": "Fire",
+        "amount": 30
+      },
+      {
+        "name": "Ligt",
+        "amount": 30
+      },
+      {
+        "name": "Holy",
+        "amount": 30
+      },
+      {
+        "name": "Boost",
+        "amount": 30
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 10
+      },
+      {
+        "name": "Dex",
+        "amount": 13
+      }
+    ],
+    "category": "Axe",
+    "weight": 4.0
+  },
+  {
+    "id": "smithscript_dagger",
+    "name": "Smithscript Dagger",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/smithscript_dagger_throwing_blade_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Smithscript Dagger\u00a0is a Throwing Blade\u00a0in Elden Ring. It\u00a0was added with the Shadow of the Erdtree DLC. The Smithscript Dagger\u00a0scales primarily with Strength,\u00a0Dexterity,\u00a0Intelligence\u00a0and\u00a0Faith and is a good Weapon for players that want a ranged melee alternative without a FP cost.\u00a0As a Smithscript weapon, it can be thrown and immediately returns to the user's hand. The Smithscript Dagger\u00a0is one of a few non-Claw/Fist Paired Weapons.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 67
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 35
+      },
+      {
+        "name": "Mag",
+        "amount": 20
+      },
+      {
+        "name": "Fire",
+        "amount": 20
+      },
+      {
+        "name": "Ligt",
+        "amount": 20
+      },
+      {
+        "name": "Holy",
+        "amount": 20
+      },
+      {
+        "name": "Boost",
+        "amount": 15
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "E"
+      },
+      {
+        "name": "Dex",
+        "scaling": "C"
+      },
+      {
+        "name": "Int",
+        "scaling": "E"
+      },
+      {
+        "name": "Faith",
+        "scaling": "E"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 5
+      },
+      {
+        "name": "Dex",
+        "amount": 11
+      },
+      {
+        "name": "Int",
+        "amount": 11
+      },
+      {
+        "name": "Faith",
+        "amount": 11
+      }
+    ],
+    "category": "Medium Shield",
+    "weight": 1.5
+  },
+  {
+    "id": "sword_of_light",
+    "name": "Sword of Light",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/sword_of_light_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Sword of Light\u00a0is a Straight Sword\u00a0in Elden Ring. It is a Straight Sword introduced in the\u00a0Shadow of the Erdtree DLC. The Sword of Light\u00a0scales primarily with Strength,\u00a0Dexterity,\u00a0and\u00a0Faith and has a counterpart called the Sword of Darkness. Straight swords in general can be used with good speed and power. While this straight sword, comes with 93 holy damage.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 93
+      },
+      {
+        "name": "Holy",
+        "amount": 93
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 26
+      },
+      {
+        "name": "Mag",
+        "amount": 15
+      },
+      {
+        "name": "Fire",
+        "amount": 15
+      },
+      {
+        "name": "Ligt",
+        "amount": 15
+      },
+      {
+        "name": "Holy",
+        "amount": 42
+      },
+      {
+        "name": "Boost",
+        "amount": 31
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "E"
+      },
+      {
+        "name": "Faith",
+        "scaling": "E"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 14
+      },
+      {
+        "name": "Dex",
+        "amount": 11
+      },
+      {
+        "name": "Faith",
+        "amount": 24
+      }
+    ],
+    "category": "Straight Sword",
+    "weight": 4.0
+  },
+  {
+    "id": "sword_of_darkness",
+    "name": "Sword of Darkness",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/sword_of_darkness_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Sword of Darkness\u00a0is a Straight Sword\u00a0in Elden Ring. It is\u00a0found in the\u00a0Shadow of the Erdtree DLC. The Sword of Darkness\u00a0scales primarily with Strength,\u00a0Dexterity,\u00a0and\u00a0Faith and has a counterpart called Sword of Light. This is similar to the sword of light since it also gives 93 holy damage.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 93
+      },
+      {
+        "name": "Holy",
+        "amount": 93
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 26
+      },
+      {
+        "name": "Mag",
+        "amount": 15
+      },
+      {
+        "name": "Fire",
+        "amount": 15
+      },
+      {
+        "name": "Ligt",
+        "amount": 15
+      },
+      {
+        "name": "Holy",
+        "amount": 42
+      },
+      {
+        "name": "Boost",
+        "amount": 31
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "E"
+      },
+      {
+        "name": "Faith",
+        "scaling": "E"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 14
+      },
+      {
+        "name": "Dex",
+        "amount": 11
+      },
+      {
+        "name": "Faith",
+        "amount": 24
+      }
+    ],
+    "category": "Straight Sword",
+    "weight": 4.0
+  },
+  {
+    "id": "velvet_sword_of_st._trina",
+    "name": "Velvet Sword of St. Trina",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/velvet_sword_of_st_trina_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Velvet Sword of St. Trina\u00a0is a Straight Sword\u00a0in Elden Ring. It is a brand new\u00a0Straight Sword in the\u00a0Shadow of the Erdtree DLC. The Velvet Sword of St Trina\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and Intelligence and is a good Weapon for players looking for magic damage straight sword. This also has a strong base of physical damage of 95. It produces eternal sleep build-up and a skill named\u00a0Mists of Eternal Sleep that releases a cloud of purple mist when you perform a slash.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 95
+      },
+      {
+        "name": "Mag",
+        "amount": 61
+      },
+      {
+        "name": "Crit",
+        "amount": 110
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 37
+      },
+      {
+        "name": "Mag",
+        "amount": 37
+      },
+      {
+        "name": "Fire",
+        "amount": 25
+      },
+      {
+        "name": "Ligt",
+        "amount": 25
+      },
+      {
+        "name": "Holy",
+        "amount": 25
+      },
+      {
+        "name": "Boost",
+        "amount": 27
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "E"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      },
+      {
+        "name": "Int",
+        "scaling": "E"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 10
+      },
+      {
+        "name": "Dex",
+        "amount": 12
+      },
+      {
+        "name": "Int",
+        "amount": 14
+      }
+    ],
+    "category": "Straight Sword",
+    "weight": 2.5
+  },
+  {
+    "id": "leda%27s_sword",
+    "name": "Leda%27s Sword",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ledas_sword_light_greatswords_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Leda's Sword\u00a0is a Light Greatsword\u00a0in Elden Ring. It is\u00a0found in the\u00a0Shadow of the Erdtree DLC.\u00a0Leda's Sword\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and\u00a0Faith. It is a good weapon for dealing piercing damage and removing buffs with its Skill.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 101
+      },
+      {
+        "name": "Holy",
+        "amount": 65
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 63
+      },
+      {
+        "name": "Mag",
+        "amount": 32
+      },
+      {
+        "name": "Fire",
+        "amount": 32
+      },
+      {
+        "name": "Ligt",
+        "amount": 30
+      },
+      {
+        "name": "Holy",
+        "amount": 46
+      },
+      {
+        "name": "Boost",
+        "amount": 35
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "E"
+      },
+      {
+        "name": "Dex",
+        "scaling": "C"
+      },
+      {
+        "name": "Faith",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 11
+      },
+      {
+        "name": "Dex",
+        "amount": 22
+      },
+      {
+        "name": "Faith",
+        "amount": 19
+      }
+    ],
+    "category": "Greatsword",
+    "weight": 7.5
+  },
+  {
+    "id": "rellana%27s_twinblade",
+    "name": "Rellana%27s Twinblade",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/rellanas_twinblade_light_greatswords_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Rellana's Twin Blades is a Light Greatsword\u00a0in Elden Ring. It is a found in the\u00a0Shadow of the Erdtree DLC. The Rellana's Twin Blades scales primarily with Strength,\u00a0Dexterity,\u00a0Intelligence\u00a0and\u00a0Faith and is a good Weapon for Int/Faith Builds. This weapon can be dual-wielded and comes with Fire, Physical, and Magic damage.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 103
+      },
+      {
+        "name": "Mag",
+        "amount": 66
+      },
+      {
+        "name": "Fire",
+        "amount": 66
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 66
+      },
+      {
+        "name": "Mag",
+        "amount": 47
+      },
+      {
+        "name": "Fire",
+        "amount": 29
+      },
+      {
+        "name": "Ligt",
+        "amount": 47
+      },
+      {
+        "name": "Holy",
+        "amount": 26
+      },
+      {
+        "name": "Boost",
+        "amount": 35
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      },
+      {
+        "name": "Int",
+        "scaling": "D"
+      },
+      {
+        "name": "Faith",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 13
+      },
+      {
+        "name": "Dex",
+        "amount": 16
+      },
+      {
+        "name": "Int",
+        "amount": 16
+      },
+      {
+        "name": "Faith",
+        "amount": 16
+      }
+    ],
+    "category": "Greatsword",
+    "weight": 8.0
+  },
+  {
+    "id": "moonrithyll%27s_knight_sword",
+    "name": "Moonrithyll%27s Knight Sword",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/troll_knights_sword_colossal_swords_elden_ring_wiki_guide_200px.png",
+    "description": "Moonrithyll's Knight Sword\u00a0is a Colossal Sword\u00a0in Elden Ring. It was added with the\u00a0Shadow of the Erdtree DLC. The Moonrithyll's Knight Sword\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and\u00a0Intelligence and is a good Weapon for\u00a0Strength/Intelligence Builds. This comes with the Tremendous Phalanx skill, which lets you summon magic blades that head towards enemies around you.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 124
+      },
+      {
+        "name": "Mag",
+        "amount": 80
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 70
+      },
+      {
+        "name": "Mag",
+        "amount": 55
+      },
+      {
+        "name": "Fire",
+        "amount": 43
+      },
+      {
+        "name": "Ligt",
+        "amount": 43
+      },
+      {
+        "name": "Holy",
+        "amount": 43
+      },
+      {
+        "name": "Boost",
+        "amount": 50
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      },
+      {
+        "name": "Int",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 20
+      },
+      {
+        "name": "Dex",
+        "amount": 14
+      },
+      {
+        "name": "Int",
+        "amount": 18
+      }
+    ],
+    "category": "Colossal Sword",
+    "weight": 18.0
+  },
+  {
+    "id": "sword_of_night",
+    "name": "Sword of Night",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/sword_of_night_katana_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Sword of Night\u00a0is a Katana\u00a0in Elden Ring. It is a brand new\u00a0Katana in the\u00a0Shadow of the Erdtree DLC. The Sword of Night\u00a0scales\u00a0 with Dexterity and is a good Weapon for\u00a0DEX Builds. This comes with the skill, Witching Hour Slash which is an unblockable slash attack that infuses the dark of night on the blade.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 110
+      },
+      {
+        "name": "Mag",
+        "amount": 33
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 43
+      },
+      {
+        "name": "Mag",
+        "amount": 35
+      },
+      {
+        "name": "Fire",
+        "amount": 27
+      },
+      {
+        "name": "Ligt",
+        "amount": 27
+      },
+      {
+        "name": "Holy",
+        "amount": 27
+      },
+      {
+        "name": "Boost",
+        "amount": 30
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Dex",
+        "scaling": "C"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 11
+      },
+      {
+        "name": "Dex",
+        "amount": 20
+      }
+    ],
+    "category": "Katana",
+    "weight": 6.5
+  },
+  {
+    "id": "spirit_sword",
+    "name": "Spirit Sword",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/spirit_sword_1_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Spirit Sword\u00a0is a Curved Sword\u00a0in Elden Ring. It is a brand new\u00a0Curved Sword in the\u00a0Shadow of the Erdtree DLC. The Spirit Sword\u00a0scales primarily with Strength,\u00a0Dexterity,\u00a0and\u00a0Intelligence and is a good Weapon for INT characters in the look for a sword. This weapon comes with the Rancor Slash skill which lets you summon spirits towards enemies.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 92
+      },
+      {
+        "name": "Mag",
+        "amount": 59
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 38
+      },
+      {
+        "name": "Mag",
+        "amount": 38
+      },
+      {
+        "name": "Fire",
+        "amount": 26
+      },
+      {
+        "name": "Ligt",
+        "amount": 26
+      },
+      {
+        "name": "Holy",
+        "amount": 26
+      },
+      {
+        "name": "Boost",
+        "amount": 19
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "E"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      },
+      {
+        "name": "Int",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 8
+      },
+      {
+        "name": "Dex",
+        "amount": 16
+      },
+      {
+        "name": "Int",
+        "amount": 16
+      }
+    ],
+    "category": "Curved Sword",
+    "weight": 2.5
+  },
+  {
+    "id": "horned_warrior%27s_sword",
+    "name": "Horned Warrior%27s Sword",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/horned_warriors_sword_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Horned Warrior's Sword\u00a0is a Curved Sword\u00a0in Elden Ring. It is a brand new\u00a0Curved Sword in the\u00a0Shadow of the Erdtree DLC. The Horned Warrior's Sword\u00a0scales primarily with Strength\u00a0and\u00a0Dexterity and is a good Weapon for\u00a0players who like paired weapons or Curved Swords but don't want to farm two. This comes with the Horn Calling skill which lets you do a ground slam with the weapon, letting multiple horns come out of the ground under an enemy.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 108
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 48
+      },
+      {
+        "name": "Mag",
+        "amount": 36
+      },
+      {
+        "name": "Fire",
+        "amount": 36
+      },
+      {
+        "name": "Ligt",
+        "amount": 36
+      },
+      {
+        "name": "Holy",
+        "amount": 36
+      },
+      {
+        "name": "Boost",
+        "amount": 30
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      },
+      {
+        "name": "Faith",
+        "scaling": "E"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 11
+      },
+      {
+        "name": "Dex",
+        "amount": 14
+      },
+      {
+        "name": "Faith",
+        "amount": 14
+      }
+    ],
+    "category": "Curved Sword",
+    "weight": 5.0
+  },
+  {
+    "id": "curseblade%27s_cirque",
+    "name": "Curseblade%27s Cirque",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/curseblades_cirque_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Curseblade's Cirque\u00a0is a Backhand Blade\u00a0in Elden Ring. It is\u00a0found in the\u00a0Shadow of the Erdtree DLC. The Curseblade's Cirque\u00a0scales primarily with Strength\u00a0and\u00a0Dexterity and is a good Weapon for\u00a0builds that like rapid attacks and paired weapons with native Bleed build up.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 108
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 55
+      },
+      {
+        "name": "Mag",
+        "amount": 39
+      },
+      {
+        "name": "Fire",
+        "amount": 39
+      },
+      {
+        "name": "Ligt",
+        "amount": 39
+      },
+      {
+        "name": "Holy",
+        "amount": 39
+      },
+      {
+        "name": "Boost",
+        "amount": 45
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "E"
+      },
+      {
+        "name": "Dex",
+        "scaling": "C"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 9
+      },
+      {
+        "name": "Dex",
+        "amount": 22
+      }
+    ],
+    "category": "Backhand Blade",
+    "weight": 4.5
+  },
+  {
+    "id": "falx",
+    "name": "Falx",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/falx_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Falx\u00a0is a Curved Sword\u00a0in Elden Ring. It is found in the\u00a0Shadow of the Erdtree DLC. The Falx\u00a0scales with Strength\u00a0and\u00a0Dexterity. This comes with the Revenger's Blade skill which\u00a0lets you dash up to an enemy and slash them open with the blades held in each hand and has tremendous bleed build-up.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 107
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 42
+      },
+      {
+        "name": "Mag",
+        "amount": 31
+      },
+      {
+        "name": "Fire",
+        "amount": 31
+      },
+      {
+        "name": "Ligt",
+        "amount": 31
+      },
+      {
+        "name": "Holy",
+        "amount": 31
+      },
+      {
+        "name": "Boost",
+        "amount": 23
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 12
+      },
+      {
+        "name": "Dex",
+        "amount": 15
+      }
+    ],
+    "category": "Curved Sword",
+    "weight": 4.0
+  },
+  {
+    "id": "carian_sorcery_sword",
+    "name": "Carian Sorcery Sword",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/carian_sorcery_sword_thrusting_sword_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Carian Sorcery Sword\u00a0is a Thrusting Sword\u00a0in Elden Ring. It was added with the\u00a0Shadow of the Erdtree DLC. The Carian Sorcery Sword\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and\u00a0Intelligence and is a good Weapon for players looking for a weapon that can also serve as a catalyst for spells.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 69
+      },
+      {
+        "name": "Mag",
+        "amount": 69
+      },
+      {
+        "name": "Crit",
+        "amount": 110
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 34
+      },
+      {
+        "name": "Mag",
+        "amount": 48
+      },
+      {
+        "name": "Fire",
+        "amount": 24
+      },
+      {
+        "name": "Ligt",
+        "amount": 24
+      },
+      {
+        "name": "Holy",
+        "amount": 24
+      },
+      {
+        "name": "Boost",
+        "amount": 19
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "E"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      },
+      {
+        "name": "Int",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 10
+      },
+      {
+        "name": "Dex",
+        "amount": 19
+      },
+      {
+        "name": "Int",
+        "amount": 16
+      }
+    ],
+    "category": "Thrusting Sword",
+    "weight": 2.5
+  },
+  {
+    "id": "euporia",
+    "name": "Euporia",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/1-euporia-weapon-location-elden-ring-shadow-of-the-erdtree-wiki-guide-600px.jpg",
+    "description": "Euporia\u00a0is a Twinblade\u00a0in Elden Ring. It is a brand new\u00a0Twinblade in the\u00a0Shadow of the Erdtree DLC. The Euporia\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and\u00a0Faith and is a good Weapon for Faith players looking for a twinblade. One of its unique features is its ability to powerup the weapon skill when attacking enemies.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 84
+      },
+      {
+        "name": "Holy",
+        "amount": 100
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 32
+      },
+      {
+        "name": "Mag",
+        "amount": 26
+      },
+      {
+        "name": "Fire",
+        "amount": 26
+      },
+      {
+        "name": "Ligt",
+        "amount": 26
+      },
+      {
+        "name": "Holy",
+        "amount": 59
+      },
+      {
+        "name": "Boost",
+        "amount": 32
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      },
+      {
+        "name": "Faith",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 16
+      },
+      {
+        "name": "Dex",
+        "amount": 16
+      },
+      {
+        "name": "Faith",
+        "amount": 24
+      }
+    ],
+    "category": "Twinblade",
+    "weight": 8.5
+  },
+  {
+    "id": "backhand_blade",
+    "name": "Backhand Blade",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/backhand_blade_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Backhand Blade\u00a0is a Backhand Blade\u00a0in Elden Ring. It is found in the Shadow of the Erdtree DLC. The Backhand Blade\u00a0scales primarily with Strength\u00a0and\u00a0Dexterity and is a good paired\u00a0Weapon for\u00a0agile builds that prefer DEX as it has S scaling in DEX at max upgrade with the Keen\u00a0affinity",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 105
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 40
+      },
+      {
+        "name": "Mag",
+        "amount": 30
+      },
+      {
+        "name": "Fire",
+        "amount": 30
+      },
+      {
+        "name": "Ligt",
+        "amount": 30
+      },
+      {
+        "name": "Holy",
+        "amount": 30
+      },
+      {
+        "name": "Boost",
+        "amount": 15
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 10
+      },
+      {
+        "name": "Dex",
+        "amount": 13
+      }
+    ],
+    "category": "Backhand Blade",
+    "weight": 2.0
+  },
+  {
+    "id": "lizard_greatsword",
+    "name": "Lizard Greatsword",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/lizard_greatsword_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Lizard Greatsword\u00a0is a Greatsword\u00a0in Elden Ring. It\u00a0was added with the Shadow of the Erdtree DLC. The Lizard Greatsword\u00a0scales primarily with Strength\u00a0and\u00a0Dexterity and is a good Weapon for balanced builds that look to have an impish look. This weapon can launch a projectile when you use its heavy attack and has the Stamp Skill that can shortly prevent you from being staggered.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 140
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 66
+      },
+      {
+        "name": "Mag",
+        "amount": 35
+      },
+      {
+        "name": "Fire",
+        "amount": 35
+      },
+      {
+        "name": "Ligt",
+        "amount": 35
+      },
+      {
+        "name": "Holy",
+        "amount": 35
+      },
+      {
+        "name": "Boost",
+        "amount": 43
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 12
+      },
+      {
+        "name": "Dex",
+        "amount": 14
+      }
+    ],
+    "category": "Greatsword",
+    "weight": 9.5
+  },
+  {
+    "id": "greatsword_of_solitude",
+    "name": "Greatsword of Solitude",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/greatsword_of_solitude_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Greatsword of Solitude\u00a0is a Greatsword\u00a0in Elden Ring. It is a brand new\u00a0Greatsword in the\u00a0Shadow of the Erdtree DLC. The Greatsword of Solitude\u00a0scales primarily with Strength\u00a0and\u00a0Dexterity and is a good Weapon for\u00a0pure Strength Builds. It's weapon skill, the Solitary Moon Slash, lets you summon light that can damage your enemies.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 120
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 89
+      },
+      {
+        "name": "Mag",
+        "amount": 40
+      },
+      {
+        "name": "Fire",
+        "amount": 40
+      },
+      {
+        "name": "Ligt",
+        "amount": 40
+      },
+      {
+        "name": "Holy",
+        "amount": 40
+      },
+      {
+        "name": "Boost",
+        "amount": 53
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "B"
+      },
+      {
+        "name": "Dex",
+        "scaling": "E"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 27
+      },
+      {
+        "name": "Dex",
+        "amount": 13
+      }
+    ],
+    "category": "Greatsword",
+    "weight": 15.5
+  },
+  {
+    "id": "greatsword_of_damnation",
+    "name": "Greatsword of Damnation",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/greatsword_of_damnation_greatsword_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Greatsword of Damnation\u00a0is a Greatsword\u00a0in Elden Ring. It\u00a0was added with the\u00a0Shadow of the Erdtree DLC. The Greatsword of Damnation\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and\u00a0Faith and is a good Weapon for for Faith players that are looking for a Greatsword. This weapon has high physical and holy damage and comes with the Golden Crux that allows you to do a leaping attack.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 123
+      },
+      {
+        "name": "Holy",
+        "amount": 79
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 58
+      },
+      {
+        "name": "Mag",
+        "amount": 31
+      },
+      {
+        "name": "Fire",
+        "amount": 31
+      },
+      {
+        "name": "Ligt",
+        "amount": 31
+      },
+      {
+        "name": "Holy",
+        "amount": 42
+      },
+      {
+        "name": "Boost",
+        "amount": 39
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "E"
+      },
+      {
+        "name": "Faith",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 20
+      },
+      {
+        "name": "Dex",
+        "amount": 15
+      },
+      {
+        "name": "Faith",
+        "amount": 20
+      }
+    ],
+    "category": "Greatsword",
+    "weight": 8.0
+  },
+  {
+    "id": "ancient_meteoric_ore_greatsword",
+    "name": "Ancient Meteoric Ore Greatsword",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ancient_meteoric_ore_greatsword_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Ancient Meteoric Ore Greatsword\u00a0is a Colossal Sword\u00a0in Elden Ring. It\u00a0was added with the\u00a0Shadow of the Erdtree DLC. The Ancient Meteoric Ore Greatsword\u00a0scales primarily with Strength, Dexterity\u00a0and Arcane and is a good Weapon for Arcane players that want to use a humongous weapon. This greatsword has high physical damage and does a decent amount of magic damage. It comes with the White Light Charge skill that lets you charge foes and blast them with light magic.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 154
+      },
+      {
+        "name": "Mag",
+        "amount": 46
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 80
+      },
+      {
+        "name": "Mag",
+        "amount": 55
+      },
+      {
+        "name": "Fire",
+        "amount": 49
+      },
+      {
+        "name": "Ligt",
+        "amount": 49
+      },
+      {
+        "name": "Holy",
+        "amount": 49
+      },
+      {
+        "name": "Boost",
+        "amount": 55
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "E"
+      },
+      {
+        "name": "Arc",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 35
+      },
+      {
+        "name": "Dex",
+        "amount": 10
+      },
+      {
+        "name": "Arc",
+        "amount": 19
+      }
+    ],
+    "category": "Colossal Sword",
+    "weight": 22.0
+  },
+  {
+    "id": "greatsword_of_radahn_(lord)",
+    "name": "Greatsword of Radahn (Lord)",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/greatsword_of_radahn_(lord)_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Greatsword of Radahn (Lord)\u00a0is a Colossal Sword\u00a0in Elden Ring. It is a brand new\u00a0Colossal Sword in the\u00a0Shadow of the Erdtree DLC. The Greatsword of Radahn (Lord)\u00a0scales primarily with Strength,\u00a0Dexterity,\u00a0and\u00a0Intelligence and is one of the options players can select when trading the Remembrance of a God and a Lord.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 129
+      },
+      {
+        "name": "Mag",
+        "amount": 83
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 69
+      },
+      {
+        "name": "Mag",
+        "amount": 42
+      },
+      {
+        "name": "Fire",
+        "amount": 47
+      },
+      {
+        "name": "Ligt",
+        "amount": 42
+      },
+      {
+        "name": "Holy",
+        "amount": 42
+      },
+      {
+        "name": "Boost",
+        "amount": 47
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      },
+      {
+        "name": "Int",
+        "scaling": "E"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 32
+      },
+      {
+        "name": "Dex",
+        "amount": 24
+      },
+      {
+        "name": "Int",
+        "amount": 15
+      }
+    ],
+    "category": "Colossal Sword",
+    "weight": 19.0
+  },
+  {
+    "id": "greatsword_of_radahn_(light)",
+    "name": "Greatsword of Radahn (Light)",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/greatsword_of_radahn_(light)_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Greatsword of Radahn (Light)\u00a0is a Colossal Sword\u00a0in Elden Ring. It is a brand new\u00a0Colossal Sword in the\u00a0Shadow of the Erdtree DLC. The Greatsword of Radahn (Light)\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and\u00a0Intelligence and can be obtained by trading the Remembrance of a God and a Lord\u00a0at the Roundtable Hold.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 129
+      },
+      {
+        "name": "Mag",
+        "amount": 83
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 65
+      },
+      {
+        "name": "Mag",
+        "amount": 47
+      },
+      {
+        "name": "Fire",
+        "amount": 34
+      },
+      {
+        "name": "Ligt",
+        "amount": 34
+      },
+      {
+        "name": "Holy",
+        "amount": 34
+      },
+      {
+        "name": "Boost",
+        "amount": 52
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      },
+      {
+        "name": "Int",
+        "scaling": "E"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 32
+      },
+      {
+        "name": "Dex",
+        "amount": 24
+      },
+      {
+        "name": "Int",
+        "amount": 15
+      }
+    ],
+    "category": "Colossal Sword",
+    "weight": 19.0
+  },
+  {
+    "id": "queelign%27s_greatsword",
+    "name": "Queelign%27s Greatsword",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/queeligns_greatsword_heavy_thrusting_sword_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Queelign's Greatsword\u00a0is a Heavy Thrusting Sword\u00a0in Elden Ring. It is a brand new Heavy Thrusting Sword in the Shadow of the Erdtree DLC. The Queelign's Greatsword\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and\u00a0Faith and is the Weapon\u00a0wielded by Fire Knight Queelign.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 117
+      },
+      {
+        "name": "Fire",
+        "amount": 35
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 50
+      },
+      {
+        "name": "Mag",
+        "amount": 34
+      },
+      {
+        "name": "Fire",
+        "amount": 45
+      },
+      {
+        "name": "Ligt",
+        "amount": 34
+      },
+      {
+        "name": "Holy",
+        "amount": 34
+      },
+      {
+        "name": "Boost",
+        "amount": 33
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      },
+      {
+        "name": "Faith",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 14
+      },
+      {
+        "name": "Dex",
+        "amount": 18
+      },
+      {
+        "name": "Faith",
+        "amount": 12
+      }
+    ],
+    "category": "Thrusting Sword",
+    "weight": 7.5
+  },
+  {
+    "id": "horned_warrior%27s_greatsword",
+    "name": "Horned Warrior%27s Greatsword",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/horned_warriors_greatsword_curved_greatsword_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Horned Warrior's Greatsword\u00a0is a Curved Greatsword\u00a0in Elden Ring. It was added with\u00a0the Shadow of the Erdtree DLC. The Horned Warrior's Greatsword\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and\u00a0Faith and is a good Weapon for\u00a0Builds that use Strength and Faith.\u00a0This comes with the Horn Calling skill which lets you do a ground slam with the weapon, letting multiple horns come out of the ground under an enemy.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 130
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 73
+      },
+      {
+        "name": "Mag",
+        "amount": 39
+      },
+      {
+        "name": "Fire",
+        "amount": 39
+      },
+      {
+        "name": "Ligt",
+        "amount": 39
+      },
+      {
+        "name": "Holy",
+        "amount": 39
+      },
+      {
+        "name": "Boost",
+        "amount": 47
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      },
+      {
+        "name": "Faith",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 19
+      },
+      {
+        "name": "Dex",
+        "amount": 16
+      },
+      {
+        "name": "Faith",
+        "amount": 13
+      }
+    ],
+    "category": "Greatsword",
+    "weight": 13.0
+  },
+  {
+    "id": "rakshasa%27s_great_katana",
+    "name": "Rakshasa%27s Great Katana",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/rakshasas_great_katana_great_katana_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Rakshasa's Great Katana\u00a0is a Great Katana\u00a0in Elden Ring. It is found in the\u00a0Shadow of the Erdtree DLC. The Rakshasa's Great Katana\u00a0scales primarily with Strength\u00a0and\u00a0Dexterity and is a good Weapon for STR/DEX builds. This weapon has blood-loss buildup and reduces your chances of getting staggered during attacks.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 155
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 53
+      },
+      {
+        "name": "Mag",
+        "amount": 24
+      },
+      {
+        "name": "Fire",
+        "amount": 24
+      },
+      {
+        "name": "Ligt",
+        "amount": 24
+      },
+      {
+        "name": "Holy",
+        "amount": 24
+      },
+      {
+        "name": "Boost",
+        "amount": 35
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "E"
+      },
+      {
+        "name": "Dex",
+        "scaling": "C"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 12
+      },
+      {
+        "name": "Dex",
+        "amount": 27
+      }
+    ],
+    "category": "Katana",
+    "weight": 9.5
+  },
+  {
+    "id": "dancing_blade_of_ranah",
+    "name": "Dancing Blade of Ranah",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/dancing_blade_of_ranah_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Dancing Blade of Ranah\u00a0is a paired\u00a0Curved Sword\u00a0in Elden Ring. It is a brand new\u00a0Curved Sword in the\u00a0Shadow of the Erdtree DLC. The Dancing Blade of Ranah\u00a0scales primarily with\u00a0Dexterity and is a good Weapon for Dexterity Builds that attack rapidly. This weapon comes with the Unending Dance Skill which lets you slash repeatedly until you drain your stamina.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 88
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 37
+      },
+      {
+        "name": "Mag",
+        "amount": 28
+      },
+      {
+        "name": "Fire",
+        "amount": 29
+      },
+      {
+        "name": "Ligt",
+        "amount": 29
+      },
+      {
+        "name": "Holy",
+        "amount": 27
+      },
+      {
+        "name": "Boost",
+        "amount": 20
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Dex",
+        "scaling": "B"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 9
+      },
+      {
+        "name": "Dex",
+        "amount": 20
+      }
+    ],
+    "category": "Curved Sword",
+    "weight": 3.5
+  },
+  {
+    "id": "milady",
+    "name": "Milady",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/milady_light_greatswords_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Milady\u00a0is a Light Greatsword\u00a0in Elden Ring. It is a found in the Shadow of the Erdtree DLC. The Milady\u00a0scales primarily with Strength\u00a0and\u00a0Dexterity and is a good Weapon for chaining together light and heavy attacks as well as having a large variety of Ashes of War.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 116
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 63
+      },
+      {
+        "name": "Mag",
+        "amount": 31
+      },
+      {
+        "name": "Fire",
+        "amount": 31
+      },
+      {
+        "name": "Ligt",
+        "amount": 31
+      },
+      {
+        "name": "Holy",
+        "amount": 31
+      },
+      {
+        "name": "Boost",
+        "amount": 36
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 12
+      },
+      {
+        "name": "Dex",
+        "amount": 17
+      }
+    ],
+    "category": "Greatsword",
+    "weight": 6.5
+  },
+  {
+    "id": "death_knight%27s_twin_axes",
+    "name": "Death Knight%27s Twin Axes",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/death_knights_twin_axes_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Death Knight's Twin Axes\u00a0is an\u00a0Axe\u00a0in Elden Ring. It was added with the\u00a0Shadow of the Erdtree DLC. The Death Knight's Twin Axes\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and\u00a0Faith and is a good Weapon for faith builds. This comes with the\u00a0Blinkbolt: Twinaxe skill, which transforms you into a bolt of lightning.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 101
+      },
+      {
+        "name": "Ligt",
+        "amount": 65
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 44
+      },
+      {
+        "name": "Mag",
+        "amount": 30
+      },
+      {
+        "name": "Fire",
+        "amount": 30
+      },
+      {
+        "name": "Ligt",
+        "amount": 44
+      },
+      {
+        "name": "Holy",
+        "amount": 30
+      },
+      {
+        "name": "Boost",
+        "amount": 33
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      },
+      {
+        "name": "Faith",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 14
+      },
+      {
+        "name": "Dex",
+        "amount": 12
+      },
+      {
+        "name": "Faith",
+        "amount": 16
+      }
+    ],
+    "category": "Axe",
+    "weight": 5.5
+  },
+  {
+    "id": "death_knight%27s_longhaft_axe",
+    "name": "Death Knight%27s Longhaft Axe",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/death_knights_longhaft_axe_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Death Knight's Longhaft Axe\u00a0is a Greataxe\u00a0in Elden Ring. It is a brand new\u00a0Greataxe in the\u00a0Shadow of the Erdtree DLC. The Death Knight's Longhaft Axe\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and\u00a0Faith and is a good Weapon for faith players looking for a great axe. This weapon deals both physical and lightning damage and comes with the Blinkbolt: Long-hafted Axe skill that transforms you into a bolt of lightning that rushes down to enemies and follows up with a heavy attack.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 113
+      },
+      {
+        "name": "Ligt",
+        "amount": 73
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 61
+      },
+      {
+        "name": "Mag",
+        "amount": 32
+      },
+      {
+        "name": "Fire",
+        "amount": 32
+      },
+      {
+        "name": "Ligt",
+        "amount": 46
+      },
+      {
+        "name": "Holy",
+        "amount": 32
+      },
+      {
+        "name": "Boost",
+        "amount": 43
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "E"
+      },
+      {
+        "name": "Faith",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 23
+      },
+      {
+        "name": "Dex",
+        "amount": 10
+      },
+      {
+        "name": "Faith",
+        "amount": 18
+      }
+    ],
+    "category": "Axe",
+    "weight": 11.5
+  },
+  {
+    "id": "putrescence_cleaver",
+    "name": "Putrescence Cleaver",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/putrescence_cleaver_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Putrescence Cleaver\u00a0is a Greataxe\u00a0in Elden Ring. It is a brand new\u00a0Greataxe in the\u00a0Shadow of the Erdtree DLC. The Putrescence Cleaver\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and\u00a0Arcane and is a good Weapon for inflicting Frostbite. This weapon causes frost to build up which gains power from you arcane stat. It also comes with the\u00a0Spinning Guillotine skill that lets you ground slam the blade, followed up by spinning slashes.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 141
+      },
+      {
+        "name": "Mag",
+        "amount": 42
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 66
+      },
+      {
+        "name": "Mag",
+        "amount": 44
+      },
+      {
+        "name": "Fire",
+        "amount": 38
+      },
+      {
+        "name": "Ligt",
+        "amount": 38
+      },
+      {
+        "name": "Holy",
+        "amount": 38
+      },
+      {
+        "name": "Boost",
+        "amount": 46
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "E"
+      },
+      {
+        "name": "Arc",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 28
+      },
+      {
+        "name": "Dex",
+        "amount": 10
+      },
+      {
+        "name": "Arc",
+        "amount": 15
+      }
+    ],
+    "category": "Axe",
+    "weight": 13.5
+  },
+  {
+    "id": "flowerstone_gavel",
+    "name": "Flowerstone Gavel",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/flowerstone_gavel_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Flowerstone Gavel\u00a0is a Hammer\u00a0in Elden Ring. It\u00a0was added with\u00a0the\u00a0Shadow of the Erdtree DLC. The Flowerstone Gavel\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and\u00a0Arcane and can be obtained from completing the Dragon Communion Priestess\u00a0questline.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 121
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 49
+      },
+      {
+        "name": "Mag",
+        "amount": 33
+      },
+      {
+        "name": "Fire",
+        "amount": 33
+      },
+      {
+        "name": "Ligt",
+        "amount": 33
+      },
+      {
+        "name": "Holy",
+        "amount": 33
+      },
+      {
+        "name": "Boost",
+        "amount": 33
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      },
+      {
+        "name": "Arc",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 14
+      },
+      {
+        "name": "Dex",
+        "amount": 8
+      },
+      {
+        "name": "Arc",
+        "amount": 15
+      }
+    ],
+    "category": "Hammer",
+    "weight": 6.0
+  },
+  {
+    "id": "black_steel_greathammer",
+    "name": "Black Steel Greathammer",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/black_steel_greathammer_great_hammer_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Black Steel Greathammer\u00a0is a Great Hammer\u00a0in Elden Ring. It\u00a0was added with the Shadow of the Erdtree DLC. The Black Steel Greathammer\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and\u00a0Faith and is a good Weapon for Faith\u00a0builds that are looking for a massive weapon that also scales with Strength and Dexterity.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 140
+      },
+      {
+        "name": "Holy",
+        "amount": 42
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 72
+      },
+      {
+        "name": "Mag",
+        "amount": 38
+      },
+      {
+        "name": "Fire",
+        "amount": 38
+      },
+      {
+        "name": "Ligt",
+        "amount": 38
+      },
+      {
+        "name": "Holy",
+        "amount": 45
+      },
+      {
+        "name": "Boost",
+        "amount": 47
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "C"
+      },
+      {
+        "name": "Dex",
+        "scaling": "E"
+      },
+      {
+        "name": "Faith",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 25
+      },
+      {
+        "name": "Dex",
+        "amount": 11
+      },
+      {
+        "name": "Faith",
+        "amount": 17
+      }
+    ],
+    "category": "Hammer",
+    "weight": 12.0
+  },
+  {
+    "id": "smithscript_greathammer",
+    "name": "Smithscript Greathammer",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/smithscript_greathammer_great_hammer_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Smithscript Greathammer\u00a0is a Great Hammer\u00a0in Elden Ring. It\u00a0was added with the Shadow of the Erdtree DLC. The Smithscript Greathammer\u00a0scales primarily with Strength,\u00a0Dexterity, Intelligence\u00a0and\u00a0Faith and is a good Weapon for players looking for a heavy ranged melee alternative without a FP cost. As a Smithscript weapon, it can be thrown and immediately returns to the user's hand.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 141
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 65
+      },
+      {
+        "name": "Mag",
+        "amount": 35
+      },
+      {
+        "name": "Fire",
+        "amount": 35
+      },
+      {
+        "name": "Ligt",
+        "amount": 35
+      },
+      {
+        "name": "Holy",
+        "amount": 35
+      },
+      {
+        "name": "Boost",
+        "amount": 42
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "C"
+      },
+      {
+        "name": "Dex",
+        "scaling": "E"
+      },
+      {
+        "name": "Int",
+        "scaling": "E"
+      },
+      {
+        "name": "Faith",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 20
+      },
+      {
+        "name": "Dex",
+        "amount": 10
+      },
+      {
+        "name": "Int",
+        "amount": 11
+      },
+      {
+        "name": "Faith",
+        "amount": 11
+      }
+    ],
+    "category": "Hammer",
+    "weight": 9.0
+  },
+  {
+    "id": "anvil_hammer",
+    "name": "Anvil Hammer",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/anvil_hammer_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Anvil Hammer\u00a0is a Colossal Weapon\u00a0in Elden Ring. It is a brand new\u00a0Colossal Weapon in the\u00a0Shadow of the Erdtree DLC. The Anvil Hammer\u00a0scales primarily with Strength,\u00a0Dexterity,\u00a0 Intelligence\u00a0and Faith and is a good Weapon for\u00a0Strength or multi-attribute Builds. This weapon comes with the Smithing Art Spears skill which lets you smash the ground very hard and summons multiple spears from the ground.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 131
+      },
+      {
+        "name": "Fire",
+        "amount": 85
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 80
+      },
+      {
+        "name": "Mag",
+        "amount": 43
+      },
+      {
+        "name": "Fire",
+        "amount": 59
+      },
+      {
+        "name": "Ligt",
+        "amount": 43
+      },
+      {
+        "name": "Holy",
+        "amount": 41
+      },
+      {
+        "name": "Boost",
+        "amount": 53
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "C"
+      },
+      {
+        "name": "Dex",
+        "scaling": "E"
+      },
+      {
+        "name": "Int",
+        "scaling": "E"
+      },
+      {
+        "name": "Faith",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 39
+      },
+      {
+        "name": "Dex",
+        "amount": 10
+      },
+      {
+        "name": "Int",
+        "amount": 11
+      },
+      {
+        "name": "Faith",
+        "amount": 20
+      }
+    ],
+    "category": "Colossal Weapon",
+    "weight": 22.0
+  },
+  {
+    "id": "devonia%27s_hammer",
+    "name": "Devonia%27s Hammer",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/devonias_hammer_unique_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Devonia's Hammer\u00a0is a Colossal Weapon\u00a0in Elden Ring. It is a Colossal Weapon introduced in the\u00a0Shadow of the Erdtree DLC. The Devonia's Hammer\u00a0scales primarily with Strength,\u00a0Dexterity,\u00a0and\u00a0Faith and is a good Weapon for STR/FAI builds.\u00a0It draws from the power of the Crucible.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 147
+      },
+      {
+        "name": "Holy",
+        "amount": 44
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 73
+      },
+      {
+        "name": "Mag",
+        "amount": 45
+      },
+      {
+        "name": "Fire",
+        "amount": 45
+      },
+      {
+        "name": "Ligt",
+        "amount": 45
+      },
+      {
+        "name": "Holy",
+        "amount": 51
+      },
+      {
+        "name": "Boost",
+        "amount": 51
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "C"
+      },
+      {
+        "name": "Dex",
+        "scaling": "E"
+      },
+      {
+        "name": "Faith",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 30
+      },
+      {
+        "name": "Dex",
+        "amount": 13
+      },
+      {
+        "name": "Faith",
+        "amount": 19
+      }
+    ],
+    "category": "Colossal Weapon",
+    "weight": 20.0
+  },
+  {
+    "id": "serpent_flail",
+    "name": "Serpent Flail",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/serpent_flail_flails_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Serpent Flail\u00a0is a Flail\u00a0in Elden Ring. It was added with the Shadow of the Erdtree DLC. The Serpent Flail\u00a0scales primarily with Strength,\u00a0Dexterity,\u00a0and\u00a0Faith and is a good Weapon for dealing highs amounts of Fire Damage for a cheap cost and for Faith builds.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 77
+      },
+      {
+        "name": "Fire",
+        "amount": 92
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 34
+      },
+      {
+        "name": "Mag",
+        "amount": 25
+      },
+      {
+        "name": "Fire",
+        "amount": 50
+      },
+      {
+        "name": "Ligt",
+        "amount": 24
+      },
+      {
+        "name": "Holy",
+        "amount": 25
+      },
+      {
+        "name": "Boost",
+        "amount": 21
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "E"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      },
+      {
+        "name": "Faith",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 10
+      },
+      {
+        "name": "Dex",
+        "amount": 24
+      },
+      {
+        "name": "Faith",
+        "amount": 21
+      }
+    ],
+    "category": "Flail",
+    "weight": 6.0
+  },
+  {
+    "id": "swift_spear",
+    "name": "Swift Spear",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/swift_spear_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Swift Spear\u00a0is a Spear\u00a0in Elden Ring. It is a brand new Spear in the Shadow of the Erdtree DLC. The Swift Spear\u00a0scales primarily with Strength\u00a0and\u00a0Dexterity and is a good Weapon for\u00a0builds that like to attack rapidly with decent range. This weapon is good for its high attack speed and can be paired with a shield. This also comes with the Impaling Thrust which goes through an enemy guarding.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 99
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 40
+      },
+      {
+        "name": "Mag",
+        "amount": 25
+      },
+      {
+        "name": "Fire",
+        "amount": 25
+      },
+      {
+        "name": "Ligt",
+        "amount": 25
+      },
+      {
+        "name": "Holy",
+        "amount": 25
+      },
+      {
+        "name": "Boost",
+        "amount": 30
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Dex",
+        "scaling": "C"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 10
+      },
+      {
+        "name": "Dex",
+        "amount": 26
+      }
+    ],
+    "category": "Spear",
+    "weight": 3.0
+  },
+  {
+    "id": "smithscript_spear",
+    "name": "Smithscript Spear",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/smithscript_spear_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Smithscript Spear\u00a0is a Spear\u00a0in Elden Ring. It was added with\u00a0the Shadow of the Erdtree DLC. The Smithscript Spear\u00a0scales primarily with Strength,\u00a0Dexterity,\u00a0Intelligence\u00a0and\u00a0Faith and is a good Weapon for players that want a ranged melee alternative without a FP cost. As a Smithscript weapon, it can be thrown and immediately returns to the user's hand.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 107
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 38
+      },
+      {
+        "name": "Mag",
+        "amount": 23
+      },
+      {
+        "name": "Fire",
+        "amount": 23
+      },
+      {
+        "name": "Ligt",
+        "amount": 23
+      },
+      {
+        "name": "Holy",
+        "amount": 23
+      },
+      {
+        "name": "Boost",
+        "amount": 28
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      },
+      {
+        "name": "Int",
+        "scaling": "E"
+      },
+      {
+        "name": "Faith",
+        "scaling": "E"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 9
+      },
+      {
+        "name": "Dex",
+        "amount": 12
+      },
+      {
+        "name": "Int",
+        "amount": 11
+      },
+      {
+        "name": "Faith",
+        "amount": 11
+      }
+    ],
+    "category": "Spear",
+    "weight": 4.0
+  },
+  {
+    "id": "bloodfiend%27s_sacred_spear",
+    "name": "Bloodfiend%27s Sacred Spear",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/bloodfiends_sacred_spear_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Bloodfiend's Sacred Spear\u00a0is a Great Spear\u00a0in Elden Ring. It is a brand new Great Spear in the Shadow of the Erdtree DLC. The Bloodfiend's Sacred Spear\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and\u00a0Arcane and is a good Weapon for Arcane\u00a0builds. This weapon causes blood-loss build-up and comes with the Bloodfiend's Bloodboon skill that lets you summon blood flames to your enemy.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 115
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 40
+      },
+      {
+        "name": "Mag",
+        "amount": 25
+      },
+      {
+        "name": "Fire",
+        "amount": 25
+      },
+      {
+        "name": "Ligt",
+        "amount": 25
+      },
+      {
+        "name": "Holy",
+        "amount": 25
+      },
+      {
+        "name": "Boost",
+        "amount": 30
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "E"
+      },
+      {
+        "name": "Dex",
+        "scaling": "E"
+      },
+      {
+        "name": "Arc",
+        "scaling": "C"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 22
+      },
+      {
+        "name": "Dex",
+        "amount": 12
+      },
+      {
+        "name": "Arc",
+        "amount": 13
+      }
+    ],
+    "category": "Spear",
+    "weight": 8.0
+  },
+  {
+    "id": "spear_of_the_impaler",
+    "name": "Spear of the Impaler",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/spear_of_the_impaler_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Spear of the Impaler\u00a0is a Great Spear\u00a0in Elden Ring. It was added with the\u00a0Shadow of the Erdtree DLC. The Spear of the Impaler\u00a0scales primarily with Strength,\u00a0Dexterity,\u00a0and\u00a0Faith and is\u00a0the legendary spear wielded by Messmer the Impaler. This comes with the Messmer's Assault skill that lets you do a combo of attacks and eventually slamming the spear that causes a wide area of damage.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 85
+      },
+      {
+        "name": "Fire",
+        "amount": 102
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 48
+      },
+      {
+        "name": "Mag",
+        "amount": 32
+      },
+      {
+        "name": "Fire",
+        "amount": 32
+      },
+      {
+        "name": "Ligt",
+        "amount": 64
+      },
+      {
+        "name": "Holy",
+        "amount": 32
+      },
+      {
+        "name": "Boost",
+        "amount": 45
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "E"
+      },
+      {
+        "name": "Dex",
+        "scaling": "C"
+      },
+      {
+        "name": "Faith",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 14
+      },
+      {
+        "name": "Dex",
+        "amount": 35
+      },
+      {
+        "name": "Faith",
+        "amount": 18
+      }
+    ],
+    "category": "Spear",
+    "weight": 9.5
+  },
+  {
+    "id": "spirit_glaive",
+    "name": "Spirit Glaive",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/spirit_glaive_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Spirit Glaive\u00a0is a Halberd\u00a0in Elden Ring. It is a brand-new\u00a0Halberd in the\u00a0Shadow of the Erdtree DLC. The Spirit Glaive\u00a0scales primarily with Strength,\u00a0Dexterity,\u00a0and\u00a0Intelligence and is a good Weapon for INT players, and is related to the Spirit Sword, sharing the same Skill, which is the Rancor Slash.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 121
+      },
+      {
+        "name": "Mag",
+        "amount": 36
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 47
+      },
+      {
+        "name": "Mag",
+        "amount": 38
+      },
+      {
+        "name": "Fire",
+        "amount": 33
+      },
+      {
+        "name": "Ligt",
+        "amount": 33
+      },
+      {
+        "name": "Holy",
+        "amount": 33
+      },
+      {
+        "name": "Boost",
+        "amount": 39
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      },
+      {
+        "name": "Int",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 14
+      },
+      {
+        "name": "Dex",
+        "amount": 17
+      },
+      {
+        "name": "Int",
+        "amount": 16
+      }
+    ],
+    "category": "Halberd",
+    "weight": 6.5
+  },
+  {
+    "id": "poleblade_of_the_bud",
+    "name": "Poleblade of the Bud",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/poleblade_of_the_bud_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Poleblade of the Bud\u00a0is a Halberd\u00a0in Elden Ring. It is a brand-new\u00a0Halberd in the\u00a0Shadow of the Erdtree DLC. The Poleblade of the Bud\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and\u00a0Arcane and is the weapon wielded by Romina, Saint of the Bud. This causes scarlet rot buildup and has the skill called Romina's Purification which lets you do sweep attacks that have Scarlet Rot.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 131
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 60
+      },
+      {
+        "name": "Mag",
+        "amount": 38
+      },
+      {
+        "name": "Fire",
+        "amount": 38
+      },
+      {
+        "name": "Ligt",
+        "amount": 38
+      },
+      {
+        "name": "Holy",
+        "amount": 38
+      },
+      {
+        "name": "Boost",
+        "amount": 46
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "E"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      },
+      {
+        "name": "Arc",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 14
+      },
+      {
+        "name": "Dex",
+        "amount": 22
+      },
+      {
+        "name": "Arc",
+        "amount": 20
+      }
+    ],
+    "category": "Halberd",
+    "weight": 10.0
+  },
+  {
+    "id": "obsidian_lamina",
+    "name": "Obsidian Lamina",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/obsidian_lamina_reaper_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Obsidian Lamina\u00a0is a Reaper\u00a0in Elden Ring. It was added with\u00a0the\u00a0Shadow of the Erdtree DLC. The Obsidian Lamina\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and\u00a0Arcane and is a good Weapon for bleed builds. It can be obtained after completing Sir Ansbach's questline by aiding him.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 120
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 42
+      },
+      {
+        "name": "Mag",
+        "amount": 28
+      },
+      {
+        "name": "Fire",
+        "amount": 28
+      },
+      {
+        "name": "Ligt",
+        "amount": 28
+      },
+      {
+        "name": "Holy",
+        "amount": 28
+      },
+      {
+        "name": "Boost",
+        "amount": 28
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "E"
+      },
+      {
+        "name": "Dex",
+        "scaling": "C"
+      },
+      {
+        "name": "Arc",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 12
+      },
+      {
+        "name": "Dex",
+        "amount": 25
+      },
+      {
+        "name": "Arc",
+        "amount": 17
+      }
+    ],
+    "category": "Reaper",
+    "weight": 6.5
+  },
+  {
+    "id": "tooth_whip",
+    "name": "Tooth Whip",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/tooth_whip_whips_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Tooth Whip\u00a0is a Whip\u00a0in Elden Ring. It is a brand-new\u00a0Whip in the\u00a0Shadow of the Erdtree DLC. The Tooth Whip\u00a0scales primarily with Strength\u00a0and\u00a0Dexterity and is a good Weapon for players looking for a Poison whip. This applies posionbuildup and comes with the painful strike skill.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 109
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 27
+      },
+      {
+        "name": "Mag",
+        "amount": 16
+      },
+      {
+        "name": "Fire",
+        "amount": 16
+      },
+      {
+        "name": "Ligt",
+        "amount": 16
+      },
+      {
+        "name": "Holy",
+        "amount": 16
+      },
+      {
+        "name": "Boost",
+        "amount": 16
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "E"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 10
+      },
+      {
+        "name": "Dex",
+        "amount": 24
+      }
+    ],
+    "category": "Whip",
+    "weight": 3.0
+  },
+  {
+    "id": "poisoned_hand",
+    "name": "Poisoned Hand",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/poisoned_hand_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Poisoned Hand\u00a0is a Fist\u00a0in Elden Ring. It was added with the\u00a0Shadow of the Erdtree DLC. The Poisoned Hand\u00a0scales primarily with Strength\u00a0and\u00a0Arcane and is a good Weapon for inflicting Poison.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 76
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 33
+      },
+      {
+        "name": "Mag",
+        "amount": 19
+      },
+      {
+        "name": "Fire",
+        "amount": 19
+      },
+      {
+        "name": "Ligt",
+        "amount": 19
+      },
+      {
+        "name": "Holy",
+        "amount": 19
+      },
+      {
+        "name": "Boost",
+        "amount": 19
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "E"
+      },
+      {
+        "name": "Arc",
+        "scaling": "C"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 8
+      },
+      {
+        "name": "Dex",
+        "amount": 8
+      },
+      {
+        "name": "Arc",
+        "amount": 28
+      }
+    ],
+    "category": "Fist",
+    "weight": 1.0
+  },
+  {
+    "id": "madding_hand",
+    "name": "Madding Hand",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/madding_hand_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Madding Hand\u00a0is a Fist\u00a0in Elden Ring. It was added with the\u00a0Shadow of the Erdtree DLC. The Madding Hand\u00a0scales primarily with Strength,\u00a0Dexterity,\u00a0Intelligence,\u00a0and Faith and is a good Weapon for inflicting Madness.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 53
+      },
+      {
+        "name": "Fire",
+        "amount": 63
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 20
+      },
+      {
+        "name": "Mag",
+        "amount": 15
+      },
+      {
+        "name": "Fire",
+        "amount": 42
+      },
+      {
+        "name": "Ligt",
+        "amount": 15
+      },
+      {
+        "name": "Holy",
+        "amount": 15
+      },
+      {
+        "name": "Boost",
+        "amount": 19
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "E"
+      },
+      {
+        "name": "Int",
+        "scaling": "E"
+      },
+      {
+        "name": "Faith",
+        "scaling": "E"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 8
+      },
+      {
+        "name": "Dex",
+        "amount": 8
+      },
+      {
+        "name": "Int",
+        "amount": 13
+      },
+      {
+        "name": "Faith",
+        "amount": 20
+      }
+    ],
+    "category": "Fist",
+    "weight": 1.0
+  },
+  {
+    "id": "thiollier%27s_hidden_needle",
+    "name": "Thiollier%27s Hidden Needle",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/thiolliers_hidden_needle_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Thiollier's Hidden Needle\u00a0is a Fist\u00a0in Elden Ring. It is a brand-new\u00a0Fist in the\u00a0Shadow of the Erdtree DLC. The Thiollier's Hidden Needle\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and\u00a0Intelligence and is a good Weapon for players that want to use a weapon capable of inflicting Sleep.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 70
+      },
+      {
+        "name": "Mag",
+        "amount": 45
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 28
+      },
+      {
+        "name": "Mag",
+        "amount": 27
+      },
+      {
+        "name": "Fire",
+        "amount": 16
+      },
+      {
+        "name": "Ligt",
+        "amount": 16
+      },
+      {
+        "name": "Holy",
+        "amount": 16
+      },
+      {
+        "name": "Boost",
+        "amount": 18
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "E"
+      },
+      {
+        "name": "Dex",
+        "scaling": "C"
+      },
+      {
+        "name": "Int",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 10
+      },
+      {
+        "name": "Dex",
+        "amount": 22
+      },
+      {
+        "name": "Int",
+        "amount": 15
+      }
+    ],
+    "category": "Fist",
+    "weight": 0.5
+  },
+  {
+    "id": "golem_fist",
+    "name": "Golem Fist",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/golem_fist_fist_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Golem Fist\u00a0is a Fist\u00a0in Elden Ring. It was added with\u00a0the Shadow of the Erdtree DLC. The Golem Fist\u00a0scales primarily with Strength,\u00a0Dexterity,\u00a0Intelligence\u00a0and\u00a0Faith and is a good Weapon for players that want a ranged melee alternative without a FP cost. As a Smithscript weapon, it can be thrown and immediately returns to the user's hand.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 110
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 58
+      },
+      {
+        "name": "Mag",
+        "amount": 24
+      },
+      {
+        "name": "Fire",
+        "amount": 24
+      },
+      {
+        "name": "Ligt",
+        "amount": 24
+      },
+      {
+        "name": "Holy",
+        "amount": 24
+      },
+      {
+        "name": "Boost",
+        "amount": 36
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "C"
+      },
+      {
+        "name": "Dex",
+        "scaling": "E"
+      },
+      {
+        "name": "Int",
+        "scaling": "E"
+      },
+      {
+        "name": "Faith",
+        "scaling": "E"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 24
+      },
+      {
+        "name": "Dex",
+        "amount": 8
+      },
+      {
+        "name": "Int",
+        "amount": 11
+      },
+      {
+        "name": "Faith",
+        "amount": 11
+      }
+    ],
+    "category": "Fist",
+    "weight": 5.0
+  },
+  {
+    "id": "dryleaf_arts",
+    "name": "Dryleaf Arts",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/dryleaf_arts_hand-to-hand_arts_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Dryleaf Arts\u00a0is a Hand-to-Hand Art\u00a0in Elden Ring. It is an armament introduced in the Shadow of the Erdtree DLC. The Dryleaf Arts\u00a0scales primarily with Strength\u00a0and\u00a0Dexterity and is a good Weapon for\u00a0those looking for rapid attacks with long combos.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 86
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 35
+      },
+      {
+        "name": "Mag",
+        "amount": 20
+      },
+      {
+        "name": "Fire",
+        "amount": 20
+      },
+      {
+        "name": "Ligt",
+        "amount": 20
+      },
+      {
+        "name": "Holy",
+        "amount": 20
+      },
+      {
+        "name": "Boost",
+        "amount": 20
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 8
+      },
+      {
+        "name": "Dex",
+        "amount": 8
+      }
+    ],
+    "category": "Shield",
+    "weight": 1.0
+  },
+  {
+    "id": "dane%27s_footwork",
+    "name": "Dane%27s Footwork",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/danes_footwork_hand-to-hand_arts_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Dane's Footwork\u00a0is a Hand-to-Hand Art\u00a0in Elden Ring. It is an armament introduced in the Shadow of the Erdtree DLC. The Dane's Footwork\u00a0scales primarily with Strength\u00a0and\u00a0Dexterity and is a good Weapon for players that want to experience this new weapon type.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 86
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 35
+      },
+      {
+        "name": "Mag",
+        "amount": 20
+      },
+      {
+        "name": "Fire",
+        "amount": 20
+      },
+      {
+        "name": "Ligt",
+        "amount": 20
+      },
+      {
+        "name": "Holy",
+        "amount": 20
+      },
+      {
+        "name": "Boost",
+        "amount": 20
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 8
+      },
+      {
+        "name": "Dex",
+        "amount": 8
+      }
+    ],
+    "category": "Shield",
+    "weight": 1.0
+  },
+  {
+    "id": "claws_of_night",
+    "name": "Claws of Night",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/claws_of_night_unique_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Claws of Night\u00a0is a\u00a0Claw\u00a0in Elden Ring. It was added with the\u00a0Shadow of the Erdtree DLC. The Claws of Night\u00a0only scales with Dexterity\u00a0and is\u00a0therefore a\u00a0good Weapon for dexterity builds. As a Smithscript weapon, the claws can be thrown and immediately returns to the user's hand.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 79
+      },
+      {
+        "name": "Mag",
+        "amount": 51
+      },
+      {
+        "name": "Crit",
+        "amount": 110
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 33
+      },
+      {
+        "name": "Mag",
+        "amount": 31
+      },
+      {
+        "name": "Fire",
+        "amount": 18
+      },
+      {
+        "name": "Ligt",
+        "amount": 18
+      },
+      {
+        "name": "Holy",
+        "amount": 18
+      },
+      {
+        "name": "Boost",
+        "amount": 21
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Dex",
+        "scaling": "C"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 8
+      },
+      {
+        "name": "Dex",
+        "amount": 20
+      }
+    ],
+    "category": "Claw",
+    "weight": 3.0
+  },
+  {
+    "id": "beast_claw",
+    "name": "Beast Claw",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/beast_claw_incantation_elden_ring_wiki_guide_200px.png",
+    "description": "Beast Claw is an Incantation in Elden Ring. Beast Claw spell\u00a0conjures five offensive vertical waves that travel forward dealing damage. Updated to\u00a0Patch 1.07.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 98
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 35
+      },
+      {
+        "name": "Mag",
+        "amount": 20
+      },
+      {
+        "name": "Fire",
+        "amount": 20
+      },
+      {
+        "name": "Ligt",
+        "amount": 20
+      },
+      {
+        "name": "Holy",
+        "amount": 20
+      },
+      {
+        "name": "Boost",
+        "amount": 20
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 13
+      },
+      {
+        "name": "Dex",
+        "amount": 11
+      }
+    ],
+    "category": "Shield",
+    "weight": 3.0
+  },
+  {
+    "id": "red_bear%27s_claw",
+    "name": "Red Bear%27s Claw",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/red_bears_claw_beast_claws_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Red Bear's Claw\u00a0is a Beast Claw\u00a0in Elden Ring. It was added with\u00a0the\u00a0Shadow of the Erdtree DLC. The Red Bear's Claw\u00a0scales primarily with Strength\u00a0and\u00a0Dexterity and is a good Weapon\u00a0that deals damage fast and inflicts Hemorrhage.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 104
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 38
+      },
+      {
+        "name": "Mag",
+        "amount": 22
+      },
+      {
+        "name": "Fire",
+        "amount": 22
+      },
+      {
+        "name": "Ligt",
+        "amount": 22
+      },
+      {
+        "name": "Holy",
+        "amount": 22
+      },
+      {
+        "name": "Boost",
+        "amount": 22
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "C"
+      },
+      {
+        "name": "Dex",
+        "scaling": "E"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 20
+      },
+      {
+        "name": "Dex",
+        "amount": 10
+      }
+    ],
+    "category": "Claw",
+    "weight": 4.0
+  },
+  {
+    "id": "bone_bow",
+    "name": "Bone Bow",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/bone_bow_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Bone Bow\u00a0is a Light Bow\u00a0in Elden Ring. It was added with the\u00a0Shadow of the Erdtree DLC. The Bone Bow\u00a0scales primarily with Strength\u00a0and\u00a0Dexterity and is a good Weapon for setting status effects and enemies who input read projectiles. This is a fast weapon that comes with the Rancor Shot skill that lets you engulf your arrows with spirits that go for an enemy.\u00a0All\u00a0Light\u00a0Bows\u00a0require\u00a0Arrows\u00a0to fire.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 66
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "E"
+      },
+      {
+        "name": "Dex",
+        "scaling": "E"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 8
+      },
+      {
+        "name": "Dex",
+        "amount": 11
+      }
+    ],
+    "category": "Bow",
+    "weight": 3.0
+  },
+  {
+    "id": "ansbach%27s_longbow",
+    "name": "Ansbach%27s Longbow",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/ansbachs_longbow_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Ansbach's Longbow\u00a0is a Bow\u00a0in Elden Ring. It was added with the\u00a0Shadow of the Erdtree DLC. The Ansbach's Longbow\u00a0scales primarily with Strength\u00a0and\u00a0Dexterity and is wielded by Sir Ansbach.\u00a0All\u00a0Bows\u00a0require\u00a0Arrows\u00a0to fire.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 74
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "E"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 9
+      },
+      {
+        "name": "Dex",
+        "amount": 43
+      }
+    ],
+    "category": "Bow",
+    "weight": 4.5
+  },
+  {
+    "id": "repeating_crossbow",
+    "name": "Repeating Crossbow",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/repeating_crossbow_crossbow_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Repeating Crossbow\u00a0is a Crossbow\u00a0in Elden Ring. It is\u00a0found\u00a0in the\u00a0Shadow of the Erdtree DLC. The Repeating Crossbow\u00a0scales primarily with Strength and is a good Weapon\u00a0that inflicts ranged damage and solid barrage of shots. It is the only crossbow with a unique skill. All Crossbows\u00a0require\u00a0Bolts\u00a0to fire.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 74
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [],
+    "scalesWith": [],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 13
+      },
+      {
+        "name": "Dex",
+        "amount": 15
+      }
+    ],
+    "category": "Bow",
+    "weight": 6.0
+  },
+  {
+    "id": "spread_crossbow",
+    "name": "Spread Crossbow",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/spread_crossbow_crossbow_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Spread Crossbow\u00a0is a Crossbow\u00a0in Elden Ring. It is a brand-new\u00a0Crossbow in the\u00a0Shadow of the Erdtree DLC. The Spread Crossbow does not scale with any stat attributes, but requires Strength and Dexterity. It is\u00a0a good Weapon for dealing with groups of enemies.\u00a0All\u00a0Crossbows\u00a0require\u00a0Bolts\u00a0to fire.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 68
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [],
+    "scalesWith": [],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 11
+      },
+      {
+        "name": "Dex",
+        "amount": 17
+      }
+    ],
+    "category": "Bow",
+    "weight": 5.0
+  },
+  {
+    "id": "igon%27s_greatbow",
+    "name": "Igon%27s Greatbow",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/igons_greatbow_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Igon's Greatbow\u00a0is a Greatbow\u00a0in Elden Ring. It is\u00a0found in the\u00a0Shadow of the Erdtree\u00a0DLC.\u00a0Igon's Greatbow\u00a0scales primarily with Strength\u00a0and is specifically\u00a0made for hunting dragons. Despite the mobility flaw, the heavy damage\u00a0dealt when using great arrows makes up for it. All\u00a0Greatbows\u00a0require\u00a0Great Arrows\u00a0to fire.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 120
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "E"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 23
+      },
+      {
+        "name": "Dex",
+        "amount": 16
+      }
+    ],
+    "category": "Bow",
+    "weight": 12.5
+  },
+  {
+    "id": "smithscript_shield",
+    "name": "Smithscript Shield",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/smithscript_shield_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Smithscript Shield\u00a0is a Small Shield in Elden Ring. It is a brand new Small Shield in the Shadow of the Erdtree DLC. The Smithscript Shield\u00a0is a Shield that scales primarily with Strength,\u00a0\u00a0Intelligence\u00a0and\u00a0Faith. Small Shields usually weigh very little and has the least form of protection from attacks. They are often used by players who prefer Parrying rather than Blocking. Its lighter weight also makes it ideal for quick, agile characters with low equipment weight capacity.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 72
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 84
+      },
+      {
+        "name": "Mag",
+        "amount": 38
+      },
+      {
+        "name": "Fire",
+        "amount": 38
+      },
+      {
+        "name": "Ligt",
+        "amount": 38
+      },
+      {
+        "name": "Holy",
+        "amount": 38
+      },
+      {
+        "name": "Boost",
+        "amount": 47
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Int",
+        "scaling": "E"
+      },
+      {
+        "name": "Faith",
+        "scaling": "E"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 10
+      },
+      {
+        "name": "Dex",
+        "amount": 15
+      },
+      {
+        "name": "Int",
+        "amount": 11
+      },
+      {
+        "name": "Faith",
+        "amount": 11
+      }
+    ],
+    "category": "Shield",
+    "weight": 2.5
+  },
+  {
+    "id": "shield_of_night",
+    "name": "Shield of Night",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/shield_of_night_unique_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Shield of Night\u00a0is a Small Shield in Elden Ring. It was added with\u00a0the Shadow of the Erdtree DLC. The Shield of Night\u00a0is a Shield that scales primarily with Dexterity. Small Shields\u00a0usually weigh very little and has the least form of protection from attacks. They are often used by players who prefer Parrying rather than Blocking. Its lighter weight also makes it ideal for quick, agile characters with low equipment weight capacity.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 78
+      },
+      {
+        "name": "Mag",
+        "amount": 50
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 74
+      },
+      {
+        "name": "Mag",
+        "amount": 70
+      },
+      {
+        "name": "Fire",
+        "amount": 45
+      },
+      {
+        "name": "Ligt",
+        "amount": 45
+      },
+      {
+        "name": "Holy",
+        "amount": 45
+      },
+      {
+        "name": "Boost",
+        "amount": 43
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Dex",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 8
+      },
+      {
+        "name": "Dex",
+        "amount": 15
+      }
+    ],
+    "category": "Shield",
+    "weight": 2.0
+  },
+  {
+    "id": "golden_lion_shield",
+    "name": "Golden Lion Shield",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/golden_lion_shield_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Golden Lion Shield\u00a0is a Medium Shield in Elden Ring. It was added with the Shadow of the Erdtree DLC. The Golden Lion Shield\u00a0is a Shield that scales primarily with Strength. Medium Shields\u00a0feature a good balance between defense and weight, which is great for most situations in combat. Although it may not be as light as a\u00a0Small Shield\u00a0which is good for agility and parrying, the\u00a0Standard Shield works best at reducing damage and blocking.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 97
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 100
+      },
+      {
+        "name": "Mag",
+        "amount": 44
+      },
+      {
+        "name": "Fire",
+        "amount": 43
+      },
+      {
+        "name": "Ligt",
+        "amount": 41
+      },
+      {
+        "name": "Holy",
+        "amount": 49
+      },
+      {
+        "name": "Boost",
+        "amount": 64
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "C"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 11
+      }
+    ],
+    "category": "Shield",
+    "weight": 5.5
+  },
+  {
+    "id": "verdigris_greatshield",
+    "name": "Verdigris Greatshield",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/verdigris_greatshield_greatshields_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Verdigris Greatshield\u00a0is a Greatshield in Elden Ring. It is a brand new Greatshield in the Shadow of the Erdtree DLC. The Verdigris Greatshield\u00a0is a Shield that scales primarily with Strength. Greatshields\u00a0weigh a decent amount and provide the best protection in the game.\u00a0Greatshields\u00a0provide a greater value of blocking and protecting oneself from enemy and boss attacks but greatly increases the weight and reduces the player's mobility. This type of shield works best at reducing damage or guarding instead of parrying.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 194
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 100
+      },
+      {
+        "name": "Mag",
+        "amount": 72
+      },
+      {
+        "name": "Fire",
+        "amount": 74
+      },
+      {
+        "name": "Ligt",
+        "amount": 67
+      },
+      {
+        "name": "Holy",
+        "amount": 68
+      },
+      {
+        "name": "Boost",
+        "amount": 82
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 49
+      }
+    ],
+    "category": "Shield",
+    "weight": 28.0
+  },
+  {
+    "id": "dueling_shield",
+    "name": "Dueling Shield",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/dueling_shield_thrusting_shields_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Dueling Shield\u00a0is a Thrusting Shield\u00a0in Elden Ring. It\u00a0was added with the Shadow of the Erdtree DLC. The Dueling Shield\u00a0scales primarily with Strength\u00a0and\u00a0Dexterity and is a good Weapon for experiencing the new weapon type added with Shadow of the Erdtree. It\u00a0has high guard boost, allowing\u00a0good stamina management when blocking attacks. The shield also\u00a0has resistances to both physical and elemental damage types, making it a good\u00a0almost all-around choice.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 125
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 88
+      },
+      {
+        "name": "Mag",
+        "amount": 44
+      },
+      {
+        "name": "Fire",
+        "amount": 39
+      },
+      {
+        "name": "Ligt",
+        "amount": 55
+      },
+      {
+        "name": "Holy",
+        "amount": 53
+      },
+      {
+        "name": "Boost",
+        "amount": 58
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 15
+      },
+      {
+        "name": "Dex",
+        "amount": 14
+      }
+    ],
+    "category": "Shield",
+    "weight": 9.0
+  },
+  {
+    "id": "carian_thrusting_shield",
+    "name": "Carian Thrusting Shield",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/carian_thrusting_shield_thrusting_shields_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Carian Thrusting Shield\u00a0is a Thrusting Shield\u00a0in Elden Ring. It\u00a0was added with the Shadow of the Erdtree DLC. The Carian Thrusting Shield\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and\u00a0Intelligence and is a good Weapon for players that want to experience the new weapon type added with Shadow of the Erdtree.\u00a0It\u00a0gives\u00a0a high guard boost for\u00a0good\u00a0stamina management while blocking and provides resistances to physical and magical damage.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 122
+      },
+      {
+        "name": "Mag",
+        "amount": 36
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 94
+      },
+      {
+        "name": "Mag",
+        "amount": 64
+      },
+      {
+        "name": "Fire",
+        "amount": 36
+      },
+      {
+        "name": "Ligt",
+        "amount": 34
+      },
+      {
+        "name": "Holy",
+        "amount": 35
+      },
+      {
+        "name": "Boost",
+        "amount": 64
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      },
+      {
+        "name": "Int",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 17
+      },
+      {
+        "name": "Dex",
+        "amount": 13
+      },
+      {
+        "name": "Int",
+        "amount": 15
+      }
+    ],
+    "category": "Shield",
+    "weight": 10.5
+  },
+  {
+    "id": "bloodfiend%27s_arm",
+    "name": "Bloodfiend%27s Arm",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/bloodfiends_arm_colossal_weapon_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Bloodfiend's Arm\u00a0is a Colossal Weapon\u00a0in Elden Ring. It\u00a0was added with the Shadow of the Erdtree DLC. The Bloodfiend's Arm\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and Arcane and is a good Weapon for\u00a0Bleed and Arcane Builds. This is a slow but hard-hitting weapon that sprays blood when using the heavy attacks.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 147
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 76
+      },
+      {
+        "name": "Mag",
+        "amount": 46
+      },
+      {
+        "name": "Fire",
+        "amount": 46
+      },
+      {
+        "name": "Ligt",
+        "amount": 46
+      },
+      {
+        "name": "Holy",
+        "amount": 46
+      },
+      {
+        "name": "Boost",
+        "amount": 51
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "E"
+      },
+      {
+        "name": "Arc",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 28
+      },
+      {
+        "name": "Dex",
+        "amount": 11
+      },
+      {
+        "name": "Arc",
+        "amount": 16
+      }
+    ],
+    "category": "Colossal Weapon",
+    "weight": 20.0
+  },
+  {
+    "id": "shadow_sunflower_blossom",
+    "name": "Shadow Sunflower Blossom",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/shadow_sunflower_blossom_colossal_weapon_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Shadow Sunflower Blossom\u00a0is a Colossal Weapon\u00a0in Elden Ring. It is a brand new\u00a0Colossal Weapon in the\u00a0Shadow of the Erdtree DLC. The Shadow Sunflower Blossom\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and\u00a0Faith and it can be obtained after trading the Remembrance of the Shadow Sunflower.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 114
+      },
+      {
+        "name": "Holy",
+        "amount": 114
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 55
+      },
+      {
+        "name": "Mag",
+        "amount": 37
+      },
+      {
+        "name": "Fire",
+        "amount": 37
+      },
+      {
+        "name": "Ligt",
+        "amount": 37
+      },
+      {
+        "name": "Holy",
+        "amount": 64
+      },
+      {
+        "name": "Boost",
+        "amount": 46
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "E"
+      },
+      {
+        "name": "Faith",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 24
+      },
+      {
+        "name": "Dex",
+        "amount": 8
+      },
+      {
+        "name": "Faith",
+        "amount": 25
+      }
+    ],
+    "category": "Colossal Weapon",
+    "weight": 16.0
+  },
+  {
+    "id": "gazing_finger",
+    "name": "Gazing Finger",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/gazing_finger_colossal_weapon_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Gazing Finger\u00a0is a Colossal Weapon\u00a0in Elden Ring. It is a brand new\u00a0Colossal Weapon in the\u00a0Shadow of the Erdtree DLC. The Gazing Finger\u00a0scales primarily with Strength,\u00a0Intelligence and\u00a0Faith and can be obtained after trading the Remembrance of the Mother of Fingers\u00a0at the Roundtable Hold. This has the Kowtower's Resentment skill that lets you slam the weapon down and causes a holy explosion.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 133
+      },
+      {
+        "name": "Mag",
+        "amount": 86
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 66
+      },
+      {
+        "name": "Mag",
+        "amount": 50
+      },
+      {
+        "name": "Fire",
+        "amount": 38
+      },
+      {
+        "name": "Ligt",
+        "amount": 38
+      },
+      {
+        "name": "Holy",
+        "amount": 38
+      },
+      {
+        "name": "Boost",
+        "amount": 46
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "C"
+      },
+      {
+        "name": "Int",
+        "scaling": "D"
+      },
+      {
+        "name": "Faith",
+        "scaling": "E"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 20
+      },
+      {
+        "name": "Dex",
+        "amount": 8
+      },
+      {
+        "name": "Int",
+        "amount": 20
+      },
+      {
+        "name": "Faith",
+        "amount": 14
+      }
+    ],
+    "category": "Colossal Weapon",
+    "weight": 15.0
+  },
+  {
+    "id": "nanaya%27s_torch",
+    "name": "Nanaya%27s Torch",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/nanayas_torch_1_torches_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Nanaya's Torch\u00a0is a Torch\u00a0in Elden Ring. It is\u00a0found in the\u00a0Shadow of the Erdtree DLC\u00a0next to Nanaya's corpse. The Nanaya's Torch\u00a0scales primarily with Strength,\u00a0Dexterity,\u00a0Intelligence\u00a0and\u00a0Faith and is a good Weapon\u00a0for all-around builds.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 55
+      },
+      {
+        "name": "Fire",
+        "amount": 99
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 25
+      },
+      {
+        "name": "Mag",
+        "amount": 18
+      },
+      {
+        "name": "Fire",
+        "amount": 30
+      },
+      {
+        "name": "Ligt",
+        "amount": 18
+      },
+      {
+        "name": "Holy",
+        "amount": 18
+      },
+      {
+        "name": "Boost",
+        "amount": 20
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "E"
+      },
+      {
+        "name": "Dex",
+        "scaling": "E"
+      },
+      {
+        "name": "Int",
+        "scaling": "E"
+      },
+      {
+        "name": "Faith",
+        "scaling": "E"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 10
+      },
+      {
+        "name": "Dex",
+        "amount": 10
+      },
+      {
+        "name": "Int",
+        "amount": 14
+      },
+      {
+        "name": "Faith",
+        "amount": 16
+      }
+    ],
+    "category": "Greatsword",
+    "weight": 3.5
+  },
+  {
+    "id": "lamenting_visage",
+    "name": "Lamenting Visage",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/lamenting_visage_torch_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Lamenting Visage\u00a0is a Torch\u00a0in Elden Ring. It is\u00a0found in the\u00a0Shadow of the Erdtree DLC. The Lamenting Visage\u00a0scales primarily with Strength and is a good Weapon for sneaking in the Abyssal Woods or from the basilisk eyes in Scorpion River Catacombs.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 71
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 29
+      },
+      {
+        "name": "Mag",
+        "amount": 17
+      },
+      {
+        "name": "Fire",
+        "amount": 17
+      },
+      {
+        "name": "Ligt",
+        "amount": 17
+      },
+      {
+        "name": "Holy",
+        "amount": 17
+      },
+      {
+        "name": "Boost",
+        "amount": 48
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "B"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 9
+      }
+    ],
+    "category": "Shield",
+    "weight": 2.0
+  },
+  {
+    "id": "deadly_poison_perfume_bottle",
+    "name": "Deadly Poison Perfume Bottle",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/deadly_poison_perfume_bottle_perfume_bottles_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Deadly Poison Perfume Bottle\u00a0is a Perfume Bottle\u00a0in Elden Ring. It is found in the\u00a0Shadow of the Erdtree DLC. The Deadly Poison Perfume Bottle\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and Arcane and is a good backup\u00a0Weapon for\u00a0arcane\u00a0builds. This weapon causes poison buildup and causes a mist of poison to spread out using the\u00a0weapon skill.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 92
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 30
+      },
+      {
+        "name": "Mag",
+        "amount": 35
+      },
+      {
+        "name": "Fire",
+        "amount": 35
+      },
+      {
+        "name": "Ligt",
+        "amount": 35
+      },
+      {
+        "name": "Holy",
+        "amount": 35
+      },
+      {
+        "name": "Boost",
+        "amount": 15
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Dex",
+        "scaling": "D"
+      },
+      {
+        "name": "Arc",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 3
+      },
+      {
+        "name": "Dex",
+        "amount": 13
+      },
+      {
+        "name": "Arc",
+        "amount": 18
+      }
+    ],
+    "category": "Shield",
+    "weight": 1.0
+  },
+  {
+    "id": "chilling_perfume_bottle",
+    "name": "Chilling Perfume Bottle",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/chilling_perfume_bottle_perfume_bottles_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Chilling Perfume Bottle\u00a0is a Perfume Bottle\u00a0in Elden Ring. It is a brand new\u00a0Perfume Bottle in the\u00a0Shadow of the Erdtree DLC. The Chilling Perfume Bottle\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and\u00a0Intelligence and is a good Weapon for DEX/INT builds and deals\u00a0Frostbite. This weapon produces\u00a0frost buildup and is capable of\u00a0releasing blasts of ice over a wide area.",
+    "attack": [
+      {
+        "name": "Mag",
+        "amount": 105
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 20
+      },
+      {
+        "name": "Mag",
+        "amount": 65
+      },
+      {
+        "name": "Fire",
+        "amount": 31
+      },
+      {
+        "name": "Ligt",
+        "amount": 25
+      },
+      {
+        "name": "Holy",
+        "amount": 32
+      },
+      {
+        "name": "Boost",
+        "amount": 15
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Dex",
+        "scaling": "D"
+      },
+      {
+        "name": "Int",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 3
+      },
+      {
+        "name": "Dex",
+        "amount": 13
+      },
+      {
+        "name": "Int",
+        "amount": 13
+      }
+    ],
+    "category": "Greatsword",
+    "weight": 1.0
+  },
+  {
+    "id": "firespark_perfume_bottle",
+    "name": "Firespark Perfume Bottle",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/firespark_perfume_bottle_perfume_bottles_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Firespark Perfume Bottle\u00a0is a Perfume Bottle\u00a0in Elden Ring. It is found in the\u00a0Shadow of the Erdtree DLC. The Firespark Perfume Bottle\u00a0scales exclusively with\u00a0Dexterity and is a good Weapon for high Fire Damage and pure DEX Builds. This weapon produces explosions while in the air that spread in a wide area.",
+    "attack": [
+      {
+        "name": "Fire",
+        "amount": 110
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 21
+      },
+      {
+        "name": "Mag",
+        "amount": 29
+      },
+      {
+        "name": "Fire",
+        "amount": 65
+      },
+      {
+        "name": "Ligt",
+        "amount": 26
+      },
+      {
+        "name": "Holy",
+        "amount": 23
+      },
+      {
+        "name": "Boost",
+        "amount": 15
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Dex",
+        "scaling": "C"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 3
+      },
+      {
+        "name": "Dex",
+        "amount": 14
+      }
+    ],
+    "category": "Shield",
+    "weight": 1.0
+  },
+  {
+    "id": "frenzyflame_perfume_bottle",
+    "name": "Frenzyflame Perfume Bottle",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/frenzyflame_perfume_bottle_perfume_bottles_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Frenzyflame Perfume Bottle\u00a0is a Perfume Bottle\u00a0in Elden Ring. It is\u00a0found in the\u00a0Shadow of the Erdtree DLC. The Frenzyflame Perfume Bottle\u00a0scales primarily with Strength,\u00a0Dexterity,\u00a0Intelligence\u00a0and\u00a0Faith and is a good Weapon for inflicting Madness\u00a0status effect on all enemies within its radius.",
+    "attack": [
+      {
+        "name": "Fire",
+        "amount": 105
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 23
+      },
+      {
+        "name": "Mag",
+        "amount": 30
+      },
+      {
+        "name": "Fire",
+        "amount": 60
+      },
+      {
+        "name": "Ligt",
+        "amount": 32
+      },
+      {
+        "name": "Holy",
+        "amount": 29
+      },
+      {
+        "name": "Boost",
+        "amount": 15
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "E"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      },
+      {
+        "name": "Int",
+        "scaling": "E"
+      },
+      {
+        "name": "Faith",
+        "scaling": "E"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 3
+      },
+      {
+        "name": "Dex",
+        "amount": 10
+      },
+      {
+        "name": "Int",
+        "amount": 12
+      },
+      {
+        "name": "Faith",
+        "amount": 12
+      }
+    ],
+    "category": "Shield",
+    "weight": 1.0
+  },
+  {
+    "id": "lightning_perfume_bottle",
+    "name": "Lightning Perfume Bottle",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/lightning_perfume_bottle_perfume_bottles_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Lightning Perfume Bottle\u00a0is a Perfume Bottle\u00a0in Elden Ring. It is\u00a0found in the\u00a0Shadow of the Erdtree DLC. The Lightning Perfume Bottle\u00a0scales primarily with\u00a0Dexterity\u00a0and\u00a0Faith and is a good Weapon for\u00a0Lightning and Dexterity/Faith Builds.\u00a0This weapon can release\u00a0a barrage of lightning over a wide area.",
+    "attack": [
+      {
+        "name": "Ligt",
+        "amount": 110
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 21
+      },
+      {
+        "name": "Mag",
+        "amount": 28
+      },
+      {
+        "name": "Fire",
+        "amount": 25
+      },
+      {
+        "name": "Ligt",
+        "amount": 65
+      },
+      {
+        "name": "Holy",
+        "amount": 28
+      },
+      {
+        "name": "Boost",
+        "amount": 15
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Dex",
+        "scaling": "D"
+      },
+      {
+        "name": "Faith",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 3
+      },
+      {
+        "name": "Dex",
+        "amount": 16
+      },
+      {
+        "name": "Faith",
+        "amount": 14
+      }
+    ],
+    "category": "Katana",
+    "weight": 1.0
+  },
+  {
+    "id": "dryleaf_seal",
+    "name": "Dryleaf Seal",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/dryleaf_seal_unique_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Dryleaf Seal\u00a0is a Sacred Seal\u00a0in Elden Ring. It is found in the\u00a0Shadow of the Erdtree DLC. The Dryleaf Seal\u00a0scales primarily with Strength\u00a0and\u00a0Faith and is a good Weapon for Faith casters wanting to use\u00a0rings of light incantations and benefit from its powerful scaling.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 25
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 25
+      },
+      {
+        "name": "Mag",
+        "amount": 15
+      },
+      {
+        "name": "Fire",
+        "amount": 15
+      },
+      {
+        "name": "Ligt",
+        "amount": 15
+      },
+      {
+        "name": "Holy",
+        "amount": 15
+      },
+      {
+        "name": "Boost",
+        "amount": 15
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "E"
+      },
+      {
+        "name": "Faith",
+        "scaling": "C"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 8
+      },
+      {
+        "name": "Faith",
+        "amount": 27
+      }
+    ],
+    "category": "Sacred Seal",
+    "weight": 1.5
+  },
+  {
+    "id": "fire_knight%27s_seal",
+    "name": "Fire Knight%27s Seal",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/fire_knights_seal_unique_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Fire Knight's Seal\u00a0is a Sacred Seal\u00a0in Elden Ring. It is a brand new\u00a0Sacred Seal in the\u00a0Shadow of the Erdtree DLC. The Fire Knight's Seal\u00a0scales primarily with Strength\u00a0and Faith and is a good Weapon for Builds centered around the new Messmer Fire Incantations.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 25
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 25
+      },
+      {
+        "name": "Mag",
+        "amount": 15
+      },
+      {
+        "name": "Fire",
+        "amount": 15
+      },
+      {
+        "name": "Ligt",
+        "amount": 15
+      },
+      {
+        "name": "Holy",
+        "amount": 15
+      },
+      {
+        "name": "Boost",
+        "amount": 15
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "E"
+      },
+      {
+        "name": "Faith",
+        "scaling": "C"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 8
+      },
+      {
+        "name": "Faith",
+        "amount": 23
+      }
+    ],
+    "category": "Sacred Seal",
+    "weight": 1.5
+  },
+  {
+    "id": "spiraltree_seal",
+    "name": "Spiraltree Seal",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/spiraltree_seal_unique_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Spiraltree Seal\u00a0is a Sacred Seal\u00a0in Elden Ring. It is found in the\u00a0Shadow of the Erdtree DLC. The Spiraltree Seal\u00a0scales primarily with Strength\u00a0and\u00a0Faith and is a good Weapon for Builds\u00a0centered around Spiral Incantations.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 25
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 25
+      },
+      {
+        "name": "Mag",
+        "amount": 15
+      },
+      {
+        "name": "Fire",
+        "amount": 15
+      },
+      {
+        "name": "Ligt",
+        "amount": 15
+      },
+      {
+        "name": "Holy",
+        "amount": 15
+      },
+      {
+        "name": "Boost",
+        "amount": 15
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "E"
+      },
+      {
+        "name": "Faith",
+        "scaling": "C"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 8
+      },
+      {
+        "name": "Faith",
+        "amount": 17
+      }
+    ],
+    "category": "Sacred Seal",
+    "weight": 1.5
+  },
+  {
+    "id": "fire_knight%27s_shortsword",
+    "name": "Fire Knight%27s Shortsword",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/fire_knights_shortsword_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Fire Knight's Shortsword\u00a0is a Dagger\u00a0in Elden Ring. It is a brand new Dagger in the Shadow of the Erdtree DLC. The Fire Knight's Shortsword\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and Faith and is a good Weapon\u00a0for Fire-based builds. This can be dropped by the Fire Knights and comes with the Quickstep skill.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 75
+      },
+      {
+        "name": "Fire",
+        "amount": 22
+      },
+      {
+        "name": "Crit",
+        "amount": 110
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 32
+      },
+      {
+        "name": "Mag",
+        "amount": 18
+      },
+      {
+        "name": "Fire",
+        "amount": 31
+      },
+      {
+        "name": "Ligt",
+        "amount": 18
+      },
+      {
+        "name": "Holy",
+        "amount": 18
+      },
+      {
+        "name": "Boost",
+        "amount": 15
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      },
+      {
+        "name": "Faith",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 8
+      },
+      {
+        "name": "Dex",
+        "amount": 13
+      },
+      {
+        "name": "Faith",
+        "amount": 12
+      }
+    ],
+    "category": "Dagger",
+    "weight": 2.0
+  },
+  {
+    "id": "fire_knight%27s_greatsword",
+    "name": "Fire Knight%27s Greatsword",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/fire_knights_greatsword_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Fire Knight's Greatsword\u00a0is a Colossal Sword\u00a0in Elden Ring. It is a Colossal Sword introduced in the Shadow of the Erdtree DLC. The Fire Knight's Greatsword\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and\u00a0Faith and is a good Weapon for fire builds. This weapon has the Stamp Skill, which prevents you in a short time from being staggered.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 147
+      },
+      {
+        "name": "Fire",
+        "amount": 44
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 69
+      },
+      {
+        "name": "Mag",
+        "amount": 42
+      },
+      {
+        "name": "Fire",
+        "amount": 47
+      },
+      {
+        "name": "Ligt",
+        "amount": 42
+      },
+      {
+        "name": "Holy",
+        "amount": 42
+      },
+      {
+        "name": "Boost",
+        "amount": 47
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      },
+      {
+        "name": "Faith",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 22
+      },
+      {
+        "name": "Dex",
+        "amount": 18
+      },
+      {
+        "name": "Faith",
+        "amount": 12
+      }
+    ],
+    "category": "Colossal Sword",
+    "weight": 16.0
+  },
+  {
+    "id": "messmer_soldier%27s_spear",
+    "name": "Messmer Soldier%27s Spear",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/messmer_soldiers_spear_spears_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Messmer Soldier's Spear\u00a0is a Great Spear\u00a0in Elden Ring. It is a brand new Great Spear in the Shadow of the Erdtree DLC. The Messmer Soldier's Spear\u00a0scales primarily with Strength\u00a0and\u00a0Dexterity and is a\u00a0well-balanced\u00a0Weapon. This weapon can be used while guarding with a shield and has the thrust skill that goes through an enemy.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 122
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 56
+      },
+      {
+        "name": "Mag",
+        "amount": 35
+      },
+      {
+        "name": "Fire",
+        "amount": 35
+      },
+      {
+        "name": "Ligt",
+        "amount": 35
+      },
+      {
+        "name": "Holy",
+        "amount": 35
+      },
+      {
+        "name": "Boost",
+        "amount": 43
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 19
+      },
+      {
+        "name": "Dex",
+        "amount": 16
+      }
+    ],
+    "category": "Spear",
+    "weight": 8.5
+  },
+  {
+    "id": "messmer_soldier%27s_axe",
+    "name": "Messmer Soldier%27s Axe",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/messmer_soldiers_axe_axes_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Messmer Soldier's Axe\u00a0is an\u00a0Axe\u00a0in Elden Ring. It is a brand new Axe in the Shadow of the Erdtree DLC. The Messmer Soldier's Axe\u00a0scales primarily with Strength\u00a0and\u00a0Dexterity and is a good Weapon for Builds that like to use Charged Heavy Attacks. It's weapon skill, War Cry, lets you increase attack power and lets you charge the enemy with heavy attacks.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 133
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 49
+      },
+      {
+        "name": "Mag",
+        "amount": 33
+      },
+      {
+        "name": "Fire",
+        "amount": 33
+      },
+      {
+        "name": "Ligt",
+        "amount": 33
+      },
+      {
+        "name": "Holy",
+        "amount": 33
+      },
+      {
+        "name": "Boost",
+        "amount": 33
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 14
+      },
+      {
+        "name": "Dex",
+        "amount": 10
+      }
+    ],
+    "category": "Axe",
+    "weight": 5.5
+  },
+  {
+    "id": "bloodfiend%27s_fork",
+    "name": "Bloodfiend%27s Fork",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/bloodfiends_fork_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Bloodfiend's Fork\u00a0is a Spear\u00a0in Elden Ring. It is a brand new Spear in the Shadow of the Erdtree DLC. The Bloodfiend's Fork\u00a0scales primarily with Strength,\u00a0Dexterity\u00a0and\u00a0Arcane and is a good Weapon for Bleed and Arcane Builds. This weapon causes blood loss build-up and can increase attack power by using the Barbaric Roar skill along with a combo.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 105
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 42
+      },
+      {
+        "name": "Mag",
+        "amount": 26
+      },
+      {
+        "name": "Fire",
+        "amount": 26
+      },
+      {
+        "name": "Ligt",
+        "amount": 26
+      },
+      {
+        "name": "Holy",
+        "amount": 26
+      },
+      {
+        "name": "Boost",
+        "amount": 31
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "E"
+      },
+      {
+        "name": "Arc",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 14
+      },
+      {
+        "name": "Dex",
+        "amount": 8
+      },
+      {
+        "name": "Arc",
+        "amount": 13
+      }
+    ],
+    "category": "Spear",
+    "weight": 4.5
+  },
+  {
+    "id": "smithscript_axe",
+    "name": "Smithscript Axe",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/smithscript_axe_axes_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Smithscript Axe\u00a0is an\u00a0Axe\u00a0in Elden Ring. It was added with the Shadow of the Erdtree DLC. The Smithscript Axe\u00a0scales primarily with Strength,\u00a0Dexterity,\u00a0Intelligence\u00a0and\u00a0Faith and is a good Weapon for players that want a ranged melee alternative without a FP cost. As a Smithscript weapon, it can be thrown and immediately returns to the user's hand.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 131
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 48
+      },
+      {
+        "name": "Mag",
+        "amount": 32
+      },
+      {
+        "name": "Fire",
+        "amount": 32
+      },
+      {
+        "name": "Ligt",
+        "amount": 32
+      },
+      {
+        "name": "Holy",
+        "amount": 32
+      },
+      {
+        "name": "Boost",
+        "amount": 32
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "D"
+      },
+      {
+        "name": "Dex",
+        "scaling": "D"
+      },
+      {
+        "name": "Int",
+        "scaling": "E"
+      },
+      {
+        "name": "Faith",
+        "scaling": "E"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 13
+      },
+      {
+        "name": "Dex",
+        "amount": 10
+      },
+      {
+        "name": "Int",
+        "amount": 11
+      },
+      {
+        "name": "Faith",
+        "amount": 11
+      }
+    ],
+    "category": "Axe",
+    "weight": 5.0
+  },
+  {
+    "id": "freyja%27s_greatsword",
+    "name": "Freyja%27s Greatsword",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/freyjas_greatsword_greatsword_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Freyja's Greatsword\u00a0is a Curved Greatsword\u00a0in Elden Ring. It is a brand new Curved Greatsword in the Shadow of the Erdtree DLC. Freyja's Greatsword\u00a0scales primarily with Strength\u00a0and\u00a0Dexterity and is the powerful Weapon\u00a0wielded by Redmane Freyja. This comes with the Spinning Slash skill\u00a0which is\u00a0the favorite skill of dexterous warriors that lets you slash foes as your body spins. This momentum can connect into a final heavy attack.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 146
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 75
+      },
+      {
+        "name": "Mag",
+        "amount": 39
+      },
+      {
+        "name": "Fire",
+        "amount": 39
+      },
+      {
+        "name": "Ligt",
+        "amount": 39
+      },
+      {
+        "name": "Holy",
+        "amount": 39
+      },
+      {
+        "name": "Boost",
+        "amount": 48
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "C"
+      },
+      {
+        "name": "Dex",
+        "scaling": "E"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 25
+      },
+      {
+        "name": "Dex",
+        "amount": 14
+      }
+    ],
+    "category": "Greatsword",
+    "weight": 14.0
+  },
+  {
+    "id": "sword_lance",
+    "name": "Sword Lance",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/sword_lance_heavy_thrusting_sword_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Sword Lance\u00a0is a Heavy Thrusting Sword\u00a0in Elden Ring. It is a brand new Heavy Thrusting Sword in the Shadow of the Erdtree DLC. The Sword Lance\u00a0scales primarily with Strength\u00a0and\u00a0Dexterity and is available after trading\u00a0 the Remembrance of the Wild Boar Rider\u00a0with Enia\u00a0at the Roundtable Hold. This weapon comes with the Spinning Gravity Thrust which lets you levitate and thrust towards an enemy while spinning.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 132
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 73
+      },
+      {
+        "name": "Mag",
+        "amount": 39
+      },
+      {
+        "name": "Fire",
+        "amount": 39
+      },
+      {
+        "name": "Ligt",
+        "amount": 39
+      },
+      {
+        "name": "Holy",
+        "amount": 39
+      },
+      {
+        "name": "Boost",
+        "amount": 42
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "C"
+      },
+      {
+        "name": "Dex",
+        "scaling": "E"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 21
+      },
+      {
+        "name": "Dex",
+        "amount": 11
+      }
+    ],
+    "category": "Thrusting Sword",
+    "weight": 9.0
+  },
+  {
+    "id": "staff_of_the_great_beyond",
+    "name": "Staff of the Great Beyond",
+    "image": "https://eldenring.wiki.fextralife.com/file/Elden-Ring/staff_of_the_great_beyond_glintstone_staff_elden_ring_shadow_of_the_erdtree_dlc_wiki_guide_200px.png",
+    "description": "Staff of the Great Beyond\u00a0is a Glintstone Staff\u00a0in Elden Ring. It was added\u00a0the\u00a0Shadow of the Erdtree DLC. The Staff of the Great Beyond\u00a0scales primarily with\u00a0Intelligence\u00a0and\u00a0Faith and is a good Weapon for full-spellcasters, allowing to cast both Sorceries and Incantations.",
+    "attack": [
+      {
+        "name": "Phy",
+        "amount": 27
+      },
+      {
+        "name": "Crit",
+        "amount": 100
+      }
+    ],
+    "defence": [
+      {
+        "name": "Phy",
+        "amount": 26
+      },
+      {
+        "name": "Mag",
+        "amount": 16
+      },
+      {
+        "name": "Fire",
+        "amount": 16
+      },
+      {
+        "name": "Ligt",
+        "amount": 16
+      },
+      {
+        "name": "Holy",
+        "amount": 16
+      },
+      {
+        "name": "Boost",
+        "amount": 15
+      }
+    ],
+    "scalesWith": [
+      {
+        "name": "Str",
+        "scaling": "E"
+      },
+      {
+        "name": "Int",
+        "scaling": "D"
+      },
+      {
+        "name": "Faith",
+        "scaling": "D"
+      }
+    ],
+    "requiredAttributes": [
+      {
+        "name": "Str",
+        "amount": 7
+      },
+      {
+        "name": "Int",
+        "amount": 25
+      },
+      {
+        "name": "Faith",
+        "amount": 25
+      }
+    ],
+    "category": "Glintstone Staff",
+    "weight": 2.5
+  }
+]
