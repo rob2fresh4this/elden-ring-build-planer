@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import gearData from "../../../public/EldenRingData/data/armors.json";
+import gearDataDLC from "../../../public/EldenRingData/data/armorsdlc.json";
 import { TalismanSection } from "./TalismanSection";
 import toast from 'react-hot-toast';
 
