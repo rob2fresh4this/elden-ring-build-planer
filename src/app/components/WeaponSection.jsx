@@ -113,7 +113,8 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
         setTempWeapons(updated);
     };
 
-    const handleSave = () => {        for (let i = 0; i < tempWeapons.length; i++) {
+    const handleSave = () => {        
+        for (let i = 0; i < tempWeapons.length; i++) {
             const weapon = tempWeapons[i];
             if (!weapon) continue;
             
