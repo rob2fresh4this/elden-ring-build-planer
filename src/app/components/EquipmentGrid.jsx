@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import gearData from "../../../public/EldenRingData/data/armors.json";
-import gearDataDLC from "../../../public/EldenRingData/data/armorsdlc.json";
+import gearDataDLC from "../../../public/EldenRingData/data/armorDLC.json";
 import { TalismanSection } from "./TalismanSection";
 import toast from 'react-hot-toast';
 
@@ -10,8 +10,13 @@ import toast from 'react-hot-toast';
 const categoryMap = {
     HEAD: "Helm",
     CHEST: "Chest Armor",
-    LEGS: "Leg Armor",
+    LEGS: "Leg Armor", 
     HANDS: "Gauntlets",
+    // DLC categories
+    "DLC Helm": "Helm",
+    "DLC Chest Armor": "Chest Armor",
+    "DLC Leg Armor": "Leg Armor",
+    "DLC Gauntlets": "Gauntlets",
 };
 
 const slots = ["HEAD", "CHEST", "HANDS", "LEGS"];
@@ -22,6 +27,13 @@ const stripImageBaseUrl = (imageUrl) => {
         return imageUrl.replace(baseUrl, "");
     }
     return imageUrl || "";
+};
+
+// Combine base game and DLC armor data
+const getAllArmorData = () => {
+    const baseGameArmor = Array.isArray(gearData) ? gearData : [];
+    const dlcArmor = Array.isArray(gearDataDLC) ? gearDataDLC : [];
+    return [...baseGameArmor, ...dlcArmor];
 };
 
 export const EquipmentGrid = ({ onEquipmentChange, onTalismansChange }) => {
@@ -38,12 +50,18 @@ export const EquipmentGrid = ({ onEquipmentChange, onTalismansChange }) => {
         }, 0);
     };
 
-    const filteredGear = (slot) =>
-        gearData.filter(
-            (item) =>
-                item.category === categoryMap[slot] &&
-                item.name.toLowerCase().includes(search.toLowerCase())
-        );
+    const allArmorData = getAllArmorData();
+
+    const filteredGear = (slot) => {
+        const targetCategory = categoryMap[slot];
+        return allArmorData.filter((item) => {
+            // Handle both base game categories and DLC categories
+            const itemCategory = item.category;
+            const matchesCategory = categoryMap[itemCategory] === targetCategory || itemCategory === targetCategory;
+            const matchesSearch = item.name.toLowerCase().includes(search.toLowerCase());
+            return matchesCategory && matchesSearch;
+        });
+    };
 
     const handleTileClick = (slot) => {
         setModalSlot(slot);
@@ -83,6 +101,15 @@ export const EquipmentGrid = ({ onEquipmentChange, onTalismansChange }) => {
         toast.success("Equipment saved!");
     };
 
+    const getImageSrc = (item) => {
+        // Use DLC images directly, process base game images
+        if (item.category?.startsWith('DLC')) {
+            return item.image;
+        } else {
+            return `/EldenRingData/images/armors/${stripImageBaseUrl(item.image)}`;
+        }
+    };
+
     return (
         <div className="bg-gradient-to-br from-[#19140e] via-[#2d2212] to-[#3a2c1a] p-4 rounded-xl border border-[#c0a857] text-[#e5c77b] shadow-lg w-full max-w-full overflow-x-auto">
             <h2 className="text-xl font-semibold mb-2 text-[#e5c77b] drop-shadow" style={{ fontFamily: "serif" }}>
@@ -98,7 +125,7 @@ export const EquipmentGrid = ({ onEquipmentChange, onTalismansChange }) => {
                         {equipment[slot] ? (
                             <>
                                 <img
-                                    src={`/EldenRingData/images/armors/${stripImageBaseUrl(equipment[slot].image)}`}
+                                    src={getImageSrc(equipment[slot])}
                                     alt={equipment[slot].name}
                                     className="w-full h-20 object-contain mb-2"
                                 />
@@ -160,7 +187,7 @@ export const EquipmentGrid = ({ onEquipmentChange, onTalismansChange }) => {
                                         onClick={() => handleGearSelect(modalSlot, gear)}
                                     >
                                         <img
-                                            src={`/EldenRingData/images/armors/${stripImageBaseUrl(gear.image)}`}
+                                            src={getImageSrc(gear)}
                                             alt={gear.name}
                                             className="w-full h-16 object-contain mb-2"
                                         />
