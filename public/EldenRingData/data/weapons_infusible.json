@@ -1,0 +1,1672 @@
+[
+  {
+    "id": "3d15f3e39a9458e2c9d179dea35d77ef6bd5dcf6",
+    "name": "Shields",
+    "infusible": false
+  },
+  {
+    "id": "9a06145179c4951f6219950de00965d3905e5438",
+    "name": "Beast Claws",
+    "infusible": false
+  },
+  {
+    "id": "f2c2207c1f532f6610d8d3a0e01d39e667b27538",
+    "name": "Smithscript Dagger",
+    "infusible": true
+  },
+  {
+    "id": "c9689db00cc63dee1d081e3d94a32a718c66f995",
+    "name": "Backhand Blades",
+    "infusible": false
+  },
+  {
+    "id": "23928bb5030f015f6195a86d9d92100b0dcde87e",
+    "name": "Perfume Bottles",
+    "infusible": false
+  },
+  {
+    "id": "f0a3dff1b9e1b771d91eb79bd2cf9e6a89a1be60",
+    "name": "Light Greatswords",
+    "infusible": false
+  },
+  {
+    "id": "d1b1779161ed08a46ec0e84406e14b6bbcd2b081",
+    "name": "Great Katanas",
+    "infusible": false
+  },
+  {
+    "id": "b5aae6b1522c287fcc9da9049e8579df01674b2a",
+    "name": "Thrusting Shields",
+    "infusible": false
+  },
+  {
+    "id": "73d3533e6f11ce400b4d67174afcb223478aa108",
+    "name": "Grafted Blade Greatsword",
+    "infusible": false
+  },
+  {
+    "id": "abcb48567deb81336efb3404d75eb547068d4f6e",
+    "name": "Sword of Night and Flame",
+    "infusible": false
+  },
+  {
+    "id": "573210beb6d268a6978d1c3efc3744a8d9c108c3",
+    "name": "Ruins Greatsword",
+    "infusible": false
+  },
+  {
+    "id": "493b8be84548e17301a5aea41dfc9010e48d93c4",
+    "name": "Marais Executioner's Sword",
+    "infusible": false
+  },
+  {
+    "id": "07185c89cd5d41c3be0a08f7e851ece44540210b",
+    "name": "Dark Moon Greatsword",
+    "infusible": false
+  },
+  {
+    "id": "2f9638e35266289e8f709dbfc68d3bdd0bbc76f2",
+    "name": "Golden Order Greatsword",
+    "infusible": false
+  },
+  {
+    "id": "fa8ebb0035b0a90a5a9ab2cc92f0177db738586c",
+    "name": "Daggers",
+    "infusible": false
+  },
+  {
+    "id": "f37ff8281d7dcdd64f719c3f4b5f156353940dfb",
+    "name": "Straight Swords",
+    "infusible": false
+  },
+  {
+    "id": "ad9eb8d460937d280e47db6a459c2811c4c1bdab",
+    "name": "Greatswords",
+    "infusible": false
+  },
+  {
+    "id": "d80e3f7e34fe39b78ee2b023803884ebfbce0f25",
+    "name": "Colossal Swords",
+    "infusible": false
+  },
+  {
+    "id": "3a23271efe741e7ee1bd9ff9708b3f4044cdb1d9",
+    "name": "Thrusting Swords",
+    "infusible": false
+  },
+  {
+    "id": "0e2f95051f94fbeed6ccc107c6d21fb5a52f153c",
+    "name": "Heavy Thrusting Swords",
+    "infusible": false
+  },
+  {
+    "id": "622fe9d0c677eef40f56929c5b07ad65092d3ca4",
+    "name": "Curved Swords",
+    "infusible": false
+  },
+  {
+    "id": "11aa6e3929070df6d29e1d959877b9d5f05caafb",
+    "name": "Curved Greatswords",
+    "infusible": false
+  },
+  {
+    "id": "79c4ba435a78287fd47589a4a215cf267fba418a",
+    "name": "Katanas",
+    "infusible": false
+  },
+  {
+    "id": "5f50715bc5bc9cc9443384bf0e342b2e06448db7",
+    "name": "Twinblades",
+    "infusible": false
+  },
+  {
+    "id": "e6da0fa8f1bc7c8f5ba5248a53b7b736cba41490",
+    "name": "Axes",
+    "infusible": false
+  },
+  {
+    "id": "b94180bdaf9200ace908b19c0a545dfa3d7d795d",
+    "name": "Greataxes",
+    "infusible": false
+  },
+  {
+    "id": "4fc0b574a9cceeab7d2a00b3baf33972f68f5386",
+    "name": "Hammers",
+    "infusible": false
+  },
+  {
+    "id": "690c0db2d2e3979e071ed02dd04f2adb43f3e623",
+    "name": "Flails",
+    "infusible": false
+  },
+  {
+    "id": "c9ad56c8a14c0d210621d5b6427e420fc378849c",
+    "name": "Great Hammers",
+    "infusible": false
+  },
+  {
+    "id": "18e57759502890145e866100038f5906239bdb20",
+    "name": "Spears",
+    "infusible": false
+  },
+  {
+    "id": "f719a333dafc434f944c09aacd664e062571bc0a",
+    "name": "Great Spears",
+    "infusible": false
+  },
+  {
+    "id": "cd3d8b5e9b1e9efb2fdadad53a75da97964a8a52",
+    "name": "Halberds",
+    "infusible": false
+  },
+  {
+    "id": "3f913e217c0efbc8070e88ef3ba8870d165a59e9",
+    "name": "Reapers",
+    "infusible": false
+  },
+  {
+    "id": "9f5002a37486c8939d3e475c1b879b5df0509d6b",
+    "name": "Whips",
+    "infusible": false
+  },
+  {
+    "id": "4a25946cb0d17ad6cee4d62df278031e05ce4a11",
+    "name": "Fists",
+    "infusible": false
+  },
+  {
+    "id": "9e94f9880e24b24313f59f4ee8b74ed6ba207ae8",
+    "name": "Claws",
+    "infusible": false
+  },
+  {
+    "id": "e11b45f3454a6ef607c21002a18ffc91d6846665",
+    "name": "Light Bows",
+    "infusible": false
+  },
+  {
+    "id": "5052ab698dea52dc9b6c4b0de77bad29bac95ac7",
+    "name": "Bows",
+    "infusible": false
+  },
+  {
+    "id": "96811c733e48498b04beded6c99aee0a9ee49e95",
+    "name": "Greatbows",
+    "infusible": false
+  },
+  {
+    "id": "ba7e1a50397eb364f656d99bb4de38736c7014f8",
+    "name": "Crossbows",
+    "infusible": false
+  },
+  {
+    "id": "fac47850a42c49b2e80a59ca1260ab8a997f9010",
+    "name": "Glintstone Staffs",
+    "infusible": false
+  },
+  {
+    "id": "90c997531b3a704aedfdc0539f9bc899fdd82bdb",
+    "name": "Sacred Seals",
+    "infusible": false
+  },
+  {
+    "id": "23a98c3569e97b856719a393488f3d9c68955ed9",
+    "name": "Torches",
+    "infusible": false
+  },
+  {
+    "id": "99ece6d6a3b793e1a1250d79c088e5103dd14c4f",
+    "name": "Whetblades",
+    "infusible": false
+  },
+  {
+    "id": "87a6a8998c9afc48d2ac244fc6fca7e1571724b4",
+    "name": "Longsword",
+    "infusible": true
+  },
+  {
+    "id": "cc2bd1ced81a893ad06db8ce7141b8ec8546dbce",
+    "name": "Reverse-Hand Swords",
+    "infusible": false
+  },
+  {
+    "id": "3b3a827fdf74fbb674a958ebdaa870c72be13538",
+    "name": "Dueling Shield",
+    "infusible": true
+  },
+  {
+    "id": "03d2418aa610fc6b5be01ffeafa82334e22a6e23",
+    "name": "Carian Thrusting Shield",
+    "infusible": true
+  },
+  {
+    "id": "0e7b7c5b0de7731c422dab71e4a80f6381cc71f9",
+    "name": "Smithscript Dagger",
+    "infusible": true
+  },
+  {
+    "id": "bced4ed22abcea29ea87f011e1dbfaca23cf9e12",
+    "name": "Backhand Blade",
+    "infusible": false
+  },
+  {
+    "id": "05513cc0aa8192e841b30056bab7b5a0b1f60498",
+    "name": "Curseblade's Cirque",
+    "infusible": false
+  },
+  {
+    "id": "de837d3aef89b4daacc2ca21b2a6d452d9484ee0",
+    "name": "Firespark Perfume Bottle",
+    "infusible": false
+  },
+  {
+    "id": "adb5110d5a2b4044136798253ae3482290064cb4",
+    "name": "Chilling Perfume Bottle",
+    "infusible": false
+  },
+  {
+    "id": "cfcba0f083ac6233f38d7d76f81bbb169870a66f",
+    "name": "Frenzyflame Perfume Bottle",
+    "infusible": false
+  },
+  {
+    "id": "c735763494129da2f508b4ed6161f44de07020d3",
+    "name": "Lightning Perfume Bottle",
+    "infusible": false
+  },
+  {
+    "id": "bb38dfb1a50701e96b482bf4b6c62f4f422103c4",
+    "name": "Deadly Poison Perfume Bottle",
+    "infusible": false
+  },
+  {
+    "id": "97bc88dd98d7848716359649eddb88cd4d0c1180",
+    "name": "Beast Claw (Weapon)",
+    "infusible": true
+  },
+  {
+    "id": "a63c25c00599f701cb512fae514ac0602b721539",
+    "name": "Leda's Sword",
+    "infusible": false
+  },
+  {
+    "id": "1de5deb8a9cef1f53aa1b78480e54e8ed124f124",
+    "name": "Rellana's Twin Blades",
+    "infusible": false
+  },
+  {
+    "id": "a92ec6f4e3fbda6e992bc6f63dd68a9466adb72f",
+    "name": "Great Katana",
+    "infusible": true
+  },
+  {
+    "id": "c94a6031c9bf9ef393668d73ddc2c991f33b2dfd",
+    "name": "Dragon-Hunter's Great Katana",
+    "infusible": false
+  },
+  {
+    "id": "32ca25148e8a34ce2b3b86a9d1b91cb2ae9b08e9",
+    "name": "Rakshasa's Great Katana",
+    "infusible": false
+  },
+  {
+    "id": "3204775a7425e1344aa6f0f0682217c86809523b",
+    "name": "Dagger",
+    "infusible": true
+  },
+  {
+    "id": "682760193625a6dfee6e4de1c27e3dc41c5c20dc",
+    "name": "Parrying Dagger",
+    "infusible": true
+  },
+  {
+    "id": "e507d800a4a297282611d9e6a4f2f04cc21178c8",
+    "name": "Great Knife",
+    "infusible": true
+  },
+  {
+    "id": "a1fad3a871dbe9f23d7c1dc9bc605565ca5cd422",
+    "name": "Bloodstained Dagger",
+    "infusible": true
+  },
+  {
+    "id": "fa50f9fa1fab8d6239bc1949f81d8d682a2d2549",
+    "name": "Erdsteel Dagger",
+    "infusible": true
+  },
+  {
+    "id": "2da9fa98a4389157c3bdce397ed3bd2f63eb2c93",
+    "name": "Crystal Knife",
+    "infusible": false
+  },
+  {
+    "id": "3c5666b96f8a138b330974513e66531105bb6ae3",
+    "name": "Blade of Calling",
+    "infusible": false
+  },
+  {
+    "id": "0c3577b0d6054ebf4bd448e1bf1d9a01bda61b57",
+    "name": "Black Knife",
+    "infusible": false
+  },
+  {
+    "id": "b45c427424be999c4abd8adb06c18df801e06cea",
+    "name": "Fire Knight's Shortsword",
+    "infusible": true
+  },
+  {
+    "id": "68bb12e53feb055ca8a140cacf7baf2f3e69606b",
+    "name": "Short Sword",
+    "infusible": true
+  },
+  {
+    "id": "ace15480418422cc517e738f471ac7eaa268b028",
+    "name": "Broadsword",
+    "infusible": true
+  },
+  {
+    "id": "e06ba8fd505eb8bab84d8e298bbe177c22d2060c",
+    "name": "Weathered Straight Sword",
+    "infusible": true
+  },
+  {
+    "id": "11e0812cdc880f383290161a501e748489d55ef8",
+    "name": "Lordsworn's Straight Sword",
+    "infusible": true
+  },
+  {
+    "id": "ab46ecc2754c52b9a0c755d0d39589dde5f31460",
+    "name": "Noble's Slender Sword",
+    "infusible": true
+  },
+  {
+    "id": "1fab2e874d219ce3a0ce0b9f1e11ecfa9e537a66",
+    "name": "Cane Sword",
+    "infusible": true
+  },
+  {
+    "id": "225639b9c7f7b3ff9c423e2cdd820aaae03b8f51",
+    "name": "Lazuli Glintstone Sword",
+    "infusible": false
+  },
+  {
+    "id": "4b7a5b785ce9445ca6b15a1121185e1a297f45b2",
+    "name": "Carian Knight's Sword",
+    "infusible": false
+  },
+  {
+    "id": "76907ae0b1bbba479680be8a6281a15e78df7363",
+    "name": "Crystal Sword",
+    "infusible": false
+  },
+  {
+    "id": "edda8cd9dbf19ef8d55005f9c0bbd8c695699490",
+    "name": "Rotten Crystal Sword",
+    "infusible": false
+  },
+  {
+    "id": "e4941d2df06885093b638d5ab712ea9ab066c7f1",
+    "name": "Miquellan Knight's Sword",
+    "infusible": false
+  },
+  {
+    "id": "46329c649b567bdcf830252998470b308bb5cf0a",
+    "name": "Ornamental Straight Sword",
+    "infusible": false
+  },
+  {
+    "id": "e465d68c10b604e5d2c6ff591e20b457695be9e3",
+    "name": "Sword of St Trina",
+    "infusible": false
+  },
+  {
+    "id": "a7c5b393f9db62d007be3d786dce68e73c62ed97",
+    "name": "Coded Sword",
+    "infusible": false
+  },
+  {
+    "id": "eb0242d2e5f8b2c98dc98489a01b233166a483d9",
+    "name": "Velvet Sword of St Trina",
+    "infusible": false
+  },
+  {
+    "id": "f662624af1394505861a2a0f639f8779aa6e5100",
+    "name": "Stone-Sheathed Sword",
+    "infusible": false
+  },
+  {
+    "id": "a8e2be69f54831b701e4625ffcba72a2ddde987e",
+    "name": "Sword of Light",
+    "infusible": false
+  },
+  {
+    "id": "38d003c6ea22a02e7ce6ec0f6e31c4a2efe232fe",
+    "name": "Sword of Darkness",
+    "infusible": false
+  },
+  {
+    "id": "50a38f38170349b882c3f35ecc1d9be1d595421e",
+    "name": "Bastard Sword",
+    "infusible": true
+  },
+  {
+    "id": "9a305959440128c030a687a28e25c4bc307b7cf2",
+    "name": "Iron Greatsword",
+    "infusible": true
+  },
+  {
+    "id": "928c953a547d98f978e2ddd68e4de57f8fad69fa",
+    "name": "Lordsworn's Greatsword",
+    "infusible": true
+  },
+  {
+    "id": "81df9f4875372e836acab0a32402b49692ae31a0",
+    "name": "Knight's Greatsword",
+    "infusible": true
+  },
+  {
+    "id": "ee93fe7b8634e30fcfc75dd0bd2c20fc7bd4b747",
+    "name": "Banished Knight's Greatsword",
+    "infusible": true
+  },
+  {
+    "id": "e16eb614bb50ffd45664e7936125f2b9db3bad86",
+    "name": "Forked Greatsword",
+    "infusible": true
+  },
+  {
+    "id": "b1a265e6e44f6177d9f4c24c02a58ea41634e0f2",
+    "name": "Gargoyle's Greatsword",
+    "infusible": true
+  },
+  {
+    "id": "f33bdc1104c40fa2ed5c28a1472d4f522e6cefbd",
+    "name": "Gargoyle's Blackblade",
+    "infusible": false
+  },
+  {
+    "id": "e21025360ee8cfccaaeb3a2be9d016ae65fd460d",
+    "name": "Inseparable Sword",
+    "infusible": false
+  },
+  {
+    "id": "b697f21fe77d082454698a11f6eb72ddf47667fd",
+    "name": "Sword of Milos",
+    "infusible": false
+  },
+  {
+    "id": "88b8d4d337b8a99449e82fcf957534991338da44",
+    "name": "Ordovis's Greatsword",
+    "infusible": false
+  },
+  {
+    "id": "ddbf358f22faa8ca06307ef198026ea1f8381644",
+    "name": "Alabaster Lord's Sword",
+    "infusible": false
+  },
+  {
+    "id": "deca632b51e4349d00f60433b4ed8e9e7c5b5823",
+    "name": "Blasphemous Blade",
+    "infusible": false
+  },
+  {
+    "id": "f7a8d33b7a6a0a9bdad86251d93fd30d2118f383",
+    "name": "Sacred Relic Sword",
+    "infusible": false
+  },
+  {
+    "id": "7a49d44604bae75edb89518adc97353fed1024a3",
+    "name": "Lizard Greatsword",
+    "infusible": true
+  },
+  {
+    "id": "da812c6f890b884fa37c8d2fab05596977a5356d",
+    "name": "Greatsword of Damnation",
+    "infusible": false
+  },
+  {
+    "id": "937c0c9a0318428fde48106652948c837a069750",
+    "name": "Greatsword of Solitude",
+    "infusible": false
+  },
+  {
+    "id": "0e4518906d19db7620e4e4bb3c0e50da4cfd30e1",
+    "name": "Greatsword",
+    "infusible": true
+  },
+  {
+    "id": "8d40e92c5b26bf07a156c42f2ea72fe90975fe32",
+    "name": "Watchdog's Greatsword",
+    "infusible": true
+  },
+  {
+    "id": "f1c4fae712dee1fb47cc33d788395034832884db",
+    "name": "Troll's Golden Sword",
+    "infusible": true
+  },
+  {
+    "id": "6657fe30c6e833993a0c3eabff512e47a145fdbb",
+    "name": "Troll Knight's Sword",
+    "infusible": false
+  },
+  {
+    "id": "864d029fe89a6730888e52ec9f1136aa037c0bec",
+    "name": "Royal Greatsword",
+    "infusible": false
+  },
+  {
+    "id": "03f4f91476ac5065e50c8c978eb569bfc2d8a7bf",
+    "name": "Starscourge Greatsword",
+    "infusible": false
+  },
+  {
+    "id": "45e34e3da79820a22ba11328eb74bcb50b30e798",
+    "name": "Godslayer's Greatsword",
+    "infusible": false
+  },
+  {
+    "id": "e67b0eaa7b09e04a0d6ad1c7bbb93296b9a30cc5",
+    "name": "Maliketh's Black Blade",
+    "infusible": false
+  },
+  {
+    "id": "3f159ab5504a95e04a23d3e01192975b325439af",
+    "name": "Ancient Meteoric Ore Greatsword",
+    "infusible": false
+  },
+  {
+    "id": "7ce94634fd1ed2192a243742ca8cb22ec757a560",
+    "name": "Fire Knight's Greatsword",
+    "infusible": true
+  },
+  {
+    "id": "850f1fbdba195fb7a04f1b56856a98310b3faea3",
+    "name": "Greatsword of Radahn (Light)",
+    "infusible": false
+  },
+  {
+    "id": "76709003e3d16dd25620445fc1ad2092517db4b5",
+    "name": "Greatsword of Radahn (Lord)",
+    "infusible": false
+  },
+  {
+    "id": "6be3ffe3b0c476886e9a6be352385329f9c56a58",
+    "name": "Moonrithyll's Knight Sword",
+    "infusible": false
+  },
+  {
+    "id": "99d987fad694bf30f083ffe168598263910ba946",
+    "name": "Rapier",
+    "infusible": true
+  },
+  {
+    "id": "e6c484f35db81984ca7e26be065dfd9f52d4bfb9",
+    "name": "Estoc",
+    "infusible": true
+  },
+  {
+    "id": "0e4038c2cb66ea62698c17d295bf30e71b8fda4c",
+    "name": "Noble's Estoc",
+    "infusible": true
+  },
+  {
+    "id": "9cf4ecd54c2804bfc350390e8ef18ec9f5a6cf36",
+    "name": "Cleanrot Knight's Sword",
+    "infusible": true
+  },
+  {
+    "id": "eba0b8ee42c8ce67a50d48cb140ee8e0f49b861a",
+    "name": "Rogier's Rapier",
+    "infusible": true
+  },
+  {
+    "id": "0162c577562fc714bb971e521667f380cc3a0fc9",
+    "name": "Antspur Rapier",
+    "infusible": true
+  },
+  {
+    "id": "b5dba964785fb27201f16bee02b77d750c15b500",
+    "name": "Frozen Needle",
+    "infusible": false
+  },
+  {
+    "id": "776c8eff1b4eb9faa0bc192aeb373f343bac2f81",
+    "name": "Carian Sorcery Sword",
+    "infusible": false
+  },
+  {
+    "id": "90164d050f4a9d847163cb6fadcdf85bcf1a8e8e",
+    "name": "Dragon King's Cragblade",
+    "infusible": false
+  },
+  {
+    "id": "e404caa35f5e048857fda1858dfede363f92f4f7",
+    "name": "Queelign's Greatsword",
+    "infusible": true
+  },
+  {
+    "id": "2eb9323e9b3496da6508a324cb9dd25b3d4e5f7a",
+    "name": "Sword Lance",
+    "infusible": true
+  },
+  {
+    "id": "4acd8ec826dead6e15db682d681245fd4f8c131e",
+    "name": "Bandit's Curved Sword",
+    "infusible": true
+  },
+  {
+    "id": "9af97570b55023d7eca12a698e7bcba9900341d3",
+    "name": "Scavenger's Curved Sword",
+    "infusible": true
+  },
+  {
+    "id": "174887ee0573bd42ef521d813998641c96719db4",
+    "name": "Mantis Blade",
+    "infusible": true
+  },
+  {
+    "id": "4d3af6b8a391621a9fc20f20406cf00c0ba84f9c",
+    "name": "Beastman's Curved Sword",
+    "infusible": true
+  },
+  {
+    "id": "14f6134691ad8faf9c269bca5ab225ed314ee5b1",
+    "name": "Flowing Curved Sword",
+    "infusible": true
+  },
+  {
+    "id": "9224a300d9c9866cc1cffa5baaa5f2472b04ea7f",
+    "name": "Serpent-God's Curved Sword",
+    "infusible": true
+  },
+  {
+    "id": "db77249abf303ceb43f0a1f379e796cc7dc7a4db",
+    "name": "Magma Blade",
+    "infusible": false
+  },
+  {
+    "id": "ecb4e431bf4a59ac045673d4cc8a1cbb8b57203b",
+    "name": "Wing of Astel",
+    "infusible": false
+  },
+  {
+    "id": "29de647eef4de5c33d487857eec60dc4fe64c060",
+    "name": "Spirit Sword",
+    "infusible": false
+  },
+  {
+    "id": "a2904bcecd7d92d3b943a03ca1fcf5906f794c90",
+    "name": "Dancing Blade of Ranah",
+    "infusible": false
+  },
+  {
+    "id": "b464a8864ed71427c1503495781da0ecbc32771d",
+    "name": "Horned Warrior's Sword",
+    "infusible": false
+  },
+  {
+    "id": "d5bd85b60a0bd91201aae4c8ea7e7dd554bc5d6a",
+    "name": "Omen Cleaver",
+    "infusible": true
+  },
+  {
+    "id": "d5f60b59ab9d3d626191450730a045fd727a9ea9",
+    "name": "Monk's Flameblade",
+    "infusible": true
+  },
+  {
+    "id": "1570011ef4e4f5f956cf3d314cacd1f26875a275",
+    "name": "Beastman's Cleaver",
+    "infusible": true
+  },
+  {
+    "id": "6a21df0b6b5b657955caff1d4937ddf8f15a668c",
+    "name": "Onyx Lord's Greatsword",
+    "infusible": false
+  },
+  {
+    "id": "fa7b8a14102a2be1ec894eb0650e8caf361c470b",
+    "name": "Zamor Curved Sword",
+    "infusible": false
+  },
+  {
+    "id": "df32ba2fc67b70ed11222a5995f669c845c734a5",
+    "name": "Magma Wyrm's Scalesword",
+    "infusible": false
+  },
+  {
+    "id": "92326c95994cfe112b058489a1aa885980d095d7",
+    "name": "Morgott's Cursed Sword",
+    "infusible": false
+  },
+  {
+    "id": "f558aaeb76c6c25431a117177ebca0d33f3c4fd1",
+    "name": "Horned Warrior's Greatsword",
+    "infusible": false
+  },
+  {
+    "id": "84d386c246afa20468ca9af63fa79462797d9df4",
+    "name": "Freyja's Greatsword",
+    "infusible": true
+  },
+  {
+    "id": "1721a08460874cba7d3825efc3ae02fc0311d800",
+    "name": "Serpentbone Blade",
+    "infusible": false
+  },
+  {
+    "id": "8eba95df0645445d4fa618a6210bfdc976e44e9a",
+    "name": "Meteoric Ore Blade",
+    "infusible": false
+  },
+  {
+    "id": "b4609fa21495645067fe7bd6675fa78f3c6d4fa9",
+    "name": "Rivers of Blood",
+    "infusible": false
+  },
+  {
+    "id": "a4d70b482d50ae293e4125d1461da1af09e3b32d",
+    "name": "Dragonscale Blade",
+    "infusible": false
+  },
+  {
+    "id": "27c1066baf4c4eb62d51356a576d66dc67b5d69e",
+    "name": "Star-Lined Sword",
+    "infusible": false
+  },
+  {
+    "id": "44747e14e01439ea611d043adea5744ee5ceba56",
+    "name": "Sword of Night",
+    "infusible": false
+  },
+  {
+    "id": "7f5238a58ec4fb04557a3c634f39c46a9be1a635",
+    "name": "Twinblade",
+    "infusible": true
+  },
+  {
+    "id": "eb788134b780f14121b5a93c8ffde1780940431f",
+    "name": "Twinned Knight Swords",
+    "infusible": true
+  },
+  {
+    "id": "92ecf09408d08f5c927297a6c274730698732337",
+    "name": "Gargoyle's Twinblade",
+    "infusible": false
+  },
+  {
+    "id": "a5a0892074f2c20ec397b8b1d315213c0882772d",
+    "name": "Gargoyle's Black Blades",
+    "infusible": false
+  },
+  {
+    "id": "2025f84cf9afc1d08dc65564a304d7778742d029",
+    "name": "Eleonora's Poleblade",
+    "infusible": false
+  },
+  {
+    "id": "d39d2856d6a015d3b849b60761ac522f66a52660",
+    "name": "Black Steel Twinblade",
+    "infusible": true
+  },
+  {
+    "id": "0299401f4ea5ce88ce322fd330947a66e5f422fc",
+    "name": "Hand Axe",
+    "infusible": true
+  },
+  {
+    "id": "a4fce4585043a33fed76d29fc9f8b9ef530cb08f",
+    "name": "Battle Axe",
+    "infusible": true
+  },
+  {
+    "id": "f42615913edb73afc23e8379cbc9a72d2a9d3768",
+    "name": "Warped Axe",
+    "infusible": true
+  },
+  {
+    "id": "4c7846b2b2eac09ccd6f60c9c32d0adcb4ad8505",
+    "name": "Jawbone Axe",
+    "infusible": true
+  },
+  {
+    "id": "cbf3ac41e5a519bc00bd3cdf9f8913e2791735ea",
+    "name": "Iron Cleaver",
+    "infusible": true
+  },
+  {
+    "id": "206b7cf3499c70b73a4c6d5891f6691926c1638a",
+    "name": "Highland Axe",
+    "infusible": true
+  },
+  {
+    "id": "cf6af70c6be3897ea467857c97c5725be43e4aee",
+    "name": "Celebrant's Cleaver",
+    "infusible": true
+  },
+  {
+    "id": "d4499de1cd4a9aab113d4bbd662ed4a984154e9c",
+    "name": "Sacrificial Axe",
+    "infusible": true
+  },
+  {
+    "id": "100986ee3b63770a8b5c3404985bc305f7052d68",
+    "name": "Ripple Blade",
+    "infusible": false
+  },
+  {
+    "id": "76edd9109eb1ec910e6251fdba763c5296085483",
+    "name": "Stormhawk Axe",
+    "infusible": false
+  },
+  {
+    "id": "055ef84ffd7235a3e74af71ffdc6256578245278",
+    "name": "Rosus' Axe",
+    "infusible": false
+  },
+  {
+    "id": "c13cdd8a5d4125e224c67393a9e451dedcc7bb68",
+    "name": "Smithscript Axe",
+    "infusible": true
+  },
+  {
+    "id": "c8c4d047b98f633839c53316a46c4ce90753ebed",
+    "name": "Messmer Soldier's Axe",
+    "infusible": true
+  },
+  {
+    "id": "4c76902463ab0368f03965e17525f00b6da19947",
+    "name": "Death Knight's Twin Axes",
+    "infusible": false
+  },
+  {
+    "id": "c0c96e7f6e58ef6ae42611602026da0b0d98a3bf",
+    "name": "Greataxe",
+    "infusible": true
+  },
+  {
+    "id": "d365ac90d33b1f2f8eab904321b42486ce1a6466",
+    "name": "Crescent Moon Axe",
+    "infusible": true
+  },
+  {
+    "id": "3e250ca9fcbe5163c5578c3a44895ab0965c9780",
+    "name": "Longhaft Axe",
+    "infusible": true
+  },
+  {
+    "id": "edd8f1f2dd01312197681dfb5622de28967cabe9",
+    "name": "Executioner's Greataxe",
+    "infusible": true
+  },
+  {
+    "id": "9dac4f6122c9c31a951cef3c5f6d95ef801517e3",
+    "name": "Great Omenkiller Cleaver",
+    "infusible": true
+  },
+  {
+    "id": "e7b7daec6f39490622b08bf3322db97dd17c2f1d",
+    "name": "Butchering Knife",
+    "infusible": true
+  },
+  {
+    "id": "245dec58943683c2af748a90174f0c64f5a477f8",
+    "name": "Gargoyle's Great Axe",
+    "infusible": true
+  },
+  {
+    "id": "fcf1d3ef19ce0e228cc293a936ef046298474a70",
+    "name": "Gargoyle's Black Axe",
+    "infusible": false
+  },
+  {
+    "id": "904b8ea4f733c182c95311a68b2bf7f6dbf89e7b",
+    "name": "Winged Greathorn",
+    "infusible": false
+  },
+  {
+    "id": "2cc70ea37592ba2bc868e4dc6e7868863be32eac",
+    "name": "Putrescence Cleaver",
+    "infusible": false
+  },
+  {
+    "id": "ea1c8bdec3d6789cb4654ca76a52773ffc32c811",
+    "name": "Death Knight's Longhaft Axe",
+    "infusible": false
+  },
+  {
+    "id": "7a634fc4839d195b3a5e8c190f89b398ed9161dd",
+    "name": "Bonny Butchering Knife",
+    "infusible": false
+  },
+  {
+    "id": "0fa78df0405eff38f95518d0401247abdbb40baf",
+    "name": "Club",
+    "infusible": true
+  },
+  {
+    "id": "dad838744f1994872f4241126cb7073468a7f266",
+    "name": "Curved Club",
+    "infusible": true
+  },
+  {
+    "id": "4176c5d61e07ef3407e327fcc48b4b42905f6792",
+    "name": "Spiked Club",
+    "infusible": true
+  },
+  {
+    "id": "261bcb610a997a9a5294a7f1490bd2dfb00f56a6",
+    "name": "Stone Club",
+    "infusible": true
+  },
+  {
+    "id": "f144034bf8adc93bacba2891e1790c44e55f2ad6",
+    "name": "Mace",
+    "infusible": true
+  },
+  {
+    "id": "452cf1c6017d77d9471a357c5cc272633cc6ce1f",
+    "name": "Hammer",
+    "infusible": true
+  },
+  {
+    "id": "e6e9062ffcf46b52d512b25d0ade0f9ee82e544f",
+    "name": "Monk's Flamemace",
+    "infusible": true
+  },
+  {
+    "id": "3bfb524c4a71a92a46f4858e1c2e9b1e951f0a19",
+    "name": "Scepter of the All-Knowing",
+    "infusible": false
+  },
+  {
+    "id": "9c87377fe654e27226df368ce969a228623c4b66",
+    "name": "Marika's Hammer",
+    "infusible": false
+  },
+  {
+    "id": "59ee45efe09b933cac850a43104a45e9f95ff931",
+    "name": "Flail",
+    "infusible": true
+  },
+  {
+    "id": "27c3d709a8295e574e6424ec636b57d00c9f5379",
+    "name": "Nightrider Flail",
+    "infusible": true
+  },
+  {
+    "id": "aec6a8ab7350bf0ad05a249d6e0e560c57707c1c",
+    "name": "Chainlink Flail",
+    "infusible": true
+  },
+  {
+    "id": "9cd20309c8a97d0fbc57023dfdf1440d344eb05a",
+    "name": "Serpent Flail",
+    "infusible": false
+  },
+  {
+    "id": "e0f5903935b1e6c1085e0668e32f4acf9adcdceb",
+    "name": "Large Club",
+    "infusible": true
+  },
+  {
+    "id": "1195578f92871b3c3af6feed12ce052a6d61e90f",
+    "name": "Curved Great Club",
+    "infusible": true
+  },
+  {
+    "id": "d7335389b9a41d73ba9ea9ff4e3eb42996c833b5",
+    "name": "Great Mace",
+    "infusible": true
+  },
+  {
+    "id": "45087a98f7fa2f04dd4fe0755ca4d75b0b7f2c2e",
+    "name": "Pickaxe",
+    "infusible": true
+  },
+  {
+    "id": "7778f8fa0fc8677abdedecebc7c083d77bba2d97",
+    "name": "Brick Hammer",
+    "infusible": true
+  },
+  {
+    "id": "b55f20671e49dd6fbf3a732627352b5f83c4efa1",
+    "name": "Battle Hammer",
+    "infusible": true
+  },
+  {
+    "id": "dab151f439fa6c35d4eb8552b28ad41d4f54dce1",
+    "name": "Rotten Battle Hammer",
+    "infusible": true
+  },
+  {
+    "id": "41608df3277d0e2dd05d5238594c2cc9656e13cb",
+    "name": "Greathorn Hammer",
+    "infusible": true
+  },
+  {
+    "id": "dbab5bae9f8682a38662f3b0f9182febf7e39337",
+    "name": "Beastclaw Greathammer",
+    "infusible": false
+  },
+  {
+    "id": "7a15dc090988a773197d8238ca3607746e95a866",
+    "name": "Black Steel Greathammer",
+    "infusible": true
+  },
+  {
+    "id": "afb449e38b13a0038d1a819a24f27d588ebd1d75",
+    "name": "Smithscript Greathammer",
+    "infusible": true
+  },
+  {
+    "id": "290694d7217fcf521c2d6e369dab638781488206",
+    "name": "Duelist Greataxe",
+    "infusible": true
+  },
+  {
+    "id": "428d2edf966e086b783cbd39d06505b00b7a105f",
+    "name": "Rotten Greataxe",
+    "infusible": true
+  },
+  {
+    "id": "2ff76473c39705b263dd21f6254009e1817da69f",
+    "name": "Golem's Halberd",
+    "infusible": true
+  },
+  {
+    "id": "c4984ca42550966fd75322eb3185b605c53039c5",
+    "name": "Great Club",
+    "infusible": false
+  },
+  {
+    "id": "9753817840580bffdd825a864e157746c77225ef",
+    "name": "Troll's Hammer",
+    "infusible": false
+  },
+  {
+    "id": "00f1c8598c377b0844209e894947c7ecf2022f85",
+    "name": "Dragon Greatclaw",
+    "infusible": false
+  },
+  {
+    "id": "11365bba863e2a3be73247367a559c59a36f9375",
+    "name": "Watchdog's Staff",
+    "infusible": false
+  },
+  {
+    "id": "aa352e3d06ad32aa134f4c1e9dca3e76962588ca",
+    "name": "Staff of the Avatar",
+    "infusible": false
+  },
+  {
+    "id": "0ad0b684602de450b39834d3818264541ee48a87",
+    "name": "Rotten Staff",
+    "infusible": false
+  },
+  {
+    "id": "f6f591a7ca09727e09d5039238082f3ba9d4d86e",
+    "name": "Anvil Hammer",
+    "infusible": false
+  },
+  {
+    "id": "5cde826df71f3cace9b12633230f78e66d0c1379",
+    "name": "Devonia's Hammer",
+    "infusible": false
+  },
+  {
+    "id": "993266b3df29858257f22ce4ff698db8e260b7d3",
+    "name": "Short Spear",
+    "infusible": true
+  },
+  {
+    "id": "2a9b53a1962623178b9f5766574e9e952e5ba52f",
+    "name": "Iron Spear",
+    "infusible": true
+  },
+  {
+    "id": "75b1f662bf4d6d5d87f2ca11ca41748390c1fc30",
+    "name": "Spear",
+    "infusible": true
+  },
+  {
+    "id": "770240d206e3f61c00a682e8f3aefd4b5c5426d2",
+    "name": "Spiked Spear",
+    "infusible": true
+  },
+  {
+    "id": "c2e49278aef59e417b41deebb56119a748d41033",
+    "name": "Torchpole",
+    "infusible": false
+  },
+  {
+    "id": "870d8c69be3c08b9a32b8d3c576773e1783bea96",
+    "name": "Crystal Spear",
+    "infusible": false
+  },
+  {
+    "id": "9c4547b2f55cd0764b0f3a66de916e5ab359289e",
+    "name": "Rotten Crystal Spear",
+    "infusible": false
+  },
+  {
+    "id": "3fb09edfa9e09b7de17120eef11c1816bb7a0ca6",
+    "name": "Cleanrot Spear",
+    "infusible": false
+  },
+  {
+    "id": "97b381917752395b88748ea13fd95f1d5b5e66e6",
+    "name": "Death Ritual Spear",
+    "infusible": false
+  },
+  {
+    "id": "4a28e3b4afe7bf36cb359f461ba0f7c3dca1bc63",
+    "name": "Smithscript Spear",
+    "infusible": true
+  },
+  {
+    "id": "56a60b5bd37c21b949fd365b8be1c341163fcd65",
+    "name": "Swift Spear",
+    "infusible": true
+  },
+  {
+    "id": "f6a79a2d7db90e8fcc70d719ca53d1986f8f8b4f",
+    "name": "Lance",
+    "infusible": true
+  },
+  {
+    "id": "fbf5e815f83389c4e5fc170e098ecd9411c57bde",
+    "name": "Treespear",
+    "infusible": false
+  },
+  {
+    "id": "6b1751adf90e3f455e6f24b43be396fc25790805",
+    "name": "Vyke's War Spear",
+    "infusible": false
+  },
+  {
+    "id": "90b2325890f4c43b1fbe43b6bbb0c3d82c6a3bd7",
+    "name": "Mohgwyn's Sacred Spear",
+    "infusible": false
+  },
+  {
+    "id": "0b2944b30e1394f4024d80744b73925def4503a7",
+    "name": "Bloodfiend's Sacred Spear",
+    "infusible": false
+  },
+  {
+    "id": "cee60cfa252b495a89a8e5492bdf43439913e1b5",
+    "name": "Messmer Soldier's Spear",
+    "infusible": true
+  },
+  {
+    "id": "989dd41619d3bd9bb259cd8121ada9a125151904",
+    "name": "Spear of the Impaler",
+    "infusible": false
+  },
+  {
+    "id": "6d85df4eec416ffef40d81d90020828480b7dbd5",
+    "name": "Barbed Staff-Spear",
+    "infusible": false
+  },
+  {
+    "id": "3648d9d3b847a81e82e10de3d3915deac607aa23",
+    "name": "Halberd",
+    "infusible": true
+  },
+  {
+    "id": "abb0e22b46731b69786cfe3e504704cbdfd7afa5",
+    "name": "Banished Knight's Halberd",
+    "infusible": true
+  },
+  {
+    "id": "dddb6c28183f5d9d73d9452d4aa6b3fd5e752d24",
+    "name": "Glaive",
+    "infusible": true
+  },
+  {
+    "id": "af79acfc7a0329d3de0c32337f00bd65bdaccd1f",
+    "name": "Guardian's Swordspear",
+    "infusible": true
+  },
+  {
+    "id": "4fb27c4146e96f714ac1d8a27e84b5e2945d7ee6",
+    "name": "Gargoyle's Halberd",
+    "infusible": true
+  },
+  {
+    "id": "f76dc9a6f8cd5caa9492e350c810f80d2010ea99",
+    "name": "Gargoyle's Black Halberd",
+    "infusible": false
+  },
+  {
+    "id": "1a3f88fe9196cf167ee6d8097977273b1759865e",
+    "name": "Nightrider Glaive",
+    "infusible": true
+  },
+  {
+    "id": "95d88fbbb1949c96d68a8add676a2e3ae20cb581",
+    "name": "Pest's Glaive",
+    "infusible": true
+  },
+  {
+    "id": "d71e2a10d8e6dc9e816be97b14bdd44aab7ff058",
+    "name": "Ripple Crescent Halberd",
+    "infusible": false
+  },
+  {
+    "id": "d245bf3158adf2dddceb8ef51f6b578f5de8a0a5",
+    "name": "Golden Halberd",
+    "infusible": false
+  },
+  {
+    "id": "f416b087f5509ffbf06c28cfb0cb6263883c14ae",
+    "name": "Dragon Halberd",
+    "infusible": false
+  },
+  {
+    "id": "62abb76320e8f639f93b9bb2f98f91c34da65cb9",
+    "name": "Spirit Glaive",
+    "infusible": false
+  },
+  {
+    "id": "c6336e53cb9e91d73f2b7dc2452db8a4d1e81f96",
+    "name": "Poleblade of the Bud",
+    "infusible": false
+  },
+  {
+    "id": "ed8efcd85d143020c923d16969c5e73098eb6bd5",
+    "name": "Scythe",
+    "infusible": true
+  },
+  {
+    "id": "5abfb32dba207a8118df201994907b5b02d9e660",
+    "name": "Grave Scythe",
+    "infusible": true
+  },
+  {
+    "id": "bc9d6c5bdcae5ce76e090fbed0d02c92654c75d0",
+    "name": "Halo Scythe",
+    "infusible": false
+  },
+  {
+    "id": "cd1ccb50c213ba6c64cf770312cb5b46c97a1292",
+    "name": "Winged Scythe",
+    "infusible": false
+  },
+  {
+    "id": "4160ef0e34365a0e4cb15fd7f8828f65fb2e58ae",
+    "name": "Whip",
+    "infusible": true
+  },
+  {
+    "id": "177f3becf0b9ed19560636f896ec91fed45041e0",
+    "name": "Thorned Whip",
+    "infusible": true
+  },
+  {
+    "id": "e67d9c15338f671b5662dab6455682ee7f6af590",
+    "name": "Hoslow's Petal Whip",
+    "infusible": true
+  },
+  {
+    "id": "873f4234d63e5ea13dcc58d82a5dbd9846da42b0",
+    "name": "Magma Whip Candlestick",
+    "infusible": false
+  },
+  {
+    "id": "e9821e782911daeda4425aec58e39d0e51ec38cd",
+    "name": "Tooth Whip",
+    "infusible": false
+  },
+  {
+    "id": "5ce8afd445b47442a78b588056bfca83a6076f77",
+    "name": "Star Fist",
+    "infusible": true
+  },
+  {
+    "id": "e3b02749ff0ffe0fb51eba32b032410703a9a731",
+    "name": "Cipher Pata",
+    "infusible": false
+  },
+  {
+    "id": "71bee70e442c6ac822ae0ff73647d6280ab56ba4",
+    "name": "Golem Fist",
+    "infusible": true
+  },
+  {
+    "id": "26f759f35bb738a1054ac60172004883107fe12e",
+    "name": "Thiollier's Hidden Needle",
+    "infusible": false
+  },
+  {
+    "id": "228f5a950be1be5c5dce0ad0f7bdf5ee976d2d53",
+    "name": "Hookclaws",
+    "infusible": true
+  },
+  {
+    "id": "909feb7c3972687ae857ea0996a5406d90ed70cc",
+    "name": "Bloodhound Claws",
+    "infusible": true
+  },
+  {
+    "id": "7b17758fbdc1a381acc87dfbf096eb435dce738b",
+    "name": "Claws of Night",
+    "infusible": false
+  },
+  {
+    "id": "cb60a980895091435143eeefeac13931e1906009",
+    "name": "Shortbow",
+    "infusible": true
+  },
+  {
+    "id": "a7876fa33cc4eaa2150f2ecbcfb729e3969dd2ba",
+    "name": "Composite Bow",
+    "infusible": true
+  },
+  {
+    "id": "c4fb192c97635e525d7d3d1d25b440b2aa3c0c22",
+    "name": "Misbegotten Shortbow",
+    "infusible": true
+  },
+  {
+    "id": "c37a05b8e7dfac3510bfb3dda8eaac25e9db176a",
+    "name": "Harp Bow",
+    "infusible": false
+  },
+  {
+    "id": "6cff8005c4f7392910734c304248834689d0ec82",
+    "name": "Bone Bow",
+    "infusible": false
+  },
+  {
+    "id": "f6b0808da9a0251748471385779e075af54fdcc0",
+    "name": "Longbow",
+    "infusible": true
+  },
+  {
+    "id": "eb0dde23e305b30ac3592552259d0327658452a0",
+    "name": "Albinauric Bow",
+    "infusible": true
+  },
+  {
+    "id": "2db48234eceef98f652e82133fc83ccd77654ea2",
+    "name": "Black Bow",
+    "infusible": false
+  },
+  {
+    "id": "49ec1d6d4e8232768e7bfd674fe59a7f5e0a480b",
+    "name": "Pulley Bow",
+    "infusible": false
+  },
+  {
+    "id": "7b88deed015837eb63090dceedd8dbf8ee2ccb8f",
+    "name": "Horn Bow",
+    "infusible": true
+  },
+  {
+    "id": "a239bdb6a192a2d7cf2bbcce6ce1dff5e8cde0f3",
+    "name": "Serpent Bow",
+    "infusible": false
+  },
+  {
+    "id": "7faa6269318903df27d5f3ef1e75691123d2f2a7",
+    "name": "Erdtree Bow",
+    "infusible": false
+  },
+  {
+    "id": "ccfcef14841877b36a176d067f0227beedf79ec0",
+    "name": "Ansbach's Longbow",
+    "infusible": false
+  },
+  {
+    "id": "5ef78aefefbff001d50e55ca74ca5087125a9491",
+    "name": "Greatbow",
+    "infusible": true
+  },
+  {
+    "id": "50894495e061a9571052224adfd25787828e9443",
+    "name": "Golem Greatbow",
+    "infusible": false
+  },
+  {
+    "id": "2283b4d57526a391f711167e9e9d0de6f8f3d447",
+    "name": "Erdtree Greatbow",
+    "infusible": false
+  },
+  {
+    "id": "f78fde5e205faa9496a50a0fb62a324ffb8afb9f",
+    "name": "Lion Greatbow",
+    "infusible": false
+  },
+  {
+    "id": "651687645bee14278ca988e2059851f0f9177ecb",
+    "name": "Igon's Greatbow",
+    "infusible": true
+  },
+  {
+    "id": "7c97c83d8144be89867f85e404b4a968fb09afaa",
+    "name": "Soldier's Crossbow",
+    "infusible": false
+  },
+  {
+    "id": "00a572ebc279891be442793de1b3cd5605464a7d",
+    "name": "Light Crossbow",
+    "infusible": false
+  },
+  {
+    "id": "f86abcb93ccefe4e39f215f79ff3aea73c17968d",
+    "name": "Heavy Crossbow",
+    "infusible": false
+  },
+  {
+    "id": "5a855dac4f979eaad771d0621ffcf588153166a8",
+    "name": "Crepus's Black-Key Crossbow",
+    "infusible": false
+  },
+  {
+    "id": "a8d74573b8ff5b0b4ac3682a926ddb80b0a0df29",
+    "name": "Pulley Crossbow",
+    "infusible": false
+  },
+  {
+    "id": "f2e18ad3339ba042a22f56d7660151a8c7ee56c6",
+    "name": "Full Moon Crossbow",
+    "infusible": false
+  },
+  {
+    "id": "140a384abbffe7fdb43228108475e35a82b69283",
+    "name": "Repeating Crossbow",
+    "infusible": false
+  },
+  {
+    "id": "e774812387a4c5b770c3676ed483b658988fb790",
+    "name": "Spread Crossbow",
+    "infusible": false
+  },
+  {
+    "id": "ab458de84b646e0b71a56b53b1833502489ccd42",
+    "name": "Astrologer's Staff",
+    "infusible": true
+  },
+  {
+    "id": "220011452f0df9da4ccbc4996a3d4c875c6ca765",
+    "name": "Glintstone Staff",
+    "infusible": true
+  },
+  {
+    "id": "472df2a699c6a8a230c987b412e001a3b112f63f",
+    "name": "Academy Glintstone Staff",
+    "infusible": true
+  },
+  {
+    "id": "a8ef183c54cc2692bf71fd33f909c888cc12fb1c",
+    "name": "Digger's Staff",
+    "infusible": true
+  },
+  {
+    "id": "662c267e6deec2676954bd93985d9b6a3fcfc897",
+    "name": "Demi-Human Queen's Staff",
+    "infusible": true
+  },
+  {
+    "id": "a217afc15f1ec13f292a10e0574a6c15659394b2",
+    "name": "Azur's Glintstone Staff",
+    "infusible": false
+  },
+  {
+    "id": "80fe76acb9b3d9717cbdea848c8b8f069b269438",
+    "name": "Lusat's Glintstone Staff",
+    "infusible": false
+  },
+  {
+    "id": "b376dbd0f39f5e91af4684ea09070d86f1cac1ad",
+    "name": "Carian Glintstone Staff",
+    "infusible": true
+  },
+  {
+    "id": "1822d4a331000b91010bc87324490a960d9ca927",
+    "name": "Carian Glintblade Staff",
+    "infusible": true
+  },
+  {
+    "id": "6fb765bf85cd5cfe2e974a6aea7552de90ba5452",
+    "name": "Albinauric Staff",
+    "infusible": true
+  },
+  {
+    "id": "7c3fc3a37e8e6e95c3c67df4c1896d80df79e6ef",
+    "name": "Staff of Loss",
+    "infusible": true
+  },
+  {
+    "id": "f157ba5be251ce86540c5666eec3b6f073ac661c",
+    "name": "Gelmir Glintstone Staff",
+    "infusible": true
+  },
+  {
+    "id": "240d7a2a869f912e5e86f21c1eab37a6e93a1873",
+    "name": "Crystal Staff",
+    "infusible": false
+  },
+  {
+    "id": "6fa26dacc7aedce9fb72b3561ea871f8f2e418b0",
+    "name": "Rotten Crystal Staff",
+    "infusible": false
+  },
+  {
+    "id": "89f52a23fcda9751414976f3aada00e0cfebacf0",
+    "name": "Meteorite Staff",
+    "infusible": false
+  },
+  {
+    "id": "d609084a8f96af1134394a4ceacb0eac22ecbe6d",
+    "name": "Staff of the Guilty",
+    "infusible": true
+  },
+  {
+    "id": "176f6073ea160ce5ee8b56e683551869befa70ca",
+    "name": "Prince of Death's Staff",
+    "infusible": true
+  },
+  {
+    "id": "63326fd618c67567e90a49705053b09b5fd81c2d",
+    "name": "Staff of the Great Beyond",
+    "infusible": false
+  },
+  {
+    "id": "957fa162d030874d65f912fc4855e9fd16a5a0ad",
+    "name": "Maternal Staff",
+    "infusible": true
+  },
+  {
+    "id": "7b3e4373273241bddd06944c06bb3b25cefcad94",
+    "name": "Finger Seal",
+    "infusible": false
+  },
+  {
+    "id": "af26dd42167fb1f6d82d5b4860ecbf8d90f2b195",
+    "name": "Erdtree Seal",
+    "infusible": false
+  },
+  {
+    "id": "611a1c2dbedffc9ad7aa6475a3626f5d355d71f9",
+    "name": "Golden Order Seal",
+    "infusible": false
+  },
+  {
+    "id": "88650480a813d69f59aa24f5d43c766c2b181821",
+    "name": "Gravel Stone Seal",
+    "infusible": false
+  },
+  {
+    "id": "3d2128d33c9e07becbf9ba8e510f8cec6ea6d1c7",
+    "name": "Giant's Seal",
+    "infusible": false
+  },
+  {
+    "id": "1fb2755425ef6e4e6b159ca1845250373923e340",
+    "name": "Godslayer's Seal",
+    "infusible": false
+  },
+  {
+    "id": "a1765af55440341a026499c34e63c68720de99ae",
+    "name": "Clawmark Seal",
+    "infusible": false
+  },
+  {
+    "id": "c4813db95de84addd7fcdcf580d12a472653fc70",
+    "name": "Frenzied Flame Seal",
+    "infusible": false
+  },
+  {
+    "id": "19bb1cfd1456bd911e448b76710cfd5764a1a0f8",
+    "name": "Dragon Communion Seal",
+    "infusible": false
+  },
+  {
+    "id": "55c007d9b7b09e87a69bb429e5112b418fa4db7d",
+    "name": "Dryleaf Seal",
+    "infusible": false
+  },
+  {
+    "id": "b91fd8661d4f79e2838eef00844893f12cc263af",
+    "name": "Fire Knight's Seal",
+    "infusible": false
+  },
+  {
+    "id": "a971a8a9a5ddacae381504ca2fbe5ba00323d76f",
+    "name": "Spiraltree Seal",
+    "infusible": false
+  },
+  {
+    "id": "094addb2aa7fcac16001cc59cbbefbc1c91c0fd6",
+    "name": "Torch",
+    "infusible": false
+  },
+  {
+    "id": "caac1391896f283a765a9a823bdaa6af5ca5a576",
+    "name": "Beast-Repellent Torch",
+    "infusible": true
+  },
+  {
+    "id": "08b124e3af5e1d67a729fbbbcb7ddc2013697317",
+    "name": "Steel-Wire Torch",
+    "infusible": false
+  },
+  {
+    "id": "a8cc3b7195f8f878ae7dbd0b9c51749cb64b2e3e",
+    "name": "Sentry's Torch",
+    "infusible": false
+  },
+  {
+    "id": "3662082e6488ecc89436ae5680217fea26486752",
+    "name": "Ghostflame Torch",
+    "infusible": false
+  },
+  {
+    "id": "2b7e6575ff483ba3bfc7aea734155b0cb00e2761",
+    "name": "Nanaya's Torch",
+    "infusible": false
+  }
+]
