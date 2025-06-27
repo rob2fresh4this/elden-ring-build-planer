@@ -1669,6 +1669,518 @@
       "id": "2b7e6575ff483ba3bfc7aea734155b0cb00e2761",
       "name": "Nanaya's Torch",
       "infusible": false
+    },
+    {
+      "name": "Forked Hatchet",
+      "infusible": true
+    },
+    {
+      "name": "Icerind Hatchet",
+      "infusible": true
+    },
+    {
+      "name": "Hand Ballista",
+      "infusible": false
+    },
+    {
+      "name": "Jar Cannon",
+      "infusible": false
+    },
+    {
+      "name": "Venomous Fang",
+      "infusible": false
+    },
+    {
+      "name": "Raptor Talons",
+      "infusible": true
+    },
+    {
+      "name": "Zweihander",
+      "infusible": true
+    },
+    {
+      "name": "Envoy's Greathorn",
+      "infusible": false
+    },
+    {
+      "name": "Prelate's Inferno Crozier",
+      "infusible": false
+    },
+    {
+      "name": "Axe Of Godfrey",
+      "infusible": false
+    },
+    {
+      "name": "Fallingstar Beast Jaw",
+      "infusible": false
+    },
+    {
+      "name": "Staff Of The Avatar",
+      "infusible": false
+    },
+    {
+      "name": "Ghiza's Wheel",
+      "infusible": true
+    },
+    {
+      "name": "Giant-crusher",
+      "infusible": true
+    },
+    {
+      "name": "Crepus's Black-key Crossbow",
+      "infusible": false
+    },
+    {
+      "name": "Arbalest",
+      "infusible": true
+    },
+    {
+      "name": "Bloodhound's Fang",
+      "infusible": false
+    },
+    {
+      "name": "Dismounter",
+      "infusible": false
+    },
+    {
+      "name": "Falchion",
+      "infusible": true
+    },
+    {
+      "name": "Shamshir",
+      "infusible": true
+    },
+    {
+      "name": "Shotel",
+      "infusible": true
+    },
+    {
+      "name": "Wing Of Astel",
+      "infusible": false
+    },
+    {
+      "name": "Eclipse Shotel",
+      "infusible": false
+    },
+    {
+      "name": "Serpent-god's Curved Sword",
+      "infusible": false
+    },
+    {
+      "name": "Scimitar",
+      "infusible": true
+    },
+    {
+      "name": "Nox Flowing Sword",
+      "infusible": false
+    },
+    {
+      "name": "Grossmesser",
+      "infusible": true
+    },
+    {
+      "name": "Miséricorde",
+      "infusible": true
+    },
+    {
+      "name": "Reduvia",
+      "infusible": false
+    },
+    {
+      "name": "Celebrant's Sickle",
+      "infusible": false
+    },
+    {
+      "name": "Glintstone Kris",
+      "infusible": true
+    },
+    {
+      "name": "Scorpion's Stinger",
+      "infusible": false
+    },
+    {
+      "name": "Wakizashi",
+      "infusible": true
+    },
+    {
+      "name": "Cinquedea",
+      "infusible": false
+    },
+    {
+      "name": "Ivory Sickle",
+      "infusible": true
+    },
+    {
+      "name": "Blade Of Calling",
+      "infusible": false
+    },
+    {
+      "name": "Spiked Caestus",
+      "infusible": true
+    },
+    {
+      "name": "Caestus",
+      "infusible": true
+    },
+    {
+      "name": "Grafted Dragon",
+      "infusible": false
+    },
+    {
+      "name": "Iron Ball",
+      "infusible": true
+    },
+    {
+      "name": "Katar",
+      "infusible": true
+    },
+    {
+      "name": "Clinging Bone",
+      "infusible": false
+    },
+    {
+      "name": "Veteran's Prosthesis",
+      "infusible": false
+    },
+    {
+      "name": "Family Heads",
+      "infusible": false
+    },
+    {
+      "name": "Bastard's Stars",
+      "infusible": false
+    },
+    {
+      "name": "Demi-human Queen's Staff",
+      "infusible": false
+    },
+    {
+      "name": "Carian Regal Scepter",
+      "infusible": false
+    },
+    {
+      "name": "Prince Of Death's Star",
+      "infusible": false
+    },
+    {
+      "name": "Staff Of The Guilty",
+      "infusible": false
+    },
+    {
+      "name": "Staff Of Loss",
+      "infusible": false
+    },
+    {
+      "name": "Axe Of Godrick",
+      "infusible": false
+    },
+    {
+      "name": "Rusted Anchor",
+      "infusible": true
+    },
+    {
+      "name": "Siluria's Tree",
+      "infusible": false
+    },
+    {
+      "name": "Serpent-hunter",
+      "infusible": true
+    },
+    {
+      "name": "Flamberge",
+      "infusible": true
+    },
+    {
+      "name": "Helphen's Steeple",
+      "infusible": false
+    },
+    {
+      "name": "Sword Of Milos",
+      "infusible": true
+    },
+    {
+      "name": "Claymore",
+      "infusible": true
+    },
+    {
+      "name": "Death's Poker",
+      "infusible": false
+    },
+    {
+      "name": "Lucerne",
+      "infusible": true
+    },
+    {
+      "name": "Commander's Standard",
+      "infusible": false
+    },
+    {
+      "name": "Vulgar Militia Saw",
+      "infusible": false
+    },
+    {
+      "name": "Loretta's War Sickle",
+      "infusible": false
+    },
+    {
+      "name": "Vulgar Militia Shotel",
+      "infusible": false
+    },
+    {
+      "name": "Warpick",
+      "infusible": true
+    },
+    {
+      "name": "Varré's Bouquet",
+      "infusible": false
+    },
+    {
+      "name": "Morning Star",
+      "infusible": true
+    },
+    {
+      "name": "Envoy's Horn",
+      "infusible": false
+    },
+    {
+      "name": "Scepter Of The All-knowing",
+      "infusible": false
+    },
+    {
+      "name": "Nox Flowing Hammer",
+      "infusible": false
+    },
+    {
+      "name": "Ringed Finger",
+      "infusible": false
+    },
+    {
+      "name": "Bloody Helice",
+      "infusible": false
+    },
+    {
+      "name": "Great Épée",
+      "infusible": true
+    },
+    {
+      "name": "Godskin Stitcher",
+      "infusible": false
+    },
+    {
+      "name": "Uchigatana",
+      "infusible": true
+    },
+    {
+      "name": "Nagakiba",
+      "infusible": true
+    },
+    {
+      "name": "Hand Of Malenia",
+      "infusible": false
+    },
+    {
+      "name": "Rivers Of Blood",
+      "infusible": false
+    },
+    {
+      "name": "Moonveil",
+      "infusible": false
+    },
+    {
+      "name": "Red Branch Shortbow",
+      "infusible": true
+    },
+    {
+      "name": "Clayman's Harpoon",
+      "infusible": true
+    },
+    {
+      "name": "Partisan",
+      "infusible": true
+    },
+    {
+      "name": "Celebrant's Rib-rake",
+      "infusible": false
+    },
+    {
+      "name": "Pike",
+      "infusible": true
+    },
+    {
+      "name": "Bolt Of Gransax",
+      "infusible": false
+    },
+    {
+      "name": "Cross-naginata",
+      "infusible": true
+    },
+    {
+      "name": "Inquisitor's Girandole",
+      "infusible": false
+    },
+    {
+      "name": "Winged Spear",
+      "infusible": true
+    },
+    {
+      "name": "Golden Epitaph",
+      "infusible": false
+    },
+    {
+      "name": "Sword Of Night And Flame",
+      "infusible": false
+    },
+    {
+      "name": "Sword Of St Trina",
+      "infusible": false
+    },
+    {
+      "name": "Regalia Of Eochaid",
+      "infusible": false
+    },
+    {
+      "name": "Warhawk's Talon",
+      "infusible": true
+    },
+    {
+      "name": "Steel-wire Torch",
+      "infusible": true
+    },
+    {
+      "name": "St. Trina's Torch",
+      "infusible": false
+    },
+    {
+      "name": "Beast-repellent Torch",
+      "infusible": true
+    },
+    {
+      "name": "Godskin Peeler",
+      "infusible": false
+    },
+    {
+      "name": "Celebrant's Skull",
+      "infusible": false
+    },
+    {
+      "name": "Envoy's Long Horn",
+      "infusible": false
+    },
+    {
+      "name": "Cranial Vessel Candlestand",
+      "infusible": false
+    },
+    {
+      "name": "Great Stars",
+      "infusible": true
+    },
+    {
+      "name": "Devourer's Scepter",
+      "infusible": false
+    },
+    {
+      "name": "Giant's Red Braid",
+      "infusible": false
+    },
+    {
+      "name": "Urumi",
+      "infusible": true
+    },
+    {
+      "name": "Main-gauche",
+      "infusible": true
+    },
+    {
+      "name": "Forked-Tongue Hatchet",
+      "infusible": false
+    },
+    {
+      "name": "Velvet Sword of St. Trina",
+      "infusible": false
+    },
+    {
+      "name": "Rellana's Twinblade",
+      "infusible": false
+    },
+    {
+      "name": "Falx",
+      "infusible": true
+    },
+    {
+      "name": "Euporia",
+      "infusible": false
+    },
+    {
+      "name": "Milady",
+      "infusible": false
+    },
+    {
+      "name": "Flowerstone Gavel",
+      "infusible": false
+    },
+    {
+      "name": "Obsidian Lamina",
+      "infusible": true
+    },
+    {
+      "name": "Poisoned Hand",
+      "infusible": false
+    },
+    {
+      "name": "Madding Hand",
+      "infusible": false
+    },
+    {
+      "name": "Dryleaf Arts",
+      "infusible": false
+    },
+    {
+      "name": "Dane's Footwork",
+      "infusible": false
+    },
+    {
+      "name": "Beast Claw",
+      "infusible": true
+    },
+    {
+      "name": "Red Bear's Claw",
+      "infusible": false
+    },
+    {
+      "name": "Smithscript Shield",
+      "infusible": true
+    },
+    {
+      "name": "Shield of Night",
+      "infusible": true
+    },
+    {
+      "name": "Golden Lion Shield",
+      "infusible": true
+    },
+    {
+      "name": "Verdigris Greatshield",
+      "infusible": true
+    },
+    {
+      "name": "Bloodfiend's Arm",
+      "infusible": false
+    },
+    {
+      "name": "Shadow Sunflower Blossom",
+      "infusible": false
+    },
+    {
+      "name": "Gazing Finger",
+      "infusible": false
+    },
+    {
+      "name": "Lamenting Visage",
+      "infusible": false
+    },
+    {
+      "name": "Bloodfiend's Fork",
+      "infusible": false
     }
   ]
 }
