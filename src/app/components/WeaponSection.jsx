@@ -341,7 +341,7 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                             onClick={() => handleTileClick(i)}
                         >
                             {weapon ? (
-                                <>
+                                <div className="flex flex-col items-center justify-center">
                                     <img
                                         src={getWeaponImagePath(weapon)}
                                         alt={weapon.name}
@@ -361,7 +361,7 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                                     <p className="text-[#c0a857] text-xs text-center">
                                         {weapon.requiredAttributes?.map(attr => `${attr.name}: ${attr.amount}`).join(" | ") || "No requirements"}
                                     </p>
-                                </>
+                                </div>
                             ) : (
                                 <p className="text-[#e5c77b] font-semibold text-center" style={{ fontFamily: "serif" }}>Empty Weapon Slot {i + 1}</p>
                             )}

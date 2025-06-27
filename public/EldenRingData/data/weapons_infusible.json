@@ -18,7 +18,7 @@
     {
       "id": "c9689db00cc63dee1d081e3d94a32a718c66f995",
       "name": "Backhand Blades",
-      "infusible": false
+      "infusible": true
     },
     {
       "id": "23928bb5030f015f6195a86d9d92100b0dcde87e",
@@ -248,7 +248,7 @@
     {
       "id": "bced4ed22abcea29ea87f011e1dbfaca23cf9e12",
       "name": "Backhand Blade",
-      "infusible": false
+      "infusible": true
     },
     {
       "id": "05513cc0aa8192e841b30056bab7b5a0b1f60498",
@@ -1688,7 +1688,7 @@
     },
     {
       "name": "Venomous Fang",
-      "infusible": false
+      "infusible": true
     },
     {
       "name": "Raptor Talons",
@@ -1792,7 +1792,7 @@
     },
     {
       "name": "Glintstone Kris",
-      "infusible": true
+      "infusible": false
     },
     {
       "name": "Scorpion's Stinger",
@@ -1884,7 +1884,7 @@
     },
     {
       "name": "Serpent-hunter",
-      "infusible": true
+      "infusible": false
     },
     {
       "name": "Flamberge",
