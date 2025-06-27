@@ -62,6 +62,22 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
         { name: "Occult", effect: "Adds Arcane scaling", color: "#6c3483" }
     ];
 
+    const infusionImages = [
+        { name: "Standard", image: "/EldenRingData/images/infusions/standardAffinity.webp" },
+        { name: "Keen", image: "/EldenRingData/images/infusions/keenAffinity.webp" },
+        { name: "Heavy", image: "/EldenRingData/images/infusions/heavyAffinity.webp" },
+        { name: "Quality", image: "/EldenRingData/images/infusions/qualityAffinity.webp" },
+        { name: "Magic", image: "/EldenRingData/images/infusions/magicAffinity.webp" },
+        { name: "Cold", image: "/EldenRingData/images/infusions/coldAffinity.webp" },
+        { name: "Fire", image: "/EldenRingData/images/infusions/fireAffinity.webp" },
+        { name: "Flame Art", image: "/EldenRingData/images/infusions/flame_artAffinity.jpg" },
+        { name: "Sacred", image: "/EldenRingData/images/infusions/sacredAffinity.webp" },
+        { name: "Lightning", image: "/EldenRingData/images/infusions/lightningAffinity.webp" },
+        { name: "Bleed", image: "/EldenRingData/images/infusions/bloodAffinity.webp" },
+        { name: "Poison", image: "/EldenRingData/images/infusions/poison.png" },
+        { name: "Occult", image: "/EldenRingData/images/infusions/occultAffinity.webp" }
+    ]
+
     // Convert stats object to format expected by weapon requirements
     const playerStats = {
         Str: stats?.STR || 10,
@@ -333,12 +349,14 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                                     />
                                     <p className="text-[#e5c77b] font-semibold text-center" style={{ fontFamily: "serif" }}>{decodeWeaponName(weapon.name)}</p>
                                     {infusion && (
-                                        <p
-                                            className="text-xs text-center font-medium mt-1"
-                                            style={{ color: getInfusionColor(infusion) }}
-                                        >
-                                            {infusion} Infusion
-                                        </p>
+                                        <div className="flex items-center justify-center mt-1">
+                                            <img
+                                                src={infusionImages.find(img => img.name === infusion)?.image || ""}
+                                                alt={`${infusion} Infusion`}
+                                                className="w-[20px] h-[20px] object-contain mr-1"
+                                            />
+                                            <span className="text-xs text-[#c0a857]">{infusion}</span>
+                                        </div>
                                     )}
                                     <p className="text-[#c0a857] text-xs text-center">
                                         {weapon.requiredAttributes?.map(attr => `${attr.name}: ${attr.amount}`).join(" | ") || "No requirements"}
