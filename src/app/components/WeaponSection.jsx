@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import WeaponData from "../../../public/EldenRingData/data/weapons.json";
 import WeaponDataDLC from "../../../public/EldenRingData/data/weaponsDLC.json";
+import InfusibleData from "../../../public/EldenRingData/data/weapons_infusible.json";
 import toast from "react-hot-toast";
 
 const stripImageBaseUrl = (imageUrl) => {
@@ -15,7 +16,7 @@ const stripImageBaseUrl = (imageUrl) => {
 
 const decodeWeaponName = (name) => {
     if (!name || typeof name !== "string") return name;
-    
+
     // Decode common URL encodings
     return name
         .replace(/%27/g, "'")  // %27 -> apostrophe
@@ -40,9 +41,27 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [search, setSearch] = useState("");
     const [selectedSlot, setSelectedSlot] = useState(null);
+    // Change weapons state to store objects with weapon and infusion data
     const [weapons, setWeapons] = useState(Array(WEAPON_SLOTS).fill(null));
     const [tempWeapons, setTempWeapons] = useState([...weapons]);
-    
+    const [selectedInfusion, setSelectedInfusion] = useState("Standard");
+
+    const infusionTypes = [
+        { name: "Standard", effect: "No change", color: "#e5c77b" },
+        { name: "Keen", effect: "Boosts Dex scaling, reduces Str", color: "#4a90e2" },
+        { name: "Heavy", effect: "Boosts Str scaling, reduces Dex", color: "#d4535a" },
+        { name: "Quality", effect: "Balances Str & Dex scaling", color: "#8e44ad" },
+        { name: "Magic", effect: "Adds Magic damage, Int scaling", color: "#3498db" },
+        { name: "Cold", effect: "Adds Magic + Frostbite, Int scaling", color: "#5dade2" },
+        { name: "Fire", effect: "Adds Fire damage, Str scaling", color: "#e74c3c" },
+        { name: "Flame Art", effect: "Adds Fire + Faith scaling", color: "#f39c12" },
+        { name: "Sacred", effect: "Adds Holy damage, Faith scaling", color: "#f1c40f" },
+        { name: "Lightning", effect: "Adds Lightning damage, Dex scaling", color: "#f4d03f" },
+        { name: "Bleed", effect: "Adds Arcane scaling + Bleed buildup", color: "#c0392b" },
+        { name: "Poison", effect: "Adds Arcane scaling + Poison buildup", color: "#27ae60" },
+        { name: "Occult", effect: "Adds Arcane scaling", color: "#6c3483" }
+    ];
+
     // Convert stats object to format expected by weapon requirements
     const playerStats = {
         Str: stats?.STR || 10,
@@ -54,7 +73,8 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
 
     // Calculate total weapon weight
     const calculateTotalWeaponWeight = (weaponArray) => {
-        return weaponArray.reduce((total, weapon) => {
+        return weaponArray.reduce((total, slot) => {
+            const weapon = getWeaponFromSlot(slot);
             return total + (weapon?.weight || 0);
         }, 0);
     };
@@ -63,25 +83,42 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
     useEffect(() => {
         // Force re-render when stats change to update weapon requirement checks
         // The component will automatically re-check canUseWeapon for each weapon
-    }, [stats]);    const filteredWeapons = [...WeaponData, ...WeaponDataDLC].filter(
+    }, [stats]); const filteredWeapons = [...WeaponData, ...WeaponDataDLC].filter(
         (w) =>
             w.name &&
             decodeWeaponName(w.name).toLowerCase().includes(search.toLowerCase())
     );
 
+    // Helper function to get weapon data from slot object
+    const getWeaponFromSlot = (slot) => {
+        return slot?.weapon || null;
+    };
+
+    // Helper function to get infusion from slot object
+    const getInfusionFromSlot = (slot) => {
+        return slot?.infusion || null;
+    };
+
+    // Update handleTileClick to set selectedInfusion from existing slot
     const handleTileClick = (slotIdx) => {
         setSelectedSlot(slotIdx);
         setTempWeapons([...weapons]);
         setSearch("");
+        // Set the infusion dropdown to current weapon's infusion
+        const currentSlot = weapons[slotIdx];
+        setSelectedInfusion(currentSlot?.infusion || "Standard");
         setModalOpen(true);
-    };    const getWeaponWarnings = (weapon) => {
+    }; const getWeaponWarnings = (slot) => {
+        const weapon = getWeaponFromSlot(slot);
+        if (!weapon) return [];
+
         let warnings = [];
-        
+
         // Check if weapon has required attributes (some DLC weapons might not have this structure)
         if (!weapon.requiredAttributes || !Array.isArray(weapon.requiredAttributes)) {
             return warnings;
         }
-        
+
         weapon.requiredAttributes.forEach(attr => {
             const required = attr.amount;
             const actual = playerStats[attr.name] || 0;
@@ -94,12 +131,16 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
         });
 
         return warnings;
-    };    const canUseWeapon = (weapon) => {
+    };    // Update the canUseWeapon function to work with slot objects
+    const canUseWeapon = (slot) => {
+        const weapon = getWeaponFromSlot(slot);
+        if (!weapon) return true;
+
         // Check if weapon has required attributes (some DLC weapons might not have this structure)
         if (!weapon.requiredAttributes || !Array.isArray(weapon.requiredAttributes)) {
             return true; // If no requirements, can use weapon
         }
-        
+
         return weapon.requiredAttributes.every(attr => {
             const actual = playerStats[attr.name] || 0;
             if (attr.name === "Str") return actual >= attr.amount / 2;
@@ -109,42 +150,160 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
 
     const handleWeaponSelect = (weapon) => {
         const updated = [...tempWeapons];
-        updated[selectedSlot] = weapon;
+        // Create weapon slot object with weapon and current infusion
+        updated[selectedSlot] = {
+            weapon: weapon,
+            infusion: selectedInfusion !== "Standard" ? selectedInfusion : null
+        };
         setTempWeapons(updated);
     };
 
-    const handleSave = () => {        
+    const handleSave = () => {
         for (let i = 0; i < tempWeapons.length; i++) {
-            const weapon = tempWeapons[i];
+            const slot = tempWeapons[i];
+            const weapon = getWeaponFromSlot(slot);
             if (!weapon) continue;
-            
+
             // Check if weapon has required attributes before validating
             if (weapon.requiredAttributes && Array.isArray(weapon.requiredAttributes)) {
                 const hasRequirements = weapon.requiredAttributes.every(attr => {
                     const actual = playerStats[attr.name] || 0;
                     if (attr.name === "Str") return actual >= attr.amount / 2;
                     return actual >= attr.amount;
-                });                if (!hasRequirements) {
+                });
+
+                if (!hasRequirements) {
                     toast.error(`You don't meet the requirements for '${decodeWeaponName(weapon.name)}' in slot ${i + 1}`);
                     return;
                 }
             }
         }
 
-        const newWeapons = [...tempWeapons];
-        setWeapons(newWeapons);
-        
-        // Calculate and notify parent about weapon weight change
-        const totalWeaponWeight = calculateTotalWeaponWeight(newWeapons);
+        // Update the selected slot with the current infusion before saving
+        if (selectedSlot !== null && tempWeapons[selectedSlot]) {
+            const updatedTempWeapons = [...tempWeapons];
+            const currentSlot = updatedTempWeapons[selectedSlot];
+            if (currentSlot && currentSlot.weapon) {
+                updatedTempWeapons[selectedSlot] = {
+                    weapon: currentSlot.weapon,
+                    infusion: selectedInfusion !== "Standard" ? selectedInfusion : null
+                };
+            }
+            setTempWeapons(updatedTempWeapons);
+            setWeapons(updatedTempWeapons);
+        } else {
+            const newWeapons = [...tempWeapons];
+            setWeapons(newWeapons);
+        }
+
+        // Use the updated weapons for logging
+        const finalWeapons = selectedSlot !== null && tempWeapons[selectedSlot] ? (() => {
+            const updated = [...tempWeapons];
+            const currentSlot = updated[selectedSlot];
+            if (currentSlot && currentSlot.weapon) {
+                updated[selectedSlot] = {
+                    weapon: currentSlot.weapon,
+                    infusion: selectedInfusion !== "Standard" ? selectedInfusion : null
+                };
+            }
+            return updated;
+        })() : [...tempWeapons];
+
+        // Console log the weapon data
+        console.log("=== WEAPON LOADOUT SAVED ===");
+        finalWeapons.forEach((slot, index) => {
+            if (slot) {
+                const weapon = getWeaponFromSlot(slot);
+                const infusion = getInfusionFromSlot(slot);
+                console.log(`Slot ${index + 1}:`, {
+                    weaponName: decodeWeaponName(weapon.name),
+                    weaponId: weapon.id,
+                    infusion: infusion || "Standard",
+                    weight: weapon.weight,
+                    category: weapon.category,
+                    requiredAttributes: weapon.requiredAttributes
+                });
+            } else {
+                console.log(`Slot ${index + 1}: Empty`);
+            }
+        });
+
+        // Calculate total weight
+        const totalWeaponWeight = calculateTotalWeaponWeight(finalWeapons);
+        console.log("Total Weapon Weight:", totalWeaponWeight);
+
+        // Log as JSON for easy copying
+        const weaponLoadoutJSON = finalWeapons.map((slot, index) => {
+            if (slot) {
+                const weapon = getWeaponFromSlot(slot);
+                const infusion = getInfusionFromSlot(slot);
+                return {
+                    slot: index + 1,
+                    weaponName: decodeWeaponName(weapon.name),
+                    weaponId: weapon.id,
+                    infusion: infusion || "Standard",
+                    weight: weapon.weight,
+                    category: weapon.category
+                };
+            }
+            return { slot: index + 1, empty: true };
+        });
+        console.log("Weapon Loadout JSON:", JSON.stringify(weaponLoadoutJSON, null, 2));
+        // after you can push these to a function to save them to a database or state
+
         if (onWeaponsChange) {
             onWeaponsChange(totalWeaponWeight);
         }
-        
+
         setModalOpen(false);
         setSelectedSlot(null);
+        setSelectedInfusion("Standard");
         toast.success("Weapons saved!");
     };
 
+    const getInfusionColor = (infusion) => {
+        const infusionData = infusionTypes.find(inf => inf.name === infusion);
+        return infusionData ? infusionData.color : "#e5c77b";
+    };
+
+    // Helper function to check if weapon can be infused
+    const getWeaponInfusibility = (weaponName) => {
+        const decodedName = decodeWeaponName(weaponName);
+        
+        // Defensive check for undefined data
+        if (!InfusibleData || !InfusibleData.infusibleWeapons) {
+            return {
+                canInfuse: false,
+                status: "uncertain"
+            };
+        }
+        
+        // Check in infusible weapons list
+        const infusibleWeapon = InfusibleData.infusibleWeapons.find(
+            w => w.name === decodedName
+        );
+        
+        if (infusibleWeapon) {
+            return {
+                canInfuse: infusibleWeapon.infusible,
+                status: infusibleWeapon.infusible ? "infusible" : "not_infusible"
+            };
+        }
+        
+        // Check in uncertain weapons list with defensive check
+        if (InfusibleData.uncertainWeapons && InfusibleData.uncertainWeapons.includes(decodedName)) {
+            return {
+                canInfuse: false,
+                status: "uncertain"
+            };
+        }
+        
+        // Default to uncertain if not found
+        return {
+            canInfuse: false,
+            status: "uncertain"
+        };
+    };
 
     return (
         <section className="w-full rounded-xl pt-4 mb-6">
@@ -155,24 +314,35 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                 Weapons
             </h2>
             <div className="grid grid-cols-3 gap-3">
-                {weapons.map((w, i) => {
-                    const borderColor = w && !canUseWeapon(w) ? "border-red-500" : "border-[#e5c77b]";
+                {weapons.map((slot, i) => {
+                    const weapon = getWeaponFromSlot(slot);
+                    const infusion = getInfusionFromSlot(slot);
+                    const borderColor = weapon && !canUseWeapon(slot) ? "border-red-500" : "border-[#e5c77b]";
                     return (
                         <div
                             key={i}
                             className={`w-full min-h-[140px] p-3 bg-[#2d2212] border ${borderColor} rounded-lg text-sm shadow transition hover:bg-[#3a2c1a] cursor-pointer flex flex-col justify-center items-center`}
                             onClick={() => handleTileClick(i)}
                         >
-                            {w ? (                                <>
+                            {weapon ? (
+                                <>
                                     <img
-                                        src={getWeaponImagePath(w)}
-                                        alt={w.name}
+                                        src={getWeaponImagePath(weapon)}
+                                        alt={weapon.name}
                                         className="w-12 h-12 object-contain mb-2"
                                     />
-                                    <p className="text-[#e5c77b] font-semibold text-center" style={{ fontFamily: "serif" }}>{decodeWeaponName(w.name)}</p>
-                                    <p className="text-[#c0a857] text-xs text-center">{
-                                        w.requiredAttributes?.map(attr => `${attr.name}: ${attr.amount}`).join(" | ") || "No requirements"
-                                    }</p>
+                                    <p className="text-[#e5c77b] font-semibold text-center" style={{ fontFamily: "serif" }}>{decodeWeaponName(weapon.name)}</p>
+                                    {infusion && (
+                                        <p
+                                            className="text-xs text-center font-medium mt-1"
+                                            style={{ color: getInfusionColor(infusion) }}
+                                        >
+                                            {infusion} Infusion
+                                        </p>
+                                    )}
+                                    <p className="text-[#c0a857] text-xs text-center">
+                                        {weapon.requiredAttributes?.map(attr => `${attr.name}: ${attr.amount}`).join(" | ") || "No requirements"}
+                                    </p>
                                 </>
                             ) : (
                                 <p className="text-[#e5c77b] font-semibold text-center" style={{ fontFamily: "serif" }}>Empty Weapon Slot {i + 1}</p>
@@ -185,8 +355,9 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
             {modalOpen && (
                 <div className="fixed inset-0 bg-gray-900/40 flex items-center justify-center z-50 overflow-auto">
                     <div className="bg-[#2d2212] border border-[#c0a857] overflow-hidden rounded-xl p-0 w-full max-w-lg relative mx-2 flex flex-col max-h-[90vh]">
-                        <div className="sticky top-0 z-10 bg-[#2d2212] border-b border-[#c0a857] flex items-center justify-between px-4 py-2">                            <div className="flex-1 text-center text-lg font-semibold text-[#e5c77b]" style={{ fontFamily: "serif" }}>
-                                Select Weapon - {decodeWeaponName(tempWeapons[selectedSlot]?.name) || "None Selected"}
+                        <div className="sticky top-0 z-10 bg-[#2d2212] border-b border-[#c0a857] flex items-center justify-between px-4 py-2">
+                            <div className="flex-1 text-center text-lg font-semibold text-[#e5c77b]" style={{ fontFamily: "serif" }}>
+                                Select Weapon - {decodeWeaponName(getWeaponFromSlot(tempWeapons[selectedSlot])?.name) || "None Selected"}
                             </div>
                             <button
                                 className="text-[#e5c77b] text-2xl ml-2"
@@ -202,6 +373,58 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                             </button>
                         </div>
 
+                        {/* Infusion Selection - Only show if weapon can be infused */}
+                        {getWeaponFromSlot(tempWeapons[selectedSlot]) && (() => {
+                            const weapon = getWeaponFromSlot(tempWeapons[selectedSlot]);
+                            const infusibility = getWeaponInfusibility(weapon.name);
+                            
+                            if (infusibility.canInfuse) {
+                                return (
+                                    <div className="px-4 py-3 bg-[#19140e] border-b border-[#c0a857] sticky top-[48px] z-10">
+                                        <div className="mb-2 text-[#c0a857] font-semibold text-sm">Infusion</div>
+                                        <select
+                                            value={selectedInfusion}
+                                            onChange={(e) => setSelectedInfusion(e.target.value)}
+                                            className="w-full px-3 py-2 rounded bg-[#2d2212] border border-[#c0a857] text-[#e5c77b] focus:outline-none text-sm"
+                                        >
+                                            {infusionTypes.map((infusion) => (
+                                                <option key={infusion.name} value={infusion.name} className="bg-[#2d2212]">
+                                                    {infusion.name} - {infusion.effect}
+                                                </option>
+                                            ))}
+                                        </select>
+                                        {selectedInfusion !== "Standard" && (
+                                            <p 
+                                                className="text-xs mt-1"
+                                                style={{ color: getInfusionColor(selectedInfusion) }}
+                                            >
+                                                {infusionTypes.find(inf => inf.name === selectedInfusion)?.effect}
+                                            </p>
+                                        )}
+                                    </div>
+                                );
+                            } else if (infusibility.status === "not_infusible") {
+                                return (
+                                    <div className="px-4 py-3 bg-[#19140e] border-b border-[#c0a857] sticky top-[48px] z-10">
+                                        <div className="mb-2 text-[#c0a857] font-semibold text-sm">Infusion</div>
+                                        <div className="px-3 py-2 rounded bg-[#2d2212] border border-[#6d5a2b] text-[#a8955c] text-sm">
+                                            This weapon cannot be infused
+                                        </div>
+                                    </div>
+                                );
+                            } else if (infusibility.status === "uncertain") {
+                                return (
+                                    <div className="px-4 py-3 bg-[#19140e] border-b border-[#c0a857] sticky top-[48px] z-10">
+                                        <div className="mb-2 text-[#c0a857] font-semibold text-sm">Infusion</div>
+                                        <div className="px-3 py-2 rounded bg-[#2d2212] border border-[#8a7430] text-[#d4b85a] text-sm">
+                                            Unsure on infuseable
+                                        </div>
+                                    </div>
+                                );
+                            }
+                            return null;
+                        })()}
+
                         <div className="px-4 py-2 bg-[#19140e] border-b border-[#c0a857] sticky top-[48px] z-10">
                             <input
                                 type="text"
@@ -216,8 +439,10 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                             <div className="mb-2 text-[#c0a857] font-semibold">Weapons</div>
                             <div className="flex flex-wrap gap-4">
                                 {filteredWeapons.map((weapon) => {
-                                    const warnings = getWeaponWarnings(weapon);
-                                    const isSelected = tempWeapons[selectedSlot]?.id === weapon.id;
+                                    const warnings = getWeaponWarnings({ weapon });
+                                    const selectedWeapon = getWeaponFromSlot(tempWeapons[selectedSlot]);
+                                    const isSelected = selectedWeapon?.id === weapon.id;
+                                    const infusibility = getWeaponInfusibility(weapon.name);
 
                                     return (
                                         <div
@@ -226,12 +451,25 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                                                 ${isSelected ? "border-[#e5c77b] bg-[#3a2c1a]" : "border-[#c0a857] bg-[#19140e] hover:bg-[#3a2c1a]"}
                                             `}
                                             onClick={() => handleWeaponSelect(weapon)}
-                                        >                                            <img
+                                        >
+                                            <img
                                                 src={getWeaponImagePath(weapon)}
                                                 alt={weapon.name}
                                                 className="w-full h-16 object-contain mb-2"
                                             />
                                             <p className="text-xs text-[#e5c77b] mb-1">{decodeWeaponName(weapon.name)}</p>
+                                            
+                                            {/* Infusion status indicator */}
+                                            {infusibility.status === "not_infusible" && (
+                                                <p className="text-xs text-[#a8955c] mb-1">Cannot be infused</p>
+                                            )}
+                                            {infusibility.status === "uncertain" && (
+                                                <p className="text-xs text-[#d4b85a] mb-1">Unsure on infuseable</p>
+                                            )}
+                                            {infusibility.status === "infusible" && (
+                                                <p className="text-xs text-[#7db46c] mb-1">Can be infused</p>
+                                            )}
+                                            
                                             {warnings.length > 0 && (
                                                 <div className="text-xs text-red-500">
                                                     {warnings.map((w, i) => (
