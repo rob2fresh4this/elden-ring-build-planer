@@ -99,7 +99,22 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
     useEffect(() => {
         // Force re-render when stats change to update weapon requirement checks
         // The component will automatically re-check canUseWeapon for each weapon
-    }, [stats]); const filteredWeapons = [...WeaponData, ...WeaponDataDLC].filter(
+    }, [stats]);
+
+    // Reset infusion when switching to non-infusible weapon
+    useEffect(() => {
+        if (selectedSlot !== null && tempWeapons[selectedSlot]) {
+            const weapon = getWeaponFromSlot(tempWeapons[selectedSlot]);
+            if (weapon) {
+                const infusibility = getWeaponInfusibility(weapon.name);
+                if (!infusibility.canInfuse) {
+                    setSelectedInfusion("Standard");
+                }
+            }
+        }
+    }, [tempWeapons, selectedSlot]);
+
+    const filteredWeapons = [...WeaponData, ...WeaponDataDLC].filter(
         (w) =>
             w.name &&
             decodeWeaponName(w.name).toLowerCase().includes(search.toLowerCase())
@@ -166,12 +181,21 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
 
     const handleWeaponSelect = (weapon) => {
         const updated = [...tempWeapons];
-        // Create weapon slot object with weapon and current infusion
+        // Check if the new weapon can be infused
+        const infusibility = getWeaponInfusibility(weapon.name);
+        const infusionToUse = infusibility.canInfuse ? selectedInfusion : "Standard";
+        
+        // Create weapon slot object with weapon and appropriate infusion
         updated[selectedSlot] = {
             weapon: weapon,
-            infusion: selectedInfusion !== "Standard" ? selectedInfusion : null
+            infusion: infusionToUse !== "Standard" ? infusionToUse : null
         };
         setTempWeapons(updated);
+        
+        // Reset infusion dropdown if weapon can't be infused
+        if (!infusibility.canInfuse) {
+            setSelectedInfusion("Standard");
+        }
     };
 
     const handleSave = () => {
@@ -200,9 +224,13 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
             const updatedTempWeapons = [...tempWeapons];
             const currentSlot = updatedTempWeapons[selectedSlot];
             if (currentSlot && currentSlot.weapon) {
+                const weapon = currentSlot.weapon;
+                const infusibility = getWeaponInfusibility(weapon.name);
+                const finalInfusion = infusibility.canInfuse ? selectedInfusion : "Standard";
+                
                 updatedTempWeapons[selectedSlot] = {
                     weapon: currentSlot.weapon,
-                    infusion: selectedInfusion !== "Standard" ? selectedInfusion : null
+                    infusion: finalInfusion !== "Standard" ? finalInfusion : null
                 };
             }
             setTempWeapons(updatedTempWeapons);
@@ -217,9 +245,13 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
             const updated = [...tempWeapons];
             const currentSlot = updated[selectedSlot];
             if (currentSlot && currentSlot.weapon) {
+                const weapon = currentSlot.weapon;
+                const infusibility = getWeaponInfusibility(weapon.name);
+                const finalInfusion = infusibility.canInfuse ? selectedInfusion : "Standard";
+                
                 updated[selectedSlot] = {
                     weapon: currentSlot.weapon,
-                    infusion: selectedInfusion !== "Standard" ? selectedInfusion : null
+                    infusion: finalInfusion !== "Standard" ? finalInfusion : null
                 };
             }
             return updated;
