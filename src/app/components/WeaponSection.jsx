@@ -87,6 +87,14 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
         Arc: stats?.ARC || 10,
     };
 
+    // Helper function to get stat value for both "Fai" and "Faith" attribute names
+    const getStatValue = (attrName, playerStats) => {
+        if (attrName === "Fai" || attrName === "Faith") {
+            return playerStats["Fai"] || playerStats["Faith"] || 0;
+        }
+        return playerStats[attrName] || 0;
+    };
+
     // Calculate total weapon weight
     const calculateTotalWeaponWeight = (weaponArray) => {
         return weaponArray.reduce((total, slot) => {
@@ -152,7 +160,7 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
 
         weapon.requiredAttributes.forEach(attr => {
             const required = attr.amount;
-            const actual = playerStats[attr.name] || 0;
+            const actual = getStatValue(attr.name, playerStats);
 
             if (attr.name === "Str" && actual >= required / 2 && actual < required) {
                 warnings.push("You must two-hand this weapon");
@@ -173,7 +181,7 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
         }
 
         return weapon.requiredAttributes.every(attr => {
-            const actual = playerStats[attr.name] || 0;
+            const actual = getStatValue(attr.name, playerStats);
             if (attr.name === "Str") return actual >= attr.amount / 2;
             return actual >= attr.amount;
         });
@@ -207,7 +215,7 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
             // Check if weapon has required attributes before validating
             if (weapon.requiredAttributes && Array.isArray(weapon.requiredAttributes)) {
                 const hasRequirements = weapon.requiredAttributes.every(attr => {
-                    const actual = playerStats[attr.name] || 0;
+                    const actual = getStatValue(attr.name, playerStats);
                     if (attr.name === "Str") return actual >= attr.amount / 2;
                     return actual >= attr.amount;
                 });
@@ -300,7 +308,7 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
         // after you can push these to a function to save them to a database or state
 
         if (onWeaponsChange) {
-            onWeaponsChange(totalWeaponWeight);
+            onWeaponsChange(totalWeaponWeight, finalWeapons);
         }
 
         setModalOpen(false);

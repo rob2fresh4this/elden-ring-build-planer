@@ -10,6 +10,14 @@ const BuildCreator = () => {
     const [equipmentWeight, setEquipmentWeight] = useState(0);
     const [weaponWeight, setWeaponWeight] = useState(0);
     const [talismans, setTalismans] = useState(Array(4).fill(null));
+    const [equipment, setEquipment] = useState({
+        HEAD: null,
+        CHEST: null,
+        HANDS: null,
+        LEGS: null
+    });
+    const [weapons, setWeapons] = useState(Array(6).fill(null));
+    const [spells, setSpells] = useState(Array(12).fill(null));
     const [stats, setStats] = useState({
         VIG: 10,
         MIND: 10,
@@ -23,15 +31,63 @@ const BuildCreator = () => {
     
     const totalWeight = equipmentWeight + weaponWeight;
 
-    const handleEquipmentChange = (totalArmorWeight) => {
+    const handleEquipmentChange = (totalArmorWeight, equipmentData) => {
         setEquipmentWeight(totalArmorWeight);
-    };    const handleWeaponsChange = (totalWeaponWeight) => {
+        if (equipmentData) {
+            setEquipment(equipmentData);
+        }
+    };
+
+    const handleWeaponsChange = (totalWeaponWeight, weaponsData) => {
         setWeaponWeight(totalWeaponWeight);
+        if (weaponsData) {
+            setWeapons(weaponsData);
+        }
     };
 
     const handleTalismansChange = (newTalismans) => {
         setTalismans(newTalismans);
     };
+
+    const handleSpellsChange = (spellsData) => {
+        setSpells(spellsData);
+    };
+
+    const saveBuild = () => {
+        const buildData = {
+            equipment: {
+                head: equipment.HEAD || null,
+                chest: equipment.CHEST || null,
+                hands: equipment.HANDS || null,
+                legs: equipment.LEGS || null
+            },
+            talismans: {
+                slot1: talismans[0] || null,
+                slot2: talismans[1] || null,
+                slot3: talismans[2] || null,
+                slot4: talismans[3] || null
+            },
+            stats: stats,
+            weapons: {
+                slot1: weapons[0] || null,
+                slot2: weapons[1] || null,
+                slot3: weapons[2] || null,
+                slot4: weapons[3] || null,
+                slot5: weapons[4] || null,
+                slot6: weapons[5] || null
+            },
+            spells: spells.reduce((acc, spell, index) => {
+                acc[`slot${index + 1}`] = spell || null;
+                return acc;
+            }, {}),
+            totalWeight: totalWeight,
+            timestamp: new Date().toISOString()
+        };
+
+        console.log('=== COMPLETE BUILD DATA ===');
+        console.log(JSON.stringify(buildData, null, 2));
+    };
+
     return (
         <main className="min-h-screen p-6 bg-gradient-to-br from-[#19140e] via-[#2d2212] to-[#3a2c1a] text-[#e5c77b]">
             {/* ✅ Toaster should be here once */}
@@ -46,7 +102,19 @@ const BuildCreator = () => {
                 </h1>
                 <p className="text-[#c0a857] mb-8 text-lg tracking-wide">
                     Strategize like a true Tarnished. Manage your Elden Ring builds below.
-                </p>                {/* Equipment and Loadout Grid */}
+                </p>
+
+                {/* Save Button */}
+                <div className="mb-6 flex justify-end">
+                    <button
+                        onClick={saveBuild}
+                        className="bg-[#e5c77b] text-[#19140e] px-6 py-3 rounded-lg font-semibold hover:bg-[#c0a857] transition-colors duration-200 shadow-lg"
+                    >
+                        Save Build
+                    </button>
+                </div>
+
+                {/* Equipment and Loadout Grid */}
                 <section className="mb-6">
                     <EquipmentGrid onEquipmentChange={handleEquipmentChange} onTalismansChange={handleTalismansChange} />
                 </section>                {/* Required Stats / Current Stats Panel */}
@@ -56,7 +124,7 @@ const BuildCreator = () => {
                 <WeaponSection onWeaponsChange={handleWeaponsChange} stats={stats} />
 
                 {/* Spells Section */}
-                <SpellSelection talismans={talismans} stats={stats} />
+                <SpellSelection talismans={talismans} stats={stats} onSpellsChange={handleSpellsChange} />
             </div>
         </main>
     );

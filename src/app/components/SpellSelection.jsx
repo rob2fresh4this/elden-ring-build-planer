@@ -18,7 +18,7 @@ const stripImageBaseUrl = (imageUrl) => {
     return imageUrl || "";
 };
 
-const SpellSelection = ({ talismans = [], stats }) => {
+const SpellSelection = ({ talismans = [], stats, onSpellsChange }) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [modalSlot, setModalSlot] = useState(null);
     const [tempSelection, setTempSelection] = useState({});
@@ -140,6 +140,15 @@ const SpellSelection = ({ talismans = [], stats }) => {
         }
 
         setSpells(newSpells);
+        
+        // Convert spells object to array for easier handling
+        const spellsArray = Array.from({ length: maxSlots }, (_, i) => newSpells[i] || null);
+        
+        // Notify parent component with spells data
+        if (onSpellsChange) {
+            onSpellsChange(spellsArray);
+        }
+        
         toast.success("Spell selection saved!");
         setModalOpen(false);
         setModalSlot(null);

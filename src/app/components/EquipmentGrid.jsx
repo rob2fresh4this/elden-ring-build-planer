@@ -90,10 +90,10 @@ export const EquipmentGrid = ({ onEquipmentChange, onTalismansChange }) => {
         const newEquipment = { ...tempSelection };
         setEquipment(newEquipment);
         
-        // Calculate and notify parent about weight change
+        // Calculate and notify parent about weight change and equipment data
         const totalWeight = calculateTotalWeight(newEquipment);
         if (onEquipmentChange) {
-            onEquipmentChange(totalWeight);
+            onEquipmentChange(totalWeight, newEquipment);
         }
         
         setModalOpen(false);
