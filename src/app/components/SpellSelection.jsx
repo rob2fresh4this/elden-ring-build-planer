@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import SorceriesData from "../../../public/EldenRingData/data/sorceries.json";
 import IncantationsData from "../../../public/EldenRingData/data/incantations.json";
 import toast from "react-hot-toast";
@@ -26,13 +26,14 @@ const SpellSelection = ({ talismans = [], stats }) => {
     const [search, setSearch] = useState("");
     
     // Convert stats object to format expected by spell requirements
-    const playerStats = {
+    const playerStats = useMemo(() => ({
         Strength: stats?.STR || 10,
         Dexterity: stats?.DEX || 10, 
         Intelligence: stats?.INT || 10,
         Faith: stats?.FAI || 10,
         Arcane: stats?.ARC || 10,
-    };
+    }), [stats]);
+
     const [moonOfNokstella, setMoonOfNokstella] = useState(false);    // Check if the Moon of Nokstella talisman is equipped
     const MOON_NOKSTELLA_TALISMAN_ID = "17f6980d220l0i2stavhe03m4ms2yf";
     const hasMoonTalisman = talismans.some(talisman =>
@@ -47,7 +48,7 @@ const SpellSelection = ({ talismans = [], stats }) => {
     useEffect(() => {
         // Force re-render when stats change to update spell requirement checks
         // The component will automatically re-check canUseSpell for each spell
-    }, [stats]);
+    }, [playerStats]);
 
     const maxSlots = moonOfNokstella ? 12 : 10;
     const allSpells = [
@@ -102,13 +103,26 @@ const SpellSelection = ({ talismans = [], stats }) => {
             const slot = Number(slotStr);
             const slotsNeeded = spell.slots || 1;
 
-            // Check if spell overlaps occupied slots
+            // Check if this spell has already been processed
+            if (assignedSpells.has(spell.id)) {
+                continue;
+            }
+
+            // Check if spell overlaps with slots occupied by OTHER spells
             for (let j = 0; j < slotsNeeded; j++) {
                 if (occupiedSlots.has(slot + j)) {
-                    toast.error(`Overlap error: '${spell.name}' conflicts with another spell.`);
-                    return;
+                    // Check if the conflicting slot contains a different spell
+                    const conflictingSpell = Object.entries(tempSelection).find(
+                        ([s, sp]) => Number(s) === slot + j && sp && sp.id !== spell.id
+                    );
+                    if (conflictingSpell) {
+                        toast.error(`Overlap error: '${spell.name}' conflicts with '${conflictingSpell[1].name}'.`);
+                        return;
+                    }
                 }
-            }            // Check stat requirements
+            }
+
+            // Check stat requirements
             const meetsRequirements = spell.requires?.every(
                 (r) => (playerStats[r.name] || 0) >= r.amount
             );
@@ -118,13 +132,11 @@ const SpellSelection = ({ talismans = [], stats }) => {
             }
 
             // Assign spell to slots
-            if (!assignedSpells.has(spell.id)) {
-                for (let j = 0; j < slotsNeeded; j++) {
-                    newSpells[slot + j] = spell;
-                    occupiedSlots.add(slot + j);
-                }
-                assignedSpells.add(spell.id);
+            for (let j = 0; j < slotsNeeded; j++) {
+                newSpells[slot + j] = spell;
+                occupiedSlots.add(slot + j);
             }
+            assignedSpells.add(spell.id);
         }
 
         setSpells(newSpells);
