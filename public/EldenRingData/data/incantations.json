@@ -847,7 +847,7 @@
         "type": "Incantations",
         "cost": 26,
         "slots": 1,
-        "effects": "Sets area and self ablaze with raging flames",
+        "effects": "Sets a small fire exlosion around the caster that sets the user on fire that continues to burn for a period of time hurting the user and nearby enemies.",
         "requires": [
             {
                 "name": "Intelligence",
@@ -915,11 +915,11 @@
         "id": "17f692cd88cl0hynyo45u48tb1tyn",
         "name": "Ezykes's Decay",
         "image": "https://eldenring.fanapis.com/images/incantations/17f692cd88cl0hynyo45u48tb1tyn.png",
-        "description": "Spews scarlet rot breath of Ekzykes from above",
+        "description": "Spews scarlet rot breath of Ekzykes",
         "type": "Incantations",
         "cost": 48,
         "slots": 1,
-        "effects": "???",
+        "effects": "Transfrom into a dragon and spew out scarlet rot breath",
         "requires": [
             {
                 "name": "Intelligence",
@@ -1290,7 +1290,7 @@
         "type": "Incantations",
         "cost": 21,
         "slots": 1,
-        "effects": "Shrieks, building up madness in nearby foes",
+        "effects": "Builds up madness in foes within area of effect, increasing damage and damage taken",
         "requires": [
             {
                 "name": "Intelligence",
@@ -1338,7 +1338,7 @@
         "type": "Incantation",
         "cost": 75,
         "slots": 2,
-        "effects": "Emits the roar of Elder Dragon Greyoll.",
+        "effects": "Emits the roar of Elder Dragon Greyoll lower attck power and defense of nearby foes",
         "requires": [
             {
                 "name": "Intelligence",
@@ -1530,7 +1530,7 @@
         "type": "Incantation",
         "cost": 17,
         "slots": 1,
-        "effects": "Creates image of Order to deal holy damage",
+        "effects": "Creates image of Order to deal holy damage highly effective against 'those who live in death'.",
         "requires": [
             {
                 "name": "Intelligence",
@@ -1698,7 +1698,7 @@
         "type": "Incantations",
         "cost": 22,
         "slots": 1,
-        "effects": "Enchanted right-hand armament with holy damage",
+        "effects": "Enchanted right-hand armament with holy damage and highly effective against Those Who Live in Death",
         "requires": [
             {
                 "name": "Intelligence",
@@ -1818,7 +1818,7 @@
         "type": "Incantations",
         "cost": 30,
         "slots": 1,
-        "effects": "Increases affinity damage negation for self & allies",
+        "effects": "Increases affinity damage negation for self & allies but not physical",
         "requires": [
             {
                 "name": "Intelligence",
@@ -1842,7 +1842,7 @@
         "type": "Incantations",
         "cost": 15,
         "slots": 1,
-        "effects": null,
+        "effects": "Applys poison to armament",
         "requires": [
             {
                 "name": "Intelligence",
@@ -2275,7 +2275,20 @@
         "cost": 27,
         "slots": 1,
         "effects": "Enchants right-hand armament with lightning damage",
-        "requires": null
+        "requires": [
+            {
+                "name": "Intelligence",
+                "amount": 0
+            },
+            {
+                "name": "Faith",
+                "amount": 23
+            },
+            {
+                "name": "Arcane",
+                "amount": 0
+            }
+        ]
     },
     {
         "id": "17f698ccf55l0hyo9juunjo3lodn1n",
