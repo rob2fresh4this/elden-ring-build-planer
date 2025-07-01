@@ -73,16 +73,59 @@ const SpellSelection = ({ talismans = [], stats, onSpellsChange }) => {
         console.log("Selecting spell", spell.name, "for slot", slot);
 
         const slotsNeeded = spell.slots ?? 1;
-
-        // Start with a shallow copy
         let newSelection = { ...tempSelection };
 
-        // Remove any spells occupying the slots this new spell will occupy
-        for (let i = 0; i < slotsNeeded; i++) {
-            delete newSelection[slot + i];
+        // First, check if the clicked slot is part of an existing multi-slot spell
+        const existingSpell = newSelection[slot];
+        if (existingSpell) {
+            // Find all slots occupied by this existing spell and remove them
+            const existingSlotsNeeded = existingSpell.slots ?? 1;
+            
+            // Find the starting slot of the existing spell
+            let startSlot = slot;
+            for (let i = slot - 1; i >= 0; i--) {
+                if (newSelection[i] && newSelection[i].id === existingSpell.id) {
+                    startSlot = i;
+                } else {
+                    break;
+                }
+            }
+            
+            // Remove all slots occupied by the existing spell
+            for (let i = 0; i < existingSlotsNeeded; i++) {
+                if (newSelection[startSlot + i] && newSelection[startSlot + i].id === existingSpell.id) {
+                    delete newSelection[startSlot + i];
+                }
+            }
         }
 
-        // Assign the new spell to those slots
+        // Now check if we need to clear any other spells that would conflict with the new spell placement
+        for (let i = 0; i < slotsNeeded; i++) {
+            const targetSlot = slot + i;
+            if (newSelection[targetSlot]) {
+                const conflictingSpell = newSelection[targetSlot];
+                const conflictingSlotsNeeded = conflictingSpell.slots ?? 1;
+                
+                // Find the starting slot of the conflicting spell
+                let conflictingStartSlot = targetSlot;
+                for (let j = targetSlot - 1; j >= 0; j--) {
+                    if (newSelection[j] && newSelection[j].id === conflictingSpell.id) {
+                        conflictingStartSlot = j;
+                    } else {
+                        break;
+                    }
+                }
+                
+                // Remove all slots occupied by the conflicting spell
+                for (let j = 0; j < conflictingSlotsNeeded; j++) {
+                    if (newSelection[conflictingStartSlot + j] && newSelection[conflictingStartSlot + j].id === conflictingSpell.id) {
+                        delete newSelection[conflictingStartSlot + j];
+                    }
+                }
+            }
+        }
+
+        // Finally, assign the new spell to its required slots
         for (let i = 0; i < slotsNeeded; i++) {
             newSelection[slot + i] = spell;
         }
@@ -160,7 +203,8 @@ const SpellSelection = ({ talismans = [], stats, onSpellsChange }) => {
     };
 
     const renderRequirements = (requires = []) => {
-        const validRequirements = (requires || []).filter((r) => r.amount > 0);        return (
+        const validRequirements = (requires || []).filter((r) => r.amount > 0);        
+        return (
             <div>
                 {validRequirements.map((r, index) => {
                     const hasStat = (playerStats[r.name] || 0) >= r.amount;
