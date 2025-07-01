@@ -265,47 +265,8 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
             return updated;
         })() : [...tempWeapons];
 
-        // Console log the weapon data
-        console.log("=== WEAPON LOADOUT SAVED ===");
-        finalWeapons.forEach((slot, index) => {
-            if (slot) {
-                const weapon = getWeaponFromSlot(slot);
-                const infusion = getInfusionFromSlot(slot);
-                console.log(`Slot ${index + 1}:`, {
-                    weaponName: decodeWeaponName(weapon.name),
-                    weaponId: weapon.id,
-                    infusion: infusion || "Standard",
-                    weight: weapon.weight,
-                    category: weapon.category,
-                    requiredAttributes: weapon.requiredAttributes
-                });
-            } else {
-                console.log(`Slot ${index + 1}: Empty`);
-            }
-        });
-
         // Calculate total weight
         const totalWeaponWeight = calculateTotalWeaponWeight(finalWeapons);
-        console.log("Total Weapon Weight:", totalWeaponWeight);
-
-        // Log as JSON for easy copying
-        const weaponLoadoutJSON = finalWeapons.map((slot, index) => {
-            if (slot) {
-                const weapon = getWeaponFromSlot(slot);
-                const infusion = getInfusionFromSlot(slot);
-                return {
-                    slot: index + 1,
-                    weaponName: decodeWeaponName(weapon.name),
-                    weaponId: weapon.id,
-                    infusion: infusion || "Standard",
-                    weight: weapon.weight,
-                    category: weapon.category
-                };
-            }
-            return { slot: index + 1, empty: true };
-        });
-        console.log("Weapon Loadout JSON:", JSON.stringify(weaponLoadoutJSON, null, 2));
-        // after you can push these to a function to save them to a database or state
 
         if (onWeaponsChange) {
             onWeaponsChange(totalWeaponWeight, finalWeapons);

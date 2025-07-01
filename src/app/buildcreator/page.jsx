@@ -53,14 +53,7 @@ const BuildCreator = () => {
         setSpells(spellsData);
     };
 
-    const saveBuild = () => {
-        // Debug weapons array structure
-        console.log('=== WEAPONS ARRAY DEBUG ===');
-        console.log('weapons:', weapons);
-        weapons.forEach((weapon, index) => {
-            console.log(`weapon[${index}]:`, weapon);
-        });
-        
+    const saveBuild = () => {        
         const buildData = {
             equipment: {
                 head: equipment.HEAD?.name || null,
