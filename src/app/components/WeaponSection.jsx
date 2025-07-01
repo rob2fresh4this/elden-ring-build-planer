@@ -192,18 +192,25 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
         // Check if the new weapon can be infused
         const infusibility = getWeaponInfusibility(weapon.name);
         const infusionToUse = infusibility.canInfuse ? selectedInfusion : "Standard";
-        
+
         // Create weapon slot object with weapon and appropriate infusion
         updated[selectedSlot] = {
             weapon: weapon,
             infusion: infusionToUse !== "Standard" ? infusionToUse : null
         };
         setTempWeapons(updated);
-        
+
         // Reset infusion dropdown if weapon can't be infused
         if (!infusibility.canInfuse) {
             setSelectedInfusion("Standard");
         }
+    };
+
+    const handleRemoveWeapon = () => {
+        const updated = [...tempWeapons];
+        updated[selectedSlot] = null;
+        setTempWeapons(updated);
+        setSelectedInfusion("Standard");
     };
 
     const handleSave = () => {
@@ -235,7 +242,7 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                 const weapon = currentSlot.weapon;
                 const infusibility = getWeaponInfusibility(weapon.name);
                 const finalInfusion = infusibility.canInfuse ? selectedInfusion : "Standard";
-                
+
                 updatedTempWeapons[selectedSlot] = {
                     weapon: currentSlot.weapon,
                     infusion: finalInfusion !== "Standard" ? finalInfusion : null
@@ -256,7 +263,7 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                 const weapon = currentSlot.weapon;
                 const infusibility = getWeaponInfusibility(weapon.name);
                 const finalInfusion = infusibility.canInfuse ? selectedInfusion : "Standard";
-                
+
                 updated[selectedSlot] = {
                     weapon: currentSlot.weapon,
                     infusion: finalInfusion !== "Standard" ? finalInfusion : null
@@ -286,7 +293,7 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
     // Helper function to check if weapon can be infused
     const getWeaponInfusibility = (weaponName) => {
         const decodedName = decodeWeaponName(weaponName);
-        
+
         // Defensive check for undefined data
         if (!InfusibleData || !InfusibleData.infusibleWeapons) {
             return {
@@ -294,19 +301,19 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                 status: "uncertain"
             };
         }
-        
+
         // Check in infusible weapons list
         const infusibleWeapon = InfusibleData.infusibleWeapons.find(
             w => w.name === decodedName
         );
-        
+
         if (infusibleWeapon) {
             return {
                 canInfuse: infusibleWeapon.infusible,
                 status: infusibleWeapon.infusible ? "infusible" : "not_infusible"
             };
         }
-        
+
         // Check in uncertain weapons list with defensive check
         if (InfusibleData.uncertainWeapons && InfusibleData.uncertainWeapons.includes(decodedName)) {
             return {
@@ -314,7 +321,7 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                 status: "uncertain"
             };
         }
-        
+
         // Default to uncertain if not found
         return {
             canInfuse: false,
@@ -378,25 +385,27 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                             <div className="flex-1 text-center text-lg font-semibold text-[#e5c77b]" style={{ fontFamily: "serif" }}>
                                 Select Weapon - {decodeWeaponName(getWeaponFromSlot(tempWeapons[selectedSlot])?.name) || "None Selected"}
                             </div>
-                            <button
-                                className="text-[#e5c77b] text-2xl ml-2"
-                                onClick={() => { setModalOpen(false); setSelectedSlot(null); }}
-                            >
-                                &times;
-                            </button>
-                            <button
-                                className="ml-4 px-4 py-1 bg-[#c0a857] text-[#19140e] rounded font-bold hover:bg-[#e5c77b]"
-                                onClick={handleSave}
-                            >
-                                Save
-                            </button>
+                            <div className="flex items-center gap-2">
+                                <button
+                                    className="text-[#e5c77b] text-2xl"
+                                    onClick={() => { setModalOpen(false); setSelectedSlot(null); }}
+                                >
+                                    &times;
+                                </button>
+                                <button
+                                    className="px-4 py-1 bg-[#c0a857] text-[#19140e] rounded font-bold hover:bg-[#e5c77b]"
+                                    onClick={handleSave}
+                                >
+                                    Save
+                                </button>
+                            </div>
                         </div>
 
                         {/* Infusion Selection - Only show if weapon can be infused */}
                         {getWeaponFromSlot(tempWeapons[selectedSlot]) && (() => {
                             const weapon = getWeaponFromSlot(tempWeapons[selectedSlot]);
                             const infusibility = getWeaponInfusibility(weapon.name);
-                            
+
                             if (infusibility.canInfuse) {
                                 return (
                                     <div className="px-4 py-3 bg-[#19140e] border-b border-[#c0a857] sticky top-[48px] z-10">
@@ -413,7 +422,7 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                                             ))}
                                         </select>
                                         {selectedInfusion !== "Standard" && (
-                                            <p 
+                                            <p
                                                 className="text-xs mt-1"
                                                 style={{ color: getInfusionColor(selectedInfusion) }}
                                             >
@@ -477,7 +486,7 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                                                 className="w-full h-16 object-contain mb-2"
                                             />
                                             <p className="text-xs text-[#e5c77b] mb-1">{decodeWeaponName(weapon.name)}</p>
-                                            
+
                                             {/* Infusion status indicator */}
                                             {infusibility.status === "not_infusible" && (
                                                 <p className="text-xs text-[#a8955c] mb-1">Cannot be infused</p>
@@ -488,7 +497,7 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                                             {infusibility.status === "infusible" && (
                                                 <p className="text-xs text-[#7db46c] mb-1">Can be infused</p>
                                             )}
-                                            
+
                                             {warnings.length > 0 && (
                                                 <div className="text-xs text-red-500">
                                                     {warnings.map((w, i) => (
@@ -501,6 +510,15 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                                 })}
                             </div>
                         </div>
+                        
+                        {getWeaponFromSlot(tempWeapons[selectedSlot]) && (
+                            <button
+                                className="px-3 py-1 bg-red-600 text-white rounded font-bold hover:bg-red-700 text-sm m-4"
+                                onClick={handleRemoveWeapon}
+                            >
+                                Remove
+                            </button>
+                        )}
                     </div>
                 </div>
             )}
