@@ -49,6 +49,13 @@ export const TalismanSection = ({ onTalismansChange }) => {
         updated[selectedSlot] = talisman;
         setTempTalismans(updated);
     };
+
+    const handleRemoveTalisman = () => {
+        const updated = [...tempTalismans];
+        updated[selectedSlot] = null;
+        setTempTalismans(updated);
+    };
+
     const handleSave = () => {
         setTalismans([...tempTalismans]);
         if (onTalismansChange) {
@@ -150,6 +157,15 @@ export const TalismanSection = ({ onTalismansChange }) => {
                                 ))}
                             </div>
                         </div>
+
+                        {tempTalismans[selectedSlot] && (
+                            <button
+                                className="px-3 py-1 bg-red-600 text-white rounded font-bold hover:bg-red-700 text-sm m-4"
+                                onClick={handleRemoveTalisman}
+                            >
+                                Remove
+                            </button>
+                        )}
                     </div>
                 </div>
             )}
