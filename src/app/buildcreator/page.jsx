@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { EquipmentGrid } from '../components/EquipmentGrid';
 import SpellSelection from '../components/SpellSelection';
 import { WeaponSection } from '../components/WeaponSection';
-import { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 import StatsSection from '../components/StatsSection';
 
 const BuildCreator = () => {
@@ -54,30 +54,37 @@ const BuildCreator = () => {
     };
 
     const saveBuild = () => {
+        // Debug weapons array structure
+        console.log('=== WEAPONS ARRAY DEBUG ===');
+        console.log('weapons:', weapons);
+        weapons.forEach((weapon, index) => {
+            console.log(`weapon[${index}]:`, weapon);
+        });
+        
         const buildData = {
             equipment: {
-                head: equipment.HEAD || null,
-                chest: equipment.CHEST || null,
-                hands: equipment.HANDS || null,
-                legs: equipment.LEGS || null
+                head: equipment.HEAD?.name || null,
+                chest: equipment.CHEST?.name || null,
+                hands: equipment.HANDS?.name || null,
+                legs: equipment.LEGS?.name || null
             },
             talismans: {
-                slot1: talismans[0] || null,
-                slot2: talismans[1] || null,
-                slot3: talismans[2] || null,
-                slot4: talismans[3] || null
+                slot1: talismans[0]?.name || null,
+                slot2: talismans[1]?.name || null,
+                slot3: talismans[2]?.name || null,
+                slot4: talismans[3]?.name || null
             },
             stats: stats,
             weapons: {
-                slot1: weapons[0] || null,
-                slot2: weapons[1] || null,
-                slot3: weapons[2] || null,
-                slot4: weapons[3] || null,
-                slot5: weapons[4] || null,
-                slot6: weapons[5] || null
+                slot1: weapons[0] ? { name: weapons[0].weapon?.name || weapons[0].name || null, infusion: weapons[0]?.infusion || null } : { name: null, infusion: null },
+                slot2: weapons[1] ? { name: weapons[1].weapon?.name || weapons[1].name || null, infusion: weapons[1]?.infusion || null } : { name: null, infusion: null },
+                slot3: weapons[2] ? { name: weapons[2].weapon?.name || weapons[2].name || null, infusion: weapons[2]?.infusion || null } : { name: null, infusion: null },
+                slot4: weapons[3] ? { name: weapons[3].weapon?.name || weapons[3].name || null, infusion: weapons[3]?.infusion || null } : { name: null, infusion: null },
+                slot5: weapons[4] ? { name: weapons[4].weapon?.name || weapons[4].name || null, infusion: weapons[4]?.infusion || null } : { name: null, infusion: null },
+                slot6: weapons[5] ? { name: weapons[5].weapon?.name || weapons[5].name || null, infusion: weapons[5]?.infusion || null } : { name: null, infusion: null }
             },
             spells: spells.reduce((acc, spell, index) => {
-                acc[`slot${index + 1}`] = spell || null;
+                acc[`slot${index + 1}`] = spell?.name || null;
                 return acc;
             }, {}),
             totalWeight: totalWeight,
@@ -86,6 +93,7 @@ const BuildCreator = () => {
 
         console.log('=== COMPLETE BUILD DATA ===');
         console.log(JSON.stringify(buildData, null, 2));
+        toast.success('Build saved successfully!');
     };
 
     return (
