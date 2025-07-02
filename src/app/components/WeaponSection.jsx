@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import WeaponData from "../../../public/EldenRingData/data/weapons.json";
 import WeaponDataDLC from "../../../public/EldenRingData/data/weaponsDLC.json";
 import InfusibleData from "../../../public/EldenRingData/data/weapons_infusible.json";
@@ -40,11 +40,13 @@ const WEAPON_SLOTS = 6;
 export const WeaponSection = ({ onWeaponsChange, stats }) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [search, setSearch] = useState("");
+    const [searchTerm, setSearchTerm] = useState("");
     const [selectedSlot, setSelectedSlot] = useState(null);
     // Change weapons state to store objects with weapon and infusion data
     const [weapons, setWeapons] = useState(Array(WEAPON_SLOTS).fill(null));
     const [tempWeapons, setTempWeapons] = useState([...weapons]);
     const [selectedInfusion, setSelectedInfusion] = useState("Standard");
+    const [isMobile, setIsMobile] = useState(false);
 
     const infusionTypes = [
         { name: "Standard", effect: "No change", color: "#e5c77b" },
@@ -122,10 +124,26 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
         }
     }, [tempWeapons, selectedSlot]);
 
+    // Detect mobile device
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    // Debounced search for better mobile performance
+    const handleSearchChange = useCallback((e) => {
+        setSearchTerm(e.target.value);
+        setSearch(e.target.value);
+    }, []);
+
     const filteredWeapons = [...WeaponData, ...WeaponDataDLC].filter(
         (w) =>
             w.name &&
-            decodeWeaponName(w.name).toLowerCase().includes(search.toLowerCase())
+            decodeWeaponName(w.name).toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     // Helper function to get weapon data from slot object
@@ -163,7 +181,7 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
             const actual = getStatValue(attr.name, playerStats);
 
             if (attr.name === "Str" && actual >= required / 2 && actual < required) {
-                warnings.push("You must two-hand this weapon");
+                warnings.push("Must Two-Hand");
             } else if (actual < required / 2 || (attr.name !== "Str" && actual < required)) {
                 warnings.push(`Need ${attr.name} ${required}`);
             }
@@ -330,48 +348,78 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
     };
 
     return (
-        <section className="w-full rounded-xl pt-4 mb-6">
+        <section className="w-full rounded-xl pt-3 sm:pt-4 mb-4 sm:mb-6">
             <h2
-                className="text-xl font-bold mb-3 tracking-wide text-[#e5c77b] drop-shadow"
+                className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 tracking-wide text-[#e5c77b] drop-shadow px-2 sm:px-0"
                 style={{ fontFamily: "serif" }}
             >
                 Weapons
             </h2>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 px-2 sm:px-0">
                 {weapons.map((slot, i) => {
                     const weapon = getWeaponFromSlot(slot);
                     const infusion = getInfusionFromSlot(slot);
                     const borderColor = weapon && !canUseWeapon(slot) ? "border-red-500" : "border-[#e5c77b]";
+                    const warnings = weapon ? getWeaponWarnings(slot) : [];
+                    
                     return (
                         <div
                             key={i}
-                            className={`w-full min-h-[140px] p-3 bg-[#2d2212] border ${borderColor} rounded-lg text-sm shadow transition hover:bg-[#3a2c1a] cursor-pointer flex flex-col justify-center items-center`}
+                            className={`w-full min-h-[120px] sm:min-h-[140px] md:min-h-[160px] p-2 sm:p-3 bg-[#2d2212] border ${borderColor} rounded-lg text-sm shadow transition-all duration-200 hover:bg-[#3a2c1a] active:bg-[#4a3c2a] cursor-pointer flex flex-col justify-center items-center touch-manipulation`}
                             onClick={() => handleTileClick(i)}
                         >
                             {weapon ? (
-                                <div className="flex flex-col items-center justify-center">
+                                <div className="flex flex-col items-center justify-center text-center">
                                     <img
                                         src={getWeaponImagePath(weapon)}
                                         alt={weapon.name}
-                                        className="w-12 h-12 object-contain mb-2"
+                                        className="w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 object-contain mb-1 sm:mb-2"
+                                        loading="lazy"
                                     />
-                                    <p className="text-[#e5c77b] font-semibold text-center" style={{ fontFamily: "serif" }}>{decodeWeaponName(weapon.name)}</p>
+                                    <p className="text-[#e5c77b] font-semibold text-xs sm:text-sm md:text-base text-center line-clamp-2 leading-tight mb-1" style={{ fontFamily: "serif" }}>
+                                        {decodeWeaponName(weapon.name)}
+                                    </p>
                                     {infusion && (
-                                        <div className="flex items-center justify-center mt-1">
+                                        <div className="flex items-center justify-center mt-1 mb-1">
                                             <img
                                                 src={infusionImages.find(img => img.name === infusion)?.image || ""}
                                                 alt={`${infusion} Infusion`}
-                                                className="w-[20px] h-[20px] object-contain mr-1"
+                                                className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 object-contain mr-1"
                                             />
-                                            <span className="text-xs text-[#c0a857]">{infusion}</span>
+                                            <span className="text-xs text-[#c0a857] truncate">{infusion}</span>
                                         </div>
                                     )}
-                                    <p className="text-[#c0a857] text-xs text-center">
-                                        {weapon.requiredAttributes?.map(attr => `${attr.name}: ${attr.amount}`).join(" | ") || "No requirements"}
-                                    </p>
+                                    <div className="text-[#c0a857] text-xs text-center space-y-1">
+                                        {weapon.requiredAttributes && weapon.requiredAttributes.length > 0 ? (
+                                            <div className="flex flex-wrap justify-center gap-1">
+                                                {weapon.requiredAttributes.map((attr, idx) => (
+                                                    <span key={idx} className="text-xs bg-[#3a2c1a] px-1 rounded">
+                                                        {attr.name}: {attr.amount}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        ) : (
+                                            <span className="text-xs">No requirements</span>
+                                        )}
+                                        {warnings.length > 0 && (
+                                            <div className="text-xs text-red-400 space-y-1">
+                                                {warnings.slice(0, 2).map((warning, idx) => (
+                                                    <div key={idx} className="truncate">{warning}</div>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
                             ) : (
-                                <p className="text-[#e5c77b] font-semibold text-center" style={{ fontFamily: "serif" }}>Empty Weapon Slot {i + 1}</p>
+                                <div className="flex flex-col items-center justify-center text-center">
+                                    <div className="w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 mb-1 sm:mb-2 bg-[#3a2c1a] rounded-md flex items-center justify-center">
+                                        <span className="text-[#c0a857] text-lg sm:text-xl">+</span>
+                                    </div>
+                                    <p className="text-[#e5c77b] font-semibold text-xs sm:text-sm text-center" style={{ fontFamily: "serif" }}>
+                                        <span className="hidden sm:inline">Empty Weapon Slot {i + 1}</span>
+                                        <span className="sm:hidden">Slot {i + 1}</span>
+                                    </p>
+                                </div>
                             )}
                         </div>
                     );
@@ -379,41 +427,47 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
             </div>
 
             {modalOpen && (
-                <div className="fixed inset-0 bg-gray-900/40 flex items-center justify-center z-50 overflow-auto">
-                    <div className="bg-[#2d2212] border border-[#c0a857] overflow-hidden rounded-xl p-0 w-full max-w-lg relative mx-2 flex flex-col max-h-[90vh]">
-                        <div className="sticky top-0 z-10 bg-[#2d2212] border-b border-[#c0a857] flex items-center justify-between px-4 py-2">
-                            <div className="flex-1 text-center text-lg font-semibold text-[#e5c77b]" style={{ fontFamily: "serif" }}>
-                                Select Weapon - {decodeWeaponName(getWeaponFromSlot(tempWeapons[selectedSlot])?.name) || "None Selected"}
+                <div className="fixed inset-0 bg-gray-900/50 flex items-center justify-center z-50 overflow-auto p-2 sm:p-4">
+                    <div className="bg-[#2d2212] border border-[#c0a857] overflow-hidden rounded-xl p-0 w-full max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-4xl relative mx-2 flex flex-col max-h-[95vh] sm:max-h-[90vh]">
+                        {/* Header */}
+                        <div className="sticky top-0 z-10 bg-[#2d2212] border-b border-[#c0a857] flex items-center justify-between px-3 sm:px-4 py-2 sm:py-3 min-h-[60px]">
+                            <div className="flex-1 text-center">
+                                <div className="text-sm sm:text-lg font-semibold text-[#e5c77b] truncate" style={{ fontFamily: "serif" }}>
+                                    Select Weapon
+                                </div>
+                                <div className="text-xs sm:text-sm text-[#c0a857] truncate">
+                                    {decodeWeaponName(getWeaponFromSlot(tempWeapons[selectedSlot])?.name) || "None Selected"}
+                                </div>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 ml-2">
                                 <button
-                                    className="text-[#e5c77b] text-2xl"
-                                    onClick={() => { setModalOpen(false); setSelectedSlot(null); }}
-                                >
-                                    &times;
-                                </button>
-                                <button
-                                    className="px-4 py-1 bg-[#c0a857] text-[#19140e] rounded font-bold hover:bg-[#e5c77b]"
+                                    className="px-3 sm:px-4 py-1 sm:py-2 bg-[#c0a857] text-[#19140e] rounded text-sm sm:text-base font-bold hover:bg-[#e5c77b] active:bg-[#a08f47] transition-colors touch-manipulation"
                                     onClick={handleSave}
                                 >
                                     Save
                                 </button>
+                                <button
+                                    className="text-[#e5c77b] text-xl sm:text-2xl p-1 hover:text-white active:text-[#c0a857] transition-colors touch-manipulation"
+                                    onClick={() => { setModalOpen(false); setSelectedSlot(null); }}
+                                >
+                                    &times;
+                                </button>
                             </div>
                         </div>
 
-                        {/* Infusion Selection - Only show if weapon can be infused */}
+                        {/* Infusion Selection */}
                         {getWeaponFromSlot(tempWeapons[selectedSlot]) && (() => {
                             const weapon = getWeaponFromSlot(tempWeapons[selectedSlot]);
                             const infusibility = getWeaponInfusibility(weapon.name);
 
                             if (infusibility.canInfuse) {
                                 return (
-                                    <div className="px-4 py-3 bg-[#19140e] border-b border-[#c0a857] sticky top-[48px] z-10">
-                                        <div className="mb-2 text-[#c0a857] font-semibold text-sm">Infusion</div>
+                                    <div className="px-3 sm:px-4 py-2 sm:py-3 bg-[#19140e] border-b border-[#c0a857] sticky top-[60px] z-10">
+                                        <div className="mb-2 text-[#c0a857] font-semibold text-sm sm:text-base">Infusion</div>
                                         <select
                                             value={selectedInfusion}
                                             onChange={(e) => setSelectedInfusion(e.target.value)}
-                                            className="w-full px-3 py-2 rounded bg-[#2d2212] border border-[#c0a857] text-[#e5c77b] focus:outline-none text-sm"
+                                            className="w-full px-3 py-2 sm:py-3 rounded bg-[#2d2212] border border-[#c0a857] text-[#e5c77b] focus:outline-none focus:border-[#e5c77b] text-sm sm:text-base touch-manipulation"
                                         >
                                             {infusionTypes.map((infusion) => (
                                                 <option key={infusion.name} value={infusion.name} className="bg-[#2d2212]">
@@ -423,7 +477,7 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                                         </select>
                                         {selectedInfusion !== "Standard" && (
                                             <p
-                                                className="text-xs mt-1"
+                                                className="text-xs sm:text-sm mt-1"
                                                 style={{ color: getInfusionColor(selectedInfusion) }}
                                             >
                                                 {infusionTypes.find(inf => inf.name === selectedInfusion)?.effect}
@@ -433,18 +487,18 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                                 );
                             } else if (infusibility.status === "not_infusible") {
                                 return (
-                                    <div className="px-4 py-3 bg-[#19140e] border-b border-[#c0a857] sticky top-[48px] z-10">
-                                        <div className="mb-2 text-[#c0a857] font-semibold text-sm">Infusion</div>
-                                        <div className="px-3 py-2 rounded bg-[#2d2212] border border-[#6d5a2b] text-[#a8955c] text-sm">
+                                    <div className="px-3 sm:px-4 py-2 sm:py-3 bg-[#19140e] border-b border-[#c0a857] sticky top-[60px] z-10">
+                                        <div className="mb-2 text-[#c0a857] font-semibold text-sm sm:text-base">Infusion</div>
+                                        <div className="px-3 py-2 sm:py-3 rounded bg-[#2d2212] border border-[#6d5a2b] text-[#a8955c] text-sm sm:text-base">
                                             This weapon cannot be infused
                                         </div>
                                     </div>
                                 );
                             } else if (infusibility.status === "uncertain") {
                                 return (
-                                    <div className="px-4 py-3 bg-[#19140e] border-b border-[#c0a857] sticky top-[48px] z-10">
-                                        <div className="mb-2 text-[#c0a857] font-semibold text-sm">Infusion</div>
-                                        <div className="px-3 py-2 rounded bg-[#2d2212] border border-[#8a7430] text-[#d4b85a] text-sm">
+                                    <div className="px-3 sm:px-4 py-2 sm:py-3 bg-[#19140e] border-b border-[#c0a857] sticky top-[60px] z-10">
+                                        <div className="mb-2 text-[#c0a857] font-semibold text-sm sm:text-base">Infusion</div>
+                                        <div className="px-3 py-2 sm:py-3 rounded bg-[#2d2212] border border-[#8a7430] text-[#d4b85a] text-sm sm:text-base">
                                             Unsure on infuseable
                                         </div>
                                     </div>
@@ -453,19 +507,22 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                             return null;
                         })()}
 
-                        <div className="px-4 py-2 bg-[#19140e] border-b border-[#c0a857] sticky top-[48px] z-10">
+                        {/* Search Bar */}
+                        <div className="px-3 sm:px-4 py-2 sm:py-3 bg-[#19140e] border-b border-[#c0a857] sticky top-[60px] z-10">
                             <input
                                 type="text"
                                 placeholder="Search Weapons..."
-                                value={search}
-                                onChange={(e) => setSearch(e.target.value)}
-                                className="w-full px-3 py-2 rounded bg-[#2d2212] border border-[#c0a857] text-[#e5c77b] focus:outline-none"
+                                value={searchTerm}
+                                onChange={handleSearchChange}
+                                className="w-full px-3 py-2 sm:py-3 rounded bg-[#2d2212] border border-[#c0a857] text-[#e5c77b] focus:outline-none focus:border-[#e5c77b] text-sm sm:text-base touch-manipulation"
+                                autoComplete="off"
                             />
                         </div>
 
-                        <div className="overflow-y-auto p-4 flex-1">
-                            <div className="mb-2 text-[#c0a857] font-semibold">Weapons</div>
-                            <div className="flex flex-wrap gap-4">
+                        {/* Weapon Grid */}
+                        <div className="overflow-y-auto p-3 sm:p-4 flex-1">
+                            <div className="mb-3 text-[#c0a857] font-semibold text-sm sm:text-base">Weapons</div>
+                            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-4">
                                 {filteredWeapons.map((weapon) => {
                                     const warnings = getWeaponWarnings({ weapon });
                                     const selectedWeapon = getWeaponFromSlot(tempWeapons[selectedSlot]);
@@ -475,17 +532,20 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                                     return (
                                         <div
                                             key={weapon.id}
-                                            className={`w-32 text-center border rounded-lg p-2 cursor-pointer
-                                                ${isSelected ? "border-[#e5c77b] bg-[#3a2c1a]" : "border-[#c0a857] bg-[#19140e] hover:bg-[#3a2c1a]"}
+                                            className={`text-center border rounded-lg p-2 sm:p-3 cursor-pointer transition-all duration-200 touch-manipulation
+                                                ${isSelected ? "border-[#e5c77b] bg-[#3a2c1a] scale-105" : "border-[#c0a857] bg-[#19140e] hover:bg-[#3a2c1a] active:bg-[#4a3c2a]"}
                                             `}
                                             onClick={() => handleWeaponSelect(weapon)}
                                         >
                                             <img
                                                 src={getWeaponImagePath(weapon)}
                                                 alt={weapon.name}
-                                                className="w-full h-16 object-contain mb-2"
+                                                className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain mb-1 sm:mb-2 mx-auto"
+                                                loading="lazy"
                                             />
-                                            <p className="text-xs text-[#e5c77b] mb-1">{decodeWeaponName(weapon.name)}</p>
+                                            <p className="text-xs sm:text-sm text-[#e5c77b] mb-1 line-clamp-2 leading-tight">
+                                                {decodeWeaponName(weapon.name)}
+                                            </p>
 
                                             {/* Infusion status indicator */}
                                             {infusibility.status === "not_infusible" && (
@@ -498,10 +558,21 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                                                 <p className="text-xs text-[#7db46c] mb-1">Can be infused</p>
                                             )}
 
+                                            {/* Requirements */}
+                                            {weapon.requiredAttributes && weapon.requiredAttributes.length > 0 && (
+                                                <div className="text-xs text-[#c0a857] mb-1 space-y-1">
+                                                    {weapon.requiredAttributes.slice(0, 2).map((attr, idx) => (
+                                                        <div key={idx} className="bg-[#3a2c1a] px-1 py-0.5 rounded">
+                                                            {attr.name}: {attr.amount}
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            )}
+
                                             {warnings.length > 0 && (
-                                                <div className="text-xs text-red-500">
-                                                    {warnings.map((w, i) => (
-                                                        <p key={i}>{w}</p>
+                                                <div className="text-xs text-red-400 space-y-1">
+                                                    {warnings.slice(0, 2).map((w, i) => (
+                                                        <p key={i} className="truncate">{w}</p>
                                                     ))}
                                                 </div>
                                             )}
@@ -511,13 +582,16 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                             </div>
                         </div>
                         
+                        {/* Remove Button */}
                         {getWeaponFromSlot(tempWeapons[selectedSlot]) && (
-                            <button
-                                className="px-3 py-1 bg-red-600 text-white rounded font-bold hover:bg-red-700 text-sm m-4"
-                                onClick={handleRemoveWeapon}
-                            >
-                                Remove
-                            </button>
+                            <div className="sticky bottom-0 bg-[#2d2212] border-t border-[#c0a857] p-3 sm:p-4">
+                                <button
+                                    className="w-full px-3 py-2 sm:py-3 bg-red-600 text-white rounded font-bold hover:bg-red-700 active:bg-red-800 text-sm sm:text-base transition-colors touch-manipulation"
+                                    onClick={handleRemoveWeapon}
+                                >
+                                    Remove Weapon
+                                </button>
+                            </div>
                         )}
                     </div>
                 </div>

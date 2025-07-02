@@ -1,10 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export const StatsPanel = ({ stats, setStats }) => {
     const [editingStat, setEditingStat] = useState(null);
     const [inputValue, setInputValue] = useState('');
     const [showTooltip, setShowTooltip] = useState(null);
     const [tooltipPosition, setTooltipPosition] = useState('top');
+    const [isMobile, setIsMobile] = useState(false);
+
+    // Detect mobile device
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     const changeStat = (key, amount) => {
         setStats((prev) => ({
@@ -71,6 +82,9 @@ export const StatsPanel = ({ stats, setStats }) => {
     };
 
     const handleTooltipEnter = (key, event) => {
+        // Don't show tooltips on mobile to avoid interfering with touch interactions
+        if (isMobile) return;
+        
         const rect = event.currentTarget.getBoundingClientRect();
         const windowHeight = window.innerHeight;
         const spaceAbove = rect.top;
@@ -83,41 +97,65 @@ export const StatsPanel = ({ stats, setStats }) => {
         setShowTooltip(key);
     };
 
+    const handleTooltipClick = (key) => {
+        // Show tooltip on mobile via click/tap
+        if (isMobile) {
+            setShowTooltip(showTooltip === key ? null : key);
+            setTooltipPosition('bottom'); // Always show below on mobile
+        }
+    };
+
     return (
-        <div className="bg-[#2d2212] p-4 rounded-xl border border-[#e5c77b] shadow-lg text-[#e5c77b]">
-            <div className="flex items-center justify-between mb-4">
+        <div className="bg-[#2d2212] p-3 sm:p-4 rounded-xl border border-[#e5c77b] shadow-lg text-[#e5c77b]">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4 gap-2">
                 <h2
-                    className="text-xl font-semibold text-[#e5c77b] tracking-wider drop-shadow"
+                    className="text-lg sm:text-xl font-semibold text-[#e5c77b] tracking-wider drop-shadow"
                     style={{ fontFamily: "serif" }}
                 >
                     Player Stats
                 </h2>
                 <button
                     onClick={resetStats}
-                    className="px-3 py-1 bg-red-600 text-white rounded font-bold hover:bg-red-700 text-sm"
+                    className="px-3 py-2 bg-red-600 text-white rounded font-bold hover:bg-red-700 active:bg-red-800 text-sm transition-colors touch-manipulation self-start sm:self-auto"
                 >
-                    Reset
+                    Reset All
                 </button>
             </div>
-            <div className="grid grid-cols-2 gap-x-6 gap-y-4 text-base">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-x-6 sm:gap-y-4 text-sm sm:text-base">
                 {Object.entries(stats).map(([key, val]) => (
                     <div
                         key={key}
-                        className="relative flex items-center justify-between bg-[#3b2f1a] px-3 py-2 rounded-md"
+                        className="relative flex items-center justify-between bg-[#3b2f1a] px-2 sm:px-3 py-2 sm:py-3 rounded-md"
                         onMouseEnter={(e) => handleTooltipEnter(key, e)}
-                        onMouseLeave={() => setShowTooltip(null)}
+                        onMouseLeave={() => !isMobile && setShowTooltip(null)}
+                        onClick={() => handleTooltipClick(key)}
                     >
-                        <span className="text-[#c0a857] font-semibold w-10" style={{ fontFamily: "serif" }}>{key}</span>
+                        <div className="flex items-center gap-2">
+                            <span className="text-[#c0a857] font-semibold w-8 sm:w-10 text-sm sm:text-base" style={{ fontFamily: "serif" }}>
+                                {key}
+                            </span>
+                            {isMobile && (
+                                <button
+                                    className="w-4 h-4 rounded-full border border-[#c0a857] text-[#c0a857] text-xs flex items-center justify-center hover:bg-[#c0a857] hover:text-[#19140e] transition-colors touch-manipulation"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        handleTooltipClick(key);
+                                    }}
+                                >
+                                    ?
+                                </button>
+                            )}
+                        </div>
                         <div className="flex items-center gap-1">
                             <button
-                                className="bg-[#2d2212] px-1 py-1 rounded font-bold"
+                                className="bg-[#2d2212] px-1 sm:px-2 py-1 rounded font-bold text-xs sm:text-sm hover:bg-[#3a2c1a] active:bg-[#4a3c2a] transition-colors touch-manipulation min-w-[24px] sm:min-w-[28px] disabled:opacity-50"
                                 onClick={() => changeStat(key, -5)}
                                 disabled={val <= 1}
                             >
                                 {`<<`}
                             </button>
                             <button
-                                className="bg-[#2d2212] px-1 py-1 rounded font-bold"
+                                className="bg-[#2d2212] px-1 sm:px-2 py-1 rounded font-bold text-xs sm:text-sm hover:bg-[#3a2c1a] active:bg-[#4a3c2a] transition-colors touch-manipulation min-w-[20px] sm:min-w-[24px] disabled:opacity-50"
                                 onClick={() => changeStat(key, -1)}
                                 disabled={val <= 1}
                             >
@@ -134,36 +172,35 @@ export const StatsPanel = ({ stats, setStats }) => {
                                             if (e.key === 'Escape') handleInputCancel();
                                         }}
                                         onBlur={handleInputCancel}
-                                        className="w-12 px-1 py-[2px] text-center bg-[#2d2212] border border-[#e5c77b] text-[#e5c77b] rounded text-sm font-mono shadow-sm focus:outline-none focus:ring-1 focus:ring-[#e5c77b]"
+                                        className="w-10 sm:w-12 px-1 py-1 text-center bg-[#2d2212] border border-[#e5c77b] text-[#e5c77b] rounded text-xs sm:text-sm font-mono shadow-sm focus:outline-none focus:ring-1 focus:ring-[#e5c77b] touch-manipulation"
                                         autoFocus
                                         maxLength={2}
                                     />
                                     <button
                                         onClick={handleInputSubmit}
-                                        className="w-6 h-6 flex items-center justify-center rounded-sm border border-green-500 text-green-500 hover:bg-green-600 hover:text-white transition-all duration-150 text-sm"
+                                        className="w-6 h-6 flex items-center justify-center rounded-sm border border-green-500 text-green-500 hover:bg-green-600 hover:text-white active:bg-green-700 transition-all duration-150 text-sm touch-manipulation"
                                         title="Confirm"
                                     >
                                         ✓
                                     </button>
                                 </div>
-
                             ) : (
                                 <span
-                                    className="text-[#e5c77b] px-3 w-6 text-center flex justify-center font-mono mr-1 cursor-pointer hover:text-[#f1d862]"
+                                    className="text-[#e5c77b] px-2 sm:px-3 w-8 sm:w-10 text-center flex justify-center font-mono cursor-pointer hover:text-[#f1d862] active:text-[#d4b556] transition-colors touch-manipulation text-sm sm:text-base"
                                     onClick={() => handleStatClick(key, val)}
                                 >
                                     {val}
                                 </span>
                             )}
                             <button
-                                className="bg-[#2d2212] px-1 py-1 rounded font-bold"
+                                className="bg-[#2d2212] px-1 sm:px-2 py-1 rounded font-bold text-xs sm:text-sm hover:bg-[#3a2c1a] active:bg-[#4a3c2a] transition-colors touch-manipulation min-w-[20px] sm:min-w-[24px] disabled:opacity-50"
                                 onClick={() => changeStat(key, 1)}
                                 disabled={val >= 99}
                             >
                                 {`>`}
                             </button>
                             <button
-                                className="bg-[#2d2212] px-1 py-1 rounded font-bold"
+                                className="bg-[#2d2212] px-1 sm:px-2 py-1 rounded font-bold text-xs sm:text-sm hover:bg-[#3a2c1a] active:bg-[#4a3c2a] transition-colors touch-manipulation min-w-[24px] sm:min-w-[28px] disabled:opacity-50"
                                 onClick={() => changeStat(key, 5)}
                                 disabled={val >= 99}
                             >
@@ -173,16 +210,29 @@ export const StatsPanel = ({ stats, setStats }) => {
 
                         {showTooltip === key && (
                             <div className={`absolute z-50 ${
-                                tooltipPosition === 'top' 
+                                tooltipPosition === 'top' && !isMobile
                                     ? 'bottom-full mb-2' 
                                     : 'top-full mt-2'
-                            } left-1/2 transform -translate-x-1/2 px-4 py-3 bg-[#1a1611] border border-[#c0a857] rounded-lg shadow-lg text-sm text-[#e5c77b] whitespace-normal max-w-2xl min-w-[250px]`}>
+                            } ${isMobile ? 'left-0 right-0' : 'left-1/2 transform -translate-x-1/2'} px-3 sm:px-4 py-2 sm:py-3 bg-[#1a1611] border border-[#c0a857] rounded-lg shadow-lg text-xs sm:text-sm text-[#e5c77b] whitespace-normal ${isMobile ? 'max-w-full' : 'max-w-2xl min-w-[200px] sm:min-w-[250px]'}`}>
                                 {getStatTooltip(key)}
-                                <div className={`absolute ${
-                                    tooltipPosition === 'top'
-                                        ? 'top-full border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-[#c0a857]'
-                                        : 'bottom-full border-l-4 border-r-4 border-b-4 border-l-transparent border-r-transparent border-b-[#c0a857]'
-                                } left-1/2 transform -translate-x-1/2 w-0 h-0`}></div>
+                                {!isMobile && (
+                                    <div className={`absolute ${
+                                        tooltipPosition === 'top'
+                                            ? 'top-full border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-[#c0a857]'
+                                            : 'bottom-full border-l-4 border-r-4 border-b-4 border-l-transparent border-r-transparent border-b-[#c0a857]'
+                                    } left-1/2 transform -translate-x-1/2 w-0 h-0`}></div>
+                                )}
+                                {isMobile && (
+                                    <button
+                                        className="absolute top-1 right-2 text-[#c0a857] hover:text-[#e5c77b] text-lg leading-none"
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            setShowTooltip(null);
+                                        }}
+                                    >
+                                        ×
+                                    </button>
+                                )}
                             </div>
                         )}
                     </div>
