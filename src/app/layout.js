@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "The Roundtable Planner",
+  title: "The Roundtable Builder",
   description: "Strategize like a true Tarnished.",
 };
 
