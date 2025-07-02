@@ -65,7 +65,7 @@ export const StatsPanel = ({ stats, setStats }) => {
             DEX: "Enhances damage and usability of Dexterity-scaling weapons (katanas, rapiers, bows). Additionally speeds up spell casting, reduces fall damage, and improves mount agility.",
             INT: "Governs Sorcery power and damage, enabling use of Int-scaling spells and gear. Also increases magic resistance.",
             FAI: "Governs Incantation power, boosting healing, buffs, and holy/fire damage. Enables use of Faith-scaling spells and equipment.",
-            ARC: "Increases item discovery (drop rates from enemies) and status buildup (e.g. bleed, poison, rot). Also impacts some sorceries, incantations, and holy/magic defense."
+            ARC: "Increases item discovery (drop rates from enemies) and status buildup (e.g. bleed, poison). Also impacts some sorceries, incantations, and holy/magic defense."
         };
         return tooltips[statKey] || "";
     };
@@ -176,7 +176,7 @@ export const StatsPanel = ({ stats, setStats }) => {
                                 tooltipPosition === 'top' 
                                     ? 'bottom-full mb-2' 
                                     : 'top-full mt-2'
-                            } left-1/2 transform -translate-x-1/2 px-3 py-2 bg-[#1a1611] border border-[#c0a857] rounded-lg shadow-lg text-sm text-[#e5c77b] whitespace-normal max-w-xs`}>
+                            } left-1/2 transform -translate-x-1/2 px-4 py-3 bg-[#1a1611] border border-[#c0a857] rounded-lg shadow-lg text-sm text-[#e5c77b] whitespace-normal max-w-2xl min-w-[250px]`}>
                                 {getStatTooltip(key)}
                                 <div className={`absolute ${
                                     tooltipPosition === 'top'
