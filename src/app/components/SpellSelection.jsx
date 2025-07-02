@@ -24,11 +24,11 @@ const SpellSelection = ({ talismans = [], stats, onSpellsChange }) => {
     const [tempSelection, setTempSelection] = useState({});
     const [spells, setSpells] = useState({});
     const [search, setSearch] = useState("");
-    
+
     // Convert stats object to format expected by spell requirements
     const playerStats = useMemo(() => ({
         Strength: stats?.STR || 10,
-        Dexterity: stats?.DEX || 10, 
+        Dexterity: stats?.DEX || 10,
         Intelligence: stats?.INT || 10,
         Faith: stats?.FAI || 10,
         Arcane: stats?.ARC || 10,
@@ -80,7 +80,7 @@ const SpellSelection = ({ talismans = [], stats, onSpellsChange }) => {
         if (existingSpell) {
             // Find all slots occupied by this existing spell and remove them
             const existingSlotsNeeded = existingSpell.slots ?? 1;
-            
+
             // Find the starting slot of the existing spell
             let startSlot = slot;
             for (let i = slot - 1; i >= 0; i--) {
@@ -90,7 +90,7 @@ const SpellSelection = ({ talismans = [], stats, onSpellsChange }) => {
                     break;
                 }
             }
-            
+
             // Remove all slots occupied by the existing spell
             for (let i = 0; i < existingSlotsNeeded; i++) {
                 if (newSelection[startSlot + i] && newSelection[startSlot + i].id === existingSpell.id) {
@@ -105,7 +105,7 @@ const SpellSelection = ({ talismans = [], stats, onSpellsChange }) => {
             if (newSelection[targetSlot]) {
                 const conflictingSpell = newSelection[targetSlot];
                 const conflictingSlotsNeeded = conflictingSpell.slots ?? 1;
-                
+
                 // Find the starting slot of the conflicting spell
                 let conflictingStartSlot = targetSlot;
                 for (let j = targetSlot - 1; j >= 0; j--) {
@@ -115,7 +115,7 @@ const SpellSelection = ({ talismans = [], stats, onSpellsChange }) => {
                         break;
                     }
                 }
-                
+
                 // Remove all slots occupied by the conflicting spell
                 for (let j = 0; j < conflictingSlotsNeeded; j++) {
                     if (newSelection[conflictingStartSlot + j] && newSelection[conflictingStartSlot + j].id === conflictingSpell.id) {
@@ -131,6 +131,33 @@ const SpellSelection = ({ talismans = [], stats, onSpellsChange }) => {
         }
 
         setTempSelection(newSelection);
+    };
+
+    const handleRemoveSpell = () => {
+        const spell = tempSelection[modalSlot];
+        if (spell) {
+            const slotsNeeded = spell.slots ?? 1;
+            let newSelection = { ...tempSelection };
+
+            // Find the starting slot of the spell
+            let startSlot = modalSlot;
+            for (let i = modalSlot - 1; i >= 0; i--) {
+                if (newSelection[i] && newSelection[i].id === spell.id) {
+                    startSlot = i;
+                } else {
+                    break;
+                }
+            }
+
+            // Remove all slots occupied by this spell
+            for (let i = 0; i < slotsNeeded; i++) {
+                if (newSelection[startSlot + i] && newSelection[startSlot + i].id === spell.id) {
+                    delete newSelection[startSlot + i];
+                }
+            }
+
+            setTempSelection(newSelection);
+        }
     };
 
     const handleSave = () => {
@@ -183,15 +210,15 @@ const SpellSelection = ({ talismans = [], stats, onSpellsChange }) => {
         }
 
         setSpells(newSpells);
-        
+
         // Convert spells object to array for easier handling
         const spellsArray = Array.from({ length: maxSlots }, (_, i) => newSpells[i] || null);
-        
+
         // Notify parent component with spells data
         if (onSpellsChange) {
             onSpellsChange(spellsArray);
         }
-        
+
         toast.success("Spell selection saved!");
         setModalOpen(false);
         setModalSlot(null);
@@ -203,7 +230,7 @@ const SpellSelection = ({ talismans = [], stats, onSpellsChange }) => {
     };
 
     const renderRequirements = (requires = []) => {
-        const validRequirements = (requires || []).filter((r) => r.amount > 0);        
+        const validRequirements = (requires || []).filter((r) => r.amount > 0);
         return (
             <div>
                 {validRequirements.map((r, index) => {
@@ -349,6 +376,17 @@ const SpellSelection = ({ talismans = [], stats, onSpellsChange }) => {
                                     );
                                 })}
                             </div>
+                        </div>
+
+                        <div className="flex justify-center">
+                            {tempSelection[modalSlot] && (
+                                <button
+                                    className="w-[50%] px-3 py-1 bg-red-600 text-white rounded font-bold hover:bg-red-700 text-sm m-4"
+                                    onClick={handleRemoveSpell}
+                                >
+                                    Remove
+                                </button>
+                            )}
                         </div>
                     </div>
                 </div>
