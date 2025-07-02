@@ -165,7 +165,7 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
         const currentSlot = weapons[slotIdx];
         setSelectedInfusion(currentSlot?.infusion || "Standard");
         setModalOpen(true);
-    }; 
+    };
     // Update the canUseWeapon function to work with slot objects
     const canUseWeapon = (slot) => {
         const weapon = getWeaponFromSlot(slot);
@@ -327,12 +327,22 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
 
     return (
         <section className="w-full rounded-xl pt-3 sm:pt-4 mb-4 sm:mb-6">
-            <h2
-                className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 tracking-wide text-[#e5c77b] drop-shadow px-2 sm:px-0"
-                style={{ fontFamily: "serif" }}
-            >
-                Weapons
-            </h2>
+            <div className="flex items-center justify-start px-2 sm:px-4 mb-3 sm:mb-4">
+                <h2
+                    className="text-lg sm:text-xl font-bold tracking-wide text-[#e5c77b] drop-shadow px-2 sm:px-0 flex items-center gap-1"
+                    style={{ fontFamily: "serif" }}
+                >
+                    Weapons
+                </h2>
+                <span className="relative group cursor-help text-[#c0a857] font-bold w-5 h-5 ml-3 flex items-center justify-center rounded-full bg-[#3a2c1a] text-xs select-none">
+                    ?
+                    <span className="absolute bottom-full mb-2 w-[200px] left-1/2 -translate-x-1/2 rounded bg-[#1a1611] border border-[#c0a857] px-2 py-1 text-xs text-[#e5c77b] whitespace-normal opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
+                        "2H" means two-handed wielding; it counts your Strength as doubled for weapon requirements.
+                    </span>
+                </span>
+            </div>
+
+
             <div className="grid grid-cols-3 gap-2 sm:gap-3 px-2 sm:px-0">
                 {weapons.map((slot, i) => {
                     const weapon = getWeaponFromSlot(slot);
@@ -389,14 +399,6 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                                             </div>
                                         ) : (
                                             <span className="text-xs">No requirements</span>
-                                        )}
-
-                                        {warnings.length > 0 && (
-                                            <div className="text-xs text-red-400 space-y-1">
-                                                {warnings.slice(0, 2).map((warning, idx) => (
-                                                    <div key={idx} className="truncate">{warning}</div>
-                                                ))}
-                                            </div>
                                         )}
                                     </div>
                                 </div>
