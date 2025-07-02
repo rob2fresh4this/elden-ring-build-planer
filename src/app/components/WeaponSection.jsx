@@ -361,7 +361,7 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                     const infusion = getInfusionFromSlot(slot);
                     const borderColor = weapon && !canUseWeapon(slot) ? "border-red-500" : "border-[#e5c77b]";
                     const warnings = weapon ? getWeaponWarnings(slot) : [];
-                    
+
                     return (
                         <div
                             key={i}
@@ -581,7 +581,7 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                                 })}
                             </div>
                         </div>
-                        
+
                         {/* Remove Button */}
                         {getWeaponFromSlot(tempWeapons[selectedSlot]) && (
                             <div className="sticky bottom-0 bg-[#2d2212] border-t border-[#c0a857] p-3 sm:p-4">
