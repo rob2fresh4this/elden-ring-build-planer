@@ -165,30 +165,8 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
         const currentSlot = weapons[slotIdx];
         setSelectedInfusion(currentSlot?.infusion || "Standard");
         setModalOpen(true);
-    }; const getWeaponWarnings = (slot) => {
-        const weapon = getWeaponFromSlot(slot);
-        if (!weapon) return [];
-
-        let warnings = [];
-
-        // Check if weapon has required attributes (some DLC weapons might not have this structure)
-        if (!weapon.requiredAttributes || !Array.isArray(weapon.requiredAttributes)) {
-            return warnings;
-        }
-
-        weapon.requiredAttributes.forEach(attr => {
-            const required = attr.amount;
-            const actual = getStatValue(attr.name, playerStats);
-
-            if (attr.name === "Str" && actual >= required / 2 && actual < required) {
-                warnings.push("Must Two-Hand");
-            } else if (actual < required / 2 || (attr.name !== "Str" && actual < required)) {
-                warnings.push(`Need ${attr.name} ${required}`);
-            }
-        });
-
-        return warnings;
-    };    // Update the canUseWeapon function to work with slot objects
+    }; 
+    // Update the canUseWeapon function to work with slot objects
     const canUseWeapon = (slot) => {
         const weapon = getWeaponFromSlot(slot);
         if (!weapon) return true;
@@ -360,7 +338,6 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                     const weapon = getWeaponFromSlot(slot);
                     const infusion = getInfusionFromSlot(slot);
                     const borderColor = weapon && !canUseWeapon(slot) ? "border-red-500" : "border-[#e5c77b]";
-                    const warnings = weapon ? getWeaponWarnings(slot) : [];
 
                     return (
                         <div
@@ -392,15 +369,28 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                                     <div className="text-[#c0a857] text-xs text-center space-y-1">
                                         {weapon.requiredAttributes && weapon.requiredAttributes.length > 0 ? (
                                             <div className="flex flex-wrap justify-center gap-1">
-                                                {weapon.requiredAttributes.map((attr, idx) => (
-                                                    <span key={idx} className="text-xs bg-[#3a2c1a] px-1 rounded">
-                                                        {attr.name}: {attr.amount}
-                                                    </span>
-                                                ))}
+                                                {weapon.requiredAttributes.map((attr, idx) => {
+                                                    const actual = getStatValue(attr.name, playerStats);
+                                                    const isStr = attr.name === "Str";
+                                                    const meets = isStr ? actual >= attr.amount / 2 : actual >= attr.amount;
+                                                    const mustTwoHand = isStr && actual >= attr.amount / 2 && actual < attr.amount;
+
+                                                    return (
+                                                        <span
+                                                            key={idx}
+                                                            className={`text-xs px-1 rounded ${meets ? "bg-[#3a2c1a] text-[#c0a857]" : "bg-[#4a1e1e] text-red-300"
+                                                                }`}
+                                                        >
+                                                            {attr.name}: {attr.amount}
+                                                            {mustTwoHand && <span className="text-[#f39c12]"> (2H)</span>}
+                                                        </span>
+                                                    );
+                                                })}
                                             </div>
                                         ) : (
                                             <span className="text-xs">No requirements</span>
                                         )}
+
                                         {warnings.length > 0 && (
                                             <div className="text-xs text-red-400 space-y-1">
                                                 {warnings.slice(0, 2).map((warning, idx) => (
@@ -524,7 +514,6 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                             <div className="mb-3 text-[#c0a857] font-semibold text-sm sm:text-base">Weapons</div>
                             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-4">
                                 {filteredWeapons.map((weapon) => {
-                                    const warnings = getWeaponWarnings({ weapon });
                                     const selectedWeapon = getWeaponFromSlot(tempWeapons[selectedSlot]);
                                     const isSelected = selectedWeapon?.id === weapon.id;
                                     const infusibility = getWeaponInfusibility(weapon.name);
@@ -559,23 +548,23 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                                             )}
 
                                             {/* Requirements */}
-                                            {weapon.requiredAttributes && weapon.requiredAttributes.length > 0 && (
-                                                <div className="text-xs text-[#c0a857] mb-1 space-y-1">
-                                                    {weapon.requiredAttributes.slice(0, 2).map((attr, idx) => (
-                                                        <div key={idx} className="bg-[#3a2c1a] px-1 py-0.5 rounded">
-                                                            {attr.name}: {attr.amount}
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            )}
+                                            {weapon.requiredAttributes.map((attr, idx) => {
+                                                const actual = getStatValue(attr.name, playerStats);
+                                                const isStr = attr.name === "Str";
+                                                const meets = isStr ? actual >= attr.amount / 2 : actual >= attr.amount;
+                                                const mustTwoHand = isStr && actual >= attr.amount / 2 && actual < attr.amount;
 
-                                            {warnings.length > 0 && (
-                                                <div className="text-xs text-red-400 space-y-1">
-                                                    {warnings.slice(0, 2).map((w, i) => (
-                                                        <p key={i} className="truncate">{w}</p>
-                                                    ))}
-                                                </div>
-                                            )}
+                                                return (
+                                                    <div
+                                                        key={idx}
+                                                        className={`text-xs mb-1 px-1 rounded ${meets ? "bg-[#3a2c1a] text-[#c0a857]" : "bg-[#4a1e1e] text-red-300"
+                                                            }`}
+                                                    >
+                                                        {attr.name}: {attr.amount}
+                                                        {mustTwoHand && <span className="text-[#f39c12]"> (2H)</span>}
+                                                    </div>
+                                                );
+                                            })}
                                         </div>
                                     );
                                 })}
