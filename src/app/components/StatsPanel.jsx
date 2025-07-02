@@ -116,7 +116,7 @@ export const StatsPanel = ({ stats, setStats }) => {
                 </h2>
                 <button
                     onClick={resetStats}
-                    className="px-3 py-2 bg-red-600 text-white rounded font-bold hover:bg-red-700 active:bg-red-800 text-sm transition-colors touch-manipulation self-start sm:self-auto"
+                    className="px-3 py-2 bg-red-800 text-white rounded font-bold hover:bg-red-900 active:bg-red-700 text-sm transition-colors touch-manipulation self-start sm:self-auto"
                 >
                     Reset All
                 </button>

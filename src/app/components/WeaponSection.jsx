@@ -577,7 +577,7 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                         {getWeaponFromSlot(tempWeapons[selectedSlot]) && (
                             <div className="sticky bottom-0 bg-[#2d2212] border-t border-[#c0a857] p-3 sm:p-4">
                                 <button
-                                    className="w-full px-3 py-2 sm:py-3 bg-red-600 text-white rounded font-bold hover:bg-red-700 active:bg-red-800 text-sm sm:text-base transition-colors touch-manipulation"
+                                    className="w-full px-3 py-2 sm:py-3 bg-red-800 text-white rounded font-bold hover:bg-red-900 active:bg-red-700 text-sm sm:text-base transition-colors touch-manipulation"
                                     onClick={handleRemoveWeapon}
                                 >
                                     Remove Weapon
