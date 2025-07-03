@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useCallback, useMemo, useEffect } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { EquipmentGrid } from '../components/EquipmentGrid';
 import SpellSelection from '../components/SpellSelection';
 import { WeaponSection } from '../components/WeaponSection';
@@ -8,9 +8,9 @@ import toast, { Toaster } from 'react-hot-toast';
 import StatsSection from '../components/StatsSection';
 
 const BuildCreator = () => {
-    const searchParams = useSearchParams();
     const router = useRouter();
-    const isEditMode = searchParams.get('edit') === 'true';
+    const [isEditMode, setIsEditMode] = useState(false);
+    const [isClient, setIsClient] = useState(false);
     
     const [equipmentWeight, setEquipmentWeight] = useState(0);
     const [weaponWeight, setWeaponWeight] = useState(0);
@@ -110,9 +110,18 @@ const BuildCreator = () => {
         }
     }, [buildData, isLoading]);
 
+    // Client-side only search params handling
+    useEffect(() => {
+        setIsClient(true);
+        if (typeof window !== 'undefined') {
+            const urlParams = new URLSearchParams(window.location.search);
+            setIsEditMode(urlParams.get('edit') === 'true');
+        }
+    }, []);
+
     // Load build data if in edit mode
     useEffect(() => {
-        if (isEditMode) {
+        if (isEditMode && isClient) {
             const editBuildData = localStorage.getItem('editBuildData');
             if (editBuildData) {
                 const buildData = JSON.parse(editBuildData);
@@ -162,7 +171,19 @@ const BuildCreator = () => {
                 localStorage.removeItem('editBuildData');
             }
         }
-    }, [isEditMode]);
+    }, [isEditMode, isClient]);
+
+    // Show loading state until client-side hydration
+    if (!isClient) {
+        return (
+            <div className="min-h-screen p-6 bg-gradient-to-br from-[#19140e] via-[#2d2212] to-[#3a2c1a] text-[#e5c77b] flex items-center justify-center">
+                <div className="text-center">
+                    <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#e5c77b] mx-auto mb-4"></div>
+                    <p className="text-xl">Loading Build Creator...</p>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <main className="min-h-screen p-6 bg-gradient-to-br from-[#19140e] via-[#2d2212] to-[#3a2c1a] text-[#e5c77b]">
