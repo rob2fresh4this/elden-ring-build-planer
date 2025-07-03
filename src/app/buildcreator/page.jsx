@@ -1,5 +1,6 @@
 'use client';
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, useEffect } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { EquipmentGrid } from '../components/EquipmentGrid';
 import SpellSelection from '../components/SpellSelection';
 import { WeaponSection } from '../components/WeaponSection';
@@ -7,6 +8,10 @@ import toast, { Toaster } from 'react-hot-toast';
 import StatsSection from '../components/StatsSection';
 
 const BuildCreator = () => {
+    const searchParams = useSearchParams();
+    const router = useRouter();
+    const isEditMode = searchParams.get('edit') === 'true';
+    
     const [equipmentWeight, setEquipmentWeight] = useState(0);
     const [weaponWeight, setWeaponWeight] = useState(0);
     const [talismans, setTalismans] = useState(Array(4).fill(null));
@@ -105,45 +110,107 @@ const BuildCreator = () => {
         }
     }, [buildData, isLoading]);
 
+    // Load build data if in edit mode
+    useEffect(() => {
+        if (isEditMode) {
+            const editBuildData = localStorage.getItem('editBuildData');
+            if (editBuildData) {
+                const buildData = JSON.parse(editBuildData);
+                
+                // Load stats
+                setStats(buildData.stats);
+                
+                // Load equipment
+                const transformedEquipment = {
+                    HEAD: buildData.equipment.head ? { name: buildData.equipment.head } : null,
+                    CHEST: buildData.equipment.chest ? { name: buildData.equipment.chest } : null,
+                    HANDS: buildData.equipment.hands ? { name: buildData.equipment.hands } : null,
+                    LEGS: buildData.equipment.legs ? { name: buildData.equipment.legs } : null
+                };
+                setEquipment(transformedEquipment);
+                
+                // Load talismans
+                const transformedTalismans = [
+                    buildData.talismans.slot1 ? { name: buildData.talismans.slot1 } : null,
+                    buildData.talismans.slot2 ? { name: buildData.talismans.slot2 } : null,
+                    buildData.talismans.slot3 ? { name: buildData.talismans.slot3 } : null,
+                    buildData.talismans.slot4 ? { name: buildData.talismans.slot4 } : null
+                ];
+                setTalismans(transformedTalismans);
+                
+                // Load weapons
+                const transformedWeapons = Object.values(buildData.weapons).map(weapon => {
+                    if (!weapon.name) return null;
+                    return {
+                        weapon: { name: weapon.name },
+                        infusion: weapon.infusion
+                    };
+                });
+                setWeapons(transformedWeapons);
+                
+                // Load spells
+                const transformedSpells = Object.values(buildData.spells).map(spellName => {
+                    if (!spellName) return null;
+                    return { name: spellName };
+                });
+                setSpells(transformedSpells);
+                
+                // Set weights
+                setEquipmentWeight(buildData.totalWeight || 0);
+                
+                // Clear localStorage after loading
+                localStorage.removeItem('editBuildData');
+            }
+        }
+    }, [isEditMode]);
+
     return (
         <main className="min-h-screen p-6 bg-gradient-to-br from-[#19140e] via-[#2d2212] to-[#3a2c1a] text-[#e5c77b]">
-            {/* Toaster should be here once */}
             <Toaster position="top-left" />
 
             <div className="max-w-6xl mx-auto">
-                <h1
-                    className="text-4xl font-bold mb-4 tracking-wider text-[#e5c77b] drop-shadow-lg"
-                    style={{ fontFamily: 'serif' }}
-                >
-                    Elden Ring Build Planner
-                </h1>
-                <p className="text-[#c0a857] mb-8 text-lg tracking-wide">
-                    Strategize like a true Tarnished. Manage your Elden Ring builds below.
-                </p>
-
-                {/* Save Button */}
-                <div className="mb-6 flex justify-end">
-                    <button
-                        onClick={saveBuild}
-                        disabled={isLoading}
-                        className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 shadow-lg ${
-                            isLoading 
-                                ? 'bg-gray-400 text-gray-600 cursor-not-allowed' 
-                                : 'bg-[#e5c77b] text-[#19140e] hover:bg-[#c0a857] hover:scale-105'
-                        }`}
-                    >
-                        {isLoading ? (
-                            <span className="flex items-center gap-2">
-                                <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
-                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                                </svg>
-                                Saving...
-                            </span>
-                        ) : (
-                            'Save Build'
-                        )}
-                    </button>
+                {/* Header */}
+                <div className="flex justify-between items-center mb-8">
+                    <div>
+                        <h1
+                            className="text-4xl font-bold mb-4 tracking-wider text-[#e5c77b] drop-shadow-lg"
+                            style={{ fontFamily: 'serif' }}
+                        >
+                            {isEditMode ? 'Edit Build' : 'Elden Ring Build Planner'}
+                        </h1>
+                        <p className="text-[#c0a857] text-lg tracking-wide">
+                            {isEditMode ? 'Modify your existing build below.' : 'Strategize like a true Tarnished. Manage your Elden Ring builds below.'}
+                        </p>
+                    </div>
+                    <div className="flex gap-4">
+                        <button
+                            onClick={() => router.push('/dashboard')}
+                            className="px-6 py-3 rounded-lg bg-gray-600 text-white font-semibold hover:bg-gray-700 transition-colors duration-200"
+                        >
+                            Back to Dashboard
+                        </button>
+                        <button
+                            onClick={saveBuild}
+                            disabled={isLoading}
+                            className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 shadow-lg ${
+                                isLoading 
+                                    ? 'bg-gray-400 text-gray-600 cursor-not-allowed' 
+                                    : 'bg-[#e5c77b] text-[#19140e] hover:bg-[#c0a857] hover:scale-105'
+                            }`}
+                        >
+                            {isLoading ? (
+                                <span className="flex items-center gap-2">
+                                    <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                                    </svg>
+                                    Saving...
+                                </span>
+                            ) : (
+                                'Save Build'
+                            )}
+                        </button>
+                    </div>
                 </div>
 
                 {/* Equipment and Loadout Grid */}

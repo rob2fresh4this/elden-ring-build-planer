@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export const StatsPanel = ({ stats, setStats }) => {
+export const StatsPanel = ({ stats, setStats, viewMode = false }) => {
     const [editingStat, setEditingStat] = useState(null);
     const [inputValue, setInputValue] = useState('');
     const [showTooltip, setShowTooltip] = useState(null);
@@ -18,6 +18,7 @@ export const StatsPanel = ({ stats, setStats }) => {
     }, []);
 
     const changeStat = (key, amount) => {
+        if (viewMode) return; // Disable stat changes in view mode
         setStats((prev) => ({
             ...prev,
             [key]: Math.max(1, Math.min(prev[key] + amount, 99)),
@@ -25,6 +26,7 @@ export const StatsPanel = ({ stats, setStats }) => {
     };
 
     const resetStats = () => {
+        if (viewMode) return; // Disable reset in view mode
         setStats({
             VIG: 10,
             MIND: 10,
@@ -38,6 +40,7 @@ export const StatsPanel = ({ stats, setStats }) => {
     };
 
     const handleStatClick = (statKey, currentValue) => {
+        if (viewMode) return; // Disable editing in view mode
         setEditingStat(statKey);
         setInputValue(currentValue.toString());
     };
@@ -114,21 +117,23 @@ export const StatsPanel = ({ stats, setStats }) => {
                 >
                     Player Stats
                 </h2>
-                <button
-                    onClick={resetStats}
-                    className="px-3 py-2 bg-red-800 text-white rounded font-bold hover:bg-red-900 active:bg-red-700 text-sm transition-colors touch-manipulation self-start sm:self-auto"
-                >
-                    Reset All
-                </button>
+                {!viewMode && (
+                    <button
+                        onClick={resetStats}
+                        className="px-3 py-2 bg-red-800 text-white rounded font-bold hover:bg-red-900 active:bg-red-700 text-sm transition-colors touch-manipulation self-start sm:self-auto"
+                    >
+                        Reset All
+                    </button>
+                )}
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-x-6 sm:gap-y-4 text-sm sm:text-base">
                 {Object.entries(stats).map(([key, val]) => (
                     <div
                         key={key}
                         className="relative flex items-center justify-between bg-[#3b2f1a] px-2 sm:px-3 py-2 sm:py-3 rounded-md"
-                        onMouseEnter={(e) => handleTooltipEnter(key, e)}
-                        onMouseLeave={() => !isMobile && setShowTooltip(null)}
-                        onClick={() => handleTooltipClick(key)}
+                        onMouseEnter={!viewMode ? (e) => handleTooltipEnter(key, e) : undefined}
+                        onMouseLeave={!viewMode ? () => !isMobile && setShowTooltip(null) : undefined}
+                        onClick={!viewMode ? () => handleTooltipClick(key) : undefined}
                     >
                         <div className="flex items-center gap-2">
                             <span className="text-[#c0a857] font-semibold w-8 sm:w-10 text-sm sm:text-base" style={{ fontFamily: "serif" }}>
@@ -147,21 +152,25 @@ export const StatsPanel = ({ stats, setStats }) => {
                             )}
                         </div>
                         <div className="flex items-center gap-1">
-                            <button
-                                className="bg-[#2d2212] px-1 sm:px-2 py-1 rounded font-bold text-xs sm:text-sm hover:bg-[#3a2c1a] active:bg-[#4a3c2a] transition-colors touch-manipulation min-w-[24px] sm:min-w-[28px] disabled:opacity-50"
-                                onClick={() => changeStat(key, -5)}
-                                disabled={val <= 1}
-                            >
-                                {`<<`}
-                            </button>
-                            <button
-                                className="bg-[#2d2212] px-1 sm:px-2 py-1 rounded font-bold text-xs sm:text-sm hover:bg-[#3a2c1a] active:bg-[#4a3c2a] transition-colors touch-manipulation min-w-[20px] sm:min-w-[24px] disabled:opacity-50"
-                                onClick={() => changeStat(key, -1)}
-                                disabled={val <= 1}
-                            >
-                                {`<`}
-                            </button>
-                            {editingStat === key ? (
+                            {!viewMode && (
+                                <>
+                                    <button
+                                        className="bg-[#2d2212] px-1 sm:px-2 py-1 rounded font-bold text-xs sm:text-sm hover:bg-[#3a2c1a] active:bg-[#4a3c2a] transition-colors touch-manipulation min-w-[24px] sm:min-w-[28px] disabled:opacity-50"
+                                        onClick={() => changeStat(key, -5)}
+                                        disabled={val <= 1}
+                                    >
+                                        {`<<`}
+                                    </button>
+                                    <button
+                                        className="bg-[#2d2212] px-1 sm:px-2 py-1 rounded font-bold text-xs sm:text-sm hover:bg-[#3a2c1a] active:bg-[#4a3c2a] transition-colors touch-manipulation min-w-[20px] sm:min-w-[24px] disabled:opacity-50"
+                                        onClick={() => changeStat(key, -1)}
+                                        disabled={val <= 1}
+                                    >
+                                        {`<`}
+                                    </button>
+                                </>
+                            )}
+                            {editingStat === key && !viewMode ? (
                                 <div className="flex items-center gap-1">
                                     <input
                                         type="text"
@@ -186,26 +195,30 @@ export const StatsPanel = ({ stats, setStats }) => {
                                 </div>
                             ) : (
                                 <span
-                                    className="text-[#e5c77b] px-2 sm:px-3 w-8 sm:w-10 text-center flex justify-center font-mono cursor-pointer hover:text-[#f1d862] active:text-[#d4b556] transition-colors touch-manipulation text-sm sm:text-base"
-                                    onClick={() => handleStatClick(key, val)}
+                                    className={`text-[#e5c77b] px-2 sm:px-3 w-8 sm:w-10 text-center flex justify-center font-mono ${!viewMode ? 'cursor-pointer hover:text-[#f1d862] active:text-[#d4b556]' : ''} transition-colors touch-manipulation text-sm sm:text-base`}
+                                    onClick={!viewMode ? () => handleStatClick(key, val) : undefined}
                                 >
                                     {val}
                                 </span>
                             )}
-                            <button
-                                className="bg-[#2d2212] px-1 sm:px-2 py-1 rounded font-bold text-xs sm:text-sm hover:bg-[#3a2c1a] active:bg-[#4a3c2a] transition-colors touch-manipulation min-w-[20px] sm:min-w-[24px] disabled:opacity-50"
-                                onClick={() => changeStat(key, 1)}
-                                disabled={val >= 99}
-                            >
-                                {`>`}
-                            </button>
-                            <button
-                                className="bg-[#2d2212] px-1 sm:px-2 py-1 rounded font-bold text-xs sm:text-sm hover:bg-[#3a2c1a] active:bg-[#4a3c2a] transition-colors touch-manipulation min-w-[24px] sm:min-w-[28px] disabled:opacity-50"
-                                onClick={() => changeStat(key, 5)}
-                                disabled={val >= 99}
-                            >
-                                {`>>`}
-                            </button>
+                            {!viewMode && (
+                                <>
+                                    <button
+                                        className="bg-[#2d2212] px-1 sm:px-2 py-1 rounded font-bold text-xs sm:text-sm hover:bg-[#3a2c1a] active:bg-[#4a3c2a] transition-colors touch-manipulation min-w-[20px] sm:min-w-[24px] disabled:opacity-50"
+                                        onClick={() => changeStat(key, 1)}
+                                        disabled={val >= 99}
+                                    >
+                                        {`>`}
+                                    </button>
+                                    <button
+                                        className="bg-[#2d2212] px-1 sm:px-2 py-1 rounded font-bold text-xs sm:text-sm hover:bg-[#3a2c1a] active:bg-[#4a3c2a] transition-colors touch-manipulation min-w-[24px] sm:min-w-[28px] disabled:opacity-50"
+                                        onClick={() => changeStat(key, 5)}
+                                        disabled={val >= 99}
+                                    >
+                                        {`>>`}
+                                    </button>
+                                </>
+                            )}
                         </div>
 
                         {showTooltip === key && (

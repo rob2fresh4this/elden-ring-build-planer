@@ -2,7 +2,7 @@ import React from 'react';
 import { StatsPanel } from './StatsPanel';
 import { hpTable, fpTable, staminaTable, equipLoadTable } from "../../../public/EldenRingData/data/stats"
 
-const StatsSection = ({ equipmentWeight = 0, stats, setStats }) => {
+const StatsSection = ({ equipmentWeight = 0, stats, setStats, viewMode = false }) => {
 
     function calculateHP(vigor) {
         if (vigor < 1) return hpTable[0];
@@ -61,7 +61,7 @@ const StatsSection = ({ equipmentWeight = 0, stats, setStats }) => {
 
     return (
         <section className="mb-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-            <StatsPanel stats={stats} setStats={setStats} />
+            <StatsPanel stats={stats} setStats={setStats} viewMode={viewMode} />
             <div className="bg-[#2d2212] p-4 rounded-xl border border-[#e5c77b]">
                 <h2 className="text-xl font-semibold mb-2 text-[#e5c77b]">Basic Stats</h2>
                 <p className="mb-1">

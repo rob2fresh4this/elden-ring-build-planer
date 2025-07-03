@@ -16,12 +16,16 @@ const stripImageBaseUrl = (imageUrl) => {
 
 const TALISMAN_SLOTS = 4;
 
-export const TalismanSection = ({ onTalismansChange }) => {
+export const TalismanSection = ({ 
+    onTalismansChange, 
+    initialTalismans = [],
+    viewMode = false 
+}) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [search, setSearch] = useState("");
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedSlot, setSelectedSlot] = useState(null);
-    const [talismans, setTalismans] = useState(Array(TALISMAN_SLOTS).fill(null));
+    const [talismans, setTalismans] = useState(initialTalismans.length > 0 ? initialTalismans : Array(TALISMAN_SLOTS).fill(null));
     const [tempTalismans, setTempTalismans] = useState([...talismans]);
     const [cantUseSameTalisman, setCantUseSameTalisman] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
@@ -48,7 +52,15 @@ export const TalismanSection = ({ onTalismansChange }) => {
             t.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
+    // Initialize with provided data in viewMode
+    useEffect(() => {
+        if (viewMode && initialTalismans.length > 0) {
+            setTalismans(initialTalismans);
+        }
+    }, [initialTalismans, viewMode]);
+
     const handleTileClick = (slotIdx) => {
+        if (viewMode) return; // Disable clicks in view mode
         setSelectedSlot(slotIdx);
         setTempTalismans([...talismans]);
         setSearch("");
@@ -100,8 +112,8 @@ export const TalismanSection = ({ onTalismansChange }) => {
                 {talismans.map((t, i) => (
                     <div
                         key={i}
-                        className="w-full min-h-[120px] sm:min-h-[140px] md:min-h-[160px] p-2 sm:p-3 bg-[#2d2212] border border-[#e5c77b] rounded-lg text-sm shadow transition-all duration-200 hover:bg-[#3a2c1a] active:bg-[#4a3c2a] cursor-pointer flex flex-col justify-center items-center touch-manipulation"
-                        onClick={() => handleTileClick(i)}
+                        className={`w-full min-h-[120px] sm:min-h-[140px] md:min-h-[160px] p-2 sm:p-3 bg-[#2d2212] border border-[#e5c77b] rounded-lg text-sm shadow transition-all duration-200 ${!viewMode ? 'hover:bg-[#3a2c1a] active:bg-[#4a3c2a] cursor-pointer' : ''} flex flex-col justify-center items-center touch-manipulation`}
+                        onClick={!viewMode ? () => handleTileClick(i) : undefined}
                     >
                         {t ? (
                             <div className="flex flex-col items-center text-center">

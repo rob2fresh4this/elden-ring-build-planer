@@ -4,74 +4,60 @@ import React from 'react'
 import { useRouter } from "next/navigation";
 import BuildCardsGrid from '../components/BuildCardsGrid'
 import EldenRingDataWeapons from '../../../public/EldenRingData/data/weapons.json'
+import tempPlayerBuild from '../components/tempplayerbuild.json'
 
 
 
 const Dashboard = () => {
     const router = useRouter();
 
-    const playerdata = {
-        name: "Tarnished42069",
-        level: 50,
-        class: "Confessor",
-        weaponNoInfusions: "Claymore",
-        mainWeapon: "Fire Art Claymore",
-        description: "A balanced build focusing on strength and faith."
-    };
-
-    const playerdata2 = {
-        name: "johnEldenRing",
-        level: 75,
-        class: "Samurai",
-        weaponNoInfusions: "Moonveil",
-        mainWeapon: "Moonveil Katana",
-        description: "A dexterity build with a focus on magic damage."
-    };
-
-    function EnrichWeaponData(playerdata) {
-        const weaponData = playerdata;
-        const weaponName = weaponData.weaponNoInfusions;
-
+    function EnrichWeaponData(buildData, buildIndex) {
+        // Get the main weapon from slot1 or the first available weapon
+        const mainWeapon = buildData.weapons.slot1 || 
+                          buildData.weapons.slot2 || 
+                          buildData.weapons.slot3 || 
+                          buildData.weapons.slot4 || 
+                          buildData.weapons.slot5 || 
+                          buildData.weapons.slot6;
+        
+        const weaponName = mainWeapon?.name;
+        
         const findWeaponImage = (weaponName) => {
+            if (!weaponName) return null;
             const weapon = EldenRingDataWeapons.find(w => w.name === weaponName);
-            // example of link: https://eldenring.fanapis.com/images/weapons/17f69d938dal0i1p7cva71qgpwuo6w.png
-            // need to remove the "https://eldenring.fanapis.com/images/weapons/" part
+            
             if (!weapon) {
                 console.warn(`Weapon not found: ${weaponName}`);
                 return null;
             } else if (weapon.image.startsWith("https://eldenring.fanapis.com/images/weapons/")) {
-                // Remove the base URL part
                 const baseUrl = "https://eldenring.fanapis.com/images/weapons/";
-                for (let i = 0; i < weapon.image.length; i++) {
-                    if (weapon.image.startsWith(baseUrl)) {
-                        return weapon.image.slice(baseUrl.length);
-                    }
-                }
+                return weapon.image.slice(baseUrl.length);
             }
             return weapon ? weapon.image : null;
         }
+
+        // Calculate total level from stats
+        const totalLevel = Object.values(buildData.stats).reduce((sum, stat) => sum + stat, 0) - 80; // Subtract base stats
+
         return {
-            name: weaponData.name,
-            level: weaponData.level,
-            class: weaponData.class,
-            mainWeapon: weaponData.mainWeapon,
+            name: tempPlayerBuild.username,
+            level: totalLevel,
+            class: "Wretch", // Since we don't have class info in the JSON
+            mainWeapon: mainWeapon ? `${mainWeapon.name}${mainWeapon.infusion ? ` (${mainWeapon.infusion})` : ''}` : "No Weapon",
             mainWeaponImage: findWeaponImage(weaponName),
-            description: weaponData.description
+            description: `Equipment Load: ${buildData.totalWeight}kg`,
+            buildIndex: buildIndex
         };
     }
 
-    console.log("Enriched Player Data:", EnrichWeaponData(playerdata));
-
-
-
-    const builds = [
-        EnrichWeaponData(playerdata),
-        EnrichWeaponData(playerdata2)
-        // Add more player build objects here as needed
-    ];
+    const builds = tempPlayerBuild.builds.map((build, index) => EnrichWeaponData(build, index));
 
     const handleClickGoToBuild = () => {
         router.push("./buildcreator");
+    };
+
+    const handleCardClick = (buildIndex) => {
+        router.push(`./buildviewer?build=${buildIndex}`);
     };
 
     return (
@@ -98,7 +84,7 @@ const Dashboard = () => {
 
                 <div className="flex flex-row flex-wrap gap-4 items-start justify-start w-[100%]">
                     {builds.map((build, idx) => (
-                        <div key={idx} className='w-[calc(33.333%-1rem)]'>
+                        <div key={idx} className='w-[calc(33.333%-1rem)] cursor-pointer' onClick={() => handleCardClick(build.buildIndex)}>
                             <BuildCardsGrid
                                 title={build.name}
                                 description={`Level: ${build.level} | Class: ${build.class} | ${build.description}`}

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import gearData from "../../../public/EldenRingData/data/armors.json";
 import gearDataDLC from "../../../public/EldenRingData/data/armorDLC.json";
 import { TalismanSection } from "./TalismanSection";
@@ -36,11 +36,17 @@ const getAllArmorData = () => {
     return [...baseGameArmor, ...dlcArmor];
 };
 
-export const EquipmentGrid = ({ onEquipmentChange, onTalismansChange }) => {
+export const EquipmentGrid = ({ 
+    onEquipmentChange, 
+    onTalismansChange, 
+    initialEquipment = {},
+    initialTalismans = [],
+    viewMode = false 
+}) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [modalSlot, setModalSlot] = useState(null);
     const [tempSelection, setTempSelection] = useState({});    
-    const [equipment, setEquipment] = useState({});
+    const [equipment, setEquipment] = useState(initialEquipment);
     const [search, setSearch] = useState("");
 
     // Debounced search for better performance on mobile
@@ -50,6 +56,13 @@ export const EquipmentGrid = ({ onEquipmentChange, onTalismansChange }) => {
         setSearchTerm(e.target.value);
         setSearch(e.target.value);
     }, []);
+
+    // Initialize with provided data in viewMode
+    useEffect(() => {
+        if (viewMode && initialEquipment) {
+            setEquipment(initialEquipment);
+        }
+    }, [initialEquipment, viewMode]);
 
     // Calculate total equipment weight
     const calculateTotalWeight = (equipmentSet) => {
@@ -72,6 +85,7 @@ export const EquipmentGrid = ({ onEquipmentChange, onTalismansChange }) => {
     };
 
     const handleTileClick = (slot) => {
+        if (viewMode) return; // Disable clicks in view mode
         setModalSlot(slot);
         setTempSelection({ ...equipment });
         setSearch(""); // Reset search on open
@@ -135,8 +149,8 @@ export const EquipmentGrid = ({ onEquipmentChange, onTalismansChange }) => {
                 {slots.map((slot, i) => (
                     <div
                         key={i}
-                        className="p-2 sm:p-3 bg-[#2d2212] rounded-md text-center border border-[#c0a857] h-[120px] sm:h-[180px] flex flex-col justify-center items-center shadow cursor-pointer hover:bg-[#3a2c1a] active:bg-[#4a3c2a] transition-colors duration-200 w-full touch-manipulation"
-                        onClick={() => handleTileClick(slot)}
+                        className={`p-2 sm:p-3 bg-[#2d2212] rounded-md text-center border border-[#c0a857] h-[120px] sm:h-[180px] flex flex-col justify-center items-center shadow ${!viewMode ? 'cursor-pointer hover:bg-[#3a2c1a] active:bg-[#4a3c2a]' : ''} transition-colors duration-200 w-full touch-manipulation`}
+                        onClick={!viewMode ? () => handleTileClick(slot) : undefined}
                     >
                         {equipment[slot] ? (
                             <>
@@ -248,7 +262,11 @@ export const EquipmentGrid = ({ onEquipmentChange, onTalismansChange }) => {
                 </div>
             )}
 
-            <TalismanSection onTalismansChange={onTalismansChange} />
+            <TalismanSection 
+                onTalismansChange={onTalismansChange} 
+                initialTalismans={initialTalismans}
+                viewMode={viewMode}
+            />
         </div>
     );
 };

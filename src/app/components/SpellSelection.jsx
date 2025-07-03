@@ -18,11 +18,20 @@ const stripImageBaseUrl = (imageUrl) => {
     return imageUrl || "";
 };
 
-const SpellSelection = ({ talismans = [], stats, onSpellsChange }) => {
+const SpellSelection = ({ 
+    talismans = [], 
+    stats, 
+    onSpellsChange, 
+    initialSpells = [],
+    viewMode = false 
+}) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [modalSlot, setModalSlot] = useState(null);
     const [tempSelection, setTempSelection] = useState({});
-    const [spells, setSpells] = useState({});
+    const [spells, setSpells] = useState(initialSpells.length > 0 ? initialSpells.reduce((acc, spell, index) => {
+        if (spell) acc[index] = spell;
+        return acc;
+    }, {}) : {});
     const [search, setSearch] = useState("");
     const [searchTerm, setSearchTerm] = useState("");
     const [isMobile, setIsMobile] = useState(false);
@@ -80,7 +89,19 @@ const SpellSelection = ({ talismans = [], stats, onSpellsChange }) => {
             spell.type.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
+    // Initialize with provided data in viewMode
+    useEffect(() => {
+        if (viewMode && initialSpells.length > 0) {
+            const spellsObj = initialSpells.reduce((acc, spell, index) => {
+                if (spell) acc[index] = spell;
+                return acc;
+            }, {});
+            setSpells(spellsObj);
+        }
+    }, [initialSpells, viewMode]);
+
     const handleTileClick = (slot) => {
+        if (viewMode) return; // Disable clicks in view mode
         setModalSlot(slot);
         setTempSelection({ ...spells });
         setSearch("");
@@ -288,8 +309,8 @@ const SpellSelection = ({ talismans = [], stats, onSpellsChange }) => {
                     return (
                         <div
                             key={i}
-                            className={`bg-[#3a2c1a] p-2 sm:p-3 rounded-md text-sm flex flex-col justify-center items-center cursor-pointer hover:bg-[#4b3a22] active:bg-[#5c4733] transition-colors duration-200 touch-manipulation min-h-[140px] sm:min-h-[175px] w-full border ${usable ? "border-[#c0a857]" : "border-red-500"}`}
-                            onClick={() => handleTileClick(i)}
+                            className={`bg-[#3a2c1a] p-2 sm:p-3 rounded-md text-sm flex flex-col justify-center items-center ${!viewMode ? 'cursor-pointer hover:bg-[#4b3a22] active:bg-[#5c4733]' : ''} transition-colors duration-200 touch-manipulation min-h-[140px] sm:min-h-[175px] w-full border ${usable ? "border-[#c0a857]" : "border-red-500"}`}
+                            onClick={!viewMode ? () => handleTileClick(i) : undefined}
                         >
                             {spell ? (
                                 <div className="flex flex-col justify-center items-center text-center">

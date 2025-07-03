@@ -37,13 +37,18 @@ const getWeaponImagePath = (weapon) => {
 
 const WEAPON_SLOTS = 6;
 
-export const WeaponSection = ({ onWeaponsChange, stats }) => {
+export const WeaponSection = ({ 
+    onWeaponsChange, 
+    stats, 
+    initialWeapons = [],
+    viewMode = false 
+}) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [search, setSearch] = useState("");
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedSlot, setSelectedSlot] = useState(null);
     // Change weapons state to store objects with weapon and infusion data
-    const [weapons, setWeapons] = useState(Array(WEAPON_SLOTS).fill(null));
+    const [weapons, setWeapons] = useState(initialWeapons.length > 0 ? initialWeapons : Array(WEAPON_SLOTS).fill(null));
     const [tempWeapons, setTempWeapons] = useState([...weapons]);
     const [selectedInfusion, setSelectedInfusion] = useState("Standard");
     const [isMobile, setIsMobile] = useState(false);
@@ -156,8 +161,16 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
         return slot?.infusion || null;
     };
 
+    // Initialize with provided data in viewMode
+    useEffect(() => {
+        if (viewMode && initialWeapons.length > 0) {
+            setWeapons(initialWeapons);
+        }
+    }, [initialWeapons, viewMode]);
+
     // Update handleTileClick to set selectedInfusion from existing slot
     const handleTileClick = (slotIdx) => {
+        if (viewMode) return; // Disable clicks in view mode
         setSelectedSlot(slotIdx);
         setTempWeapons([...weapons]);
         setSearch("");
@@ -352,8 +365,8 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                     return (
                         <div
                             key={i}
-                            className={`w-full min-h-[120px] sm:min-h-[140px] md:min-h-[160px] p-2 sm:p-3 bg-[#2d2212] border ${borderColor} rounded-lg text-sm shadow transition-all duration-200 hover:bg-[#3a2c1a] active:bg-[#4a3c2a] cursor-pointer flex flex-col justify-center items-center touch-manipulation`}
-                            onClick={() => handleTileClick(i)}
+                            className={`w-full min-h-[120px] sm:min-h-[140px] md:min-h-[160px] p-2 sm:p-3 bg-[#2d2212] border ${borderColor} rounded-lg text-sm shadow transition-all duration-200 ${!viewMode ? 'hover:bg-[#3a2c1a] active:bg-[#4a3c2a] cursor-pointer' : ''} flex flex-col justify-center items-center touch-manipulation`}
+                            onClick={!viewMode ? () => handleTileClick(i) : undefined}
                         >
                             {weapon ? (
                                 <div className="flex flex-col items-center justify-center text-center">
