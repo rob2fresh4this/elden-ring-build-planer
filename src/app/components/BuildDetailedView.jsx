@@ -145,26 +145,6 @@ const BuildDetailedView = ({ buildData, viewMode = true }) => {
                     onSpellsChange={() => {}} // Read-only callback
                 />
             </div>
-
-            {/* Build Summary */}
-            <section className="bg-[#2d2212] p-6 rounded-lg border-2 border-[#e5c77b]">
-                <div className="text-center">
-                    <p className="text-[#c0a857]">Equipment Load</p>
-                    <p className="text-2xl font-bold text-[#e5c77b]">{buildData.totalWeight || 0}kg</p>
-                </div>
-                <div className="text-center">
-                    <p className="text-[#c0a857]">Main Weapon</p>
-                    <p className="text-lg font-semibold text-[#e5c77b]">
-                        {buildData.weapons?.slot1?.name || 'None'}
-                    </p>
-                </div>
-                <div className="text-center">
-                    <p className="text-[#c0a857]">Build Date</p>
-                    <p className="text-lg font-semibold text-[#e5c77b]">
-                        {buildData.timestamp ? new Date(buildData.timestamp).toLocaleDateString() : 'Unknown'}
-                    </p>
-                </div>
-            </section>
         </>
     );
 };

@@ -4,6 +4,7 @@ import React from 'react'
 import { useRouter } from "next/navigation";
 import BuildCardsGrid from '../components/BuildCardsGrid'
 import EldenRingDataWeapons from '../../../public/EldenRingData/data/weapons.json'
+import EldenRingDataWeaponsDLC from '../../../public/EldenRingData/data/weaponsDLC.json'
 import tempPlayerBuild from '../components/tempplayerbuild.json'
 
 
@@ -11,21 +12,23 @@ import tempPlayerBuild from '../components/tempplayerbuild.json'
 const Dashboard = () => {
     const router = useRouter();
 
-    function EnrichWeaponData(buildData, buildIndex) {
+    function EnrichWeaponData(buildData, buildIndex, playerIndex, playerName) {
         // Get the main weapon from slot1 or the first available weapon
-        const mainWeapon = buildData.weapons.slot1 || 
-                          buildData.weapons.slot2 || 
-                          buildData.weapons.slot3 || 
-                          buildData.weapons.slot4 || 
-                          buildData.weapons.slot5 || 
-                          buildData.weapons.slot6;
-        
+        const mainWeapon = buildData.weapons.slot1 ||
+            buildData.weapons.slot2 ||
+            buildData.weapons.slot3 ||
+            buildData.weapons.slot4 ||
+            buildData.weapons.slot5 ||
+            buildData.weapons.slot6;
+
         const weaponName = mainWeapon?.name;
-        
+
         const findWeaponImage = (weaponName) => {
             if (!weaponName) return null;
-            const weapon = EldenRingDataWeapons.find(w => w.name === weaponName);
-            
+            // Search in both base game and DLC weapons
+            const allWeapons = [...EldenRingDataWeapons, ...EldenRingDataWeaponsDLC];
+            const weapon = allWeapons.find(w => w.name === weaponName);
+
             if (!weapon) {
                 console.warn(`Weapon not found: ${weaponName}`);
                 return null;
@@ -40,24 +43,37 @@ const Dashboard = () => {
         const totalLevel = Object.values(buildData.stats).reduce((sum, stat) => sum + stat, 0) - 80; // Subtract base stats
 
         return {
-            name: tempPlayerBuild.username,
+            name: playerName,
             level: totalLevel,
             class: "Wretch", // Since we don't have class info in the JSON
             mainWeapon: mainWeapon ? `${mainWeapon.name}${mainWeapon.infusion ? ` (${mainWeapon.infusion})` : ''}` : "No Weapon",
             mainWeaponImage: findWeaponImage(weaponName),
             description: `Equipment Load: ${buildData.totalWeight}kg`,
-            buildIndex: buildIndex
+            buildIndex: buildIndex,
+            playerIndex: playerIndex,
+            buildData: buildData
         };
     }
 
-    const builds = tempPlayerBuild.builds.map((build, index) => EnrichWeaponData(build, index));
+    // Flatten all builds from all players
+    const allBuilds = tempPlayerBuild.players.flatMap((player, playerIndex) =>
+        player.builds.map((build, buildIndex) =>
+            EnrichWeaponData(build, buildIndex, playerIndex, player.username)
+        )
+    );
 
     const handleClickGoToBuild = () => {
         router.push("./buildcreator");
     };
 
-    const handleCardClick = (buildIndex) => {
-        router.push(`./buildviewer?build=${buildIndex}`);
+    const handleCardClick = (playerIndex, buildIndex) => {
+        // Store the build data for the viewer
+        const buildData = tempPlayerBuild.players[playerIndex].builds[buildIndex];
+        localStorage.setItem('viewBuildData', JSON.stringify({
+            ...buildData,
+            playerName: tempPlayerBuild.players[playerIndex].username
+        }));
+        router.push(`./buildviewer?player=${playerIndex}&build=${buildIndex}`);
     };
 
     return (
@@ -67,7 +83,7 @@ const Dashboard = () => {
                     Online Builds
                 </h1>
                 <p className="text-[#c0a857] mb-8 text-lg tracking-wide">
-                    Strategize like a true Tarnished. Manage your Elden Ring builds below.
+                    Strategize like a true Tarnished. Explore builds from fellow players below.
                 </p>
 
                 {/* Create + Button */}
@@ -81,20 +97,64 @@ const Dashboard = () => {
                     </button>
                 </div>
 
+                {/* Group builds by player */}
+                {tempPlayerBuild.players.map((player, playerIndex) => (
+                    <div key={playerIndex} className="mb-12">
+                        <h2 className="text-2xl font-bold mb-6 text-[#e5c77b] border-b border-[#c0a857] pb-2" style={{ fontFamily: 'serif' }}>
+                            {player.username}'s Builds ({player.builds.length})
+                        </h2>
 
-                <div className="flex flex-row flex-wrap gap-4 items-start justify-start w-[100%]">
-                    {builds.map((build, idx) => (
-                        <div key={idx} className='w-[calc(33.333%-1rem)] cursor-pointer' onClick={() => handleCardClick(build.buildIndex)}>
-                            <BuildCardsGrid
-                                title={build.name}
-                                description={`Level: ${build.level} | Class: ${build.class} | ${build.description}`}
-                                mainWeapon={{
-                                    name: build.mainWeapon,
-                                    image: build.mainWeaponImage
-                                }}
-                            />
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            {player.builds.map((build, buildIndex) => {
+                                const enrichedBuild = EnrichWeaponData(build, buildIndex, playerIndex, player.username);
+                                return (
+                                    <div
+                                        key={buildIndex}
+                                        className='cursor-pointer transform transition-transform hover:scale-105'
+                                        onClick={() => handleCardClick(playerIndex, buildIndex)}
+                                    >
+                                        <BuildCardsGrid
+                                            title={`${enrichedBuild.name}'s Build #${buildIndex + 1}`}
+                                            description={`Level: ${enrichedBuild.level} | Class: ${enrichedBuild.class} | ${enrichedBuild.description}`}
+                                            mainWeapon={{
+                                                name: enrichedBuild.mainWeapon,
+                                                image: enrichedBuild.mainWeaponImage
+                                            }}
+                                        />
+                                    </div>
+                                );
+                            })}
                         </div>
-                    ))}
+                    </div>
+                ))}
+
+                {/* Summary stats */}
+                <div className="mt-12 bg-[#2d2212] p-6 rounded-lg border border-[#c0a857]">
+                    <h3 className="text-xl font-bold mb-4 text-[#e5c77b]" style={{ fontFamily: 'serif' }}>
+                        Community Stats
+                    </h3>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                        <div>
+                            <p className="text-2xl font-bold text-[#e5c77b]">{tempPlayerBuild.players.length}</p>
+                            <p className="text-[#c0a857]">Players</p>
+                        </div>
+                        <div>
+                            <p className="text-2xl font-bold text-[#e5c77b]">{allBuilds.length}</p>
+                            <p className="text-[#c0a857]">Total Builds</p>
+                        </div>
+                        <div>
+                            <p className="text-2xl font-bold text-[#e5c77b]">
+                                {Math.round(allBuilds.reduce((sum, build) => sum + build.level, 0) / allBuilds.length)}
+                            </p>
+                            <p className="text-[#c0a857]">Avg Level</p>
+                        </div>
+                        <div>
+                            <p className="text-2xl font-bold text-[#e5c77b]">
+                                {Math.round(allBuilds.reduce((sum, build) => sum + build.buildData.totalWeight, 0) / allBuilds.length * 10) / 10}kg
+                            </p>
+                            <p className="text-[#c0a857]">Avg Weight</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>

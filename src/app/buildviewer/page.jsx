@@ -6,9 +6,11 @@ import BuildDetailedView from '../components/BuildDetailedView';
 
 const BuildViewer = () => {
     const router = useRouter();
+    const [playerIndex, setPlayerIndex] = useState(null);
     const [buildIndex, setBuildIndex] = useState(null);
     const [isClient, setIsClient] = useState(false);
     const [buildData, setBuildData] = useState(null);
+    const [playerName, setPlayerName] = useState('');
     const [isSimplifiedMode, setIsSimplifiedMode] = useState(true);
 
     // Client-side only search params handling
@@ -16,21 +18,21 @@ const BuildViewer = () => {
         setIsClient(true);
         if (typeof window !== 'undefined') {
             const urlParams = new URLSearchParams(window.location.search);
-            const index = urlParams.get('build');
-            setBuildIndex(index);
+            const pIndex = urlParams.get('player');
+            const bIndex = urlParams.get('build');
+            setPlayerIndex(pIndex);
+            setBuildIndex(bIndex);
             
-            if (index !== null && tempPlayerBuild.builds[index]) {
-                setBuildData(tempPlayerBuild.builds[index]);
+            if (pIndex !== null && bIndex !== null && 
+                tempPlayerBuild.players[pIndex] && 
+                tempPlayerBuild.players[pIndex].builds[bIndex]) {
+                const player = tempPlayerBuild.players[pIndex];
+                const build = player.builds[bIndex];
+                setBuildData(build);
+                setPlayerName(player.username);
             }
         }
     }, []);
-
-    const handleEdit = () => {
-        if (buildData) {
-            localStorage.setItem('editBuildData', JSON.stringify(buildData));
-            router.push('/buildcreator?edit=true');
-        }
-    };
 
     // Show loading state until client-side hydration
     if (!isClient) {
@@ -61,7 +63,7 @@ const BuildViewer = () => {
     }
 
     // Calculate total level
-    const totalLevel = Object.values(buildData.stats).reduce((sum, stat) => sum + stat, 0) - 80;
+    const totalLevel = buildData ? Object.values(buildData.stats).reduce((sum, stat) => sum + stat, 0) - 80 : 0;
 
     const handleEditBuild = () => {
         localStorage.setItem('editBuildData', JSON.stringify(buildData));
@@ -75,10 +77,10 @@ const BuildViewer = () => {
                 <div className="flex justify-between items-center mb-8">
                     <div>
                         <h1 className="text-4xl font-bold mb-4 tracking-wider text-[#e5c77b] drop-shadow-lg" style={{ fontFamily: 'serif' }}>
-                            {tempPlayerBuild.username}'s Build
+                            {playerName}'s Build #{parseInt(buildIndex) + 1}
                         </h1>
                         <p className="text-[#c0a857] text-lg tracking-wide">
-                            Level {totalLevel} | Equipment Load: {buildData.totalWeight}kg | View Mode
+                            Level {totalLevel} | Equipment Load: {buildData?.totalWeight || 0}kg | View Mode
                         </p>
                     </div>
                     <div className="flex gap-4">
@@ -98,6 +100,7 @@ const BuildViewer = () => {
                             Back to Dashboard
                         </button>
                         <button
+                            disabled
                             onClick={handleEditBuild}
                             className="px-6 py-3 rounded-lg bg-[#e5c77b] text-[#19140e] font-semibold hover:bg-[#c0a857] transition-colors duration-200"
                         >
@@ -106,7 +109,12 @@ const BuildViewer = () => {
                     </div>
                 </div>
 
-                {/* Build Overview Display - Always Shown in Simplified Mode */}
+                {/* Detailed View */}
+                {!isSimplifiedMode && buildData && (
+                    <BuildDetailedView buildData={buildData} viewMode={true} />
+                )}
+
+                {/* Build Overview Display - Simplified Mode */}
                 {isSimplifiedMode && (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                         {/* Stats Card */}
@@ -176,11 +184,6 @@ const BuildViewer = () => {
                             </div>
                         </div>
                     </div>
-                )}
-
-                {/* Detailed View */}
-                {!isSimplifiedMode && (
-                    <BuildDetailedView buildData={buildData} />
                 )}
 
                 {/* Simplified Mode Message */}
