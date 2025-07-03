@@ -3923,7 +3923,7 @@
     },
     {
         "id": "17f698d50ael0i1ooor7m3e3wm1ksn",
-        "name": "Giant-crusher",
+        "name": "Giant Crusher",
         "image": "https://eldenring.fanapis.com/images/weapons/17f698d50ael0i1ooor7m3e3wm1ksn.png",
         "description": "A hammer made from a boulder, used in the War against the Giants. One of the heftiest weapons in the entire Lands Between. After the giants were quelled, and man turned against man in violence, this weapon was all but forgotten. Man has grown feeble in comparison to his forebears. ",
         "attack": [
@@ -6289,7 +6289,7 @@
     },
     {
         "id": "17f6977fc1al0i1oswu20i8xjh9liqj",
-        "name": "Serpent-god's Curved Sword",
+        "name": "Serpent gods Curved Sword",
         "image": "https://eldenring.fanapis.com/images/weapons/17f6977fc1al0i1oswu20i8xjh9liqj.png",
         "description": "Curved sword fashioned in the image of an ancient serpent deity and tool of a forgotten religion practiced on Mt. Gelmir. Formerly used to offer up sacrifices, this sword restores HP upon slaying an enemy.",
         "attack": [
@@ -12278,12 +12278,7 @@
                 "scaling": "E"
             }
         ],
-        "requiredAttributes": [
-            {
-                "name": "-",
-                "amount": 0
-            }
-        ],
+        "requiredAttributes": [],
         "category": "Great Spear",
         "weight": 12
     },
@@ -19081,16 +19076,7 @@
                 "scaling": "D"
             }
         ],
-        "requiredAttributes": [
-            {
-                "name": "Fai",
-                "amount": 10
-            },
-            {
-                "name": "Arc",
-                "amount": 10
-            }
-        ],
+        "requiredAttributes": [],
         "category": "Sacred Seal",
         "weight": 0
     },
@@ -21197,10 +21183,7 @@
                 "scaling": "E"
             },
             {
-                "name": "Int"
-            },
-            {
-                "name": "",
+                "name": "Int",
                 "scaling": "D"
             },
             {
@@ -21219,10 +21202,6 @@
             },
             {
                 "name": "Int",
-                "amount": 0
-            },
-            {
-                "name": "",
                 "amount": 24
             },
             {

@@ -2337,5 +2337,29 @@
                 "amount": 0
             }
         ]
+    },
+    {
+        "id": "17f6a0e1c9zl0i1y1m2q3rs4t5uvw",
+        "name": "Flame, Grant Me Strength",
+        "image": "https://eldenring.fanapis.com/images/incantations/17f6a0e1c9zl0i1y1m2q3rs4t5uvw.png",
+        "description": "Superior incantation of the Fire Monks. Boosts physical and fire‑affinity attack power.",
+        "type": "Incantations",
+        "cost": 28,
+        "slots": 1,
+        "effects": "Raises physical and fire‑affinity attack power for 30 seconds (body buff).",
+        "requires": [
+            {
+                "name": "Intelligence",
+                "amount": 0
+            },
+            {
+                "name": "Faith",
+                "amount": 15
+            },
+            {
+                "name": "Arcane",
+                "amount": 0
+            }
+        ]
     }
 ]

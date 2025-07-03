@@ -396,9 +396,45 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                                                         </span>
                                                     );
                                                 })}
+                                                <span>|</span>
+                                                {weapon.scalesWith && weapon.scalesWith.length > 0 ? (
+                                                    <div className="flex flex-wrap justify-center gap-1">
+                                                        {weapon.scalesWith.map((scale, idx) => (
+                                                            <span
+                                                                key={idx}
+                                                                className="text-xs px-1 rounded bg-[#3a2c1a] text-[#c0a857]"
+                                                            >
+                                                                {scale.name}: {scale.scaling}
+                                                            </span>
+                                                        ))}
+                                                    </div>
+                                                ) : (
+                                                    <span className="text-xs">None</span>
+                                                )}
+                                                
                                             </div>
                                         ) : (
-                                            <span className="text-xs">No requirements</span>
+                                            <div>
+                                                <div>
+                                                    <span className="text-xs text-[#c0a857] pt-1">Scales With</span>
+                                                    <div className="flex items-center justify-center mt-0.5">
+                                                        {weapon.scalesWith && weapon.scalesWith.length > 0 ? (
+                                                            <div className="flex flex-wrap justify-center gap-1">
+                                                                {weapon.scalesWith.map((scale, idx) => (
+                                                                    <span
+                                                                        key={idx}
+                                                                        className="text-xs px-1 rounded bg-[#3a2c1a] text-[#c0a857]"
+                                                                    >
+                                                                        {scale.name}: {scale.scaling}
+                                                                    </span>
+                                                                ))}
+                                                            </div>
+                                                        ) : (
+                                                            <span className="text-xs">None</span>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            </div>
                                         )}
                                     </div>
                                 </div>
@@ -519,7 +555,6 @@ export const WeaponSection = ({ onWeaponsChange, stats }) => {
                                     const selectedWeapon = getWeaponFromSlot(tempWeapons[selectedSlot]);
                                     const isSelected = selectedWeapon?.id === weapon.id;
                                     const infusibility = getWeaponInfusibility(weapon.name);
-
                                     return (
                                         <div
                                             key={weapon.id}

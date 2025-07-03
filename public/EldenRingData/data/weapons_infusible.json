@@ -1723,7 +1723,7 @@
       "infusible": true
     },
     {
-      "name": "Giant-crusher",
+      "name": "Giant Crusher",
       "infusible": true
     },
     {
@@ -1763,8 +1763,8 @@
       "infusible": false
     },
     {
-      "name": "Serpent-god's Curved Sword",
-      "infusible": false
+      "name": "Serpent gods Curved Sword",
+      "infusible": true
     },
     {
       "name": "Scimitar",
@@ -1896,7 +1896,7 @@
     },
     {
       "name": "Sword Of Milos",
-      "infusible": true
+      "infusible": false
     },
     {
       "name": "Claymore",
@@ -2180,6 +2180,10 @@
     },
     {
       "name": "Bloodfiend's Fork",
+      "infusible": false
+    },
+    {
+      "name": "Serpent-god's Curved Sword",
       "infusible": false
     }
   ]
