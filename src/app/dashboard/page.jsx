@@ -127,35 +127,6 @@ const Dashboard = () => {
                         </div>
                     </div>
                 ))}
-
-                {/* Summary stats */}
-                <div className="mt-12 bg-[#2d2212] p-6 rounded-lg border border-[#c0a857]">
-                    <h3 className="text-xl font-bold mb-4 text-[#e5c77b]" style={{ fontFamily: 'serif' }}>
-                        Community Stats
-                    </h3>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                        <div>
-                            <p className="text-2xl font-bold text-[#e5c77b]">{tempPlayerBuild.players.length}</p>
-                            <p className="text-[#c0a857]">Players</p>
-                        </div>
-                        <div>
-                            <p className="text-2xl font-bold text-[#e5c77b]">{allBuilds.length}</p>
-                            <p className="text-[#c0a857]">Total Builds</p>
-                        </div>
-                        <div>
-                            <p className="text-2xl font-bold text-[#e5c77b]">
-                                {Math.round(allBuilds.reduce((sum, build) => sum + build.level, 0) / allBuilds.length)}
-                            </p>
-                            <p className="text-[#c0a857]">Avg Level</p>
-                        </div>
-                        <div>
-                            <p className="text-2xl font-bold text-[#e5c77b]">
-                                {Math.round(allBuilds.reduce((sum, build) => sum + build.buildData.totalWeight, 0) / allBuilds.length * 10) / 10}kg
-                            </p>
-                            <p className="text-[#c0a857]">Avg Weight</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </main>
     )
