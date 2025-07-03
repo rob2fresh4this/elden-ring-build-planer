@@ -1,0 +1,69 @@
+{
+    "username": "rob2fresh4this",
+    "builds": [
+        {
+            "equipment": {
+                "head": "Circlet of Light",
+                "chest": "Goldmask's Rags",
+                "hands": "Dancer's Bracer",
+                "legs": "Ascetic's Ankle Guards"
+            },
+            "talismans": {
+                "slot1": "Blue Dancer Charm",
+                "slot2": "Assassin's Cerulean Dagger",
+                "slot3": "Assassin's Crimson Dagger",
+                "slot4": "Dagger Talisman"
+            },
+            "stats": {
+                "VIG": 35,
+                "MIND": 25,
+                "END": 30,
+                "STR": 10,
+                "DEX": 40,
+                "INT": 13,
+                "FAI": 25,
+                "ARC": 10
+            },
+            "weapons": {
+                "slot1": {
+                    "name": "Flowing Curved Sword",
+                    "infusion": "Keen"
+                },
+                "slot2": {
+                    "name": "Miséricorde",
+                    "infusion": "Lightning"
+                },
+                "slot3": {
+                    "name": null,
+                    "infusion": null
+                },
+                "slot4": {
+                    "name": "Main-gauche",
+                    "infusion": "Keen"
+                },
+                "slot5": {
+                    "name": "Frenzied Flame Seal",
+                    "infusion": null
+                },
+                "slot6": {
+                    "name": null,
+                    "infusion": null
+                }
+            },
+            "spells": {
+                "slot1": "Black Flame Blade",
+                "slot2": "Bloodflame Blade",
+                "slot3": "Electrify Armament",
+                "slot4": "Order's Blade",
+                "slot5": "Divine Fortification",
+                "slot6": "Flame Fortification",
+                "slot7": "Lightning Fortification",
+                "slot8": "Magic Fortification",
+                "slot9": "Flame, Grant Me Strength",
+                "slot10": "Golden Vow (spell)"
+            },
+            "totalWeight": 14.3,
+            "timestamp": "2025-07-03T16:22:30.887Z"
+        }
+    ]
+}
