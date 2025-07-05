@@ -55,13 +55,6 @@ const Dashboard = () => {
         };
     }
 
-    // Flatten all builds from all players
-    const allBuilds = tempPlayerBuild.players.flatMap((player, playerIndex) =>
-        player.builds.map((build, buildIndex) =>
-            EnrichWeaponData(build, buildIndex, playerIndex, player.username)
-        )
-    );
-
     const handleClickGoToBuild = () => {
         router.push("./buildcreator");
     };
