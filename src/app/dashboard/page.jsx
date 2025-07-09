@@ -48,7 +48,7 @@ const Dashboard = () => {
             class: "Wretch", // Since we don't have class info in the JSON
             mainWeapon: mainWeapon ? `${mainWeapon.name}${mainWeapon.infusion ? ` (${mainWeapon.infusion})` : ''}` : "No Weapon",
             mainWeaponImage: findWeaponImage(weaponName),
-            description: `Equipment Load: ${buildData.totalWeight}kg`,
+            description: `Equipment Load: ${buildData.totalWeight}`,
             buildIndex: buildIndex,
             playerIndex: playerIndex,
             buildData: buildData
