@@ -409,7 +409,7 @@ export const WeaponSection = ({
                                                         </span>
                                                     );
                                                 })}
-                                                <span>|</span>
+                                                <span className="hidden md:block ">|</span>
                                                 {weapon.scalesWith && weapon.scalesWith.length > 0 ? (
                                                     <div className="flex flex-wrap justify-center gap-1">
                                                         {weapon.scalesWith.map((scale, idx) => (

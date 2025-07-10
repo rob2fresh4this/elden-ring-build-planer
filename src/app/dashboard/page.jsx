@@ -72,23 +72,30 @@ const Dashboard = () => {
     return (
         <main className="min-h-screen p-6 bg-gradient-to-br from-[#19140e] via-[#2d2212] to-[#3a2c1a] text-[#e5c77b] ">
             <div className="max-w-6xl mx-auto">
-                <h1 className="text-4xl font-bold mb-4 tracking-wider text-[#e5c77b] drop-shadow-lg" style={{ fontFamily: 'serif' }}>
-                    Online Builds
-                </h1>
-                <p className="text-[#c0a857] mb-8 text-lg tracking-wide">
-                    Strategize like a true Tarnished. Explore builds from fellow players below.
-                </p>
+                <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8 gap-6 lg:gap-0 max-w-screen-xl mx-auto px-4">
+                    <div className="flex-1">
+                        <h1
+                            className="text-3xl sm:text-4xl font-bold mb-2 sm:mb-4 tracking-wider text-[#e5c77b] drop-shadow-lg"
+                            style={{ fontFamily: 'serif' }}
+                        >
+                            Online Builds
+                        </h1>
+                        <p className="text-[#c0a857] text-base sm:text-lg tracking-wide leading-snug">
+                            Strategize like a true Tarnished. Explore builds from fellow players below.
+                        </p>
+                    </div>
 
-                {/* Create + Button */}
-                <div className="flex justify-end">
-                    <button
-                        className="mb-8 px-5 py-2 rounded-lg bg-[#e5c77b] text-[#2d2212] font-bold text-lg shadow-lg hover:bg-[#c0a857] transition-colors duration-200"
-                        style={{ fontFamily: 'serif', letterSpacing: '0.05em' }}
-                        onClick={handleClickGoToBuild}
-                    >
-                        Create New Build +
-                    </button>
+                    <div className="w-full sm:w-auto flex justify-start lg:justify-end">
+                        <button
+                            className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-[#e5c77b] text-[#2d2212] font-bold text-lg shadow-lg hover:bg-[#c0a857] transition-colors duration-200"
+                            style={{ fontFamily: 'serif', letterSpacing: '0.05em' }}
+                            onClick={handleClickGoToBuild}
+                        >
+                            Create New Build +
+                        </button>
+                    </div>
                 </div>
+
 
                 {/* Group builds by player */}
                 {tempPlayerBuild.players.map((player, playerIndex) => (

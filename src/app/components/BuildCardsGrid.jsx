@@ -1,7 +1,7 @@
 import React from "react";
 
 const BuildCardsGrid = ({ title, description, mainWeapon, onClick, isLoading = false }) => (
-    <div className="p-1 sm:p-2 flex justify-center w-full">
+    <div className="p-1 sm:p-2 flex justify-start w-full">
         <div 
             className={`
                 w-full max-w-[160px] sm:max-w-xs md:max-w-sm 

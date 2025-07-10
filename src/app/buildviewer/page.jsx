@@ -22,9 +22,9 @@ const BuildViewer = () => {
             const bIndex = urlParams.get('build');
             setPlayerIndex(pIndex);
             setBuildIndex(bIndex);
-            
-            if (pIndex !== null && bIndex !== null && 
-                tempPlayerBuild.players[pIndex] && 
+
+            if (pIndex !== null && bIndex !== null &&
+                tempPlayerBuild.players[pIndex] &&
                 tempPlayerBuild.players[pIndex].builds[bIndex]) {
                 const player = tempPlayerBuild.players[pIndex];
                 const build = player.builds[bIndex];
@@ -71,43 +71,50 @@ const BuildViewer = () => {
     };
 
     return (
-        <main className="min-h-screen p-6 bg-gradient-to-br from-[#19140e] via-[#2d2212] to-[#3a2c1a] text-[#e5c77b]">
-            <div className="max-w-6xl mx-auto">
+        <main className="min-h-screen p-0 md:p-6 bg-gradient-to-br from-[#19140e] via-[#2d2212] to-[#3a2c1a] text-[#e5c77b]">
+            <div className="max-w-6xl mx-auto px-4">
                 {/* Header */}
-                <div className="flex justify-between items-center mb-8">
-                    <div>
-                        <h1 className="text-4xl font-bold mb-4 tracking-wider text-[#e5c77b] drop-shadow-lg" style={{ fontFamily: 'serif' }}>
+                <div className="flex flex-col pt-3 lg:flex-row justify-between items-start lg:items-center mb-8 gap-6 lg:gap-0">
+                    <div className="flex-1">
+                        <h1
+                            className="text-2xl sm:text-4xl font-bold mb-2 sm:mb-4 tracking-wider text-[#e5c77b] drop-shadow-lg"
+                            style={{ fontFamily: 'serif' }}
+                        >
                             {playerName}'s Build #{parseInt(buildIndex) + 1}
                         </h1>
-                        <p className="text-[#c0a857] text-lg tracking-wide">
-                            Level {totalLevel} | Equipment Load: {buildData?.totalWeight || 0}kg | View Mode
+                        <p className="text-[#c0a857] text-base sm:text-lg tracking-wide leading-snug">
+                            Level {totalLevel} | Equipment Load: {buildData?.totalWeight || 0}
                         </p>
                     </div>
-                    <div className="flex gap-4">
+
+                    <div className="w-full sm:w-auto flex flex-col sm:flex-row gap-3 sm:gap-4">
                         <button
                             onClick={() => setIsSimplifiedMode(!isSimplifiedMode)}
-                            className={`px-6 py-3 rounded-lg font-semibold transition-colors duration-200 ${isSimplifiedMode
+                            className={`w-full sm:w-auto px-5 py-2.5 rounded-lg font-semibold transition-colors duration-200 ${isSimplifiedMode
                                     ? 'bg-[#c0a857] text-[#19140e] hover:bg-[#a08f47]'
                                     : 'bg-[#3a2c1a] text-[#e5c77b] hover:bg-[#4a3c2a] border border-[#c0a857]'
                                 }`}
                         >
                             {isSimplifiedMode ? 'Detailed View' : 'Simplified View'}
                         </button>
+
                         <button
                             onClick={() => router.push('/dashboard')}
-                            className="px-6 py-3 rounded-lg bg-gray-600 text-white font-semibold hover:bg-gray-700 transition-colors duration-200"
+                            className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-gray-600 text-white font-semibold hover:bg-gray-700 transition-colors duration-200"
                         >
                             Back to Dashboard
                         </button>
+
                         <button
                             disabled
                             onClick={handleEditBuild}
-                            className="px-6 py-3 rounded-lg bg-[#e5c77b] text-[#19140e] font-semibold hover:bg-[#c0a857] transition-colors duration-200"
+                            className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-[#e5c77b] text-[#19140e] font-semibold hover:bg-[#c0a857] transition-colors duration-200"
                         >
                             Edit This Build
                         </button>
                     </div>
                 </div>
+
 
                 {/* Detailed View */}
                 {!isSimplifiedMode && buildData && (
@@ -176,9 +183,9 @@ const BuildViewer = () => {
                             <h3 className="text-xl font-bold mb-4 text-[#e5c77b]">Spells</h3>
                             <div className="grid grid-cols-2 gap-2">
                                 {Object.entries(buildData.spells).map(([slot, spell]) => (
-                                    <div key={slot} className="flex justify-between">
+                                    <div key={slot} className="flex">
                                         <span className="text-[#c0a857]">{slot}:</span>
-                                        <span className="text-[#e5c77b] font-semibold">{spell || 'None'}</span>
+                                        <span className="text-[#e5c77b] font-semibold ml-0.5">{spell || 'None'}</span>
                                     </div>
                                 ))}
                             </div>

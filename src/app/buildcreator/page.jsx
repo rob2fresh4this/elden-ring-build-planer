@@ -11,7 +11,7 @@ const BuildCreator = () => {
     const router = useRouter();
     const [isEditMode, setIsEditMode] = useState(false);
     const [isClient, setIsClient] = useState(false);
-    
+
     const [equipmentWeight, setEquipmentWeight] = useState(0);
     const [weaponWeight, setWeaponWeight] = useState(0);
     const [talismans, setTalismans] = useState(Array(4).fill(null));
@@ -34,7 +34,7 @@ const BuildCreator = () => {
         ARC: 10,
     });
     const [isLoading, setIsLoading] = useState(false);
-    
+
     const totalWeight = equipmentWeight + weaponWeight;
 
     const handleEquipmentChange = (totalArmorWeight, equipmentData) => {
@@ -93,13 +93,13 @@ const BuildCreator = () => {
     // Debounced save function
     const saveBuild = useCallback(async () => {
         if (isLoading) return;
-        
+
         setIsLoading(true);
-        
+
         try {
             // Simulate async operation (replace with actual API call)
             await new Promise(resolve => setTimeout(resolve, 100));
-            
+
             console.log('=== COMPLETE BUILD DATA ===');
             console.log(JSON.stringify(buildData, null, 2));
             toast.success('Build saved successfully!');
@@ -125,10 +125,10 @@ const BuildCreator = () => {
             const editBuildData = localStorage.getItem('editBuildData');
             if (editBuildData) {
                 const buildData = JSON.parse(editBuildData);
-                
+
                 // Load stats
                 setStats(buildData.stats);
-                
+
                 // Load equipment
                 const transformedEquipment = {
                     HEAD: buildData.equipment.head ? { name: buildData.equipment.head } : null,
@@ -137,7 +137,7 @@ const BuildCreator = () => {
                     LEGS: buildData.equipment.legs ? { name: buildData.equipment.legs } : null
                 };
                 setEquipment(transformedEquipment);
-                
+
                 // Load talismans
                 const transformedTalismans = [
                     buildData.talismans.slot1 ? { name: buildData.talismans.slot1 } : null,
@@ -146,7 +146,7 @@ const BuildCreator = () => {
                     buildData.talismans.slot4 ? { name: buildData.talismans.slot4 } : null
                 ];
                 setTalismans(transformedTalismans);
-                
+
                 // Load weapons
                 const transformedWeapons = Object.values(buildData.weapons).map(weapon => {
                     if (!weapon.name) return null;
@@ -156,17 +156,17 @@ const BuildCreator = () => {
                     };
                 });
                 setWeapons(transformedWeapons);
-                
+
                 // Load spells
                 const transformedSpells = Object.values(buildData.spells).map(spellName => {
                     if (!spellName) return null;
                     return { name: spellName };
                 });
                 setSpells(transformedSpells);
-                
+
                 // Set weights
                 setEquipmentWeight(buildData.totalWeight || 0);
-                
+
                 // Clear localStorage after loading
                 localStorage.removeItem('editBuildData');
             }
@@ -191,39 +191,54 @@ const BuildCreator = () => {
 
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
-                <div className="flex justify-between items-center mb-8">
-                    <div>
+                <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8 gap-6 lg:gap-0 max-w-screen-xl mx-auto px-4">
+                    <div className="flex-1">
                         <h1
-                            className="text-4xl font-bold mb-4 tracking-wider text-[#e5c77b] drop-shadow-lg"
+                            className="text-3xl sm:text-4xl font-bold mb-2 sm:mb-4 tracking-wider text-[#e5c77b] drop-shadow-lg"
                             style={{ fontFamily: 'serif' }}
                         >
                             {isEditMode ? 'Edit Build' : 'Elden Ring Build Planner'}
                         </h1>
-                        <p className="text-[#c0a857] text-lg tracking-wide">
-                            {isEditMode ? 'Modify your existing build below.' : 'Strategize like a true Tarnished. Manage your Elden Ring builds below.'}
+                        <p className="text-[#c0a857] text-base sm:text-lg tracking-wide leading-snug">
+                            {isEditMode
+                                ? 'Modify your existing build below.'
+                                : 'Strategize like a true Tarnished. Manage your Elden Ring builds below.'}
                         </p>
                     </div>
-                    <div className="flex gap-4">
+
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
                         <button
                             onClick={() => router.push('/dashboard')}
-                            className="px-6 py-3 rounded-lg bg-gray-600 text-white font-semibold hover:bg-gray-700 transition-colors duration-200"
+                            className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-gray-600 text-white font-semibold hover:bg-gray-700 transition-colors duration-200"
                         >
                             Back to Dashboard
                         </button>
+
                         <button
                             onClick={saveBuild}
                             disabled={isLoading}
-                            className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 shadow-lg ${
-                                isLoading 
-                                    ? 'bg-gray-400 text-gray-600 cursor-not-allowed' 
+                            className={`w-full sm:w-auto px-5 py-2.5 rounded-lg font-semibold transition-all duration-200 shadow-lg ${isLoading
+                                    ? 'bg-gray-400 text-gray-600 cursor-not-allowed'
                                     : 'bg-[#e5c77b] text-[#19140e] hover:bg-[#c0a857] hover:scale-105'
-                            }`}
+                                }`}
                         >
                             {isLoading ? (
-                                <span className="flex items-center gap-2">
+                                <span className="flex items-center justify-center gap-2">
                                     <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
-                                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                                        <circle
+                                            className="opacity-25"
+                                            cx="12"
+                                            cy="12"
+                                            r="10"
+                                            stroke="currentColor"
+                                            strokeWidth="4"
+                                            fill="none"
+                                        />
+                                        <path
+                                            className="opacity-75"
+                                            fill="currentColor"
+                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                        />
                                     </svg>
                                     Saving...
                                 </span>
@@ -233,6 +248,7 @@ const BuildCreator = () => {
                         </button>
                     </div>
                 </div>
+
 
                 {/* Equipment and Loadout Grid */}
                 <section className="mb-6">
