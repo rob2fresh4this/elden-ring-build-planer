@@ -89,7 +89,7 @@
                         "VIG": 40,
                         "MIND": 50,
                         "END": 25,
-                        "STR": 12,
+                        "STR": 16,
                         "DEX": 18,
                         "INT": 80,
                         "FAI": 10,
@@ -97,23 +97,23 @@
                     },
                     "weapons": {
                         "slot1": {
-                            "name": "Lusat's Glintstone Staff",
-                            "infusion": null
-                        },
-                        "slot2": {
-                            "name": "Carian Regal Scepter",
-                            "infusion": null
-                        },
-                        "slot3": {
                             "name": "Dark Moon Greatsword",
                             "infusion": null
                         },
-                        "slot4": {
+                        "slot2": {
                             "name": null,
                             "infusion": null
                         },
-                        "slot5": {
+                        "slot3": {
                             "name": null,
+                            "infusion": null
+                        },
+                        "slot4": {
+                            "name": "Lusat's Glintstone Staff",
+                            "infusion": null
+                        },
+                        "slot5": {
+                            "name": "Carian Regal Scepter",
                             "infusion": null
                         },
                         "slot6": {
