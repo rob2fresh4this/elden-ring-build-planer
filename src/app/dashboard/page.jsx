@@ -87,8 +87,7 @@ const Dashboard = () => {
 
                     <div className="w-full sm:w-auto flex justify-start lg:justify-end">
                         <button
-                            className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-[#e5c77b] text-[#2d2212] font-bold text-lg shadow-lg hover:bg-[#c0a857] transition-colors duration-200"
-                            style={{ fontFamily: 'serif', letterSpacing: '0.05em' }}
+                            className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-[#e5c77b] text-[#19140e] font-semibold hover:bg-[#c0a857] transition-colors duration-200"
                             onClick={handleClickGoToBuild}
                         >
                             Create New Build +
@@ -132,4 +131,4 @@ const Dashboard = () => {
     )
 }
 
-export default Dashboard
+export default Dashboard;
