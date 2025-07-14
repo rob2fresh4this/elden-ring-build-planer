@@ -64,6 +64,23 @@ export const EquipmentGrid = ({
         }
     }, [initialEquipment, viewMode]);
 
+    // Add useEffect to update equipment when initialEquipment changes
+    useEffect(() => {
+        if (initialEquipment && Object.keys(initialEquipment).length > 0) {
+            // Check if any equipment items are not null
+            const hasEquipment = Object.values(initialEquipment).some(item => item !== null);
+            if (hasEquipment) {
+                setEquipment(initialEquipment);
+                
+                // Calculate and notify parent about weight change
+                const totalWeight = calculateTotalWeight(initialEquipment);
+                if (onEquipmentChange) {
+                    onEquipmentChange(totalWeight, initialEquipment);
+                }
+            }
+        }
+    }, [initialEquipment, onEquipmentChange]);
+
     // Calculate total equipment weight
     const calculateTotalWeight = (equipmentSet) => {
         return Object.values(equipmentSet).reduce((total, item) => {

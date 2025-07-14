@@ -59,6 +59,22 @@ export const TalismanSection = ({
         }
     }, [initialTalismans, viewMode]);
 
+    // Add useEffect to update talismans when initialTalismans changes
+    useEffect(() => {
+        console.log('TalismanSection: initialTalismans changed:', initialTalismans);
+        if (initialTalismans && initialTalismans.length > 0) {
+            // Check if any talismans are not null
+            const hasTalismans = initialTalismans.some(talisman => talisman !== null);
+            if (hasTalismans) {
+                setTalismans(initialTalismans);
+                // Notify parent component
+                if (onTalismansChange) {
+                    onTalismansChange(initialTalismans);
+                }
+            }
+        }
+    }, [initialTalismans, onTalismansChange]);
+
     const handleTileClick = (slotIdx) => {
         if (viewMode) return; // Disable clicks in view mode
         setSelectedSlot(slotIdx);

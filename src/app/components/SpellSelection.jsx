@@ -100,6 +100,26 @@ const SpellSelection = ({
         }
     }, [initialSpells, viewMode]);
 
+    // Add useEffect to update spells when initialSpells changes
+    useEffect(() => {
+        if (initialSpells && initialSpells.length > 0) {
+            // Check if any spells are not null
+            const hasSpells = initialSpells.some(spell => spell !== null);
+            if (hasSpells) {
+                const spellsObj = initialSpells.reduce((acc, spell, index) => {
+                    if (spell) acc[index] = spell;
+                    return acc;
+                }, {});
+                setSpells(spellsObj);
+                
+                // Notify parent component
+                if (onSpellsChange) {
+                    onSpellsChange(initialSpells);
+                }
+            }
+        }
+    }, [initialSpells, onSpellsChange]);
+
     const handleTileClick = (slot) => {
         if (viewMode) return; // Disable clicks in view mode
         setModalSlot(slot);

@@ -168,6 +168,23 @@ export const WeaponSection = ({
         }
     }, [initialWeapons, viewMode]);
 
+    // Add useEffect to update weapons when initialWeapons changes
+    useEffect(() => {
+        if (initialWeapons && initialWeapons.length > 0) {
+            // Check if any weapons are not null
+            const hasWeapons = initialWeapons.some(weapon => weapon !== null);
+            if (hasWeapons) {
+                setWeapons(initialWeapons);
+                
+                // Calculate total weight and notify parent
+                const totalWeaponWeight = calculateTotalWeaponWeight(initialWeapons);
+                if (onWeaponsChange) {
+                    onWeaponsChange(totalWeaponWeight, initialWeapons);
+                }
+            }
+        }
+    }, [initialWeapons, onWeaponsChange]);
+
     // Update handleTileClick to set selectedInfusion from existing slot
     const handleTileClick = (slotIdx) => {
         if (viewMode) return; // Disable clicks in view mode

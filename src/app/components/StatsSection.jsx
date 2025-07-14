@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StatsPanel } from './StatsPanel';
 import { hpTable, fpTable, staminaTable, equipLoadTable } from "../../../public/EldenRingData/data/stats"
 
 const StatsSection = ({ equipmentWeight = 0, stats, setStats, viewMode = false }) => {
+    // Add useEffect to ensure stats are properly initialized
+    useEffect(() => {
+        if (stats && Object.keys(stats).length > 0) {
+            // Stats are passed directly, no need to transform
+            // But we can ensure the component re-renders when stats change
+        }
+    }, [stats]);
 
     function calculateHP(vigor) {
         if (vigor < 1) return hpTable[0];

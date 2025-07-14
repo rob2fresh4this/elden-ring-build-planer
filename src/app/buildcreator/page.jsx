@@ -7,6 +7,15 @@ import { WeaponSection } from '../components/WeaponSection';
 import toast, { Toaster } from 'react-hot-toast';
 import StatsSection from '../components/StatsSection';
 
+// Import data files for transformation
+import EldenRingDataArmor from '../../../public/EldenRingData/data/armors.json';
+import EldenRingDataArmorDLC from '../../../public/EldenRingData/data/armorDLC.json';
+import EldenRingDataTalismans from '../../../public/EldenRingData/data/talismans.json';
+import EldenRingDataWeapons from '../../../public/EldenRingData/data/weapons.json';
+import EldenRingDataWeaponsDLC from '../../../public/EldenRingData/data/weaponsDLC.json';
+import EldenRingDataSorceries from '../../../public/EldenRingData/data/sorceries.json';
+import EldenRingDataIncantations from '../../../public/EldenRingData/data/incantations.json';
+
 const BuildCreator = () => {
     const router = useRouter();
     const [isEditMode, setIsEditMode] = useState(false);
@@ -119,56 +128,128 @@ const BuildCreator = () => {
         }
     }, []);
 
-    // Load build data if in edit mode
+    // Helper functions to find items by name
+    const findArmorByName = (name) => {
+        if (!name) return null;
+        const baseGameArmor = Array.isArray(EldenRingDataArmor) ? EldenRingDataArmor : [];
+        const dlcArmor = Array.isArray(EldenRingDataArmorDLC) ? EldenRingDataArmorDLC : [];
+        const allArmor = [...baseGameArmor, ...dlcArmor];
+        return allArmor.find(armor => armor.name === name) || null;
+    };
+
+    const findTalismanByName = (name) => {
+        if (!name) return null;
+        return EldenRingDataTalismans.find(talisman => talisman.name === name) || null;
+    };
+
+    const findWeaponByName = (name) => {
+        if (!name) return null;
+        const allWeapons = [...EldenRingDataWeapons, ...EldenRingDataWeaponsDLC];
+        return allWeapons.find(weapon => weapon.name === name) || null;
+    };
+
+    const findSpellByName = (name) => {
+        if (!name) return null;
+        const allSpells = [
+            ...EldenRingDataSorceries.map(s => ({ ...s, type: "Sorcery" })),
+            ...EldenRingDataIncantations.map(i => ({ ...i, type: "Incantation" }))
+        ];
+        return allSpells.find(spell => spell.name === name) || null;
+    };
+
+    // Load build data if in edit mode - MOVE THIS BEFORE OTHER USEEFFECTS
     useEffect(() => {
         if (isEditMode && isClient) {
             const editBuildData = localStorage.getItem('editBuildData');
             if (editBuildData) {
-                const buildData = JSON.parse(editBuildData);
+                try {
+                    const buildData = JSON.parse(editBuildData);
+                    console.log('Loading build data for editing:', buildData);
 
-                // Load stats
-                setStats(buildData.stats);
+                    // Load stats FIRST
+                    if (buildData.stats) {
+                        setStats(buildData.stats);
+                    }
 
-                // Load equipment
-                const transformedEquipment = {
-                    HEAD: buildData.equipment.head ? { name: buildData.equipment.head } : null,
-                    CHEST: buildData.equipment.chest ? { name: buildData.equipment.chest } : null,
-                    HANDS: buildData.equipment.hands ? { name: buildData.equipment.hands } : null,
-                    LEGS: buildData.equipment.legs ? { name: buildData.equipment.legs } : null
-                };
-                setEquipment(transformedEquipment);
-
-                // Load talismans
-                const transformedTalismans = [
-                    buildData.talismans.slot1 ? { name: buildData.talismans.slot1 } : null,
-                    buildData.talismans.slot2 ? { name: buildData.talismans.slot2 } : null,
-                    buildData.talismans.slot3 ? { name: buildData.talismans.slot3 } : null,
-                    buildData.talismans.slot4 ? { name: buildData.talismans.slot4 } : null
-                ];
-                setTalismans(transformedTalismans);
-
-                // Load weapons
-                const transformedWeapons = Object.values(buildData.weapons).map(weapon => {
-                    if (!weapon.name) return null;
-                    return {
-                        weapon: { name: weapon.name },
-                        infusion: weapon.infusion
+                    // Load equipment with full data objects
+                    const transformedEquipment = {
+                        HEAD: findArmorByName(buildData.equipment?.head),
+                        CHEST: findArmorByName(buildData.equipment?.chest),
+                        HANDS: findArmorByName(buildData.equipment?.hands),
+                        LEGS: findArmorByName(buildData.equipment?.legs)
                     };
-                });
-                setWeapons(transformedWeapons);
+                    
+                    // Use setTimeout to ensure state updates happen in next tick
+                    setTimeout(() => {
+                        setEquipment(transformedEquipment);
+                        
+                        // Calculate equipment weight
+                        const armorWeight = Object.values(transformedEquipment).reduce((total, item) => {
+                            return total + (item?.weight || 0);
+                        }, 0);
+                        setEquipmentWeight(armorWeight);
 
-                // Load spells
-                const transformedSpells = Object.values(buildData.spells).map(spellName => {
-                    if (!spellName) return null;
-                    return { name: spellName };
-                });
-                setSpells(transformedSpells);
+                        // Load talismans with full data objects
+                        const transformedTalismans = [
+                            findTalismanByName(buildData.talismans?.slot1),
+                            findTalismanByName(buildData.talismans?.slot2),
+                            findTalismanByName(buildData.talismans?.slot3),
+                            findTalismanByName(buildData.talismans?.slot4)
+                        ];
+                        setTalismans(transformedTalismans);
 
-                // Set weights
-                setEquipmentWeight(buildData.totalWeight || 0);
+                        // Load weapons with full data objects
+                        const transformedWeapons = Object.values(buildData.weapons || {}).map(weaponSlot => {
+                            if (!weaponSlot?.name) return null;
+                            const weaponData = findWeaponByName(weaponSlot.name);
+                            if (!weaponData) return null;
+                            
+                            return {
+                                weapon: weaponData,
+                                infusion: weaponSlot.infusion || null
+                            };
+                        });
+                        
+                        // Ensure we have exactly 6 slots
+                        while (transformedWeapons.length < 6) {
+                            transformedWeapons.push(null);
+                        }
+                        setWeapons(transformedWeapons);
 
-                // Clear localStorage after loading
-                localStorage.removeItem('editBuildData');
+                        // Calculate weapon weight
+                        const weaponsWeight = transformedWeapons.reduce((total, slot) => {
+                            const weapon = slot?.weapon;
+                            return total + (weapon?.weight || 0);
+                        }, 0);
+                        setWeaponWeight(weaponsWeight);
+
+                        // Load spells with full data objects
+                        const spellNames = Object.values(buildData.spells || {});
+                        const transformedSpells = [];
+                        
+                        // Process up to 12 spell slots
+                        for (let i = 0; i < 12; i++) {
+                            const spellName = spellNames[i];
+                            if (spellName) {
+                                const spellData = findSpellByName(spellName);
+                                transformedSpells.push(spellData);
+                            } else {
+                                transformedSpells.push(null);
+                            }
+                        }
+                        setSpells(transformedSpells);
+
+                        toast.success('Build loaded for editing!');
+                    }, 100);
+
+                    // Clear localStorage after loading
+                    localStorage.removeItem('editBuildData');
+                    
+                } catch (error) {
+                    console.error('Error loading build data:', error);
+                    toast.error('Failed to load build data');
+                    localStorage.removeItem('editBuildData');
+                }
             }
         }
     }, [isEditMode, isClient]);
@@ -252,15 +333,31 @@ const BuildCreator = () => {
 
                 {/* Equipment and Loadout Grid */}
                 <section className="mb-6">
-                    <EquipmentGrid onEquipmentChange={handleEquipmentChange} onTalismansChange={handleTalismansChange} />
-                </section>                {/* Required Stats / Current Stats Panel */}
+                    <EquipmentGrid 
+                        onEquipmentChange={handleEquipmentChange} 
+                        onTalismansChange={handleTalismansChange}
+                        initialEquipment={equipment}
+                        initialTalismans={talismans}
+                    />
+                </section>
+
+                {/* Required Stats / Current Stats Panel */}
                 <StatsSection equipmentWeight={totalWeight} stats={stats} setStats={setStats} />
 
                 {/* Weapons */}
-                <WeaponSection onWeaponsChange={handleWeaponsChange} stats={stats} />
+                <WeaponSection 
+                    onWeaponsChange={handleWeaponsChange} 
+                    stats={stats}
+                    initialWeapons={weapons}
+                />
 
                 {/* Spells Section */}
-                <SpellSelection talismans={talismans} stats={stats} onSpellsChange={handleSpellsChange} />
+                <SpellSelection 
+                    talismans={talismans} 
+                    stats={stats} 
+                    onSpellsChange={handleSpellsChange}
+                    initialSpells={spells}
+                />
             </div>
         </main>
     );

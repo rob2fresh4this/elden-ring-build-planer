@@ -66,7 +66,35 @@ const BuildViewer = () => {
     const totalLevel = buildData ? Object.values(buildData.stats).reduce((sum, stat) => sum + stat, 0) - 80 : 0;
 
     const handleEditBuild = () => {
-        localStorage.setItem('editBuildData', JSON.stringify(buildData));
+        // Transform the build data to match BuildCreator's expected format
+        const transformedBuildData = {
+            stats: buildData.stats,
+            equipment: {
+                head: buildData.equipment.head || null,
+                chest: buildData.equipment.chest || null,
+                hands: buildData.equipment.hands || null,
+                legs: buildData.equipment.legs || null
+            },
+            talismans: {
+                slot1: buildData.talismans.slot1 || null,
+                slot2: buildData.talismans.slot2 || null,
+                slot3: buildData.talismans.slot3 || null,
+                slot4: buildData.talismans.slot4 || null
+            },
+            weapons: buildData.weapons || {
+                slot1: { name: null, infusion: null },
+                slot2: { name: null, infusion: null },
+                slot3: { name: null, infusion: null },
+                slot4: { name: null, infusion: null },
+                slot5: { name: null, infusion: null },
+                slot6: { name: null, infusion: null }
+            },
+            spells: buildData.spells || {},
+            totalWeight: buildData.totalWeight || 0,
+            timestamp: new Date().toISOString()
+        };
+
+        localStorage.setItem('editBuildData', JSON.stringify(transformedBuildData));
         router.push('/buildcreator?edit=true');
     };
 
@@ -106,7 +134,6 @@ const BuildViewer = () => {
                         </button>
 
                         <button
-                            disabled
                             onClick={handleEditBuild}
                             className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-[#e5c77b] text-[#19140e] font-semibold hover:bg-[#c0a857] transition-colors duration-200"
                         >
