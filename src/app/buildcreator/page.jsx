@@ -6,6 +6,7 @@ import SpellSelection from '../components/SpellSelection';
 import { WeaponSection } from '../components/WeaponSection';
 import toast, { Toaster } from 'react-hot-toast';
 import StatsSection from '../components/StatsSection';
+import SaveBuildModal from '../components/SaveBuildModal';
 
 // Import data files for transformation
 import EldenRingDataArmor from '../../../public/EldenRingData/data/armors.json';
@@ -20,6 +21,7 @@ const BuildCreator = () => {
     const router = useRouter();
     const [isEditMode, setIsEditMode] = useState(false);
     const [isClient, setIsClient] = useState(false);
+    const [isSaveModalOpen, setIsSaveModalOpen] = useState(false);
 
     const [equipmentWeight, setEquipmentWeight] = useState(0);
     const [weaponWeight, setWeaponWeight] = useState(0);
@@ -43,8 +45,24 @@ const BuildCreator = () => {
         ARC: 10,
     });
     const [isLoading, setIsLoading] = useState(false);
+    const [buildMetadata, setBuildMetadata] = useState({
+        buildName: '',
+        buildType: '',
+        description: '',
+        favoriteWeapon: ''
+    });
 
     const totalWeight = equipmentWeight + weaponWeight;
+
+    // Get equipped weapons for favorite weapon dropdown
+    const equippedWeapons = useMemo(() => {
+        return weapons
+            .filter(weapon => weapon && weapon.weapon)
+            .map(weapon => ({
+                name: weapon.weapon.name,
+                infusion: weapon.infusion
+            }));
+    }, [weapons]);
 
     const handleEquipmentChange = (totalArmorWeight, equipmentData) => {
         setEquipmentWeight(totalArmorWeight);
@@ -70,6 +88,13 @@ const BuildCreator = () => {
 
     // Memoize build data creation to improve performance
     const buildData = useMemo(() => ({
+        // Build metadata from modal
+        buildName: buildMetadata.buildName,
+        buildType: buildMetadata.buildType,
+        description: buildMetadata.description,
+        favoriteWeapon: buildMetadata.favoriteWeapon,
+        
+        // Existing build data
         equipment: {
             head: equipment.HEAD?.name || null,
             chest: equipment.CHEST?.name || null,
@@ -97,20 +122,33 @@ const BuildCreator = () => {
         }, {}),
         totalWeight: totalWeight,
         timestamp: new Date().toISOString()
-    }), [equipment, talismans, stats, weapons, spells, totalWeight]);
+    }), [equipment, talismans, stats, weapons, spells, totalWeight, buildMetadata]);
 
-    // Debounced save function
+    // Updated save function to open modal first
     const saveBuild = useCallback(async () => {
+        setIsSaveModalOpen(true);
+    }, []);
+
+    // Actual save function called from modal
+    const handleSaveFromModal = useCallback(async (modalData) => {
         if (isLoading) return;
 
         setIsLoading(true);
+        setBuildMetadata(modalData);
 
         try {
+            // Create final build data with modal information
+            const finalBuildData = {
+                ...buildData,
+                ...modalData,
+                timestamp: new Date().toISOString()
+            };
+
             // Simulate async operation (replace with actual API call)
             await new Promise(resolve => setTimeout(resolve, 100));
 
             console.log('=== COMPLETE BUILD DATA ===');
-            console.log(JSON.stringify(buildData, null, 2));
+            console.log(JSON.stringify(finalBuildData, null, 2));
             toast.success('Build saved successfully!');
         } catch (error) {
             toast.error('Failed to save build');
@@ -165,6 +203,14 @@ const BuildCreator = () => {
                 try {
                     const buildData = JSON.parse(editBuildData);
                     console.log('Loading build data for editing:', buildData);
+
+                    // Load build metadata
+                    setBuildMetadata({
+                        buildName: buildData.buildName || '',
+                        buildType: buildData.buildType || '',
+                        description: buildData.description || '',
+                        favoriteWeapon: buildData.favoriteWeapon || ''
+                    });
 
                     // Load stats FIRST
                     if (buildData.stats) {
@@ -269,6 +315,13 @@ const BuildCreator = () => {
     return (
         <main className="min-h-screen p-6 bg-gradient-to-br from-[#19140e] via-[#2d2212] to-[#3a2c1a] text-[#e5c77b]">
             <Toaster position="top-left" />
+            <SaveBuildModal 
+                isOpen={isSaveModalOpen} 
+                setIsOpen={setIsSaveModalOpen}
+                onSave={handleSaveFromModal}
+                equippedWeapons={equippedWeapons}
+                initialData={buildMetadata}
+            />
 
             <div className="max-w-6xl mx-auto">
                 {/* Header */}

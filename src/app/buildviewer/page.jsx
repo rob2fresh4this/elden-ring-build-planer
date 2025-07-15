@@ -68,6 +68,13 @@ const BuildViewer = () => {
     const handleEditBuild = () => {
         // Transform the build data to match BuildCreator's expected format
         const transformedBuildData = {
+            // Include metadata fields
+            buildName: buildData.buildName || '',
+            buildType: buildData.buildType || '',
+            description: buildData.description || '',
+            favoriteWeapon: buildData.favoriteWeapon || '',
+
+            // Existing build data
             stats: buildData.stats,
             equipment: {
                 head: buildData.equipment.head || null,
