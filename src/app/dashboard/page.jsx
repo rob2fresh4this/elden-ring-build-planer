@@ -13,7 +13,8 @@ const Dashboard = () => {
     const router = useRouter();
 
     function EnrichWeaponData(buildData, buildIndex, playerIndex, playerName) {
-        // Get the main weapon from slot1 or the first available weapon
+        // Get the favorite weapon or main weapon from slot1 or the first available weapon
+        const favoriteWeaponName = buildData.favoriteWeapon;
         const mainWeapon = buildData.weapons.slot1 ||
             buildData.weapons.slot2 ||
             buildData.weapons.slot3 ||
@@ -21,7 +22,7 @@ const Dashboard = () => {
             buildData.weapons.slot5 ||
             buildData.weapons.slot6;
 
-        const weaponName = mainWeapon?.name;
+        const weaponName = favoriteWeaponName || mainWeapon?.name;
 
         const findWeaponImage = (weaponName) => {
             if (!weaponName) return null;
@@ -44,11 +45,13 @@ const Dashboard = () => {
 
         return {
             name: playerName,
+            buildName: buildData.buildName || `Build #${buildIndex + 1}`,
+            buildType: buildData.buildType || "Unknown",
+            description: buildData.description || `Equipment Load: ${buildData.totalWeight}`,
             level: totalLevel,
             class: "Wretch", // Since we don't have class info in the JSON
-            mainWeapon: mainWeapon ? `${mainWeapon.name}${mainWeapon.infusion ? ` (${mainWeapon.infusion})` : ''}` : "No Weapon",
+            mainWeapon: favoriteWeaponName || (mainWeapon ? `${mainWeapon.name}${mainWeapon.infusion ? ` (${mainWeapon.infusion})` : ''}` : "No Weapon"),
             mainWeaponImage: findWeaponImage(weaponName),
-            description: `Equipment Load: ${buildData.totalWeight}`,
             buildIndex: buildIndex,
             playerIndex: playerIndex,
             buildData: buildData
@@ -113,8 +116,8 @@ const Dashboard = () => {
                                         onClick={() => handleCardClick(playerIndex, buildIndex)}
                                     >
                                         <BuildCardsGrid
-                                            title={`${enrichedBuild.name}'s Build #${buildIndex + 1}`}
-                                            description={`Level: ${enrichedBuild.level} | Class: ${enrichedBuild.class} | ${enrichedBuild.description}`}
+                                            title={enrichedBuild.buildName}
+                                            description={`Level: ${enrichedBuild.level} | Type: ${enrichedBuild.buildType}`}
                                             mainWeapon={{
                                                 name: enrichedBuild.mainWeapon,
                                                 image: enrichedBuild.mainWeaponImage
