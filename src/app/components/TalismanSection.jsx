@@ -61,7 +61,6 @@ export const TalismanSection = ({
 
     // Add useEffect to update talismans when initialTalismans changes
     useEffect(() => {
-        console.log('TalismanSection: initialTalismans changed:', initialTalismans);
         if (initialTalismans && initialTalismans.length > 0) {
             // Check if any talismans are not null
             const hasTalismans = initialTalismans.some(talisman => talisman !== null);
