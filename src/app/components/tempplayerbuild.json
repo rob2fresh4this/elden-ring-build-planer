@@ -4,6 +4,10 @@
             "username": "rob2fresh4this",
             "builds": [
                 {
+                    "buildName": "Dancing Blade Assassin",
+                    "buildType": "PvP",
+                    "description": "A nimble assassin build focused on quick strikes and elemental weapon buffs",
+                    "favoriteWeapon": "Flowing Curved Sword",
                     "equipment": {
                         "head": "Circlet of Light",
                         "chest": "Goldmask's Rags",
@@ -73,6 +77,10 @@
             "username": "TarnishedMage",
             "builds": [
                 {
+                    "buildName": "Carian Sorcery Master",
+                    "buildType": "PvE",
+                    "description": "Ultimate intelligence build wielding the power of Rennala and Lusat's sorceries",
+                    "favoriteWeapon": "Dark Moon Greatsword",
                     "equipment": {
                         "head": "Lusat's Glintstone Crown",
                         "chest": "Carian Knight Armor",
@@ -135,6 +143,79 @@
                     },
                     "totalWeight": 45.8,
                     "timestamp": "2025-07-02T14:15:22.123Z"
+                }
+            ]
+        },
+        {
+            "username": "bonkboi4life",
+            "builds": [
+                {
+                    "buildName": "Golden Boi Build",
+                    "buildType": "Both",
+                    "description": "You can almost use any incantation you want",
+                    "favoriteWeapon": "Troll's Golden Sword",
+                    "equipment": {
+                        "head": "Circlet of Light",
+                        "chest": "Tree Sentinel Armor",
+                        "hands": "Cleanrot Gauntlets",
+                        "legs": "Tree Sentinel Greaves"
+                    },
+                    "talismans": {
+                        "slot1": "Dragoncrest Greatshield Talisman",
+                        "slot2": "Erdtree's Favor",
+                        "slot3": "Viridian Amber Medallion",
+                        "slot4": "Green Turtle Talisman"
+                    },
+                    "stats": {
+                        "VIG": 60,
+                        "MIND": 10,
+                        "END": 67,
+                        "STR": 90,
+                        "DEX": 22,
+                        "INT": 10,
+                        "FAI": 70,
+                        "ARC": 10
+                    },
+                    "weapons": {
+                        "slot1": {
+                            "name": "Troll's Golden Sword",
+                            "infusion": "Sacred"
+                        },
+                        "slot2": {
+                            "name": "Golden Halberd",
+                            "infusion": null
+                        },
+                        "slot3": {
+                            "name": null,
+                            "infusion": null
+                        },
+                        "slot4": {
+                            "name": "Jar Cannon",
+                            "infusion": null
+                        },
+                        "slot5": {
+                            "name": "Clawmark Seal",
+                            "infusion": null
+                        },
+                        "slot6": {
+                            "name": null,
+                            "infusion": null
+                        }
+                    },
+                    "spells": {
+                        "slot1": "Lord's Divine Fortification",
+                        "slot2": "Golden Lightning Fortification",
+                        "slot3": "Barrier Of Gold",
+                        "slot4": "Flame, Protect Me",
+                        "slot5": "Black Flame's Protection",
+                        "slot6": "Bestial Vitality",
+                        "slot7": "Golden Vow (spell)",
+                        "slot8": "Erdtree Heal",
+                        "slot9": "Blessing Of The Erdtree",
+                        "slot10": "Blessing Of The Erdtree"
+                    },
+                    "totalWeight": 85.6,
+                    "timestamp": "2025-07-15T23:29:21.962Z"
                 }
             ]
         }
