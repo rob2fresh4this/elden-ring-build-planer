@@ -1115,9 +1115,9 @@
         "requires": null
     },
     {
-        "id": "17f68ff32f6l0hyo035frl5ld6347k",
+        "id": "7903",
         "name": "Golden Lightning Fortification",
-        "image": "https://eldenring.fanapis.com/images/incantations/17f68ff32f6l0hyo035frl5ld6347k.png",
+        "image": "https://eldenring.fanapis.com/images/incantations/7903.png",
         "description": "An incantation of Erdtree Worship.",
         "type": "Incantations",
         "cost": 30,
@@ -1811,9 +1811,9 @@
         ]
     },
     {
-        "id": "17f697ae98fl0hyo6a7rwr36m0lrsr",
+        "id": "17f68ff32f6l0hyo035frl5ld6347k",
         "name": "Protection Of The Erdtree",
-        "image": null,
+        "image": "17f68ff32f6l0hyo035frl5ld6347k.png",
         "description": "A superior incantation of Erdtree Worship. Increase damage negation for all affinities except physical, for both the caster and nearby allies. Hold to continue praying and delay activation. In the beginning, everything was in opposition to the Erdtree. But through countless victories in war, it became the embodiment of Order.",
         "type": "Incantations",
         "cost": 30,
