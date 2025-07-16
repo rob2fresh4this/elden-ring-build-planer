@@ -2334,31 +2334,25 @@
         ],
         "scalesWith": [
             {
-                "name": "STR",
+                "name": "Str",
                 "scaling": "D"
             },
             {
-                "name": "INT",
+                "name": "Int",
                 "scaling": "D"
-            },
-            {
-                "name": ""
-            },
-            {
-                "name": ""
             }
         ],
         "requiredAttributes": [
             {
-                "name": "STR",
+                "name": "Str",
                 "amount": 10
             },
             {
-                "name": "DEX",
+                "name": "Dex",
                 "amount": 10
             },
             {
-                "name": "INT",
+                "name": "Int",
                 "amount": 15
             }
         ],

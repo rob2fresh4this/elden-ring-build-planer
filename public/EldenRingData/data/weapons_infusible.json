@@ -2148,19 +2148,19 @@
     },
     {
       "name": "Smithscript Shield",
-      "infusible": true
+      "infusible": false
     },
     {
       "name": "Shield of Night",
-      "infusible": true
+      "infusible": false
     },
     {
       "name": "Golden Lion Shield",
-      "infusible": true
+      "infusible": false
     },
     {
       "name": "Verdigris Greatshield",
-      "infusible": true
+      "infusible": false
     },
     {
       "name": "Bloodfiend's Arm",
@@ -2209,7 +2209,7 @@
     {
       "id": "87f94fcc25c78677aa597a2827b4cd25bbe8112b",
       "name": "Rickety Shield",
-      "infusible": false
+      "infusible": true
     },
     {
       "id": "14aa665a36e32d79a686283608813114b80d8cc0",
@@ -2259,7 +2259,7 @@
     {
       "id": "7f52d3898791f65600952d8c68b7d611dde21bfc",
       "name": "Ice Crest Shield",
-      "infusible": false
+      "infusible": true
     },
     {
       "id": "138ddf882159da921204843e1a1509ae0e97468a",
@@ -2294,7 +2294,7 @@
     {
       "id": "aab3fde74e89de97d0e5f30b5bc95c639cd77cad",
       "name": "Albinauric Shield",
-      "infusible": false
+      "infusible": true
     },
     {
       "id": "75c8ab17d10d9fd40a8267ef3aea57b1524615a5",
@@ -2319,7 +2319,7 @@
     {
       "id": "298baf4d4c753a393817c940cd5c90fa7565be1f",
       "name": "Twinbird Kite Shield",
-      "infusible": false
+      "infusible": true
     },
     {
       "id": "cbfe89d0f8dadc748bf894d66d5508f9272498c9",
@@ -2339,7 +2339,7 @@
     {
       "id": "8199314f05784763fdbac72ce8fa0a6a4ab37a41",
       "name": "Great Turtle Shell",
-      "infusible": false
+      "infusible": true
     },
     {
       "id": "eca7eb47f37d0cebe35b19a01a2e024cf3f513fd",
@@ -2374,7 +2374,7 @@
     {
       "id": "e399b65f566603c4fd9fa23e604f131381607d54",
       "name": "Beast Crest Heater Shield",
-      "infusible": false
+      "infusible": true
     },
     {
       "id": "b4005747283c7304b877a21f7f08085ad67db2cd",
@@ -2419,7 +2419,7 @@
     {
       "id": "b12160f754c5a36a65ba1eaf3bfa765a12b600a9",
       "name": "Distinguished Greatshield",
-      "infusible": false
+      "infusible": true
     },
     {
       "id": "0cd7daf8035a963bff46aa22a8b9070bc9fc70e8",
@@ -2429,7 +2429,7 @@
     {
       "id": "e76e76e5fafa2d1f7c051240e2ca59099a165627",
       "name": "Golden Beast Crest Shield",
-      "infusible": false
+      "infusible": true
     },
     {
       "id": "1e9af330654a0cdc73dd0d1fc9fd840126a8d836",
@@ -2449,7 +2449,7 @@
     {
       "id": "d4f7a58c0f9d3536d6f3fb9d3bca6ccc844a8b25",
       "name": "Fingerprint Stone Shield",
-      "infusible": false
+      "infusible": true
     },
     {
       "id": "9d22dff5b299d9aeefb31eadecb7da745df5222b",
@@ -2469,7 +2469,7 @@
     {
       "id": "c0b9a8a4041913c60529e6505a3a2648cb294691",
       "name": "Spiked Palisade Shield",
-      "infusible": false
+      "infusible": true
     },
     {
       "id": "e982ac332632546b4e3e5b721defe187ac71bc4d",
@@ -2494,7 +2494,7 @@
     {
       "id": "a6688fa1a629891dce13ebc18a4e96a30ee87558",
       "name": "Inverted Hawk Towershield",
-      "infusible": false
+      "infusible": true
     },
     {
       "id": "01c224b9e11da8c47d2a5dca8d919f8aa34db4d2",
@@ -2509,22 +2509,22 @@
     {
       "id": "2a5095cc5f1848f1bfe842aa82f4cffb9b37d4cf",
       "name": "Gilded Greatshield",
-      "infusible": false
+      "infusible": true
     },
     {
       "id": "d09e3b4ca764c90abc0828b253b284c1f5a83f20",
       "name": "Golden Greatshield",
-      "infusible": false
+      "infusible": true
     },
     {
       "id": "a331fd1a85500e99c01f88bc38138a26092c4c9b",
       "name": "Haligtree Crest Greatshield",
-      "infusible": false
+      "infusible": true
     },
     {
       "id": "6bed2d505b6cbb8fd0cb2292f3125acc41d8f9cf",
       "name": "Wooden Greatshield",
-      "infusible": false
+      "infusible": true
     },
     {
       "id": "5815320867c7cc2fa4ac74402aaaac3564826529",
