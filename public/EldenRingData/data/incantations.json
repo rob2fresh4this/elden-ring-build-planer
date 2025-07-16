@@ -1112,7 +1112,20 @@
         "cost": 36,
         "slots": 1,
         "effects": "Channels dragon to spew icy breath.",
-        "requires": null
+        "requires": [
+            {
+                "name": "Intelligence",
+                "amount": 0
+            },
+            {
+                "name": "Faith",
+                "amount": 15
+            },
+            {
+                "name": "Arcane",
+                "amount": 12
+            }
+        ]
     },
     {
         "id": "7903",
