@@ -63,7 +63,7 @@ const BuildViewer = () => {
     }
 
     // Calculate total level
-    const totalLevel = buildData ? Object.values(buildData.stats).reduce((sum, stat) => sum + stat, 0) - 80 : 0;
+    const totalLevel = buildData ? Object.values(buildData.stats).reduce((sum, stat) => sum + stat, 1) - 80 : 0;
 
     const handleEditBuild = () => {
         // Transform the build data to match BuildCreator's expected format

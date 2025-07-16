@@ -72,7 +72,7 @@ const StatsSection = ({ equipmentWeight = 0, stats, setStats, viewMode = false }
             <div className="bg-[#2d2212] p-4 rounded-xl border border-[#e5c77b]">
                 <h2 className="text-xl font-semibold mb-2 text-[#e5c77b]">Basic Stats</h2>
                 <p className="mb-1">
-                    Level: <span className="text-lime-400">{Object.values(stats).reduce((a, b) => a + b, 0) - 80}</span>
+                    Level: <span className="text-lime-400">{Object.values(stats).reduce((a, b) => a + b, 1) - 80}</span>
                 </p>
                 <p className="mb-1">
                     HP: <span className="text-lime-400">{calculateHP(stats.VIG)}</span>
