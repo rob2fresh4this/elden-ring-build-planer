@@ -3,13 +3,21 @@
 import React, { useState, useEffect, useCallback } from "react";
 import WeaponData from "../../../public/EldenRingData/data/weapons.json";
 import WeaponDataDLC from "../../../public/EldenRingData/data/weaponsDLC.json";
+import ShieldData from "../../../public/EldenRingData/data/shields.json"
 import InfusibleData from "../../../public/EldenRingData/data/weapons_infusible.json";
 import toast from "react-hot-toast";
 
 const stripImageBaseUrl = (imageUrl) => {
     const baseUrl = "https://eldenring.fanapis.com/images/weapons/";
-    if (typeof imageUrl === "string" && imageUrl.startsWith(baseUrl)) {
-        return imageUrl.replace(baseUrl, "");
+    const shieldBaseUrl = "https://eldenring.fanapis.com/images/shields/";
+    
+    if (typeof imageUrl === "string") {
+        if (imageUrl.startsWith(baseUrl)) {
+            return imageUrl.replace(baseUrl, "");
+        }
+        if (imageUrl.startsWith(shieldBaseUrl)) {
+            return imageUrl.replace(shieldBaseUrl, "");
+        }
     }
     return imageUrl || "";
 };
@@ -26,13 +34,22 @@ const decodeWeaponName = (name) => {
         .replace(/%2B/g, "+"); // %2B -> plus sign
 };
 
-const getWeaponImagePath = (weapon) => {
-    // Check if this is a DLC weapon (has different image URL structure)
-    if (weapon.image && weapon.image.includes("fextralife.com")) {
-        return weapon.image; // Use DLC image URL directly
+const getImagePath = (item) => {
+    // Check if this is a DLC item (has fextralife.com image URL)
+    if (item.image && item.image.includes("fextralife.com")) {
+        return item.image; // Use DLC image URL directly for both weapons and shields
     }
+    
+    // Check if this is a shield (shields use id for image path)
+    const isShield = item.category && (item.category.includes("Shield") || item.category === "Greatshield") || 
+    ShieldData.some(shield => shield.id === item.id);
+    
+    if (isShield) {
+        return `/EldenRingData/images/shields/${item.id}.png`;
+    }
+    
     // Base game weapon - use local images
-    return `/EldenRingData/images/weapons/${stripImageBaseUrl(weapon.image)}`;
+    return `/EldenRingData/images/weapons/${stripImageBaseUrl(item.image)}`;
 };
 
 const WEAPON_SLOTS = 6;
@@ -145,7 +162,7 @@ export const WeaponSection = ({
         setSearch(e.target.value);
     }, []);
 
-    const filteredWeapons = [...WeaponData, ...WeaponDataDLC].filter(
+    const filteredWeapons = [...WeaponData, ...WeaponDataDLC, ...ShieldData].filter(
         (w) =>
             w.name &&
             decodeWeaponName(w.name).toLowerCase().includes(searchTerm.toLowerCase())
@@ -342,13 +359,22 @@ export const WeaponSection = ({
 
         // Check in uncertain weapons list with defensive check
         if (InfusibleData.uncertainWeapons && InfusibleData.uncertainWeapons.includes(decodedName)) {
+            // Console log uncertain gear in JSON object format
+            console.log(JSON.stringify({
+                "name": decodedName,
+                "status": "uncertain"
+            }, null, 2));
             return {
                 canInfuse: false,
                 status: "uncertain"
             };
         }
 
-        // Default to uncertain if not found
+        // Default to uncertain if not found and log it in JSON object format
+        console.log(JSON.stringify({
+            "name": decodedName,
+            "status": "unknown"
+        }, null, 2));
         return {
             canInfuse: false,
             status: "uncertain"
@@ -388,7 +414,7 @@ export const WeaponSection = ({
                             {weapon ? (
                                 <div className="flex flex-col items-center justify-center text-center">
                                     <img
-                                        src={getWeaponImagePath(weapon)}
+                                        src={getImagePath(weapon)}
                                         alt={weapon.name}
                                         className="w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 object-contain mb-1 sm:mb-2"
                                         loading="lazy"
@@ -569,7 +595,7 @@ export const WeaponSection = ({
                         <div className="px-3 sm:px-4 py-2 sm:py-3 bg-[#19140e] border-b border-[#c0a857] sticky top-[60px] z-10">
                             <input
                                 type="text"
-                                placeholder="Search Weapons..."
+                                placeholder="Search Weapons & Shields..."
                                 value={searchTerm}
                                 onChange={handleSearchChange}
                                 className="w-full px-3 py-2 sm:py-3 rounded bg-[#2d2212] border border-[#c0a857] text-[#e5c77b] focus:outline-none focus:border-[#e5c77b] text-sm sm:text-base touch-manipulation"
@@ -579,12 +605,15 @@ export const WeaponSection = ({
 
                         {/* Weapon Grid */}
                         <div className="overflow-y-auto p-3 sm:p-4 flex-1">
-                            <div className="mb-3 text-[#c0a857] font-semibold text-sm sm:text-base">Weapons</div>
+                            <div className="mb-3 text-[#c0a857] font-semibold text-sm sm:text-base">Weapons & Shields</div>
                             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-4">
                                 {filteredWeapons.map((weapon) => {
                                     const selectedWeapon = getWeaponFromSlot(tempWeapons[selectedSlot]);
                                     const isSelected = selectedWeapon?.id === weapon.id;
                                     const infusibility = getWeaponInfusibility(weapon.name);
+                                    const isShield = weapon.category && (weapon.category.includes("Shield") || weapon.category === "Greatshield") || 
+                                                    ShieldData.some(shield => shield.id === weapon.id);
+                                    
                                     return (
                                         <div
                                             key={weapon.id}
@@ -594,7 +623,7 @@ export const WeaponSection = ({
                                             onClick={() => handleWeaponSelect(weapon)}
                                         >
                                             <img
-                                                src={getWeaponImagePath(weapon)}
+                                                src={getImagePath(weapon)}
                                                 alt={weapon.name}
                                                 className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain mb-1 sm:mb-2 mx-auto"
                                                 loading="lazy"
@@ -602,6 +631,11 @@ export const WeaponSection = ({
                                             <p className="text-xs sm:text-sm text-[#e5c77b] mb-1 line-clamp-2 leading-tight">
                                                 {decodeWeaponName(weapon.name)}
                                             </p>
+                                            
+                                            {/* Shield indicator */}
+                                            {isShield && (
+                                                <p className="text-xs text-[#6b8dd6] mb-1">Shield</p>
+                                            )}
 
                                             {/* Infusion status indicator */}
                                             {infusibility.status === "not_infusible" && (
@@ -615,7 +649,7 @@ export const WeaponSection = ({
                                             )}
 
                                             {/* Requirements */}
-                                            {weapon.requiredAttributes.map((attr, idx) => {
+                                            {weapon.requiredAttributes && weapon.requiredAttributes.map((attr, idx) => {
                                                 const actual = getStatValue(attr.name, playerStats);
                                                 const isStr = attr.name === "Str";
                                                 const meets = isStr ? actual >= attr.amount / 2 : actual >= attr.amount;

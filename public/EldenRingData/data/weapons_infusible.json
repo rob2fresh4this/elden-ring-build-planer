@@ -2185,6 +2185,351 @@
     {
       "name": "Serpent-god's Curved Sword",
       "infusible": false
+    },
+    {
+      "id": "fadbad6e07e4a7c00f1441145fb44416fba209f3",
+      "name": "Buckler",
+      "infusible": true
+    },
+    {
+      "id": "955cf654edfba56537650142aba565878cb75757",
+      "name": "Perfumer's Shield",
+      "infusible": true
+    },
+    {
+      "id": "9bbdba9da217f45dc21bfaccfebd0990d758e27c",
+      "name": "Man-serpent's Shield",
+      "infusible": true
+    },
+    {
+      "id": "95771ce52d02ee0abb5601a3ab79ed3cb622efbb",
+      "name": "Pillory Shield",
+      "infusible": true
+    },
+    {
+      "id": "87f94fcc25c78677aa597a2827b4cd25bbe8112b",
+      "name": "Rickety Shield",
+      "infusible": false
+    },
+    {
+      "id": "14aa665a36e32d79a686283608813114b80d8cc0",
+      "name": "Beastman's Jar-shield",
+      "infusible": true
+    },
+    {
+      "id": "9acbe5160377b2f7da16e322197bc24c529757ca",
+      "name": "Red Thorn Roundshield",
+      "infusible": true
+    },
+    {
+      "id": "1a4b142ef3a65d224c68b22d9640de8ff2a403c4",
+      "name": "Riveted Wooden Shield",
+      "infusible": true
+    },
+    {
+      "id": "5abbfd41f82a5c0aa897907740bac0b484a3d31e",
+      "name": "Scripture Wooden Shield",
+      "infusible": true
+    },
+    {
+      "id": "f2f57c2ea86dbba414e9b61866482207e95410fb",
+      "name": "Blue-white Wooden Shield",
+      "infusible": true
+    },
+    {
+      "id": "a36af675d83be496fec5c930bf4ef65e33c09ab9",
+      "name": "Rift Shield",
+      "infusible": true
+    },
+    {
+      "id": "125feaeaad7929337dc09fe1c5ac6b23b7150fcc",
+      "name": "Iron Roundshield",
+      "infusible": true
+    },
+    {
+      "id": "030540c29ad012473cc27ae8801eb22a005d3807",
+      "name": "Smoldering Shield",
+      "infusible": false
+    },
+    {
+      "id": "195ee41a604ae0975ba8f39a3a9dad08885a0d1f",
+      "name": "Gilded Iron Shield",
+      "infusible": true
+    },
+    {
+      "id": "7f52d3898791f65600952d8c68b7d611dde21bfc",
+      "name": "Ice Crest Shield",
+      "infusible": false
+    },
+    {
+      "id": "138ddf882159da921204843e1a1509ae0e97468a",
+      "name": "Spiralhorn Shield",
+      "infusible": true
+    },
+    {
+      "id": "3fce929fa6e2e554a6b8c2697360ec4175350291",
+      "name": "Marred Leather Shield",
+      "infusible": true
+    },
+    {
+      "id": "a6754870f85d6ba8f7a857c04baa05e2f2fa25ee",
+      "name": "Marred Wooden Shield",
+      "infusible": true
+    },
+    {
+      "id": "5c23974363c7a83997d744a9b7d148c21cbde6b1",
+      "name": "Coil Shield",
+      "infusible": false
+    },
+    {
+      "id": "cbd4920fb8f7a4f74608fa9a63fa0c69d026d737",
+      "name": "Kite Shield",
+      "infusible": true
+    },
+    {
+      "id": "0e261fee53050e7833580cc6da2abeeaa56dcc68",
+      "name": "Banished Knight's Shield",
+      "infusible": true
+    },
+    {
+      "id": "aab3fde74e89de97d0e5f30b5bc95c639cd77cad",
+      "name": "Albinauric Shield",
+      "infusible": false
+    },
+    {
+      "id": "75c8ab17d10d9fd40a8267ef3aea57b1524615a5",
+      "name": "Sun Realm Shield",
+      "infusible": true
+    },
+    {
+      "id": "a0ddb0b0f88ff9afb11c3d8bf914b50afde58125",
+      "name": "Silver Mirrorshield",
+      "infusible": false
+    },
+    {
+      "id": "69c7bc9b50fa40e296fe83cf139eb4f898fa7ed0",
+      "name": "Round Shield",
+      "infusible": true
+    },
+    {
+      "id": "9419beab1c00946a41d396ca7770c69a1ee6975e",
+      "name": "Scorpion Kite Shield",
+      "infusible": true
+    },
+    {
+      "id": "298baf4d4c753a393817c940cd5c90fa7565be1f",
+      "name": "Twinbird Kite Shield",
+      "infusible": false
+    },
+    {
+      "id": "cbfe89d0f8dadc748bf894d66d5508f9272498c9",
+      "name": "Blue-gold Kite Shield",
+      "infusible": true
+    },
+    {
+      "id": "c8e0a0bd1835b5ac3cf779e6af5762b55ae7d04a",
+      "name": "Brass Shield",
+      "infusible": true
+    },
+    {
+      "id": "a4c8af0726cac5533ff43534b136f9adb69ffe50",
+      "name": "Shield Of The Guilty",
+      "infusible": true
+    },
+    {
+      "id": "8199314f05784763fdbac72ce8fa0a6a4ab37a41",
+      "name": "Great Turtle Shell",
+      "infusible": false
+    },
+    {
+      "id": "eca7eb47f37d0cebe35b19a01a2e024cf3f513fd",
+      "name": "Carian Knight's Shield",
+      "infusible": true
+    },
+    {
+      "id": "ad986d1b1a27fd5fc6395edbc73756f7ec2256f2",
+      "name": "Horse Crest Wooden Shield",
+      "infusible": true
+    },
+    {
+      "id": "ad5187f1d41a437f99b0b1c8b380558a85261be9",
+      "name": "Candletree Wooden Shield",
+      "infusible": true
+    },
+    {
+      "id": "0f3e501e3e373f416c0a734031fddec4579f82e9",
+      "name": "Large Leather Shield",
+      "infusible": true
+    },
+    {
+      "id": "7b146e265d1375188f4e64fee52e15f558ba2314",
+      "name": "Flame Crest Wooden Shield",
+      "infusible": true
+    },
+    {
+      "id": "f9d9a125afe005fbbf4affd58257aa55908006b1",
+      "name": "Hawk Crest Wooden Shield",
+      "infusible": true
+    },
+    {
+      "id": "e399b65f566603c4fd9fa23e604f131381607d54",
+      "name": "Beast Crest Heater Shield",
+      "infusible": false
+    },
+    {
+      "id": "b4005747283c7304b877a21f7f08085ad67db2cd",
+      "name": "Red Crest Heater Shield",
+      "infusible": true
+    },
+    {
+      "id": "41b26aede1aa8d7348ed901f9c89e57a0d230785",
+      "name": "Eclipse Crest Heater Shield",
+      "infusible": true
+    },
+    {
+      "id": "debafe07cf2075e376f8536809832893e61c9606",
+      "name": "Blue Crest Heater Shield",
+      "infusible": true
+    },
+    {
+      "id": "2ed4f52447da12ba0f7c683dcdebdf63789e5d15",
+      "name": "Inverted Hawk Heater Shield",
+      "infusible": true
+    },
+    {
+      "id": "6eb8e8b96b53896ce6ad6ca58e3fa93af0546955",
+      "name": "Heater Shield",
+      "infusible": true
+    },
+    {
+      "id": "c6865051e5e436faadf045ad02538c252cfd5d91",
+      "name": "Black Leather Shield",
+      "infusible": true
+    },
+    {
+      "id": "285fb27353df495c8169cb049e7c39545f8f0a60",
+      "name": "Dragon Towershield",
+      "infusible": true
+    },
+    {
+      "id": "d51a1c9da2c7f0d01bdc03d8392d7dd1a2aea1cf",
+      "name": "Crucible Hornshield",
+      "infusible": false
+    },
+    {
+      "id": "b12160f754c5a36a65ba1eaf3bfa765a12b600a9",
+      "name": "Distinguished Greatshield",
+      "infusible": false
+    },
+    {
+      "id": "0cd7daf8035a963bff46aa22a8b9070bc9fc70e8",
+      "name": "Dragonclaw Shield",
+      "infusible": false
+    },
+    {
+      "id": "e76e76e5fafa2d1f7c051240e2ca59099a165627",
+      "name": "Golden Beast Crest Shield",
+      "infusible": false
+    },
+    {
+      "id": "1e9af330654a0cdc73dd0d1fc9fd840126a8d836",
+      "name": "Erdtree Greatshield",
+      "infusible": false
+    },
+    {
+      "id": "2f44df4962e696b34d7f450ed97151db0c19db65",
+      "name": "Briar Greatshield",
+      "infusible": true
+    },
+    {
+      "id": "e33bcd0120f175aaae3207f26419baf6100de8d7",
+      "name": "Jellyfish Shield",
+      "infusible": false
+    },
+    {
+      "id": "d4f7a58c0f9d3536d6f3fb9d3bca6ccc844a8b25",
+      "name": "Fingerprint Stone Shield",
+      "infusible": false
+    },
+    {
+      "id": "9d22dff5b299d9aeefb31eadecb7da745df5222b",
+      "name": "Icon Shield",
+      "infusible": false
+    },
+    {
+      "id": "b9497b5512436065b6c3351fce75397c81b43125",
+      "name": "Visage Shield",
+      "infusible": false
+    },
+    {
+      "id": "67c34dbac873bedff1567d8ecadc9b9f85f05301",
+      "name": "One-eyed Shield",
+      "infusible": false
+    },
+    {
+      "id": "c0b9a8a4041913c60529e6505a3a2648cb294691",
+      "name": "Spiked Palisade Shield",
+      "infusible": false
+    },
+    {
+      "id": "e982ac332632546b4e3e5b721defe187ac71bc4d",
+      "name": "Manor Towershield",
+      "infusible": true
+    },
+    {
+      "id": "300b0ba195943ba3c0383a9e4bac8d0c0c79354b",
+      "name": "Crossed-tree Towershield",
+      "infusible": true
+    },
+    {
+      "id": "c347b03b89d98d53ddde9a68e3d7f10e57963456",
+      "name": "Redmane Greatshield",
+      "infusible": true
+    },
+    {
+      "id": "7ad7397513ff628f59b6466ddcfe8e08f4e37997",
+      "name": "Ant's Skull Plate",
+      "infusible": false
+    },
+    {
+      "id": "a6688fa1a629891dce13ebc18a4e96a30ee87558",
+      "name": "Inverted Hawk Towershield",
+      "infusible": false
+    },
+    {
+      "id": "01c224b9e11da8c47d2a5dca8d919f8aa34db4d2",
+      "name": "Eclipse Crest Greatshield",
+      "infusible": true
+    },
+    {
+      "id": "7d5185b3626ebacb8f0fbcb06b4b4d8de7b8cbb2",
+      "name": "Cuckoo Greatshield",
+      "infusible": true
+    },
+    {
+      "id": "2a5095cc5f1848f1bfe842aa82f4cffb9b37d4cf",
+      "name": "Gilded Greatshield",
+      "infusible": false
+    },
+    {
+      "id": "d09e3b4ca764c90abc0828b253b284c1f5a83f20",
+      "name": "Golden Greatshield",
+      "infusible": false
+    },
+    {
+      "id": "a331fd1a85500e99c01f88bc38138a26092c4c9b",
+      "name": "Haligtree Crest Greatshield",
+      "infusible": false
+    },
+    {
+      "id": "6bed2d505b6cbb8fd0cb2292f3125acc41d8f9cf",
+      "name": "Wooden Greatshield",
+      "infusible": false
+    },
+    {
+      "id": "5815320867c7cc2fa4ac74402aaaac3564826529",
+      "name": "Lordsworn's Shield",
+      "infusible": true
     }
   ]
 }
