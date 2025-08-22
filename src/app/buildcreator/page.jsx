@@ -7,6 +7,8 @@ import { WeaponSection } from '../components/WeaponSection';
 import toast, { Toaster } from 'react-hot-toast';
 import StatsSection from '../components/StatsSection';
 import SaveBuildModal from '../components/SaveBuildModal';
+// Add import for local storage utility
+import { saveBuildToLocal } from '../../../utils/localstorage';
 
 // Import data files for transformation
 import EldenRingDataArmor from '../../../public/EldenRingData/data/armors.json';
@@ -147,8 +149,10 @@ const BuildCreator = () => {
             // Simulate async operation (replace with actual API call)
             await new Promise(resolve => setTimeout(resolve, 100));
 
-            console.log('=== COMPLETE BUILD DATA ===');
-            console.log(JSON.stringify(finalBuildData, null, 2));
+            // Save to local storage (temporary)
+            saveBuildToLocal(finalBuildData);
+
+            // console.log(JSON.stringify(finalBuildData, null, 2));
             toast.success('Build saved successfully!');
         } catch (error) {
             toast.error('Failed to save build');

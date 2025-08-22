@@ -1,16 +1,39 @@
 "use client"
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from "next/navigation";
 import BuildCardsGrid from '../components/BuildCardsGrid'
 import EldenRingDataWeapons from '../../../public/EldenRingData/data/weapons.json'
 import EldenRingDataWeaponsDLC from '../../../public/EldenRingData/data/weaponsDLC.json'
 import tempPlayerBuild from '../components/tempplayerbuild.json'
+import { removeBuildFromLocal } from '../../../utils/localstorage'
 
 
 
 const Dashboard = () => {
     const router = useRouter();
+
+    // Local builds state
+    const [localBuilds, setLocalBuilds] = useState([]);
+
+    // Always load local builds when the page is shown (on mount and on focus)
+    useEffect(() => {
+        function loadBuilds() {
+            if (typeof window !== "undefined") {
+                const builds = JSON.parse(localStorage.getItem('savedBuilds') || '[]');
+                setLocalBuilds(builds);
+            }
+        }
+        loadBuilds();
+        window.addEventListener('focus', loadBuilds);
+        return () => window.removeEventListener('focus', loadBuilds);
+    }, []);
+
+    // Helper to refresh local builds after delete
+    const refreshLocalBuilds = () => {
+        const builds = JSON.parse(localStorage.getItem('savedBuilds') || '[]');
+        setLocalBuilds(builds);
+    };
 
     function EnrichWeaponData(buildData, buildIndex, playerIndex, playerName) {
         // Get the favorite weapon or main weapon from slot1 or the first available weapon
@@ -62,14 +85,16 @@ const Dashboard = () => {
         router.push("./buildcreator");
     };
 
-    const handleCardClick = (playerIndex, buildIndex) => {
-        // Store the build data for the viewer
-        const buildData = tempPlayerBuild.players[playerIndex].builds[buildIndex];
-        localStorage.setItem('viewBuildData', JSON.stringify({
-            ...buildData,
-            playerName: tempPlayerBuild.players[playerIndex].username
-        }));
-        router.push(`./buildviewer?player=${playerIndex}&build=${buildIndex}`);
+    // For local builds: view
+    const handleLocalBuildView = (build, index) => {
+        localStorage.setItem('editBuildData', JSON.stringify(build));
+        router.push('./buildcreator?edit=true');
+    };
+
+    // For local builds: delete
+    const handleLocalBuildDelete = (index) => {
+        removeBuildFromLocal(index);
+        refreshLocalBuilds();
     };
 
     return (
@@ -98,6 +123,49 @@ const Dashboard = () => {
                     </div>
                 </div>
 
+
+                {/* My Local Builds Section */}
+                <div className="mb-12">
+                    <h2 className="text-2xl font-bold mb-6 text-[#e5c77b] border-b border-[#c0a857] pb-2" style={{ fontFamily: 'serif' }}>
+                        My Local Builds ({localBuilds.length})
+                    </h2>
+                    {localBuilds.length === 0 ? (
+                        <div className="text-[#c0a857] mb-4">No local builds saved yet.</div>
+                    ) : (
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            {localBuilds.map((build, index) => {
+                                const enrichedBuild = EnrichWeaponData(build, index, 0, "You");
+                                return (
+                                    <div key={index} className="relative group">
+                                        <div
+                                            className='cursor-pointer transform transition-transform hover:scale-105'
+                                            onClick={() => handleLocalBuildView(build, index)}
+                                        >
+                                            <BuildCardsGrid
+                                                title={enrichedBuild.buildName}
+                                                description={`Level: ${enrichedBuild.level} | Type: ${enrichedBuild.buildType}`}
+                                                mainWeapon={{
+                                                    name: enrichedBuild.mainWeapon,
+                                                    image: enrichedBuild.mainWeaponImage
+                                                }}
+                                            />
+                                        </div>
+                                        <button
+                                            className="absolute top-2 right-2 bg-red-600 text-white rounded px-2 py-1 opacity-80 hover:opacity-100 transition-opacity text-xs z-10"
+                                            onClick={e => {
+                                                e.stopPropagation();
+                                                handleLocalBuildDelete(index);
+                                            }}
+                                            title="Delete Build"
+                                        >
+                                            Delete
+                                        </button>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    )}
+                </div>
 
                 {/* Group builds by player */}
                 {tempPlayerBuild.players.map((player, playerIndex) => (
